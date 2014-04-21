@@ -6,12 +6,19 @@
  *
  */
 
+
 class myCalendar {
 
-    public $book = array();
-    public $docente = array();
-    
-    function load_globals($basedir){
+    private $bookedOffDays = array();
+    private $docenteProperties = array();
+
+    function myCalendar($path = null){
+        if ($path != null){
+            $this->loadGlobals($path);
+        }
+    }
+
+    function loadGlobals($basedir){
 
         for($y=(int)date("Y");$y<=(int)date("Y")+1;$y++){
             
@@ -39,32 +46,32 @@ class myCalendar {
     }
     function d() {
 
-        var_dump($this->book);
+        var_dump($this->bookedOffDays);
     }
 
     function export_bookoff() {
 
 
-        return json_encode($this->book);
+        return json_encode($this->bookedOffDays);
     }
 
     function clean_import_bookoff($str) {
 
-        $this->book = json_decode($str);
+        $this->bookedOffDays = json_decode($str);
     }
 
-    function set_docente($a) {
-        $this->docente = $a;
+    function set_docenteProperties($a) {
+        $this->docenteProperties = $a;
     }
 
     function bookoff($date_from, $date_to = NULL) {
 
         if (is_null($date_to)) {
 
-            array_push($this->book, strtotime($date_from));
+            array_push($this->bookedOffDays, strtotime($date_from));
         } else {
 
-            array_push($this->book, strtotime($date_from) . "|" . strtotime($date_to));
+            array_push($this->bookedOffDays, strtotime($date_from) . "|" . strtotime($date_to));
         }
     }
 
@@ -74,7 +81,7 @@ class myCalendar {
 
         $date = strtotime($date);
 
-        foreach ($this->book as $current) {
+        foreach ($this->bookedOffDays as $current) {
 
             $s = explode("|", $current);
 
@@ -120,8 +127,8 @@ class myCalendar {
 
             // vede che giorno e e se c'e vedere se e libero
 
-            if (array_key_exists(date("D", strtotime($f)), $this->docente)) {
-                $seats = $this->docente[date("D", strtotime($f))]["seats"];
+            if (array_key_exists(date("D", strtotime($f)), $this->docenteProperties)) {
+                $seats = $this->docenteProperties[date("D", strtotime($f))]["seats"];
             } else {
 
                 $seats = 0;
@@ -166,15 +173,15 @@ class myCalendar {
             }
             //echo "<hr>".$dayi."<hr>";
 
-            if (array_key_exists(date("D", $dayi), $this->docente)) {
+            if (array_key_exists(date("D", $dayi), $this->docenteProperties)) {
 
                 //echo date( "D", $dayi)." esiste per il docente";
 
-                if ($this->docente[date("D", $dayi)]["seats"] != 0) {
+                if ($this->docenteProperties[date("D", $dayi)]["seats"] != 0) {
 
                     //echo date( "D", $dayi)." ha dei seats per il docente";
 
-                    foreach ($this->docente[date("D", $dayi)]["timeslot"] as $timeslot) {
+                    foreach ($this->docenteProperties[date("D", $dayi)]["timeslot"] as $timeslot) {
 
                         //echo $timeslot;
                         //echo date("m/d/Y", $dayi)." ".$timeslot.":00";

@@ -1,17 +1,18 @@
-
 <?php
 
 // TODO cambia anno
 
+$STATIC_JSON_PATH = Doo::conf()->SITE_PATH . "global/json";
+$GLOBAL_PATH = Doo::conf()->APP_URL . "/global/";
 
 
 $anno = (isset($_POST['anno'])) ? $_POST['anno'] : date("Y");
 
 
-$FILENAME = Doo::conf()->SITE_PATH."/global".$anno.".json";
+$FILENAME = $STATIC_JSON_PATH . "/global".$anno.".json";
 if(!file_exists($FILENAME)){
-    if(file_exists(Doo::conf()->SITE_PATH."/global".($anno-1))){
-        copy(Doo::conf()->SITE_PATH."/global".($anno-1).".json",$FILENAME);
+    if(file_exists($STATIC_JSON_PATH . "/global".($anno-1))){
+        copy( $STATIC_JSON_PATH ."/global".($anno-1).".json",$FILENAME);
     }else{
         $calendario = array(
     "gennaio" => array(
@@ -434,23 +435,20 @@ $json_cal = json_encode($js);
 
 $json_cal = json_encode($calendario);
 echo $json_cal;/**/
-$ul = Doo::conf()->APP_URL . "/global/";
+
 ?>
 
-<?php
-$ul = Doo::conf()->APP_URL . "/global/";
-?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title> </title>
-<link rel="stylesheet" media="screen" href="<?php echo $ul; ?>css/style.css" />
+<link rel="stylesheet" media="screen" href="<?php echo $GLOBAL_PATH; ?>css/style.css" />
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
 <!-- This makes HTML5 elements work in IE 6-8 -->
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         
-        <script src="<?php echo $ul; ?>/fc/lib/jquery.min.js"></script>
+        <script src="<?php echo $GLOBAL_PATH; ?>/fc/lib/jquery.min.js"></script>
         <script>
         function activateAll(){
             $("input").each(function(){

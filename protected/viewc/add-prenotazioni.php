@@ -24,7 +24,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
             $(document).ready(function() {
                 function updateChanges(add) {
                     $('#calendar').fullCalendar('removeEventSource', {
-                        url: window.calendarUrl,
+                        url: window.calendarUrl
                     });
                     if (add) {
                         $('#calendar').fullCalendar('addEventSource', {
@@ -37,11 +37,8 @@ $ul = Doo::conf()->APP_URL . "/global/";
 
                             },
                             error: function(jqXHR, textStatus, errorThrown) {
-                                alert(errorThrown + "\n--\n" + textStatus);
-                            },
-                            /* success:function(data){
-                             $("#selected").html(JSON.stringify(data));
-                             }*/
+                                alert("AJAX ERROR:" + errorThrown + "\n--\nTEXT STATUS: " + textStatus + "\n\n" + jqXHR.error + "\n\n" + jqXHR.toString() );
+                            }
                         });
                     }
                 }
@@ -53,8 +50,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
                     switch ($(this).val()) {
 					<?php
 					foreach ($data['mdocenti'] as $key => $dm) {
-					
-					
+
 						echo "case \"" . $key . "\":\n";
 						echo " $(\"#did\").empty();\n";
 					
@@ -136,10 +132,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
                             },
                             error: function(jqXHR, textStatus, errorThrown) {
                                 alert(errorThrown + "\n--\n" + textStatus);
-                            },
-                            /*success:function(data){
-                             $("#selected").html(JSON.stringify(data));
-                             }*/
+                            }
                         }
 
                         // any other sources...

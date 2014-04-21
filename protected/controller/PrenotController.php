@@ -114,35 +114,22 @@ class PrenotController extends DooController {
     function prenAjax() {
 
         if (isset($_POST['message'])) {
-            /*
-              $c = new myCalendar();
-              $c->set_docente(json_decode("{\"Mon\":{\"seats\":1,\"timeslot\":[9,10,11,12]},\"Thu\":{\"seats\":1,\"timeslot\":[9]}}",true));
 
-              $c->count_and_book(array("10/21/2013 12:00","10/21/2013 09:00"));
-              echo $c->write_free_days(10);
-             */
             $a = $_POST['message'];
-
-
             $did = $a['did'];
-            
-      
-            
-            
+
             $d = Doo::loadModel("docenti", true);
             $d->did = $did;
             $d = $this->db()->find($d, array("limit" => 1));
 
             if ($d) {
-
                 $orelibere = json_decode($d->orelibere, true); //json_decode($d->orelibere, true);
             } else {
-
                 $orelibere = false;
             }
 
-            $c = new myCalendar();
-            $c->load_globals(Doo::conf()->SITE_PATH);
+            $c = new myCalendar(Doo::conf()->SITE_PATH . "global/json");
+            //$c->loadGlobals(Doo::conf()->SITE_PATH);
             $p = Doo::loadModel("prenotazioni", true);
             $p->did = $did;
             $p = $this->db()->find($p);
@@ -154,7 +141,7 @@ class PrenotController extends DooController {
 
             if ($orelibere != false) {
 
-                $c->set_docente($orelibere);
+                $c->set_docenteProperties($orelibere);
 
                 foreach ($p as $f) {
 
