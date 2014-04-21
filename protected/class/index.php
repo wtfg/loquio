@@ -10,6 +10,7 @@ class myCalendar {
 
     public $book = array();
     public $docente = array();
+    
     function load_globals($basedir){
 
         for($y=(int)date("Y");$y<=(int)date("Y")+1;$y++){
@@ -228,91 +229,4 @@ class myCalendar {
 
 }
 
-/*
-
-  <!DOCTYPE html>
-  <html>
-  <head>
-  <link href='global/fc/fullcalendar/fullcalendar.css' rel='stylesheet' />
-  <link href='global/fc/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
-  <script src='global/fc/lib/jquery.min.js'></script>
-  <script src='global/fc/lib/jquery-ui.custom.min.js'></script>
-  <script src='global/fc/fullcalendar/fullcalendar.js'></script>
-  <script>
-
-  $(document).ready(function() {
-
-  var date = new Date();
-  var d = date.getDate();
-  var m = date.getMonth();
-  var y = date.getFullYear();
-
-  $('#calendar').fullCalendar({
-  defaultView: 'agendaWeek',
-  editable: false,
-  firstDay: 1,
-  timeFormat: 'H(:mm)',
-  eventClick: function(calEvent, jsEvent, view) {
-
-  curr_min = calEvent.start.getMinutes() + "";
-
-  if (curr_min.length == 1)
-  {
-  curr_min = "0" + curr_min;
-  }
-  data = calEvent.start.getDate() + "-"+(calEvent.start.getMonth()+1)+"-"+calEvent.start.getFullYear()+" "+calEvent.start.getHours()+":"+curr_min;
-
-  if(calEvent.title!="Occupato"){
-
-  $('#selected').html('Event: ' + data);
-
-  }
-  //alert('Event: ' + calEvent.title);
-
-  //alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-  //alert('View: ' + view.name);
-
-  // change the border color just for fun
-  //$(this).css('border-color', 'red');
-
-  },
-  columnFormat: {
-  month: 'ddd',    // Mon
-  week: 'ddd d/M', // Mon 9/7
-  day: 'dddd d/M'  // Monday 9/7
-  },
-  events: [
-  <?php
-  echo $c->writeFreeDays(31);
-  ?>
-
-
-  ],
-  eventColor: '#000044'
-  });
-
-  });
-
-  </script>
-  <style>
-
-  body {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 14px;
-  font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-  }
-
-  #calendar {
-  width: 900px;
-  margin: 0 auto;
-  }
-
-  </style>
-  </head>
-  <body>
-  <div id="selected" style="background-color:#CCC"></div>
-  <div id='calendar'></div>
-  </body>
-  </html> */
 ?>
