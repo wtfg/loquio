@@ -1,226 +1,285 @@
 <?php
 
-class PrenotController extends DooController {
+class PrenotController extends DooController
+{
 
-    public function beforeRun($resource, $action) {
+    public function beforeRun($resource, $action)
+    {
         session_start();
-
         //if not login, group = anonymous
         $role = (isset($_SESSION['user']['acl'])) ? $_SESSION['user']['acl'] : 'anonymous';
-
         //check against the ACL rules
         if ($rs = $this->acl()->process($role, $resource, $action)) {
-
             return $rs;
         }
     }
 
-    function showPrenUser() {
-        
-        // echo 'You are visiting ' . $_SERVER['REQUEST_URI'];
-        
+    /** Invia messaggio di prenotazione avvenuta
+     * @param $to
+     * @param $docente
+     * @param $theTime
+     * @param $theDate
+     */
+    function sendEmailSuccessfulBooking($to, $docente, $theTime, $theDate){
+        $from = "prenotazioni@loquio.it";
+        $subject = "Prenotazione Colloquio";
+
+        //begin of HTML message
+        $message = "<html>
+                          <body bgcolor=\"#FAFAFA\">
+
+                                La tua prenotazione per il docente <b><font color=\"red\">" . $docente->nome . " " . $docente->cognome . "</font></b> &egrave; stata confermata! <br>
+                                La data della prenotazione &egrave; il  <font color=\"red\">" . $theDate . "</font> alle ore  <font color=\"red\">" . $theTime . "</font> <br>
+
+                              <br><br>Grazie Per L'Attenzione!<br><em>Il Team Di Loquio</em>
+                          </body>
+                        </html>";
+        //end of message
+
+
+        $headers = "MIME-Version: 1.0\r\n";
+        $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+        $headers .= "From: $from\r\n";
+
+        // now lets send the email.
+        mail($to, $subject, $message, $headers);
+    }
+
+    /**
+     * @param $d        object docente
+     * @param $p        object prenotazione
+     * @param $fromwho  string nome prenotato
+     */
+    function sendEmailCanceledBooking($d, $p, $fromwho){
+        $to = $d->email;
+        $from = "prenotazioni@loquio.it";
+        $subject = "Colloquio Annullato";
+        $thetime = date("h", $p->data) . ":00";
+        $thedate = date("d/m/Y", $p->data);
+        //begin of HTML message
+        $message = "<html>
+	  <body bgcolor=\"#FAFAFA\">
+
+			La tua prenotazione da parte di <b><font color=\"red\">" . $fromwho . "</font></b> &egrave; stata annullata! <br>
+			La data della prenotazione era il <font color=\"red\">" . $thedate . "</font> alle ore  <font color=\"red\">" . $thetime . "</font> <br>
+
+		  <br><br>Grazie Per L'Attenzione!<br><em>Il Team Di Loquio</em>
+	  </body>
+	</html>";
+        //end of message
+
+        // To send the HTML mail we need to set the Content-type header.
+        $headers = "MIME-Version: 1.0\r\n";
+        $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+        $headers .= "From: $from\r\n";
+        //options to send to cc+bcc
+        //$headers .= "Cc: [email]maa@p-i-s.cXom[/email]";
+        //$headers .= "Bcc: [email]email@maaking.cXom[/email]";
+
+        // now lets send the email.
+        mail($to, $subject, $message, $headers);
+    }
+    /**
+     * Ottiene la prenotazione dall'id utente
+     * @param $id
+     *          id utente
+     * @param null $parameters
+     *          array associativo coi parametri
+     * @return mixed
+     *          ritorna oggetto
+     */
+    function getBook($id, $parameters = null)
+    {
+        $bookModel = Doo::loadModel("prenotazioni", true);
+        $bookModel->uid = $id;
+        if ($parameters == null) {
+            return $this->db()->find($bookModel);
+        } else {
+            return $this->db()->find($bookModel, $parameters);
+        }
+    }
+
+    /**
+     * Ottiene il docente dall'id
+     * @param $id
+     *          id docente
+     * @param null $parameters
+     *          array associativo coi parametri
+     * @return mixed
+     *          ritorna oggetto
+     */
+    function getTeacher($id, $parameters = null)
+    {
+        $teacherModel = Doo::loadModel("docenti", true);
+        $teacherModel->did = $id;
+        if ($parameters == null) {
+            return $this->db()->find($teacherModel);
+        } else {
+            return $this->db()->find($teacherModel, $parameters);
+        }
+    }
+
+    /**
+     * Ottiene la materia dall'id
+     * @param $id
+     *          id materia
+     * @param null $parameters
+     *          array associativo coi parametri
+     * @return mixed
+     *          ritorna oggetto
+     */
+    function getSubject($id, $parameters = null)
+    {
+        $subjectModel = Doo::loadModel("materie", true);
+        $subjectModel->mid = $id;
+        if ($parameters == null) {
+            return $this->db()->find($subjectModel);
+        } else {
+            return $this->db()->find($subjectModel, $parameters);
+        }
+    }
+
+    /**
+     * CONTROLLERS
+     */
+
+    function showPrenUser()
+    {
         $uid = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : "";
-        
-        $prenotazioni = Doo::loadModel("prenotazioni", true);
-        $prenotazioni->uid = $uid;
-        $prenotazioni = $this->db()->find($prenotazioni, array("where"=> "data>".time()));
-        
+        $bookModel = $this->getBook($uid, array("where" => "data>" . time()));
+
         $data = array();
 
-        foreach($prenotazioni as $prenotazione){
-            
-            $d = Doo::loadModel("docenti", true); 
-            $d->did =  $prenotazione->did;
-            $d = $this->db()->find($d,array("limit"=>1));
-            $m = Doo::loadModel("materie", true);  
-            $m->mid =  $d->mid;
-            $m = $this->db()->find($m,array("limit"=>1));
-            
-            $da["nomedocente"] = $d->nome." ".$d->cognome;
-            $da["data"] =  date("d/m/Y H:i",$prenotazione->data);
-            $da["materia"] = $m->nome;
-            $da["studente"] = $prenotazione->studente;
-            $da["codicecanc"]= $prenotazione->codicecanc;
-       
-            
-            array_push($data,$da);
-            
+        foreach ($bookModel as $book) {
+            $teacherModel = $this->getTeacher($book->did, array("limit" => 1));
+            $subjectModel = $this->getSubject($teacherModel->mid, array("limit" => 1));
+
+            $resultDict["nomedocente"] = $teacherModel->nome . " " . $teacherModel->cognome;
+            $resultDict["data"] = date("d/m/Y H:i", $book->data);
+            $resultDict["materia"] = $subjectModel->nome;
+            $resultDict["studente"] = $book->studente;
+            $resultDict["codicecanc"] = $book->codicecanc;
+
+            array_push($data, $resultDict);
         }
-        
         $this->renderc("view-prenotazioni-user", $data);
     }
 
-    function showPrenDocente() {
-        
-        if(!isset($_POST['invia'])){
-           $d = Doo::loadModel("docenti", true); 
-           
-           $str = "<select name='docente'>";
-           
-           $result = $this->db()->find($d);
-           
-           foreach ($result as $linea){
-               //var_dump($linea);
-              
-               
-               $id_docente = $linea->did;
-               $nomecognome =  $linea->nome." ". $linea->cognome;
-               $str .= "<option value='".$id_docente."'>".$nomecognome."</option>";
-           }
-           
-           $str .= "</select>";
-           
-           $data['option'] = $str;
-           
-           //var_dump($_POST);
-           
-           $this->renderc("view-listapren", $data);
-           
-           
-        }else{
-          
-           $ladata = $_POST['data'];
-           
-           $docente = $_POST['docente'];
-           
-           $p = Doo::loadModel("prenotazioni", true);
-           $p->did = $docente;
-           
-            
-           $d = Doo::loadModel("docenti", true); 
-           $d->did = $docente;
-           $docente = $this->db()->find($d,array("limit"=>1));
-           $nomedoc = $docente->nome. " ".$docente->cognome;
-           
-           $olddata = $ladata;
-           $dt = explode("/", $ladata);
-           $ladata = $dt[1]."/".$dt[0]."/".$dt[2];
-           $giornodopo = strtotime($ladata) + 86400;
-           
-           $result = $this->db()->find($p,array("where"=>"data>=".strtotime($ladata)." AND data<".$giornodopo));
-           
-           $data['prens'] = $result;
-           $data['data'] = $olddata;
-           $data['docente'] = $nomedoc;
-           $this->renderc("view-listapren2", $data);
-            
-           
-           
+    function showPrenDocente()
+    {
+
+        if (!isset($_POST['invia'])) {
+            $teachers = $this->db()->find(Doo::loadModel("docenti", true));
+            $data = array("teachers" =>  $teachers);
+
+            $this->renderc("view-listapren", $data);
+        } else {
+
+            // date swapping month and day
+            $theDate = trim($_POST['data']);
+            $dt = explode("/", $theDate);
+            $theDate = $dt[1] . "/" . $dt[0] . "/" . $dt[2];
+
+            // docente
+            $teacher = trim($_POST['docente']);
+            $booking = Doo::loadModel("prenotazioni", true);
+            $booking->did = $teacher;
+            $teacher = $this->getTeacher($teacher, array("limit" => 1));
+            $teacherFullName = $teacher->nome . " " . $teacher->cognome;
+
+            // passate all'array
+            $nextDay = strtotime($theDate) + 86400;
+            $teachers = $this->db()->find($booking, array("where" => "data>=" . strtotime($theDate) . " AND data<" . $nextDay));
+
+            $data['data'] = $theDate;
+            $data['docente'] = $teacherFullName;
+            $data['prens'] = $teachers;
+
+            $this->renderc("view-listapren2", $data);
         }
-        
-        
     }
 
-    function prenAjax() {
+    function prenAjax()
+    {
+        $emptyObject = "{\"\":\"\"}";
+        $LOOK_AHEAD_DAYS = 60;
 
         if (isset($_POST['message'])) {
 
-            $a = $_POST['message'];
-            $did = $a['did'];
+            // teacher data queries
+            $teacherId = $_POST['message']['did'];
+            $teacher = $this->getTeacher($teacherId, array("limit" => 1));
 
-            $d = Doo::loadModel("docenti", true);
-            $d->did = $did;
-            $d = $this->db()->find($d, array("limit" => 1));
-
-            if ($d) {
-                $orelibere = json_decode($d->orelibere, true); //json_decode($d->orelibere, true);
-            } else {
-                $orelibere = false;
+            // in case of errors
+            if ($teacher){
+                $freeHours = json_decode($teacher->orelibere, true); //json_decode($d->orelibere, true);
+            }else{
+                echo $emptyObject;
+                return;
             }
 
-            $c = new myCalendar(Doo::conf()->SITE_PATH . "global/json");
-            //$c->loadGlobals(Doo::conf()->SITE_PATH);
-            $p = Doo::loadModel("prenotazioni", true);
-            $p->did = $did;
-            $p = $this->db()->find($p);
-
+            // load bookings for teacher
+            $bookings = Doo::loadModel("prenotazioni", true);
+            $bookings->did = $teacherId;
+            $bookings = $this->db()->find($bookings);
 
             $prenCalendar = array();
 
-            //var_dump($orelibere);
+            $theCalendar = new myCalendar(Doo::conf()->SITE_PATH . "global/json/");
+            $theCalendar->setTeacher($freeHours);
 
-            if ($orelibere != false) {
-
-                $c->set_docenteProperties($orelibere);
-
-                foreach ($p as $f) {
-
-                    array_push($prenCalendar, date("m/d/Y H:i", $f->data));
-                }
-
-                //$c->count_and_book(["10/21/2013 12:00","10/21/2013 09:00"]);
-                $c->count_and_book($prenCalendar);
-                #cambiare il parametro per i giorni liberi
-                $fdays = $c->write_free_days(60);
-                if($fdays != NULL){
-                    echo $fdays;
-                }else{
-                    echo "{\"\":\"\"}";
-                }
-                
-            } else {/**/
-                echo "{\"\":\"\"}";
+            foreach ($bookings as $f) {
+                array_push($prenCalendar, date("m/d/Y H:i", $f->data));
             }
-            //}
-            //$c->write_free_days(16);
-        } else {
-            //["1",{"allDay":"","title":"Test event","id":"821","end":"2011-06-06 14:00:00","start":"2011-06-06 06:00:00"},"1",{"allDay":"","title":"Test event 2","id":"822","end":"2011-06-10 21:00:00","start":"2011-06-10 16:00:00"}]["0",{"allDay":"","title":"Test event","id":"821","end":"2011-06-06 14:00:00","start":"2011-06-06 06:00:00"},"1",{"allDay":"","title":"Test event 2","id":"822","end":"2011-06-10 21:00:00","start":"2011-06-10 16:00:00"}] 
+
+            $theCalendar->addBookings($prenCalendar);
+            $freeDays = $theCalendar->getFreeDaysJSON($LOOK_AHEAD_DAYS);
+
+            if ($freeDays != NULL) {
+                echo $freeDays;
+            } else {
+                echo $emptyObject;
+            }
         }
     }
 
-    function newPren() {
-
-        // ajax:{ "step" : "docente", "did": 1}
-
-
+    function newPren()
+    {
         if (!isset($_POST['button'])) {
 
-            $buf = array();
-            $mats = array();
+            $subjectTeacherDict = array();
+            $subjectArray = array();
 
-            $m = $this->db()->find("materie");
+            $subjects = $this->db()->find("materie");
 
+            foreach ($subjects as $subj) {
 
-            foreach ($m as $materia) {
-
-                $mats[$materia->mid] = $materia->nome;
+                $subjectArray[$subj->mid] = $subj->nome;
 
                 $d = Doo::loadModel("docenti", true);
-                $d->mid = $materia->mid;
+                $d->mid = $subj->mid;
+                $d = $this->db()->find($d, array("where" => "attivo=1"));
 
-                $d = $this->db()->find($d, array("where"=>"attivo=1"));
+                $teacherFullNamesDict = array();
 
-
-                $buff = array();
-
-                foreach ($d as $docente) {
-
-                    $buff[$docente->did] = $docente->nome . " " . $docente->cognome;
+                foreach ($d as $teacher) {
+                    $teacherFullNamesDict[$teacher->did] = $teacher->nome . " " . $teacher->cognome;
                 }
 
-                $buf[$materia->mid] = $buff;
+                $subjectTeacherDict[$subj->mid] = $teacherFullNamesDict;
             }
-            //var_dump($buf);
-            // var_dump($mats);
-            $data['uid'] = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : "";
-            $data['mdocenti'] = $buf;
-            $data['materie'] = $mats;
 
+            $data['uid'] = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : "";
+            $data['mdocenti'] = $subjectTeacherDict;
+            $data['materie'] = $subjectArray;
             $this->renderc("add-prenotazioni", $data);
+
         } else {
             if (isset($_POST['did']) &&
-                    isset($_POST['uid']) &&
-                    isset($_POST['selected'])) {
-                /*
-                 * 
-                 * data = post (selected)
-                  did
-                  uid
-                  classe
-                  studente
-                  email
-                  tel
-                 */
+                isset($_POST['uid']) &&
+                isset($_POST['selected'])
+            ) {
+
                 $_POST['selected'] = trim($_POST['selected']);
                 $_POST['did'] = trim($_POST['did']);
                 $_POST['classe'] = trim($_POST['classe']);
@@ -229,142 +288,79 @@ class PrenotController extends DooController {
                 $_POST['email'] = trim($_POST['email']);
                 $_POST['tel'] = trim($_POST['tel']);
 
-				$docente = Doo::loadModel("docenti", true);
-				$docente->did = $_POST['did'];
-				$docente = $this->db()->find($docente, array('limit'=>1));
-				
-                $prenotazione = Doo::loadModel("prenotazioni", true);
-                $prenotazione->data = strtotime($_POST['selected']);
-                $prenotazione->did = $_POST['did'];
-                $prenotazione->uid = $_POST['uid'];
-                $prenotazione->classe = $_POST['classe'];
-                $prenotazione->studente = $_POST['studente'];
-                $prenotazione->email = $_POST['email'];
-                $prenotazione->tel = $_POST['tel'];
-                $prenotazione->codicecanc = md5(time());
-                // controlla se l'email già esiste
+                $teacher = $this->getTeacher($_POST['did'], array('limit' => 1));
 
+                $booking = Doo::loadModel("prenotazioni", true);
+                $booking->data = strtotime($_POST['selected']);
+                $booking->did = $_POST['did'];
+                $booking->uid = $_POST['uid'];
+                $booking->classe = $_POST['classe'];
+                $booking->studente = $_POST['studente'];
+                $booking->email = $_POST['email'];
+                $booking->tel = $_POST['tel'];
+                $booking->codicecanc = md5(time());
 
-                $isexisting = $this->db()->find($prenotazione, array('limit' => 1));
+                $isExisting = $this->db()->find($booking, array('limit' => 1));
 
-                if (!$isexisting) {
-                    $res = $this->db()->insert($prenotazione);
-                    if ($res) {
-						
-						 //change this to your email. 
-						$to = $prenotazione->email; 
-						$from = "prenotazioni@loquio.it"; 
-						$subject = "Prenotazione Colloquio"; 
-						$thedate = explode(" ",$_POST['selected']);
-						$thetime = $thedate[1];
-						$thedate = $thedate[0];
-						//begin of HTML message 
-						$message = "<html> 
-					  <body bgcolor=\"#FAFAFA\"> 
-						 
-							La tua prenotazione per il docente <b><font color=\"red\">".$docente->nome." ".$docente->cognome."</font></b> &egrave; stata confermata! <br> 
-							La data della prenotazione &egrave; il  <font color=\"red\">".$thedate."</font> alle ore  <font color=\"red\">".$thetime."</font> <br> 
-						
-						  <br><br>Grazie Per L'Attenzione!<br><em>Il Team Di Loquio</em>
-					  </body> 
-					</html>"; 
-					   //end of message 
-						
-						// To send the HTML mail we need to set the Content-type header. 
-						$headers = "MIME-Version: 1.0\r\n"; 
-						$headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
-						$headers  .= "From: $from\r\n"; 
-						//options to send to cc+bcc 
-						//$headers .= "Cc: [email]maa@p-i-s.cXom[/email]"; 
-						//$headers .= "Bcc: [email]email@maaking.cXom[/email]"; 
-						 
-						// now lets send the email. 
-						mail($to, $subject, $message, $headers); 
-				
-						
+                if (!$isExisting) {
+                    $insertSuccessful = $this->db()->insert($booking);
+                    if ($insertSuccessful) {
+                        $to = $booking->email;
+                        $theDate = explode(" ", $_POST['selected']);
+                        $theTime = $theDate[1];
+                        $theDate = $theDate[0];
+                        $this->sendEmailSuccessfulBooking($to, $teacher, $theTime, $theDate);
+
                         $data['messaggio'] = "Prenotazione inserita! Riceverai una email fra poco contenente i dati della prenotazione";
                         $data['url'] = Doo::conf()->APP_URL;
                         $data['titolo'] = "Prenotato!";
-                        
-                        // MESSAGGIO DOCENTE MODIFICATO
-                        $this->renderc('ok-page',$data);
-                    } else {
-                       $this->renderc("error-page");
-                       return;
+
+                        $this->renderc('ok-page', $data);
+                        return;
                     }
-                } else {
-                    // MESSAGGIO ERRORE FICO
-                    $this->renderc("error-page");
-                    return;
                 }
-            }else{
-               $this->renderc("error-page");
-               return;
             }
+            $this->renderc("error-page");
+            return;
         }
     }
 
-    function delPren() {
-        $codicecanc = $this->params['md5'];
+    function delPren()
+    {
+        $deleteCode = $this->params['md5'];
         $uid = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : "";
-		if($uid == ""){
-			$this->renderc("error-page");
-			return;
-		}
-		
-		$u = Doo::loadModel("utenti",true);
-		$u->uid = $uid;
-		$u = $this->db()->find($u, array('limit'=>1));
-		$fromwho = $u->nome." ".$u->cognome;
-		
-        $prenotazione = Doo::loadModel("prenotazioni", true);
-        $prenotazione->codicecanc = $codicecanc;
-		$p = $this->db()->find($prenotazione, array('limit'=>1));
-		$d = Doo::loadModel("docenti", true);
-		$d->did = $p->did;
-		$d = $this->db()->find($d, array('limit'=>1));
-        $this->db()->delete($prenotazione);
-        
-		
-		
-		 //change this to your email. 
-		$to = $d->email; 
-		$from = "prenotazioni@loquio.it"; 
-		$subject = "Colloquio Annullato"; 
-		$thetime = date("h", $p->data).":00";
-		$thedate = date("d/m/Y", $p->data);;
-		//begin of HTML message 
-		$message = "<html> 
-	  <body bgcolor=\"#FAFAFA\"> 
-		 
-			La tua prenotazione da parte di <b><font color=\"red\">".$fromwho."</font></b> &egrave; stata annullata! <br> 
-			La data della prenotazione era il <font color=\"red\">".$thedate."</font> alle ore  <font color=\"red\">".$thetime."</font> <br> 
-		
-		  <br><br>Grazie Per L'Attenzione!<br><em>Il Team Di Loquio</em>
-	  </body> 
-	</html>"; 
-					   //end of message 
-						
-						// To send the HTML mail we need to set the Content-type header. 
-						$headers = "MIME-Version: 1.0\r\n"; 
-						$headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
-						$headers  .= "From: $from\r\n"; 
-						//options to send to cc+bcc 
-						//$headers .= "Cc: [email]maa@p-i-s.cXom[/email]"; 
-						//$headers .= "Bcc: [email]email@maaking.cXom[/email]"; 
-						 
-						// now lets send the email. 
-						mail($to, $subject, $message, $headers); 
-		
-		
+
+        if ($uid == "") {
+            $this->renderc("error-page");
+            return;
+        }
+
+        $userModel = Doo::loadModel("utenti", true);
+        $userModel->uid = $uid;
+        $userModel = $this->db()->find($userModel, array('limit' => 1));
+        $fromWho = $userModel->nome . " " . $userModel->cognome;
+
+        $booking = Doo::loadModel("prenotazioni", true);
+        $booking->codicecanc = $deleteCode;
+
+        $p = $this->db()->find($booking, array('limit' => 1));
+        $d = Doo::loadModel("docenti", true);
+        $d->did = $p->did;
+        $d = $this->db()->find($d, array('limit' => 1));
+
+        $this->db()->delete($booking);
+
+        $this->sendEmailCanceledBooking($d, $p, $fromWho);
+
         $data['messaggio'] = "Prenotazione Annullata!";
         $data['url'] = Doo::conf()->APP_URL;
         $data['titolo'] = "Ben fatto!";
 
         // MESSAGGIO DOCENTE MODIFICATO
-        $this->renderc('ok-page',$data);
-        
+        $this->renderc('ok-page', $data);
+
     }
 
 }
+
 ?>

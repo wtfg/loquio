@@ -1,235 +1,258 @@
 <?php
 
-/*
- * 
- * TODO ottenere dati globali e parsarli
- *
+/**
+ * Class myCalendar
+ * Fa il lavoro sporco, ovvero capire i calendari
+ * gestire i docenti e i bookoff
  */
-
-
-class myCalendar {
+class myCalendar
+{
 
     private $bookedOffDays = array();
-    private $docenteProperties = array();
+    private $teacher = array();
+    private $monthNames = array("", "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre");
+    private $basedir = "";
 
-    function myCalendar($path = null){
-        if ($path != null){
-            $this->loadGlobals($path);
-        }
+    /**
+     * @param $path string la directory dove si trovano i file di configurazione annuali
+     */
+    function myCalendar($path = null)
+    {
+
+
+        $this->basedir = $path;
+
+        $this->loadGlobals($this->basedir);
+
     }
 
-    function loadGlobals($basedir){
+    /**
+     * Ottiene il file delle configurazioni in quell'anno
+     * @param $year
+     *          anno delle globali
+     * @return mixed
+     *          oggetto PHP contenente le configurazioni
+     */
 
-        for($y=(int)date("Y");$y<=(int)date("Y")+1;$y++){
-            
-            $url = $basedir."/global".$y.".json";
-            $f = fopen($url,"r");
-            $r = fread($f, filesize($url));
+    private function getData($year)
+    {
+
+        $url = $this->basedir . "global" . $year . ".json";
+
+        if (file_exists($url)) {
+            $f = fopen($url, "r");
+            $r = @fread($f, filesize($url));
             fclose($f);
-            $g = json_decode($r, true);
-            $mesi = array("","gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre");
-            $unpush = array();
-            foreach($g as $nomemese => $mese){
-                if($nomemese != "bisestile"){
-                    foreach($mese as $giorno => $valgiorno){
-                        if($valgiorno == "false"){
-                            $num_mese = array_search($nomemese,$mesi);
-                            //$data_book = strtotime();
-                            $this->bookoff($num_mese."/".$giorno."/".$y);
-                            //array_push($unpush, $data_book);
+            return json_decode($r, true);
+        }
+
+    }
+
+    /**
+     * Carica le impostazioni globali e depenna i giorni settati su "no"
+     */
+    private function loadGlobals()
+    {
+        $currentYear = (int)date("Y");
+        $nextYear = $currentYear + 1;
+        for ($currentYear; $currentYear <= $nextYear; $currentYear++) {
+            $g = $this->getData($currentYear);
+            foreach ($g as $monthKey => $monthValue) {
+                if ($monthKey != "bisestile") {
+                    foreach ($monthValue as $dayKey => $dayValue) {
+                        if ($dayValue == "false") {
+                            $monthNumber = array_search($monthKey, $this->monthNames);
+                            $this->bookOff($monthNumber . "/" . $dayKey . "/" . $currentYear);
                         }
                     }
                 }
             }
         }
-        //var_dump($this->book);
     }
-    function d() {
 
+    private function d()
+    {
         var_dump($this->bookedOffDays);
     }
 
-    function export_bookoff() {
-
-
+    function getJSONBookOff()
+    {
         return json_encode($this->bookedOffDays);
     }
 
-    function clean_import_bookoff($str) {
-
+    function setJSONBookOff($str)
+    {
         $this->bookedOffDays = json_decode($str);
     }
 
-    function set_docenteProperties($a) {
-        $this->docenteProperties = $a;
+    function setTeacher($a)
+    {
+        $this->teacher = $a;
     }
 
-    function bookoff($date_from, $date_to = NULL) {
-
+    /**
+     * Depenna un giorno dal calendario, quel giorno non
+     * sara' prenotabile per nessuno
+     * @param $date_from
+     *          la data del giorno in formato data
+     * @param null $date_to
+     *          una data di destinazione (di default null)
+     */
+    function bookOff($date_from, $date_to = NULL)
+    {
         if (is_null($date_to)) {
-
             array_push($this->bookedOffDays, strtotime($date_from));
         } else {
-
             array_push($this->bookedOffDays, strtotime($date_from) . "|" . strtotime($date_to));
         }
     }
 
-    public function is_booked($date) {
-
-        //vede che data risulta occupata
-
+    /**
+     * Verifica se quel giorno e' off o meno
+     * @param $date
+     *          la data del giorno in formato data
+     * @return bool
+     *          true se il giorno e' occupato
+     *          false se e' libero
+     */
+    public function isBookedOff($date)
+    {
         $date = strtotime($date);
-
         foreach ($this->bookedOffDays as $current) {
-
             $s = explode("|", $current);
-
             if (sizeof($s) >= 2) {
-
-                if ($date > (int) $s[0] and $date < (int) $s[1]) {
-
-                    return TRUE;
-                }
+                if ($date > (int)$s[0] and $date < (int)$s[1]) return TRUE;
             } else {
-                if ((int) $date == (int) $current) {
-
-                    return TRUE;
-                }
+                if ((int)$date == (int)$current) return TRUE;
             }
         }
         return FALSE;
     }
 
-    function count_and_book($prenotazioni) {
-        //conta le prenotazioni e se eccedono lo booka
-        $prens = array();
-        $return = array();
+    /**
+     * Informa il calendario delle prenotazioni di un docente
+     * restituisce e depenna in automatico quando le prenotazioni
+     * superano il massimo consentito
+     * @param $bookingsArray
+     * @return array
+     */
+    function addBookings($bookingsArray)
+    {
 
-        // trasforma le prenotazioni in date giornaliere
+        $bookings = array(); # array contenente le prenotazioni
+        $return = array(); # UNUSED di ritorno
 
-        foreach ($prenotazioni as $b) {
-
-            array_push($prens, date("m/d/Y", strtotime($b)));
+        foreach ($bookingsArray as $b) {
+            array_push($bookings, date("m/d/Y", strtotime($b))); # aggiunge le prenotazioni in modo riformattato
         }
 
-        // conta i valori
+        $bookingsNumber = array_count_values($bookings); # raggruppa in "key" i valori delle prenotazioni
 
-        $counts = array_count_values($prens);
+        foreach ($bookings as $booking) { # per ogni giorno
+            # imposta il max prenotazioni
+            $bookingsMax = $this->thisTeacherHasSeats(strtotime($booking)) ? $this->teacher[date("D", strtotime($booking))]["seats"] : 0;
 
-//		echo"<hr>";
-//		var_dump($prens);
-//		echo"<hr>";
-//		var_dump($counts);
-//		echo"<hr>";
+            # se ci sono prenotazioni per quel giorno
+            /** @var $bookingsNumber conto dei giorni */
+            if (($bookingsNumber[$booking] >= $bookingsMax)
+                && $bookingsMax != 0
+                && array_search($booking, $return) === false
+            ) {
 
-        foreach ($prens as $f) {
-
-            // vede che giorno e e se c'e vedere se e libero
-
-            if (array_key_exists(date("D", strtotime($f)), $this->docenteProperties)) {
-                $seats = $this->docenteProperties[date("D", strtotime($f))]["seats"];
-            } else {
-
-                $seats = 0;
-            }
-
-            if ($counts[$f] >= $seats && $seats != 0) {
-
-                //if((array_search($prenhour, $this->docente[date( "D", strtotime($f))]["timeslot"]) === false)){
-                if (array_search($f, $return) === false) {
-
-                    array_push($return, $f);
-                    if ($this->is_booked($f) == FALSE) {
-                        $this->bookoff($f);
-                        //echo $f." <b>prenotato</b><br><br>";
-                    }
+                array_push($return, $booking);
+                if ($this->isBookedOff($booking) == FALSE) {
+                    $this->bookOff($booking);
                 }
-                //}
+
             }
         }
-
         return $return;
     }
 
-    function get_avalaible_days($days_limit) {
+    /**
+     * Se il docente e' disponibile quel giorno
+     * @param $day  int il giorno in TIMESTAMP UNIX
+     * @return bool true se ci sono seats, false se non ci sono
+     */
+    private function thisTeacherHasSeats($day)
+    {
+        $a = array_key_exists(date("D", $day), $this->teacher);
+        return $a && ($this->teacher[date("D", $day)]["seats"] != 0);
+    }
 
-        //partendo da oggi ricava i giorni disponibili di un docente
+    /**
+     * ritorna i giorni disponibili per il docente
+     * @param $days_limit       int numero di giorni a cui guardare
+     * @return array            una coppia di array:
+     *                          il primo ha i giorni disponibili
+     *                          il secondo quelli occupati
+     *                          entrambi sono formattati per il calendar
+     */
+    private function lookAhead($days_limit)
+    {
         $return = array();
         $booked_days = array();
-        
-        $firstday = strtotime(date("m/d/Y",time()));
-        //echo "<hr>".$firstday."<hr>";
-
-        $lastday = $firstday + ($days_limit * 24 * 60 * 60);
-
-        //echo "<hr>".$lastday."<hr>";
+        $firstDay = strtotime(date("m/d/Y", time()));
 
         for ($i = 0; $i < $days_limit; $i++) {
 
-            $dayi = $firstday + ($i * 24 * 60 * 60);
-            if($this->is_booked(date("m/d/Y", $dayi))){
+            $nextDay = $firstDay + ($i * 24 * 60 * 60);
+            if ($this->isBookedOff(date("m/d/Y", $nextDay))) {
                 continue;
             }
-            //echo "<hr>".$dayi."<hr>";
+            if ($this->thisTeacherHasSeats($nextDay)) {
+                foreach ($this->teacher[date("D", $nextDay)]["timeslot"] as $timeSlot) {
 
-            if (array_key_exists(date("D", $dayi), $this->docenteProperties)) {
+                    // TODO timeslot a 15 minuti, basta rimuovere :00 e implementarlo nel DB
 
-                //echo date( "D", $dayi)." esiste per il docente";
+                    $timeSlotTime = strtotime(date("m/d/Y", $nextDay) . " " . $timeSlot . ":00");
+                    $nowTime = time();
 
-                if ($this->docenteProperties[date("D", $dayi)]["seats"] != 0) {
-
-                    //echo date( "D", $dayi)." ha dei seats per il docente";
-
-                    foreach ($this->docenteProperties[date("D", $dayi)]["timeslot"] as $timeslot) {
-
-                        //echo $timeslot;
-                        //echo date("m/d/Y", $dayi)." ".$timeslot.":00";
-                        $timeSlotTime = strtotime(date("m/d/Y", $dayi) . " " . $timeslot . ":00");
-                        $nowTime = time();
-                        if (!$this->is_booked(date("m/d/Y", $dayi))) {//." ".$timeslot.":00" )){
-                            if( $timeSlotTime>$nowTime){
-                            //echo "<hr><hr>".date("m/d/Y", $dayi)." ".$timeslot.":00 e libero<hr><hr>";
-                                array_push($return, strtotime(date("m/d/Y", $dayi) . " " . $timeslot . ":00"));
-                            }
-                            // TODO ritorna una lista seria
-                        } else {
-                            array_push($booked_days, strtotime(date("m/d/Y", $dayi) . " " . $timeslot . ":00"));
+                    if (!$this->isBookedOff(date("m/d/Y", $nextDay))) {
+                        if ($timeSlotTime > $nowTime) {
+                            # aggiunge ai disponibili
+                            array_push($return, $timeSlotTime);
                         }
+                    } else {
+                        # aggiunge ai non disponibili
+                        array_push($booked_days, $timeSlotTime);
                     }
                 }
             }
         }
-        //var_dump($return);
         return array($return, $booked_days);
     }
 
-    function write_free_days($days) {
+    /**
+     * AJAX: Ottiene i giorni disponibili in JSON
+     * @param $days
+     *              i giorni da lookahead
+     * @return string
+     *              la stringa JSON
+     */
+    function getFreeDaysJSON($days)
+    {
 
         $output = "[";
         $i = 0;
+        $availableDays = $this->lookAhead($days);
 
-        $availabledays = $this->get_avalaible_days($days);
-        //return "{\"nigga\":\"hoe\"}";
-
-        if ($availabledays) {
-            
-            if(sizeof($availabledays[0])==0){
+        if ($availableDays) {
+            if (sizeof($availableDays[0]) == 0) {
                 return "[]";
             }
-            foreach ($availabledays[0] as $event) {
-
+            # processa i giorni disponibili
+            foreach ($availableDays[0] as $event) {
                 $d = date("Y-m-d H:i:s", $event);
                 $output .= "\"" . $i . "\",{\"title\":\"Libero\",\"start\":\"" . $d . "\",\"allDay\":\"\"},";
                 $i++;
             }
-            foreach ($availabledays[1] as $event) {
-
+            # processa i giorni occupati
+            foreach ($availableDays[1] as $event) {
                 $d = date("Y-m-d H:i:s", $event);
                 $output .= "\"" . $i . "\",{\"title\":\"Occupato\",\"start\":\"" . $d . "\",\"allDay\":\"\"},";
                 $i++;
             }
-
             return substr($output, 0, strlen($output) - 1) . "]";
         }
     }

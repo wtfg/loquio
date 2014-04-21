@@ -1,5 +1,15 @@
 <?php
 $ul = Doo::conf()->APP_URL . "/global/";
+
+$str = "<select name='docente'>";
+$teachers = $data['teachers'];
+foreach ($teachers as $teacher){
+    $teacherId           = $teacher->did;
+    $teacherFullName     =  $teacher->nome." ". $teacher->cognome;
+    $str .= "<option value='".$teacherId."'>".$teacherFullName."</option>";
+}
+$str .= "</select>";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +38,7 @@ Prenotazioni per docente - pag 1
     
     <h2>Per quale docente vuoi vedere la lista?</h2>
     <p>
-            <?php echo $data['option'] ?>
+            <?php echo $str ?>
     </p>
     <input type="submit" name="invia" value="Invia">
 </form>

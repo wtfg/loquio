@@ -35,9 +35,13 @@ $ul = Doo::conf()->APP_URL . "/global/";
                                     did: $("#did").val()
                                 }
 
+                            },success: function(data)
+                            {
+                                alert(data);
                             },
                             error: function(jqXHR, textStatus, errorThrown) {
-                                alert("AJAX ERROR:" + errorThrown + "\n--\nTEXT STATUS: " + textStatus + "\n\n" + jqXHR.error + "\n\n" + jqXHR.toString() );
+                                console.log(arguments);
+                                //alert("AJAX ERROR:" + errorThrown + "\n--\nTEXT STATUS: " + textStatus + "\n\n" + jqXHR.error + "\n\n" + jqXHR.toString() );
                             }
                         });
                     }
@@ -129,9 +133,13 @@ $ul = Doo::conf()->APP_URL . "/global/";
                                     did: $("#did").val()
                                 }
 
+                            },success: function(data)
+                            {
+                                alert(data);
                             },
                             error: function(jqXHR, textStatus, errorThrown) {
-                                alert(errorThrown + "\n--\n" + textStatus);
+                                console.log(arguments);
+                                //alert("AJAX ERROR:" + errorThrown + "\n--\nTEXT STATUS: " + textStatus + errorThrown.toString() );
                             }
                         }
 
