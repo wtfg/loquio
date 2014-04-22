@@ -42,13 +42,13 @@ $(document).ready(function() {
                     alert("seats di " + dy + " e zero");
                 }
                 // alert(JSON.stringify(js));
-                ts = ts.replace(":", "\\:");
-                alert(ts);
+
+
                 for (i in timeslot) {
                     var ts = timeslot[i];
-                    if ($("#" + dy + ts).prop("checked")) {
+                    if ($("#" + dy + ts.replace(":", "\\:")).prop("checked")) {
                         cleaning = true;
-                        $("#" + dy + ts).click();
+                        $("#" + dy + ts.replace(":", "\\:")).click();
                         cleaning = false;
                     }
                 }
@@ -103,7 +103,7 @@ $(document).ready(function() {
             timeval = $(this).attr("id").substring(3);
 
             if (timeval) {
-                alert(timeval);
+
                 var buff = [];
                 for (i in timeslot) {
                     ts = timeslot[i];
@@ -114,7 +114,7 @@ $(document).ready(function() {
                     }
 
                 }
-                alert(buff);
+
                 if (js[selectedDay] !== undefined) {
                     js[selectedDay].timeslot = buff;
                 } else {

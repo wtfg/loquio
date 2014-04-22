@@ -1,16 +1,7 @@
 <?php
 $ul = Doo::conf()->APP_URL . "/global/";
+ob_start();
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title> </title>
-        <link rel="stylesheet" media="screen" href="<?php echo $ul; ?>css/style.css" />
-        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
-        <!-- This makes HTML5 elements work in IE 6-8 -->
-        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
         <script src='<?php echo $ul; ?>fc/lib/jquery.min.js'></script>
         <script type="text/javascript">
             container = "#container";
@@ -23,7 +14,12 @@ $ul = Doo::conf()->APP_URL . "/global/";
 
                 days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
                 giorni = ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"];
-                timeslot = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+                timeslot = ["8:00", "8:15", "8:30", "8:45", "9:00", "9:15", "9:30", "9:45",
+                    "10:00", "10:15", "10:30", "10:45", "11:00", "11:15", "11:30", "11:45",
+                    "12:00", "12:15", "12:30", "12:45", "13:00", "13:15", "13:30", "13:45",
+                    "14:00", "14:15", "14:30", "14:45", "15:00", "15:15", "15:30", "15:45",
+                    "16:00", "16:15", "16:30", "16:45", "17:00", "17:15", "17:30", "17:45",
+                    "18:00", "18:15", "18:30", "18:45", "19:00", "19:15", "19:30", "19:45"];
                 for (i in days) {
                     var day = days[i];
                     var giorno = giorni[i];
@@ -54,9 +50,9 @@ $ul = Doo::conf()->APP_URL . "/global/";
 
                             for (i in timeslot) {
                                 var ts = timeslot[i];
-                                if ($("#" + dy + ts).prop("checked")) {
+                                if ($("#" + dy + ts.replace(":", "\\:")).prop("checked")) {
                                     cleaning = true;
-                                    $("#" + dy + ts).click();
+                                    $("#" + dy + ts.replace(":", "\\:")).click();
                                     cleaning = false;
                                 }
                             }
@@ -114,7 +110,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
                             var buff = [];
                             for (i in timeslot) {
                                 ts = timeslot[i];
-                                if ($("#" + selectedDay + ts).prop("checked") == true) {
+                                if ($("#" + selectedDay + ts.replace(":", "\\:")).prop("checked") == true) {
                                     buff.push(ts);
                                 }
 
@@ -144,60 +140,65 @@ $ul = Doo::conf()->APP_URL . "/global/";
                 });
             });
         </script>
-
-    </head>
-
-    <body>
-        <h1> Inserisci docente </h1>
-
-        <form id="add-docente" name="login" method="post" action="">
-            <h2>Nome</h2>
-            <p>
-                <input type="text" name="nome" id="nome" />
-            </p>
-
-            <h2>Cognome</h2>
-            <p>
-                <input type="text" name="cognome" id="cognome" />
-            </p>
-
-            <h2>Email</h2>
-            <p>
-                <input type="text" name="email" id="email" />
-            </p>
-
-            <h2>Telefono</h2>
-            <p>
-                <input type="text" name="telefono" id="telefono" />
-            </p>
-
-
-            <h2>Materia</h2>
-            <p>
-
-                <select id="mid" name="mid">
 <?php
-foreach ($data['materie'] as $ad) {
+$data['head'] = ob_get_contents();
+ob_end_clean();
+ob_start();
 ?>
-                        <option value="<?php echo $ad['id']; ?>"><?php echo $ad['nome']; ?></option>
+Inserisci docente
 <?php
-}
+$data['title'] = ob_get_contents();
+ob_end_clean();
+ob_start();
 ?>
 
-                </select>
-            </p>
-            <br>
-            <h2>Giorni Disponibili</h2>
-            <div id="container"></div>
-            <br/>
-            <input type="hidden" name="orelibere" id="orelibere"  value='{}'/>
-            <br /><br /> 
-            <br />
-            <input type="submit" name="button" id="button" value="Invia" />
-            <br />
-        </form>
-        <br><a class='logout' href="<?php echo Doo::conf()->APP_URL."logout";?>">Esci</a>
-            <a class='back' href="javascript:history.go(-1);">&Lt;</a>
+<form id="add-docente" name="login" method="post" action="">
+    <h2>Nome</h2>
+    <p>
+        <input type="text" name="nome" id="nome" />
+    </p>
 
-    </body>
-</html>
+    <h2>Cognome</h2>
+    <p>
+        <input type="text" name="cognome" id="cognome" />
+    </p>
+
+    <h2>Email</h2>
+    <p>
+        <input type="text" name="email" id="email" />
+    </p>
+
+    <h2>Telefono</h2>
+    <p>
+        <input type="text" name="telefono" id="telefono" />
+    </p>
+
+
+    <h2>Materia</h2>
+    <p>
+
+        <select id="mid" name="mid">
+        <?php
+        foreach ($data['materie'] as $ad) {
+        ?>
+                <option value="<?php echo $ad['id']; ?>"><?php echo $ad['nome']; ?></option>
+        <?php
+        }
+        ?>
+
+        </select>
+    </p>
+    <br>
+    <h2>Giorni Disponibili</h2>
+    <div id="container"></div>
+    <br/>
+    <input type="hidden" name="orelibere" id="orelibere"  value='{}'/>
+    <br /><br />
+    <br />
+    <input type="submit" name="button" id="button" value="Invia" />
+    <br />
+</form>
+<?php
+$data['content'] = ob_get_contents();
+ob_end_clean();
+?>

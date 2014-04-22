@@ -1,23 +1,22 @@
 <?php
 $ul = Doo::conf()->APP_URL . "/global/";
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title> </title>
-        <link rel="stylesheet" media="screen" href="<?php echo $ul; ?>css/style.css" />
-        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
-        <!-- This makes HTML5 elements work in IE 6-8 -->
-        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
+ob_start();
+?>
         <script src='<?php echo $ul; ?>fc/lib/jquery.min.js'></script>
         
         <script src="<?php echo $ul; ?>js/docenti.js"></script>
-    </head>
-    <body>
-
-        <h1>Modifica docente</h1>
+<?php
+$data['head'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
+Modifica docente
+<?php
+$data['title'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
 
         <form id="add-docente" name="login" method="post" action="">
             <h2>Nome</h2>
@@ -50,19 +49,14 @@ $ul = Doo::conf()->APP_URL . "/global/";
             <h2>Materia</h2>
             <p>
             <select id="mid" name="mid">
-<?php
-foreach ($data['materie'] as $ad) {
-    if ($ad['id'] == $data['mid']) {
-        $sel = "selected=\"selected\"";
-    } else {
-        $sel = "";
-    }
-    ?>
-
+                <?php
+                    foreach ($data['materie'] as $ad) {
+                        $sel = ($ad['id'] == $data['mid']) ? "selected=\"selected\"" : "";
+                ?>
                     <option value="<?php echo $ad['id']; ?>" <?php echo $sel ?> ><?php echo $ad['nome']; ?></option>
-    <?php
-}
-?>
+                <?php
+                }
+                ?>
 
             </select>
 
@@ -88,5 +82,8 @@ echo $data['attivo'];
         <br><a class='logout' href="<?php echo Doo::conf()->APP_URL."logout";?>">Esci</a>
             <a class='back' href="javascript:history.go(-1);">&Lt;</a>
 
-    </body>
-</html>
+<?php
+$data['content'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>

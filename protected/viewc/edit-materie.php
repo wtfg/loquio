@@ -1,38 +1,29 @@
 <?php
-$ul = Doo::conf()->APP_URL . "/global/";
+ob_start();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title> </title>
-<link rel="stylesheet" media="screen" href="<?php echo $ul; ?>css/style.css" />
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
-<!-- This makes HTML5 elements work in IE 6-8 -->
-<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-</head>
-
-<body>
-    <h1>Inserisci materia</h1>
+Inserisci materia
+<?php
+$data['title'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
 
     <form id="edit-materia" name="login" method="post" action="">
         <h2>Nome materia:</h2>
         <input type="text" name="nome" id="nome" value="<?php
-  echo $data['nome']; ?>"/>
-        
-  <br />
-  <input type="hidden" name="mid" id="mid" value="<?php
-  echo $data['mid']; ?>"/><br />
-      
-  <input type="submit" name="button" id="button" value="Invia" />
-      
-      
+        echo $data['nome']; ?>"/>
+
+        <br />
+        <input type="hidden" name="mid" id="mid" value="<?php
+        echo $data['mid']; ?>"/><br />
+
+        <input type="submit" name="button" id="button" value="Invia" />
+
+
     </form>
-<br><a class='logout' href="<?php echo Doo::conf()->APP_URL."logout";?>">Esci</a>
-    <a class='back' href="javascript:history.go(-1);">&Lt;</a>
-
-</body>
-</html>
 
 
+<?php
+$data['content'] = ob_get_contents();
+ob_end_clean();
+?>

@@ -14,6 +14,18 @@ class PrenotController extends DooController
         }
     }
 
+    /**
+     * Da le basi per il template
+     * @param $viewName string nome view
+     * @param $data array associativo
+     * @return mixed data
+     */
+    function getContents($viewName, $data){
+        $data = $data;
+        include(Doo::conf()->SITE_PATH . "protected/viewc/" . $viewName . ".php");
+        return $data;
+    }
+
     /** Invia messaggio di prenotazione avvenuta
      * @param $to
      * @param $docente
@@ -172,7 +184,6 @@ class PrenotController extends DooController
 
     function showPrenDocente()
     {
-
         if (!isset($_POST['invia'])) {
             $data = array("teachers" => $this->getTeachers(),"message" => "");
             $this->renderc("view-listapren", $data);
@@ -284,8 +295,9 @@ class PrenotController extends DooController
                           'mdocenti' => $subjectTeacherDict,
                           'materie' => $subjectArray
             );
+            $data = $this->getContents("add-prenotazioni", $data);
+            $this->renderc("base2-template", $data);
 
-            $this->renderc("add-prenotazioni", $data);
 
         } else {
             if (isset($_POST['did']) &&

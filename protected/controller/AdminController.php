@@ -15,6 +15,12 @@ class AdminController extends DooController {
         }
     }
 
+    function getContents($viewName, $data){
+        $data = $data;
+        include(Doo::conf()->SITE_PATH . "protected/viewc/" . $viewName . ".php");
+        return $data;
+    }
+
     function showAdminPanel() {
         $this->renderc("panel-admin");
     }
@@ -94,7 +100,8 @@ class AdminController extends DooController {
             } else {
                 $data['attivo'] = "";
             }
-            $this->renderc("edit-docenti", $data);
+            $data = $this->getContents("edit-docenti", $data);
+            $this->renderc("base-template", $data);
         } else {
             if (isset($_POST['did'])) {
 
@@ -158,7 +165,6 @@ class AdminController extends DooController {
 
         if (!isset($_POST['button'])) {
 
-
             $materie = $this->db()->find("materie");
             $data['materie'] = array();
             foreach ($materie as $materia) {
@@ -166,7 +172,9 @@ class AdminController extends DooController {
                 array_push($data['materie'], array('id' => $materia->mid, 'nome' => $materia->nome));
             }
 
-            $this->renderc("add-docenti", $data);
+            $data = $this->getContents("add-docenti", $data);
+            $this->renderc("base-template", $data);
+
         } else {
 
             // {"Mon":{"seats":1,"timeslot":[9,10,11,12]},"Thu":{"seats":1,"timeslot":[9]}}
@@ -240,7 +248,6 @@ class AdminController extends DooController {
 
         if (!isset($_POST['nome'])) {
 
-
             $materia = Doo::loadModel("materie", true);
             $materia->mid = $mid;
             $materia = $this->db()->find($materia, array('limit' => 1));
@@ -248,7 +255,9 @@ class AdminController extends DooController {
             $data['mid'] = $mid;
             $data['nome'] = $materia->nome;
 
-            $this->renderc("edit-materie", $data);
+            $data = $this->getContents("edit-materie", $data);
+            $this->renderc("base-template", $data);
+
         } else {
             $_POST['nome'] = trim($_POST['nome']);
             if (!empty($_POST['nome'])) {
@@ -292,7 +301,8 @@ class AdminController extends DooController {
 
     function addMaterie() {
         if (!isset($_POST['nome'])) {
-            $this->renderc("add-materie");
+            $data = $this->getContents("add-materie", array());
+            $this->renderc("base-template", $data);
         } else {
             $_POST['nome'] = trim($_POST['nome']);
             if (!empty($_POST['nome'])) {
@@ -357,7 +367,8 @@ class AdminController extends DooController {
 
     function editGlobalSettings() {
 
-        $this->renderc('edit-globali', $_SESSION['user']);
+        $data = $this->getContents("edit-globali",  $_SESSION['user']);
+        $this->renderc("base-template", $data);
     }
 
 }

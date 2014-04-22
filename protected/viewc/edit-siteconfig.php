@@ -25,6 +25,7 @@ $params = $data['config'];
   echo $params->getParam("lookAheadTime"); ?>"/>
         
   <br />
+  <br />
       
   <input type="submit" name="cfg" id="cfg" value="Invia" />
       

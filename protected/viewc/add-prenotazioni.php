@@ -1,14 +1,7 @@
 <?php
 $ul = Doo::conf()->APP_URL . "/global/";
+ob_start();
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title> </title>
-        <link rel="stylesheet" media="screen" href="<?php echo $ul; ?>css/style2.css" />
-        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
-        <!-- This makes HTML5 elements work in IE 6-8 -->
         <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <link href='<?php echo $ul; ?>fc/fullcalendar/fullcalendar.css' rel='stylesheet' />
         <link href='<?php echo $ul; ?>fc/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
@@ -186,11 +179,17 @@ $ul = Doo::conf()->APP_URL . "/global/";
             }
 
         </style>
-    </head>
-
-    <body>
-
-        <h1>Inserisci prenotazione</h1>
+<?php
+$data['head'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
+Inserisci prenotazione
+<?php
+$data['title'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
 
         <form id="add-prenotazione" name="add-prenotazione" method="post" action="">
             <table align="center" width="40%">
@@ -242,54 +241,50 @@ $ul = Doo::conf()->APP_URL . "/global/";
     
             
             <input type="hidden" name="uid" value="<?php echo $data['uid']; ?>">
-            
-            
-            
-          
-        
         <br>
 
-        <div id='calendar'></div><br>
-<br>
+        <div id='calendar'></div><br> <br>
 
         <input type="submit" name="button" id="button" value="Invia" />
         </form>
         <a class='logout' href="<?php echo Doo::conf()->APP_URL."logout";?>">Esci</a>
             <a class='back' href="javascript:history.go(-1);">&Lt;</a>
-<script>
-var v = new FormValidator("add-prenotazione",
-    [
-    {
-        name: "studente", 
-        display: "Studente",
-        rules: "required"
-    },{
-        name: "classe", 
-        display: "Classe",
-        rules: "valid_class|required"
-    },{
-        name: "email", 
-        display: "Email",
-        rules: "valid_email|required"
-    },{
-        name: "tel", 
-        display: "Telefono",
-        rules: "numeric|required"
-    },{
-        name: "selected", 
-        display: "Giorno Selezionato",
-        rules: "required"
-    }],function(errors, event){
-        if(errors.length > 0){
-            msg="";
-            for(er in errors){
-                msg += errors[er].message+"\n";
-                
+        <script>
+        var v = new FormValidator("add-prenotazione",
+            [
+            {
+                name: "studente",
+                display: "Studente",
+                rules: "required"
+            },{
+                name: "classe",
+                display: "Classe",
+                rules: "valid_class|required"
+            },{
+                name: "email",
+                display: "Email",
+                rules: "valid_email|required"
+            },{
+                name: "tel",
+                display: "Telefono",
+                rules: "numeric|required"
+            },{
+                name: "selected",
+                display: "Giorno Selezionato",
+                rules: "required"
+            }],function(errors, event){
+                if(errors.length > 0){
+                    msg="";
+                    for(er in errors){
+                        msg += errors[er].message+"\n";
+
+                    }
+                    alert(msg);
+                }
             }
-            alert(msg);
-        }
-    }
-);
-</script>
-    </body>
-</html>
+        );
+        </script>
+<?php
+$data['content'] = ob_get_contents();
+ob_end_clean();
+?>

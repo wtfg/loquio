@@ -39,23 +39,10 @@ if (isset($_POST['json'])) {
 $js = json_decode($js, true);
 $json_cal = json_encode($js);
 
-/*
-
-$json_cal = json_encode($calendario);
-echo $json_cal;/**/
-
+$data['head'] = ob_get_contents();
+ob_end_clean();
+ob_start();
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title></title>
-<link rel="stylesheet" media="screen" href="<?php echo $GLOBAL_PATH; ?>css/style.css"/>
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
-<!-- This makes HTML5 elements work in IE 6-8 -->
-<!--[if lt IE 9]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 <script src="<?php echo $GLOBAL_PATH; ?>/fc/lib/jquery.min.js"></script>
 <script>
@@ -349,12 +336,17 @@ function setta_ab(js, calendar_div, jsonid, disp) {
 }
 
 </script>
-</head>
-
-<body><br>
-
-<h1>Calendario <?php echo $anno; ?></h1>
-<br>
+<?php
+$data['head'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
+Calendario <?php echo $anno; ?>
+<?php
+$data['title'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
 
 <form style="text-align:right" action="#" method="post">
     <h2>Cambia anno:</h2>
@@ -429,10 +421,7 @@ function setta_ab(js, calendar_div, jsonid, disp) {
 </table>
 <div id="tabella"></div>
 
-
-<a class='logout' href="<?php echo Doo::conf()->APP_URL . "logout"; ?>">Esci</a>
-<a class='back' href="<?php echo Doo::conf()->APP_URL; ?>">&Lt;</a>
-
-</body>
-
-</html>
+<?php
+$data['content'] = ob_get_contents();
+ob_end_clean();
+?>
