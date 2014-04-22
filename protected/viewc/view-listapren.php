@@ -50,7 +50,7 @@ Prenotazioni per docente - pag 1
 		<script type="text/javascript">
 		
 			new datepickr('data', {
-				dateFormat: 'd/m/Y', /* need to double escape characters that you don't want formatted */
+				dateFormat: 'd-m-Y', /* need to double escape characters that you don't want formatted */
 				weekdays: ['Domenica', 'Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato'],
 				months: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
 				defaultSuffix: '' /* the suffix that is used if nothing matches the suffix object, default 'th' */

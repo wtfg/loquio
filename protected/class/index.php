@@ -146,14 +146,13 @@ class myCalendar
             array_push($bookings, date("m/d/Y", strtotime($b))); # aggiunge le prenotazioni in modo riformattato
         }
 
-        $bookingsNumber = array_count_values($bookings); # raggruppa in "key" i valori delle prenotazioni
+        $bookingsNumber = array_count_values($bookings); # raggruppa in "key" le frequenze dei giorni delle prenotazioni
 
         foreach ($bookings as $booking) { # per ogni giorno
             # imposta il max prenotazioni
             $bookingsMax = $this->thisTeacherHasSeats(strtotime($booking)) ? $this->teacher[date("D", strtotime($booking))]["seats"] : 0;
 
             # se ci sono prenotazioni per quel giorno
-            /** @var $bookingsNumber conto dei giorni */
             if (($bookingsNumber[$booking] >= $bookingsMax)
                 && $bookingsMax != 0
                 && array_search($booking, $return) === false
@@ -205,7 +204,7 @@ class myCalendar
 
                     // TODO timeslot a 15 minuti, basta rimuovere :00 e implementarlo nel DB
 
-                    $timeSlotTime = strtotime(date("m/d/Y", $nextDay) . " " . $timeSlot . ":00");
+                    $timeSlotTime = strtotime(date("m/d/Y", $nextDay) . " " . $timeSlot );
                     $nowTime = time();
 
                     if (!$this->isBookedOff(date("m/d/Y", $nextDay))) {

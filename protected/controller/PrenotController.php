@@ -155,7 +155,7 @@ class PrenotController extends DooController
             $subjectModel = $this->getSubject($teacherModel->mid, array("limit" => 1));
 
             $resultDict = array("nomedocente" => $teacherModel->nome . " " . $teacherModel->cognome,
-                                "data" => date("d/m/Y H:i", $book->data),
+                                "data" => date("d-m-Y H:i", $book->data),
                                 "materia" => $subjectModel->nome,
                                 "studente" => $book->studente,
                                 "codicecanc" => $book->codicecanc
@@ -169,6 +169,7 @@ class PrenotController extends DooController
         $teachers = $this->db()->find(Doo::loadModel("docenti", true));
         return $teachers;
     }
+
     function showPrenDocente()
     {
 
@@ -179,10 +180,10 @@ class PrenotController extends DooController
 
             // date swapping month and day
             $theDate = trim($_POST['data']);
-            $dt = explode("/", $theDate);
+            $dt = explode("-", $theDate);
 
             if(strtotime($theDate) == false){
-                $data = array("teachers" => $this->getTeachers(),"message" => "Inserisci una data nel formato gg/mm/aaaa");
+                $data = array("teachers" => $this->getTeachers(),"message" => "Inserisci una data nel formato gg-mm-aaaa");
                 $this->renderc("view-listapren", $data);
                 return;
             }

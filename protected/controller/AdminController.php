@@ -342,7 +342,7 @@ class AdminController extends DooController {
             $d['materia'] = $materia->nome;
             $d['nome_docente'] = $da->nome . " " . $da->cognome;
             $d['creata'] = $prenotazione->creata;
-            $d['data'] = date("d-m-Y", $prenotazione->data);
+            $d['data'] = date("d-m-Y H:i", $prenotazione->data);
             $d['studente'] = $prenotazione->studente;
             $d['classe'] = $prenotazione->classe;
             $d['email'] = $prenotazione->email;

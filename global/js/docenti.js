@@ -2,14 +2,19 @@
 container = "#container";
 str = "";
 cleaning = false;
-debug = false;
+debug = true;
 orelibere = "#orelibere";
 $(document).ready(function() {
     js = JSON.parse($("#orelibere").val());
 
     days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     giorni = ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"];
-    timeslot = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+    timeslot = ["8:00", "8:15", "8:30", "8:45", "9:00", "9:15", "9:30", "9:45",
+        "10:00", "10:15", "10:30", "10:45", "11:00", "11:15", "11:30", "11:45",
+        "12:00", "12:15", "12:30", "12:45", "13:00", "13:15", "13:30", "13:45",
+        "14:00", "14:15", "14:30", "14:45", "15:00", "15:15", "15:30", "15:45",
+        "16:00", "16:15", "16:30", "16:45", "17:00", "17:15", "17:30", "17:45",
+        "18:00", "18:15", "18:30", "18:45", "19:00", "19:15", "19:30", "19:45"];
     for (i in days) {
         var day = days[i];
         var giorno = giorni[i];
@@ -37,7 +42,8 @@ $(document).ready(function() {
                     alert("seats di " + dy + " e zero");
                 }
                 // alert(JSON.stringify(js));
-
+                ts = ts.replace(":", "\\:");
+                alert(ts);
                 for (i in timeslot) {
                     var ts = timeslot[i];
                     if ($("#" + dy + ts).prop("checked")) {
@@ -94,17 +100,21 @@ $(document).ready(function() {
                 return;
             }
             selectedDay = $(this).attr("id").substring(0, 3);
-            timeval = parseInt($(this).attr("id").substring(3));
-            if (timeval) {
+            timeval = $(this).attr("id").substring(3);
 
+            if (timeval) {
+                alert(timeval);
                 var buff = [];
                 for (i in timeslot) {
                     ts = timeslot[i];
-                    if ($("#" + selectedDay + ts).prop("checked") == true) {
+                    
+                    if ($("#" + selectedDay + ts.replace(":", "\\:")).prop("checked") == true) {
                         buff.push(ts);
+
                     }
 
                 }
+                alert(buff);
                 if (js[selectedDay] !== undefined) {
                     js[selectedDay].timeslot = buff;
                 } else {
