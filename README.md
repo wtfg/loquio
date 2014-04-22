@@ -10,9 +10,11 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 ======
 
 TODO prima della Beta
-+ Refactoring del codice totalmente OOP
-+ Timeslot precisi 15 min
++ IMPORTANTE: Refactoring del codice, spostare su OOP
++ Refactoring del javascript, introduzione di minifiers
++ Cambio dei controller UI nei timeslot in range multipli
 + Impostare bookoff per docenti da admin
-+ Docente: avviso imprevisti e annulla prenotazioni
-+ Tool di filtraggio liste
++ Pannello docente: avviso imprevisti e annulla prenotazioni
++ Tool di filtraggio liste (successivo)
++ Rinnovare tema con bootstrap
 + Porting x Django
