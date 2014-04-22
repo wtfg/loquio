@@ -19,6 +19,24 @@ class AdminController extends DooController {
         $this->renderc("panel-admin");
     }
 
+    function editSiteConfig(){
+        $a = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
+        if(!isset($_POST['cfg'])){
+            $data['config'] = $a;
+            $data['message'] = "";
+
+        }else{
+            $lookAheadTime = trim($_POST["lookAheadTime"]);
+            $a->setParam("lookAheadTime", $lookAheadTime);
+            $data['message'] = "Aggiornato!";
+
+        }
+
+        $data['config'] = $a;
+        $this->renderc("edit-siteconfig", $data);
+    }
+
+
     function viewDocenti() {
         /**
          * Funzione che imposta lo script per la view del docente

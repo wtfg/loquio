@@ -154,30 +154,38 @@ class PrenotController extends DooController
             $teacherModel = $this->getTeacher($book->did, array("limit" => 1));
             $subjectModel = $this->getSubject($teacherModel->mid, array("limit" => 1));
 
-            $resultDict["nomedocente"] = $teacherModel->nome . " " . $teacherModel->cognome;
-            $resultDict["data"] = date("d/m/Y H:i", $book->data);
-            $resultDict["materia"] = $subjectModel->nome;
-            $resultDict["studente"] = $book->studente;
-            $resultDict["codicecanc"] = $book->codicecanc;
+            $resultDict = array("nomedocente" => $teacherModel->nome . " " . $teacherModel->cognome,
+                                "data" => date("d/m/Y H:i", $book->data),
+                                "materia" => $subjectModel->nome,
+                                "studente" => $book->studente,
+                                "codicecanc" => $book->codicecanc
+            );
 
             array_push($data, $resultDict);
         }
         $this->renderc("view-prenotazioni-user", $data);
     }
-
+    function getTeachers(){
+        $teachers = $this->db()->find(Doo::loadModel("docenti", true));
+        return $teachers;
+    }
     function showPrenDocente()
     {
 
         if (!isset($_POST['invia'])) {
-            $teachers = $this->db()->find(Doo::loadModel("docenti", true));
-            $data = array("teachers" =>  $teachers);
-
+            $data = array("teachers" => $this->getTeachers(),"message" => "");
             $this->renderc("view-listapren", $data);
         } else {
 
             // date swapping month and day
             $theDate = trim($_POST['data']);
             $dt = explode("/", $theDate);
+
+            if(strtotime($theDate) == false){
+                $data = array("teachers" => $this->getTeachers(),"message" => "Inserisci una data nel formato gg/mm/aaaa");
+                $this->renderc("view-listapren", $data);
+                return;
+            }
             $theDate = $dt[1] . "/" . $dt[0] . "/" . $dt[2];
 
             // docente
@@ -191,9 +199,10 @@ class PrenotController extends DooController
             $nextDay = strtotime($theDate) + 86400;
             $teachers = $this->db()->find($booking, array("where" => "data>=" . strtotime($theDate) . " AND data<" . $nextDay));
 
-            $data['data'] = $theDate;
-            $data['docente'] = $teacherFullName;
-            $data['prens'] = $teachers;
+            $data = array('data' => $theDate,
+                          'docente' => $teacherFullName,
+                          'prens' => $teachers
+            );
 
             $this->renderc("view-listapren2", $data);
         }
@@ -202,7 +211,8 @@ class PrenotController extends DooController
     function prenAjax()
     {
         $emptyObject = "{\"\":\"\"}";
-        $LOOK_AHEAD_DAYS = 60;
+        $conf = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
+        $LOOK_AHEAD_DAYS = $conf->getParam("lookAheadTime");
 
         if (isset($_POST['message'])) {
 
@@ -269,9 +279,11 @@ class PrenotController extends DooController
                 $subjectTeacherDict[$subj->mid] = $teacherFullNamesDict;
             }
 
-            $data['uid'] = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : "";
-            $data['mdocenti'] = $subjectTeacherDict;
-            $data['materie'] = $subjectArray;
+            $data = array('uid' => isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : "",
+                          'mdocenti' => $subjectTeacherDict,
+                          'materie' => $subjectArray
+            );
+
             $this->renderc("add-prenotazioni", $data);
 
         } else {
@@ -311,9 +323,10 @@ class PrenotController extends DooController
                         $theDate = $theDate[0];
                         $this->sendEmailSuccessfulBooking($to, $teacher, $theTime, $theDate);
 
-                        $data['messaggio'] = "Prenotazione inserita! Riceverai una email fra poco contenente i dati della prenotazione";
-                        $data['url'] = Doo::conf()->APP_URL;
-                        $data['titolo'] = "Prenotato!";
+                        $data = array('messaggio' => "Prenotazione inserita! Riceverai una email fra poco contenente i dati della prenotazione",
+                                      'url' => Doo::conf()->APP_URL,
+                                      'titolo' => "Prenotato!"
+                        );
 
                         $this->renderc('ok-page', $data);
                         return;
@@ -352,10 +365,10 @@ class PrenotController extends DooController
 
         $this->sendEmailCanceledBooking($d, $p, $fromWho);
 
-        $data['messaggio'] = "Prenotazione Annullata!";
-        $data['url'] = Doo::conf()->APP_URL;
-        $data['titolo'] = "Ben fatto!";
-
+        $data = array('messaggio' => "Prenotazione Annullata!",
+            'url' => Doo::conf()->APP_URL,
+            'titolo' => "Ben Fatto!"
+        );
         // MESSAGGIO DOCENTE MODIFICATO
         $this->renderc('ok-page', $data);
 

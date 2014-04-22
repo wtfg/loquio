@@ -37,7 +37,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
 
                             },success: function(data)
                             {
-                                alert(data);
+                               // alert(data);
                             },
                             error: function(jqXHR, textStatus, errorThrown) {
                                 console.log(arguments);
@@ -135,7 +135,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
 
                             },success: function(data)
                             {
-                                alert(data);
+                                //alert(data);
                             },
                             error: function(jqXHR, textStatus, errorThrown) {
                                 console.log(arguments);

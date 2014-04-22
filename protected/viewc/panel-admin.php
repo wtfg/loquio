@@ -22,7 +22,9 @@ $ul = Doo::conf()->APP_URL . "/global/";
     <br>
     <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/list"?> class="butt">Lista Prenotazioni</a>
     <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/new"?> class="butt">Prenota Colloquio</a>
-    <a href=<?php echo Doo::conf()->APP_URL."admin/global"?> class="butt">Impost. Globali</a>
+    <a href=<?php echo Doo::conf()->APP_URL."admin/calendars"?> class="butt">Calendari</a>
+    <br>
+    <a href=<?php echo Doo::conf()->APP_URL."admin/config"?> class="butt">Configurazioni</a>
 <a class='logout' href="<?php echo Doo::conf()->APP_URL."logout";?>">Esci</a>
 </body>
 </html>

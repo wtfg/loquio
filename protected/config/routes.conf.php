@@ -108,7 +108,9 @@ $route['*']['/admin/prenotazioni'] = array('AdminController', 'viewPrenotazioni'
 
 $route['*']['/admin/prenotazioni/delete/:id'] = array('AdminController', 'deletePrenotazioni');
 
-$route['*']['/admin/global'] = array('AdminController', 'editGlobalSettings');
+$route['*']['/admin/config'] = array('AdminController', 'editSiteConfig');
+
+$route['*']['/admin/calendars'] = array('AdminController', 'editGlobalSettings');
 
 //---------- Delete if not needed ------------
 $admin = array('admin'=>'');
