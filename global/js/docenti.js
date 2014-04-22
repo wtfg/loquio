@@ -2,7 +2,7 @@
 container = "#container";
 str = "";
 cleaning = false;
-debug = true;
+debug = false;
 orelibere = "#orelibere";
 $(document).ready(function() {
     js = JSON.parse($("#orelibere").val());
@@ -107,7 +107,7 @@ $(document).ready(function() {
                 var buff = [];
                 for (i in timeslot) {
                     ts = timeslot[i];
-                    
+
                     if ($("#" + selectedDay + ts.replace(":", "\\:")).prop("checked") == true) {
                         buff.push(ts);
 
