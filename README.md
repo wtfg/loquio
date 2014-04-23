@@ -10,6 +10,8 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 ======
 
 TODO prima della Beta
++ Templating dinamico
++ Introdurre sliders
 + IMPORTANTE: Refactoring del codice, spostare su OOP
 + Refactoring del javascript, introduzione di minifiers
 + Cambio dei controller UI nei timeslot in range multipli
