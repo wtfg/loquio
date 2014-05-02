@@ -1,26 +1,13 @@
 <?php
 
 class LoginController extends DooController {
-    /*
-     * 
-     * 
-     * TODO mostrare pannello di controllo
-     * TODO pannello prenotazioni
-     * TODO pagina di errore stilosa
-     * 
-     * TODO pagina di validazione fica
-     * TODO ritornare che il nome utente già esiste
-     * TODO pannello docente
-     * 
-     * 
+
+    /**
+     * Prima pagina vista, se sei loggato ti manda al pannello
+     * sennò ti manda al login/registrazione
      */
-    
     function firstPage() {
-        
-        /*
-         * Prima pagina vista, se sei loggato ti manda al pannello
-         * sennò ti manda al login/registrazione
-         */
+
 
         session_start();
 
@@ -29,11 +16,7 @@ class LoginController extends DooController {
             $role = (isset($_SESSION['user']['acl'])) ? $_SESSION['user']['acl'] : 'anonymous';
             
             if ($rs = $this->acl()->process($role, "LoginController", "firstPage")) {
-
-               // var_dump($this->acl()->process($role, "LoginController", "firstPage"));
-                
                 return $rs;
-                
             } else {
                 switch ($role){
                     case "docente":
@@ -48,22 +31,9 @@ class LoginController extends DooController {
                     default:
                         $this->renderc("error-page");
                 }
-                //$this->view()->renderc('control-panel', $data);
-                
-                /*
-                 * Esegue un render del tipo
-                 * $this->view()->renderc('control-panel', $data);
-                 * e mostra il pannello di controllo
-                 */
                 
             }
         } else {
-            
-            /*
-            * Esegue un render del tipo
-            * 
-            * e mostra l'errore
-            */
             $this->view()->renderc('login-page');
         }
     }

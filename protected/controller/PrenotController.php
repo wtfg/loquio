@@ -152,6 +152,18 @@ class PrenotController extends DooController
     }
 
     /**
+     * Carica tutta la tabella docenti
+     * @return mixed oggetto docenti
+     */
+    function getTeachers($a=null){
+        if($a == null)
+            $teachers = $this->db()->find(Doo::loadModel("docenti", true));
+        else
+            $teachers = $this->db()->find(Doo::loadModel("docenti", true), $a);
+        return $teachers;
+    }
+
+    /**
      * CONTROLLERS
      */
 
@@ -177,19 +189,14 @@ class PrenotController extends DooController
         }
         $this->renderc("view-prenotazioni-user", $data);
     }
-    function getTeachers(){
-        $teachers = $this->db()->find(Doo::loadModel("docenti", true));
-        return $teachers;
-    }
 
     function showPrenDocente()
     {
         if (!isset($_POST['invia'])) {
-            $data = array("teachers" => $this->getTeachers(),"message" => "");
+            $data = array("teachers" => $this->getTeachers(array("where"=>"attivo=1")),"message" => "");
             $this->renderc("view-listapren", $data);
         } else {
 
-            // date swapping month and day
             $theDate = trim($_POST['data']);
             $dt = explode("-", $theDate);
 
@@ -198,6 +205,8 @@ class PrenotController extends DooController
                 $this->renderc("view-listapren", $data);
                 return;
             }
+
+            // swappa date
             $theDate = $dt[1] . "/" . $dt[0] . "/" . $dt[2];
 
             // docente

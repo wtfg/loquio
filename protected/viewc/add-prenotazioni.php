@@ -44,6 +44,7 @@ ob_start();
 
                     updateChanges(false);
                     window.upped = false;
+                    $("#selected").val("");
                     switch ($(this).val()) {
 					<?php
 					foreach ($data['mdocenti'] as $key => $dm) {
@@ -73,6 +74,7 @@ ob_start();
 
                     updateChanges(true);
                     window.upped = false;
+                    $("#selected").val("");
                     //alert($( "#did" ).val());
 
                 });
