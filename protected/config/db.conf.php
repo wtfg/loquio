@@ -30,6 +30,8 @@ $dbmap['Prenotazioni']['belongs_to']['Docenti'] = array('pkey'=>'did');
 $dbmap['Docenti']['has_many']['Prenotazioni'] = array('did'=>'pid');
 $dbmap['Docenti']['belongs_to']['Materie'] = array('dkey'=>'mid');
 $dbmap['Materie']['has_many']['Docenti'] = array('mid'=>'did');
+$dbmap['Docenti']['has_many']['Bookoff'] = array('did'=>'bookoffid');
+$dbmap['Bookoff']['belongs_to']['Docenti'] = array('bookoffid'=>'did');
 
 
 

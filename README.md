@@ -10,12 +10,12 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 ======
 
 TODO prima della Beta
-+ Templating dinamico
++ Impostare bookoff per docenti da admin
++ + Implementa le view del bookoff
 + Introdurre sliders
-+ IMPORTANTE: Refactoring del codice, spostare su OOP
++ IMPORTANTE: Refactoring del codice
 + Refactoring del javascript, introduzione di minifiers
 + Cambio dei controller UI nei timeslot in range multipli
-+ Impostare bookoff per docenti da admin
 + Pannello docente: avviso imprevisti e annulla prenotazioni
 + Tool di filtraggio liste (successivo)
 + Rinnovare tema con bootstrap
