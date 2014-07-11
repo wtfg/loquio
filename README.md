@@ -10,8 +10,12 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 ======
 
 TODO prima della Beta
-+ Impostare bookoff per docenti da admin
-+ + Implementa le view del bookoff
++ Rendere effettivi i bookoff da prenotazione
++ Pannello avviso imprevisti (inserisce un bookoff)
++ Sort dei docenti
++ Inserisci utenti da Admin
++ Export dati
++ Annulla prenotazione (acl = 1 & utente = docente)
 + Introdurre sliders
 + IMPORTANTE: Refactoring del codice
 + Refactoring del javascript, introduzione di minifiers

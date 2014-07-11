@@ -114,8 +114,11 @@ $route['*']['/admin/calendars'] = array('AdminController', 'editGlobalSettings')
 
 $route['*']['/admin/bookoff'] = array('BookoffController', 'viewBookoffs');
 
+$route['*']['/admin/bookoff/new'] = array('BookoffController', 'newBookoff');
+
 $route['*']['/admin/bookoff/edit/:id'] = array('BookoffController', 'editBookoff');
 
+$route['*']['/admin/bookoff/delete/:id'] = array('BookoffController', 'deleteBookoff');
 
 //---------- Delete if not needed ------------
 $admin = array('admin'=>'');

@@ -4,6 +4,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
 ob_start();
 ?>
         <script src='<?php echo $ul; ?>fc/lib/jquery.min.js'></script>
+
         <link rel="stylesheet" type="text/css" href="<?php echo $ul; ?>css/datepickr.css" />
         <script src="<?php echo $ul; ?>js/bookoffs.js"></script>
 <?php
@@ -11,34 +12,34 @@ $data['head'] = ob_get_contents();
 ob_end_clean();
 ob_start();
 ?>
-Modifica Bookoff
+Nuovo Bookoff
 <?php
 $data['title'] = ob_get_contents();
 ob_end_clean();
 ob_start();
 ?>
 
-        <form id="edit-bookoff" name="login" method="post" action="">
-            <h2>Docente: <?php
-                echo $data['name'];
-                ?> </h2>
+        <form id="new-bookoff" name="login" method="post" action="">
+            <h2>Docente:</h2>
             <p>
-                <input type="hidden" name="did" id="did" value="<?php
-                echo $data['did'];
-                ?>" />
+               <select name="did" id="did">
+                   <?php
+                   foreach($data["docenti"] as $docente){
+                       ?>
+                       <option value="<?php echo $docente["did"]?>"><?php echo $docente["nomecognome"]?></option>
+                   <?php
+                   }
+            ?>
+               </select>
             </p>
             <h2>Data</h2>
             <p>
-            <input type="text" name="date" id="date"  value="<?php
-                   echo $data['date'];
-            ?>"/>
+            <input type="text" name="date" id="date"  value=""/>
             </p>
 
             <div id="container"></div>
             <br/>
-            <input type="hidden" name="value" id="value"  value='<?php
-echo $data['value'];
-?>'/>
+            <input type="hidden" name="value" id="value"  value='{}'/>
 
             <script type="text/javascript" src="<?php echo $ul; ?>js/datepickr.min.js"></script>
             <script type="text/javascript">
