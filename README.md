@@ -10,8 +10,7 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 ======
 
 TODO prima della Beta
-+ Rendere effettivi i bookoff da prenotazione
-+ Pannello avviso imprevisti (inserisce un bookoff)
++ Pannello avviso imprevisti [admin docente] (inserisce un bookoff)
 + Sort dei docenti
 + Inserisci utenti da Admin
 + Export dati
