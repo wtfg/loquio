@@ -101,7 +101,10 @@ class myCalendar
     function bookOff($date_from, $date_to = NULL)
     {
         if (is_null($date_to)) {
-            array_push($this->bookedOffDays, strtotime($date_from));
+            if(is_string($date_from))
+                array_push($this->bookedOffDays, strtotime($date_from));
+            else
+                array_push($this->bookedOffDays, $date_from);
         } else {
             array_push($this->bookedOffDays, strtotime($date_from) . "|" . strtotime($date_to));
         }
