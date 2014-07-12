@@ -234,7 +234,7 @@ class PrenotController extends DooController
         $emptyObject = "{\"\":\"\"}";
         $conf = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
         $LOOK_AHEAD_DAYS = $conf->getParam("lookAheadTime");
-
+        #$_POST['message']['did'] = 15;
         if (isset($_POST['message'])) {
 
             // teacher data queries
@@ -256,6 +256,7 @@ class PrenotController extends DooController
 
             $prenCalendar = array();
 
+
             $theCalendar = new myCalendar(Doo::conf()->SITE_PATH . "global/json/");
             $theCalendar->setTeacher($freeHours);
 
@@ -263,9 +264,35 @@ class PrenotController extends DooController
                 array_push($prenCalendar, date("m/d/Y H:i", $f->data));
             }
 
+            $bookoffs = Doo::loadModel("bookoff", true);
+            $bookoffs->did = $teacherId;
+            $bookoffs = $this->db()->find($bookoffs, array("where"=>"date > '".date("y-m-d", time())."'"));
+
+
             $theCalendar->addBookings($prenCalendar);
             $freeDays = $theCalendar->getFreeDaysJSON($LOOK_AHEAD_DAYS);
+            $niger = json_decode($freeDays,true);
+            foreach($bookoffs as $bookoff){
+                $a = json_decode($bookoff->value, true);
 
+                $a = $a["timeslot"];
+                $data = $bookoff->date;
+                foreach($a as $slot){
+                    $h = strtotime(substr($data,0,11).$slot.":00");
+                    foreach($niger as $freeElm){
+
+                        if(is_array($freeElm) && array_key_exists("start", $freeElm)){
+
+                            if(strtotime($freeElm["start"]) == $h){
+                                $freeDays = str_replace($freeElm["start"], "", $freeDays);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+
+            }
             if ($freeDays != NULL) {
                 echo $freeDays;
             } else {
