@@ -16,14 +16,14 @@ class BookoffBase extends DooModel{
     /**
      * @var varchar Max length is 65536.
      */
-    public $value;
+    public $datefrom;
 
 
-    public $date;
+    public $dateto;
 
     public $_table = 'bookoff';
     public $_primarykey = 'bookoffid';
-    public $_fields = array('bookoffid','did','value', 'date');
+    public $_fields = array('bookoffid','did','datefrom', 'dateto');
 
     public function getVRules() {
         return array(
@@ -39,11 +39,14 @@ class BookoffBase extends DooModel{
                     array( 'notnull' ),
                 ),
 
-                'value' => array(
-                        array( 'maxlength', 65536 ),
+                'datefrom' => array(
+                    array( 'integer' ),
+                    array( 'maxlength', 20 ),
                         array( 'notnull' ),
                 ),
-                'date' => array(
+                'dateto' => array(
+                    array( 'integer' ),
+                    array( 'maxlength', 20 ),
                     array( 'notnull' ),
                 )
             );

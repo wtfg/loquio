@@ -24,6 +24,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
     <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/new"?> class="butt">Prenota Colloquio</a>
     <a href=<?php echo Doo::conf()->APP_URL."admin/calendars"?> class="butt">Calendari</a>
     <br>
+    <a href=<?php echo Doo::conf()->APP_URL."admin/cleardb"?> onclick="return confirm('Questo cancellera tutto il database! Sei sicuro??')" class="butt">Cancella DB</a>
     <a href=<?php echo Doo::conf()->APP_URL."admin/bookoff"?> class="butt">Bookoff</a>
     <a href=<?php echo Doo::conf()->APP_URL."admin/config"?> class="butt">Configurazioni</a>
 <a class='logout' href="<?php echo Doo::conf()->APP_URL."logout";?>">Esci</a>

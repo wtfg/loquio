@@ -10,15 +10,15 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 ======
 
 TODO prima della Beta
++ Timeslots ogni 10 minuti
++ Tasto pulisci database (tutte le prenotazioni, i docenti, bookoff... tutto tranne gli utenti)
 + Crud utenti Admin
 + Nella creazione del docente deve creare un utente
 + Nell eliminazione del docente deve eliminare l'utente
 + Nell update del docente deve aggiornare il docente
-+ Rimuovi orario, Bookoff per giorni
-+ Tasto pulisci database (tutte le prenotazioni, i docenti, bookoff... tutto tranne gli utenti)
 + AUTOSnag disponibile dal docente (automatico)
-+ Timeslots ogni 10 minuti
 
+TODO versione 0.2
 + Sort dei docenti
 + Export dati
 + Introdurre sliders

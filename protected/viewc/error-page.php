@@ -17,10 +17,17 @@ $ul = Doo::conf()->APP_URL . "/global/";
 <body style="width:20%;">
     <h1 style='color: #ff9090 '>Ops!</h1>
     <p>
+        <?php
+        if(isset($data["message"])){
+            echo $data["message"];
+        }else{
+?>
         Questa &eacute; una pagina di errore, se ti appare significa che qualcosa &eacute; andato storto.
         Forse questa non &eacute; la pagina che stavi cercando. Forse la pagina che cerchi non esiste pi&uacute;, o forse
         non hai le credenziali per poter accedere in qualche area riservata.
-        
+        <?php
+        }
+?>
     </p>
 
 </body>

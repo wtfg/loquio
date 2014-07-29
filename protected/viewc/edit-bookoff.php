@@ -5,7 +5,6 @@ ob_start();
 ?>
         <script src='<?php echo $ul; ?>fc/lib/jquery.min.js'></script>
         <link rel="stylesheet" type="text/css" href="<?php echo $ul; ?>css/datepickr.css" />
-        <script src="<?php echo $ul; ?>js/bookoffs.js"></script>
 <?php
 $data['head'] = ob_get_contents();
 ob_end_clean();
@@ -27,23 +26,31 @@ ob_start();
                 echo $data['did'];
                 ?>" />
             </p>
-            <h2>Data</h2>
+            <h2>Dal giorno</h2>
             <p>
-            <input type="text" name="date" id="date"  value="<?php
-                   echo $data['date'];
+            <input type="text" name="from" id="from"  value="<?php
+                   echo $data['from'];
             ?>"/>
             </p>
-
-            <div id="container"></div>
+            <h2>Al giorno</h2>
+            <p>
+                <input type="text" name="to" id="to"  value="<?php
+                echo $data['to'];
+                ?>"/>
+            </p>
             <br/>
-            <input type="hidden" name="value" id="value"  value='<?php
-echo $data['value'];
-?>'/>
+
 
             <script type="text/javascript" src="<?php echo $ul; ?>js/datepickr.min.js"></script>
             <script type="text/javascript">
 
-                new datepickr('date', {
+                new datepickr('from', {
+                    dateFormat: 'd-m-Y', /* need to double escape characters that you don't want formatted */
+                    weekdays: ['Domenica', 'Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato'],
+                    months: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+                    defaultSuffix: '' /* the suffix that is used if nothing matches the suffix object, default 'th' */
+                });
+                new datepickr('to', {
                     dateFormat: 'd-m-Y', /* need to double escape characters that you don't want formatted */
                     weekdays: ['Domenica', 'Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato'],
                     months: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],

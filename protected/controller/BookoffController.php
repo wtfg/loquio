@@ -51,6 +51,58 @@ class BookoffController extends DooController {
         mail($email,  $subject, $message, $headers);
     }
 
+    function snag(){
+        $snag = isset($this->params["id"]);
+
+        if(isset($_POST['button'])){
+            $book = Doo::loadModel('bookoff', true);
+            $book->did = $this->params['id'];
+            $explainText =  stripslashes($_POST['value']);
+            $date = explode("-",$_POST['date']);
+            $theDate = $date[2]."-".$date[1]."-".$date[0]. " 00:00:00";
+            $delete = isset($_POST["delete"]) && $_POST["delete"] == 1 ? true : false;
+            $pren = Doo::loadModel("prenotazioni",true);
+            $pren->did = $this->params['id'];
+
+            $daya = strtotime($theDate);
+            $dayb = strtotime('+1 day', $daya);
+            echo $pren->data;
+            $prens = $this->db()->find($pren, array("where"=>"data>=".$daya." AND data<=".$dayb));
+            $i = 0;
+            foreach($prens as $p){
+                $i++;
+                $this->snagMail($p->email, $_POST["nomecognome"], $theDate, $explainText, $delete);
+                if($delete){
+                    $this->db()->delete($p);
+                }
+            }
+
+            $data['messaggio'] = $i." email mandate per avvisare dell'imprevisto";
+            if($delete)
+                $data['messaggio'] .= "<br>Le prenotazioni sono state cancellate!";
+            $data['url'] = Doo::conf()->APP_URL."admin";
+            $data['titolo'] = "Ben fatto!";
+        // MESSAGGIO DOCENTE MODIFICATO
+            $this->renderc('ok-page',$data);
+            return;
+        }else{
+
+
+            $data = array("docenti"=>array());
+
+            $di = Doo::loadModel("docenti", true);
+            $di->did = $this->params["id"];
+
+            $n = $this->db()->find($di, array("limit"=>1));
+
+            $data["docenti"] = $n->nome. " ". $n->cognome;
+
+            $data = $this->getContents("new-snag",$data);
+            $this->renderc("base-template", $data);
+        }
+
+    }
+
     function newBookoff(){
         /**
          * New Bookoff
@@ -61,38 +113,9 @@ class BookoffController extends DooController {
 
             $book = Doo::loadModel('bookoff', true);
             $book->did = $snag ? $this->params['id'] : $_POST['did'];
-            $book->value = stripslashes($_POST['value']);
-            $date = explode("-",$_POST['date']);
-            $book->date = $date[2]."-".$date[1]."-".$date[0]. " 00:00:00";
+            $book->datefrom = strtotime($_POST["from"]);
+            $book->dateto = strtotime($_POST["to"]);
 
-            if($snag){
-                $delete = isset($_POST["delete"]) && $_POST["delete"] == 1 ? true : false;
-                $pren = Doo::loadModel("prenotazioni",true);
-                $pren->did = $this->params['id'];
-
-                $daya = strtotime($book->date);
-                $dayb = strtotime('+1 day', $daya);
-                echo $pren->data;
-                $prens = $this->db()->find($pren, array("where"=>"data>=".$daya." AND data<=".$dayb));
-                $i = 0;
-                foreach($prens as $p){
-                    $i++;
-                    $this->snagMail($p->email, $_POST["nomecognome"], $book->date, $book->value, $delete);
-                    if($delete){
-                        $this->db()->delete($p);
-                    }
-                }
-
-                $data['messaggio'] = $i." email mandate per avvisare dell'imprevisto";
-                if($delete)
-                    $data['messaggio'] .= "<br>Le prenotazioni sono state cancellate!";
-                $data['url'] = Doo::conf()->APP_URL."admin";
-                $data['titolo'] = "Ben fatto!";
-                // MESSAGGIO DOCENTE MODIFICATO
-                $this->renderc('ok-page',$data);
-                return;
-
-            }
             $done = $this->db()->insert($book);
             if($done){
 
@@ -100,7 +123,6 @@ class BookoffController extends DooController {
                 $data['url'] = Doo::conf()->APP_URL."admin";
                 $data['titolo'] = "Ben fatto!";
 
-                // MESSAGGIO DOCENTE MODIFICATO
                 $this->renderc('ok-page',$data);
                 return;
             }
@@ -120,15 +142,8 @@ class BookoffController extends DooController {
             foreach($docenti as $docente){
                 array_push($data["docenti"], array("did" => $docente->did, "nomecognome" => $docente->nome." ".$docente->cognome));
             }
-            if($snag){
-                $di = Doo::loadModel("docenti", true);
-                $di->did = $this->params["id"];
 
-                $n = $this->db()->find($di, array("limit"=>1));
-                if(!$n) die("AAA");
-                $data["docenti"] = $n->nome. " ". $n->cognome;
-            }
-            $pagename = $snag ? "new-snag" : "new-bookoff";
+            $pagename = "new-bookoff";
             $data = $this->getContents($pagename,$data);
             $this->renderc("base-template", $data);
 
@@ -155,7 +170,7 @@ class BookoffController extends DooController {
              */
 
             $book = Doo::loadModel('bookoff', true);
-            $bookoffs = $this->db()->find($book, array('where' => 'date>' . time(), "asArray"=>true));
+            $bookoffs = $this->db()->find($book, array("asArray"=>true));
             $data = array();
 
 
@@ -172,7 +187,7 @@ class BookoffController extends DooController {
 
                 $nc = $docenteResult->nome ." ". $docenteResult->cognome;
 
-                $b = array("nome" => $nc, "bookoffid" => $bookoff["bookoffid"], "value" => $bookoff["value"], "date" => $bookoff["date"]);
+                $b = array("nome" => $nc, "bookoffid" => $bookoff["bookoffid"], "from" => date("d-m-Y",$bookoff["datefrom"]), "to" => date("d-m-Y",$bookoff["dateto"]));
                 array_push($data, $b);
             }
 
@@ -191,9 +206,14 @@ class BookoffController extends DooController {
             $book = Doo::loadModel('bookoff', true);
             $book->bookoffid = $bookoffid;
             $book->did = $_POST['did'];
-            $book->value = stripslashes($_POST['value']);
-            $book->date = $_POST['date'];
+            $book->datefrom = strtotime($_POST["from"]);
+            $book->dateto = strtotime($_POST["to"]);
 
+            if($book->dateto < $book->datefrom){
+                $this->renderc("error-page", array("message"=> "La data di fine non puo' essere minore di quella di inizio"));
+                return;
+            }
+            
             if($this->db()->update($book)){
                 $data['messaggio'] = "Bookoff modificato!";
                 $data['url'] = Doo::conf()->APP_URL."admin";
@@ -230,8 +250,8 @@ class BookoffController extends DooController {
 
             $data['name'] = $docenteResult->nome ." ". $docenteResult->cognome;
             $data['did'] = $docenteResult->did;
-            $data['value'] = $bookOffResult->value;
-            $data['date'] = $bookOffResult->date;
+            $data['from'] = date("d-m-Y", $bookOffResult->datefrom);
+            $data['to'] = date("d-m-Y", $bookOffResult->dateto);
             $data = $this->getContents("edit-bookoff", $data);
             $this->renderc("base-template", $data);
 

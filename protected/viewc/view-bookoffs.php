@@ -19,8 +19,8 @@ $ul = Doo::conf()->APP_URL . "/global/";
     <table width="80%" border="0">
   <tr>
     <th scope="col">Nome Docente</th>
-    <th scope="col">Data</th>
-    <th scope="col">Momenti</th>
+    <th scope="col">Da</th>
+    <th scope="col">A</th>
     <th scope="col">Modifica</th>
     <th scope="col">Elimina</th>
   </tr>
@@ -31,11 +31,11 @@ foreach($data as $bookoff){
    
     
     $ur = Doo::conf()->APP_URL."admin/bookoff";
-    $bookoff["value"] = substr(str_replace(array("timeslot","\"","{","}","[","]"),"",$bookoff["value"]),1);
+   // $bookoff["value"] = substr(str_replace(array("timeslot","\"","{","}","[","]"),"",$bookoff["value"]),1);
     echo "<tr>
     <td>".$bookoff["nome"]."&nbsp;</td>
-    <td>".$bookoff["date"]."&nbsp;</td>
-    <td>".$bookoff["value"]."&nbsp;</td>
+    <td>".$bookoff["from"]."&nbsp;</td>
+    <td>".$bookoff["to"]."&nbsp;</td>
     <td><a href=\"".$ur."/edit/".$bookoff["bookoffid"]."\">Modifica</a></td>
     <td><a href=\"".$ur."/delete/".$bookoff["bookoffid"]."\" onclick=\"javascript:return confirm('Sei sicuro di voler cancellare il bookoff?');\">Elimina</a></td>
   </tr>";

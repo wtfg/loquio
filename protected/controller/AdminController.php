@@ -135,7 +135,10 @@ class AdminController extends DooController {
                         
                         // MESSAGGIO DOCENTE MODIFICATO
                         $this->renderc('ok-page',$data);
+                        return;
                     }
+                    $this->renderc("error-page");
+                    return;
                 } else {
                     
                     $this->renderc("error-page");
@@ -214,7 +217,10 @@ class AdminController extends DooController {
 
                             // MESSAGGIO DOCENTE MODIFICATO
                             $this->renderc('ok-page',$data);
+                            return;
                         }
+                        $this->renderc("error-page");
+                        return;
                     } else {
                         // MESSAGGIO ERRORE FICO
                         $this->renderc("error-page");
@@ -277,12 +283,33 @@ class AdminController extends DooController {
                         
                         // MESSAGGIO DOCENTE MODIFICATO
                         $this->renderc('ok-page',$data);
+                        return;
                     }
+                    $this->renderc("error-page");
+                    return;
                 } else {
                     $this->renderc("error-page");
                 }
             }
         }
+    }
+
+    function clearDB(){
+        $materie = Doo::loadModel("materie", true);
+        $docenti = Doo::loadModel("docenti", true);
+        $prenotazioni = Doo::loadModel("prenotazioni", true);
+        $bookoff = Doo::loadModel("bookoff", true);
+        $this->db()->deleteAll($materie);
+        $this->db()->deleteAll($prenotazioni);
+        $this->db()->deleteAll($bookoff);
+        $this->db()->deleteAll($docenti);
+
+        $data['messaggio'] = "Database ripulito!";
+        $data['url'] = Doo::conf()->APP_URL;
+        $data['titolo'] = "Ben fatto!";
+
+        // MESSAGGIO DOCENTE MODIFICATO
+        $this->renderc('ok-page',$data);
     }
 
     function deleteMaterie() {

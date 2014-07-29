@@ -106,6 +106,8 @@ $route['*']['/admin/materie/new'] = array('AdminController', 'addMaterie');
 
 $route['*']['/admin/prenotazioni'] = array('AdminController', 'viewPrenotazioni');
 
+$route['*']['/admin/cleardb'] = array('AdminController', 'clearDB');
+
 $route['*']['/admin/prenotazioni/delete/:id'] = array('AdminController', 'deletePrenotazioni');
 
 $route['*']['/admin/config'] = array('AdminController', 'editSiteConfig');
@@ -116,7 +118,7 @@ $route['*']['/admin/bookoff'] = array('BookoffController', 'viewBookoffs');
 
 $route['*']['/admin/bookoff/new'] = array('BookoffController', 'newBookoff');
 
-$route['*']['/snag/:id'] = array('BookoffController', 'newBookoff');
+$route['*']['/snag/:id'] = array('BookoffController', 'snag');
 
 $route['*']['/admin/bookoff/edit/:id'] = array('BookoffController', 'editBookoff');
 

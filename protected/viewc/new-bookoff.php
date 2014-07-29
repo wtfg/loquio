@@ -32,19 +32,26 @@ ob_start();
             ?>
                </select>
             </p>
-            <h2>Data</h2>
+            <h2>Dal giorno</h2>
             <p>
-            <input type="text" name="date" id="date"  value=""/>
+            <input type="text" name="from" id="from"  value=""/>
             </p>
 
-            <div id="container"></div>
-            <br/>
-            <input type="hidden" name="value" id="value"  value='{}'/>
+            <h2>Al giorno</h2>
+            <p>
+                <input type="text" name="to" id="to"  value=""/>
+            </p>
 
             <script type="text/javascript" src="<?php echo $ul; ?>js/datepickr.min.js"></script>
             <script type="text/javascript">
 
-                new datepickr('date', {
+                new datepickr('from', {
+                    dateFormat: 'd-m-Y', /* need to double escape characters that you don't want formatted */
+                    weekdays: ['Domenica', 'Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato'],
+                    months: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+                    defaultSuffix: '' /* the suffix that is used if nothing matches the suffix object, default 'th' */
+                });
+                new datepickr('to', {
                     dateFormat: 'd-m-Y', /* need to double escape characters that you don't want formatted */
                     weekdays: ['Domenica', 'Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato'],
                     months: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],

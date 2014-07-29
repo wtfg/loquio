@@ -234,7 +234,7 @@ class PrenotController extends DooController
         $emptyObject = "{\"\":\"\"}";
         $conf = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
         $LOOK_AHEAD_DAYS = $conf->getParam("lookAheadTime");
-        #$_POST['message']['did'] = 15;
+        //$_POST['message']['did'] = 15;
         if (isset($_POST['message'])) {
 
             // teacher data queries
@@ -266,30 +266,30 @@ class PrenotController extends DooController
 
             $bookoffs = Doo::loadModel("bookoff", true);
             $bookoffs->did = $teacherId;
-            $bookoffs = $this->db()->find($bookoffs, array("where"=>"date > '".date("y-m-d", time())."'"));
+            $bookoffs = $this->db()->find($bookoffs, array("where"=>"datefrom >= '".time()."'"));
 
 
             $theCalendar->addBookings($prenCalendar);
             $freeDays = $theCalendar->getFreeDaysJSON($LOOK_AHEAD_DAYS);
-            $niger = json_decode($freeDays,true);
+            $freeDaysObject = json_decode($freeDays,true);
+
+
             foreach($bookoffs as $bookoff){
-                $a = json_decode($bookoff->value, true);
 
-                $a = $a["timeslot"];
-                $data = $bookoff->date;
-                foreach($a as $slot){
-                    $h = strtotime(substr($data,0,11).$slot.":00");
-                    foreach($niger as $freeElm){
+                $fromStamp = $bookoff->datefrom;
+                $toStamp = strtotime("+1 day", $bookoff->dateto);
 
-                        if(is_array($freeElm) && array_key_exists("start", $freeElm)){
+                foreach($freeDaysObject as $freeElm){
 
-                            if(strtotime($freeElm["start"]) == $h){
-                                $freeDays = str_replace($freeElm["start"], "", $freeDays);
-                                break;
-                            }
+                    if(is_array($freeElm) && array_key_exists("start", $freeElm)){
+                        $prenTime = strtotime($freeElm["start"]);
+                        if($prenTime<=$toStamp && $prenTime>= $fromStamp){
+                            $freeDays = str_replace($freeElm["start"], "", $freeDays);
+                            continue;
                         }
                     }
                 }
+
 
 
             }
