@@ -10,11 +10,17 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 ======
 
 TODO prima della Beta
-+ Pannello avviso imprevisti [admin docente] (inserisce un bookoff)
++ Crud utenti Admin
++ Nella creazione del docente deve creare un utente
++ Nell eliminazione del docente deve eliminare l'utente
++ Nell update del docente deve aggiornare il docente
++ Rimuovi orario, Bookoff per giorni
++ Tasto pulisci database (tutte le prenotazioni, i docenti, bookoff... tutto tranne gli utenti)
++ AUTOSnag disponibile dal docente (automatico)
++ Timeslots ogni 10 minuti
+
 + Sort dei docenti
-+ Inserisci utenti da Admin
 + Export dati
-+ Annulla prenotazione (acl = 1 & utente = docente)
 + Introdurre sliders
 + IMPORTANTE: Refactoring del codice
 + Refactoring del javascript, introduzione di minifiers

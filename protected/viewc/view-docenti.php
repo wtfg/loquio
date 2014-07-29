@@ -22,6 +22,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
         <th scope="col">Attivo</th>
         <th scope="col">Materia</th>
         <th scope="col">Modifica</th>
+        <th scope="col">Imprevisto</th>
         <th scope="col">Elimina</th>
     </tr>
     <?php
@@ -39,6 +40,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
     <td class=\"active-" . $attivo . "\">" . $attivo . "&nbsp;</td>
     <td>" . $doc["nomemateria"] . "&nbsp;</td>
     <td><a href=\"" . $ur . "/edit/" . $doc["did"] . "\">Modifica</a></td>
+    <td><a href=\"" . Doo::conf()->APP_URL . "snag/" . $doc["did"] . "\">Imprevisto</a></td>
     <td><a href=\"" . $ur . "/delete/" . $doc["did"] . "\" onclick=\"javascript:return confirm('Sei sicuro di voler cancrllare il docente?');\">Elimina</a></td>
   </tr>";
     }

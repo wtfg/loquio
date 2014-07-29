@@ -37,7 +37,7 @@ foreach($data as $bookoff){
     <td>".$bookoff["date"]."&nbsp;</td>
     <td>".$bookoff["value"]."&nbsp;</td>
     <td><a href=\"".$ur."/edit/".$bookoff["bookoffid"]."\">Modifica</a></td>
-    <td><a href=\"".$ur."/delete/".$bookoff["bookoffid"]."\" onclick=\"javascript:return confirm('Sei sicuro di voler cancellare il oookoff?');\">Elimina</a></td>
+    <td><a href=\"".$ur."/delete/".$bookoff["bookoffid"]."\" onclick=\"javascript:return confirm('Sei sicuro di voler cancellare il bookoff?');\">Elimina</a></td>
   </tr>";
     
     
