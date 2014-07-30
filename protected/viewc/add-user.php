@@ -1,26 +1,26 @@
 <?php
 $ul = Doo::conf()->APP_URL . "/global/";
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title> </title>
 <link rel="stylesheet" media="screen" href="<?php echo $ul; ?>css/style.css" />
 <script src='<?php echo $ul; ?>js/validate.js'></script>
 
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
 <!-- This makes HTML5 elements work in IE 6-8 -->
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<?php
+$data['head'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
+Aggiungi utente
+<?php
+$data['title'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
 
-</head>
 
-<body style="width:40%;text-align:center;">
-
-    <h1>Registrazione</h1>
-
-
-    <form id="login" name="login" method="post" action="doregister/">
+    <form id="login" name="login" method="post" action="">
       <h2>Nome</h2>
       <p>
       <input type="text" name="nome" id="nome" />
@@ -45,9 +45,18 @@ $ul = Doo::conf()->APP_URL . "/global/";
       <p>
       <input type="text" name="altramail" id="altramail" />
       </p>
-      <br>
 
-      <input type="submit" name="button" id="button" value="Registrati" />
+        <h2>Livello di accesso</h2>
+        <p>
+
+      <select name="aclr">
+          <option value="0" selected>Utente</option>
+          <option value="1">Docente</option>
+          <option value="2">Amministratore</option>
+      </select>
+            </p>
+        <br>
+      <input type="submit" name="button" id="button" value="Nuovo" />
           <a class='back' href="javascript:history.go(-1);">&Lt;</a>
 
     <br />
@@ -93,5 +102,7 @@ var v = new FormValidator("login",
     }
 );
 </script>
-</body>
-</html>
+<?php
+$data['content'] = ob_get_contents();
+ob_end_clean();
+?>

@@ -7,8 +7,7 @@
 
 // anonymous user can only access Blog index page.
 $acl['anonymous']['allow'] = array(
-							'LoginController'=>array('firstPage','registerPage'),
-                                                        'PrenotController'=>array('showPrenDocente')
+							'LoginController'=>array('firstPage','registerPage'), 'PrenotController'=>array('showPrenDocente')
 				);
 
 $acl['user']['allow'] = array(

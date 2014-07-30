@@ -10,13 +10,12 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 ======
 
 TODO prima della Beta
-+ Timeslots ogni 10 minuti
-+ Tasto pulisci database (tutte le prenotazioni, i docenti, bookoff... tutto tranne gli utenti)
-+ Crud utenti Admin
 + Nella creazione del docente deve creare un utente
 + Nell eliminazione del docente deve eliminare l'utente
 + Nell update del docente deve aggiornare il docente
++ Login per i docenti (impostazioni e bla bla bla)
 + AUTOSnag disponibile dal docente (automatico)
++ Bootstrap UI theme!
 
 TODO versione 0.2
 + Sort dei docenti
@@ -28,4 +27,4 @@ TODO versione 0.2
 + Pannello docente: avviso imprevisti e annulla prenotazioni
 + Tool di filtraggio liste (successivo)
 + Rinnovare tema con bootstrap
-+ Porting x Django
++ Porting x Vaadin

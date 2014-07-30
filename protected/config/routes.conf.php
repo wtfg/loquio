@@ -96,6 +96,14 @@ $route['*']['/admin/docenti/delete/:id'] = array('AdminController', 'deleteDocen
 
 $route['*']['/admin/docenti/new'] = array('AdminController', 'addDocenti');
 
+$route['*']['/admin/utenti'] = array('UserController', 'showUsers');
+
+$route['*']['/admin/utenti/edit/:id'] = array('UserController', 'updateUser');
+
+$route['*']['/admin/utenti/delete/:id'] = array('UserController', 'deleteUser');
+
+$route['*']['/admin/utenti/new'] = array('UserController', 'createUser');
+
 $route['*']['/admin/materie'] = array('AdminController', 'viewMaterie');
 
 $route['*']['/admin/materie/edit/:id'] = array('AdminController', 'editMaterie');
