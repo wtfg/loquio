@@ -10,11 +10,8 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 ======
 
 TODO prima della Beta
-+ Nella creazione del docente deve creare un utente
-+ Nell eliminazione del docente deve eliminare l'utente
-+ Nell update del docente deve aggiornare il docente
-+ Login per i docenti (impostazioni e bla bla bla)
 + AUTOSnag disponibile dal docente (automatico)
++ Lista prenotazioni
 + Bootstrap UI theme!
 
 TODO versione 0.2

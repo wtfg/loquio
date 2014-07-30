@@ -24,7 +24,8 @@ $acl['user']['deny'] = array(
 
 $acl['docente']['allow'] = array(
 							'LoginController'=>'*',
-                                                        'PrenotController'=>'*',
+                            'PrenotController'=>'*',
+                            'BookoffController' => array('snag')
 							
                                 );
 

@@ -70,6 +70,17 @@ class AdminController extends DooController {
         $this->renderc("view-docenti", $data);
     }
 
+    function randomPassword() {
+        $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+        $pass = array(); //remember to declare $pass as an array
+        $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+        for ($i = 0; $i < 8; $i++) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+        return implode($pass); //turn the array into a string
+    }
+
     function editDocenti() {
         // Dato un ID pagina mostra la scheda di modifica del docente
         // oppure se sta inserendo te lo comunica
@@ -119,6 +130,7 @@ class AdminController extends DooController {
                     $docente = Doo::loadModel("docenti", true);
                     $docente->did = $_POST['did'];
                     $docente = $this->db()->find($docente, array("limit" => 1));
+                    $oldmail = $docente->email;
                     $docente->email = $_POST['email'];
                     $docente->nome = $_POST['nome'];
                     $docente->cognome = $_POST['cognome'];
@@ -127,9 +139,19 @@ class AdminController extends DooController {
                     $docente->mid = $_POST['mid'];
                     $docente->attivo = $_POST['attivo'];
 
-                    if ($res = $this->db()->update($docente)) {
+                    $utente = Doo::loadModel("utenti", true);
+                    $utente->email = $oldmail;
+                    $utente = $this->db()->find($utente, array("limit" => 1));
+                    $utente->nome = $docente->nome;
+                    $utente->cognome = $docente->cognome;
+                    $utente->telefono = $docente->tel;
+                    $utente->email  = $docente->email;
+                    $res = $this->db()->update($docente);
+                    $res2 = $this->db()->update($utente);
 
-                        $data['messaggio'] = "Docente Modificato Con Successo!";
+                    if ($res && $res2) {
+
+                        $data['messaggio'] = "Docente Modificato Con Successo!<br>Il suo account utente e' stato sincronizzato con successo!";
                         $data['url'] = Doo::conf()->APP_URL;
                         $data['titolo'] = "Ben fatto!";
                         
@@ -154,14 +176,52 @@ class AdminController extends DooController {
         $docente = Doo::loadModel("docenti", true);
         $docente->did = $did;
 
+
+        $docentecorrelato = $this->db()->find($docente, array("limit"=>1));
+        $utenti = Doo::loadModel("utenti", true);
+        $utenti->emal = $docentecorrelato->email;
+        $utente = $this->db()->find($utenti, array("limit"=>1));
+
+
         $this->db()->delete($docente);
-        
-        $data['messaggio'] = "Docente Eliminato Con Successo!";
+        $this->db()->delete($utente);
+        $data['messaggio'] = "Docente e utente correlato eliminato con successo!";
         $data['url'] = Doo::conf()->APP_URL;
         $data['titolo'] = "Ben fatto!";
 
         // MESSAGGIO DOCENTE MODIFICATO
         $this->renderc('ok-page',$data);
+    }
+
+
+    function sendNewTeacherMail($email, $pass){
+        $subject = 'Il tuo account docente e stato creato!';
+
+        $headers = "From: prenotazioni@loquio.it \r\n";
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+        $message = '
+						<html>
+					  <body bgcolor=\"#FAFAFA\">
+
+							Il tuo account docente &eacute; stato creato con successo!<br><b>Non perdere e non cancellare questa email!<b>
+							 Le tue credenziali di accesso al sito sono:<br><p>
+							 Username: <b>'.$email.'</b><br>
+							 Password: <b>'.$pass.'</b><br>
+							 </p>
+
+						  <br><br>Grazie Per L\'Attenzione!<br><em>Il Team Di Loquio</em>
+					  </body>
+					</html>';
+
+
+        /*
+         * Se non sei in locale rimuovi dal commento
+         * il comando mail e commenta la linea $data['message']
+         *
+         */
+        mail($email,  $subject, $message, $headers);
     }
 
     function addDocenti() {
@@ -201,17 +261,36 @@ class AdminController extends DooController {
                     $docente->tel = $_POST['telefono'];
                     $docente->orelibere = str_replace("\\","",$_POST['orelibere']);
                     $docente->mid = $_POST['mid'];
+                    $docente->attivo = 1;
+
+                    $ran = $this->randomPassword();
+
+
+                    $utente = Doo::loadModel("utenti", true);
+                    $utente->email = $docente->email;
+                    $utente->nome = $docente->nome;
+                    $utente->cognome = $docente->cognome;
+                    $utente->telefono = $docente->tel;
+                    $utente->pass = md5($ran);
+                    $utente->acl = 1;
+
 
                     // controlla se l'email già esiste
                     $existing = Doo::loadModel('Docenti', true);
                     $existing->email = $docente->email;
-                    $isexisting = $this->db()->find($existing, array('limit' => 1));
+                    $isExisting = $this->db()->find($existing, array('limit' => 1));
+                    $existingUser = Doo::loadModel('Utenti', true);
+                    $existingUser->email = $docente->email;
+                    $isExistingUser = $this->db()->find($existing, array('limit' => 1));
 
-                    if (!$isexisting) {
+                    if (!$isExisting && !$isExistingUser) {
+
                         $res = $this->db()->insert($docente);
-                        if ($res) {
+                        $res2 = $this->db()->insert($utente);
+                        if ($res && $res2) {
                             // MESSAGGIO DOCENTE INSERITO
-                            $data['messaggio'] = "Docente Inserito!";
+                            $this->sendNewTeacherMail($docente->email, $ran);
+                            $data['messaggio'] = "Docente Inserito! Al docente verra inviata una mail con la sua password!";
                             $data['url'] = Doo::conf()->APP_URL;
                             $data['titolo'] = "Ben fatto!";
 

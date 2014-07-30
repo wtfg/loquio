@@ -20,7 +20,7 @@ class LoginController extends DooController {
             } else {
                 switch ($role){
                     case "docente":
-                        return Doo::conf()->APP_URL . "prenotazioni/list";
+                        $this->showDocentePanel();
                         break;
                     case "user":
                         $this->showUserPanel();
@@ -326,7 +326,17 @@ class LoginController extends DooController {
            
            return $rs;
         }
-         
+
+        $id = $_SESSION["user"]["id"];
+
+        $d = Doo::loadModel("docenti",true);
+        $d->email = $_SESSION["user"]["username"];
+        $d = $this->db()->find($d, array("limit"=>1));
+
+        $data = array("id"=>$d->did);
+
+
+        $this->renderc("panel-docente", $data);
         /*
          * Esegue un render del tipo
          *

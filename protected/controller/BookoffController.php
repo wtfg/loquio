@@ -94,7 +94,10 @@ class BookoffController extends DooController {
             $di->did = $this->params["id"];
 
             $n = $this->db()->find($di, array("limit"=>1));
-
+            if(!$n){
+                $this->renderc('error-page');
+                return;
+            }
             $data["docenti"] = $n->nome. " ". $n->cognome;
 
             $data = $this->getContents("new-snag",$data);
