@@ -52,9 +52,7 @@ class BookoffController extends DooController {
     }
 
     function snag(){
-        $snag = isset($this->params["id"]);
-
-        if(isset($_POST['button'])){
+        if(isset($_POST['date'])){
             $book = Doo::loadModel('bookoff', true);
             $book->did = $this->params['id'];
             $explainText =  stripslashes($_POST['value']);
@@ -94,6 +92,7 @@ class BookoffController extends DooController {
             $di->did = $this->params["id"];
 
             $n = $this->db()->find($di, array("limit"=>1));
+
             if(!$n){
                 $this->renderc('error-page');
                 return;
@@ -112,12 +111,14 @@ class BookoffController extends DooController {
          */
         $snag = isset($this->params["id"]);
 
-        if(isset($_POST['button'])){
+        if(isset($_POST['did'])){
 
             $book = Doo::loadModel('bookoff', true);
             $book->did = $snag ? $this->params['id'] : $_POST['did'];
-            $book->datefrom = strtotime($_POST["from"]);
-            $book->dateto = strtotime($_POST["to"]);
+            $fromto = explode("-",$_POST["fromto"]);
+
+            $book->datefrom = strtotime(trim(str_replace('/', '-', $fromto[0])));
+            $book->dateto = strtotime(trim(str_replace('/', '-', $fromto[1])));
 
             $done = $this->db()->insert($book);
             if($done){
@@ -146,7 +147,7 @@ class BookoffController extends DooController {
                 array_push($data["docenti"], array("did" => $docente->did, "nomecognome" => $docente->nome." ".$docente->cognome));
             }
 
-            $pagename = "new-bookoff";
+            $pagename = "add-bookoff";
             $data = $this->getContents($pagename,$data);
             $this->renderc("base-template", $data);
 
@@ -174,7 +175,7 @@ class BookoffController extends DooController {
 
             $book = Doo::loadModel('bookoff', true);
             $bookoffs = $this->db()->find($book, array("asArray"=>true));
-            $data = array();
+            $data = array("bookoffs"=>array());
 
 
 
@@ -191,7 +192,7 @@ class BookoffController extends DooController {
                 $nc = $docenteResult->nome ." ". $docenteResult->cognome;
 
                 $b = array("nome" => $nc, "bookoffid" => $bookoff["bookoffid"], "from" => date("d-m-Y",$bookoff["datefrom"]), "to" => date("d-m-Y",$bookoff["dateto"]));
-                array_push($data, $b);
+                array_push($data["bookoffs"], $b);
             }
 
             $data = $this->getContents("view-bookoffs", $data);
@@ -205,17 +206,16 @@ class BookoffController extends DooController {
          */
         $bookoffid = $this->params['id'];
 
-        if(isset($_POST['button'])){
+        if(isset($_POST['did'])){
             $book = Doo::loadModel('bookoff', true);
             $book->bookoffid = $bookoffid;
             $book->did = $_POST['did'];
-            $book->datefrom = strtotime($_POST["from"]);
-            $book->dateto = strtotime($_POST["to"]);
+            $fromto = explode("-",$_POST["fromto"]);
 
-            if($book->dateto < $book->datefrom){
-                $this->renderc("error-page", array("message"=> "La data di fine non puo' essere minore di quella di inizio"));
-                return;
-            }
+            $book->datefrom = strtotime(trim(str_replace('/', '-', $fromto[0])));
+            $book->dateto = strtotime(trim(str_replace('/', '-', $fromto[1])));
+
+
             
             if($this->db()->update($book)){
                 $data['messaggio'] = "Bookoff modificato!";
@@ -253,8 +253,7 @@ class BookoffController extends DooController {
 
             $data['name'] = $docenteResult->nome ." ". $docenteResult->cognome;
             $data['did'] = $docenteResult->did;
-            $data['from'] = date("d-m-Y", $bookOffResult->datefrom);
-            $data['to'] = date("d-m-Y", $bookOffResult->dateto);
+            $data['fromto'] = date("d/m/Y", $bookOffResult->datefrom). " - ".date("d/m/Y", $bookOffResult->dateto);
             $data = $this->getContents("edit-bookoff", $data);
             $this->renderc("base-template", $data);
 

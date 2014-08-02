@@ -22,12 +22,13 @@ class AdminController extends DooController {
     }
 
     function showAdminPanel() {
-        $this->renderc("panel-admin");
+
+        $this->renderc("base-template", $this->getContents("panel-admin", array()));
     }
 
     function editSiteConfig(){
         $a = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
-        if(!isset($_POST['cfg'])){
+        if(!isset($_POST['lookAheadTime'])){
             $data['config'] = $a;
             $data['message'] = "";
 
@@ -39,7 +40,8 @@ class AdminController extends DooController {
         }
 
         $data['config'] = $a;
-        $this->renderc("edit-siteconfig", $data);
+        $data = $this->getContents("edit-siteconfig", $data);
+        $this->renderc("base-template", $data);
     }
 
 
@@ -48,7 +50,7 @@ class AdminController extends DooController {
          * Funzione che imposta lo script per la view del docente
          */
         $docenti = $this->db()->find("docenti");
-        $data = array();
+        $data = array("docenti"=>array());
         foreach ($docenti as $docente) {
 
 
@@ -64,10 +66,11 @@ class AdminController extends DooController {
             $d['attivo'] = $docente->attivo;
             
 
-            array_push($data, $d);
+            array_push($data["docenti"], $d);
         }
 
-        $this->renderc("view-docenti", $data);
+        $data = $this->getContents("view-docenti", $data);
+        $this->renderc("base-template", $data);
     }
 
     function randomPassword() {
@@ -149,9 +152,12 @@ class AdminController extends DooController {
                     $res = $this->db()->update($docente);
                     $res2 = $this->db()->update($utente);
 
-                    if ($res && $res2) {
+                    if ($res ) {
 
-                        $data['messaggio'] = "Docente Modificato Con Successo!<br>Il suo account utente e' stato sincronizzato con successo!";
+                        $data['messaggio'] = "Docente Modificato Con Successo!";
+                        if($res2){
+                            $data['messaggio'] .= "<br>Il suo account utente e' stato sincronizzato con successo!";
+                        }
                         $data['url'] = Doo::conf()->APP_URL;
                         $data['titolo'] = "Ben fatto!";
                         
@@ -179,9 +185,8 @@ class AdminController extends DooController {
 
         $docentecorrelato = $this->db()->find($docente, array("limit"=>1));
         $utenti = Doo::loadModel("utenti", true);
-        $utenti->emal = $docentecorrelato->email;
+        $utenti->email = $docentecorrelato->email;
         $utente = $this->db()->find($utenti, array("limit"=>1));
-
 
         $this->db()->delete($docente);
         $this->db()->delete($utente);
@@ -312,19 +317,17 @@ class AdminController extends DooController {
     function viewMaterie() {
 
         $materie = $this->db()->find("materie");
-        $data = array();
-
-
+        $data = array("materie"=>array());
 
         foreach ($materie as $materia) {
 
             $d['nome'] = $materia->nome;
             $d['mid'] = $materia->mid;
 
-            array_push($data, $d);
+            array_push($data["materie"], $d);
         }
-
-        $this->renderc("view-materie", $data);
+        $data = $this->getContents("view-materie", $data);
+        $this->renderc("base-template", $data);
     }
 
     function editMaterie() {
@@ -435,7 +438,7 @@ class AdminController extends DooController {
     function viewPrenotazioni() {
         $p = Doo::loadModel("prenotazioni", true);
         $prens = $this->db()->find($p, array('where' => 'data>' . time()));
-        $pren = array();
+        $pren = array("prenotazioni"=>array());
 
         foreach ($prens as $prenotazione) {
             $d['pid'] = $prenotazione->pid;
@@ -464,10 +467,11 @@ class AdminController extends DooController {
             $d['email'] = $prenotazione->email;
             $d['tel'] = $prenotazione->tel;
             $d['codice_canc'] = $prenotazione->codicecanc;
-            array_push($pren, $d);
+            array_push($pren["prenotazioni"], $d);
         }
         #var_dump($pren);
-        $this->renderc('view-user-admin', $pren);
+        $data = $this->getContents('view-user-admin',  $pren);
+        $this->renderc('base-template', $data);
         #echo 'You are visiting ' . $_SERVER['REQUEST_URI'];
     }
 

@@ -1,10 +1,16 @@
 <?php
 $ul = Doo::conf()->APP_URL . "/global/";
+
 ob_start();
 ?>
-        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-        <link href='<?php echo $ul; ?>fc/fullcalendar/fullcalendar.css' rel='stylesheet' />
-        <link href='<?php echo $ul; ?>fc/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <link href='<?php echo $ul; ?>fc/fullcalendar/fullcalendar.css' rel='stylesheet' />
+    <link href='<?php echo $ul; ?>fc/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+<?php
+$data["head"] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
+
         <script src='<?php echo $ul; ?>fc/lib/jquery.min.js'></script>
         <script src='<?php echo $ul; ?>fc/lib/jquery-ui.custom.min.js'></script>
         <script src='<?php echo $ul; ?>fc/fullcalendar/fullcalendar.js'></script>
@@ -181,84 +187,14 @@ ob_start();
             }
 
         </style>
-<?php
-$data['head'] = ob_get_contents();
-ob_end_clean();
-ob_start();
-?>
-Inserisci prenotazione
-<?php
-$data['title'] = ob_get_contents();
-ob_end_clean();
-ob_start();
-?>
-
-        <form id="add-prenotazione" name="add-prenotazione" method="post" action="">
-            <table align="center" width="40%">
-                <tr>
-                    <td> <h2>Nome studente</h2></td>
-                    <td><input type="text" name="studente" id="studente" /></td>
-                </tr>
-                <tr>
-                    <td> <h2>Classe</h2></td>
-                    <td><input type="text" name="classe" id="classe" /></td>
-                </tr>
-                <tr>
-                    <td> <h2>Email</h2></td>
-                    <td><input type="text" name="email" id="email" /></td>
-                </tr>
-                <tr>
-                    <td> <h2>Telefono</h2></td>
-                    <td><input type="text" name="tel" id="tel" /></td>
-                </tr>
-                <tr>
-                    <td> <h2>Materia</h2></td>
-                    <td>
-                        <select id="mid" name="mid">
-                            <option value="" >Seleziona una materia</option>
-                            <?php
-                            foreach ($data['materie'] as $mid => $mnome) {
-
-                                echo "<option value=\"" . $mid . "\" >" . $mnome . "</option>";
-                            }
-                            ?>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td> <h2>Docente</h2></td>
-                    <td>
-                        <select id="did" name="did">
-                            <option value="" >---</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td> <h2>Giorno Selezionato</h2></td>
-                    <td><input type="text" readonly="readonly" name="selected" id="selected" value="" /></td>
-                </tr>
-           
-            </table>
-              <br />
-    
-            
-            <input type="hidden" name="uid" value="<?php echo $data['uid']; ?>">
-        <br>
-
-        <div id='calendar'></div><br> <br>
-
-        <input type="submit" name="button" id="button" value="Invia" />
-        </form>
-        <a class='logout' href="<?php echo Doo::conf()->APP_URL."logout";?>">Esci</a>
-            <a class='back' href="javascript:history.go(-1);">&Lt;</a>
-        <script>
+    <script>
         var v = new FormValidator("add-prenotazione",
             [
-            {
-                name: "studente",
-                display: "Studente",
-                rules: "required"
-            },{
+                {
+                    name: "studente",
+                    display: "Studente",
+                    rules: "required"
+                },{
                 name: "classe",
                 display: "Classe",
                 rules: "valid_class|required"
@@ -285,7 +221,86 @@ ob_start();
                 }
             }
         );
-        </script>
+    </script>
+<?php
+$data['scripts'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
+Inserisci prenotazione
+<?php
+$data['title'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
+
+
+        <form id="add-prenotazione" name="add-prenotazione" method="post" action="">
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Nome studente </label>
+
+                <div class="col-sm-9">
+                    <input type="text" name="studente" id="studente" placeholder="Nome Studente" class="col-xs-10 col-sm-5">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Classe </label>
+
+                <div class="col-sm-9">
+                    <input type="text" name="classe" id="classe" placeholder="Classe" class="col-xs-10 col-sm-5">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Email </label>
+
+                <div class="col-sm-9">
+                    <input type="text" name="email" id="email" placeholder="Email" class="col-xs-10 col-sm-5">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Telefono </label>
+
+                <div class="col-sm-9">
+                    <input type="text" name="tel" id="tel" placeholder="Telefono" class="col-xs-10 col-sm-5">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Materia: </label>
+                <select id="mid" name="mid">
+                    <option value="" >Seleziona una materia</option>
+                    <?php
+                    foreach ($data['materie'] as $mid => $mnome) {
+
+                        echo "<option value=\"" . $mid . "\" >" . $mnome . "</option>";
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Docente </label>
+                <select id="did" name="did">
+                    <option value="" >---</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="text" readonly="readonly" name="selected" id="selected" value="" />
+            </div>
+
+              <br />
+    
+            
+            <input type="hidden" name="uid" value="<?php echo $data['uid']; ?>">
+        <br>
+
+        <div id='calendar'></div><br> <br>
+
+        <button type="submit" name="button" id="button" class="btn btn-success">Invia</button>
+        </form>
+
+
 <?php
 $data['content'] = ob_get_contents();
 ob_end_clean();

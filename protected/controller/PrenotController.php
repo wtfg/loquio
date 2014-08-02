@@ -172,29 +172,33 @@ class PrenotController extends DooController
         $uid = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : "";
         $bookModel = $this->getBook($uid, array("where" => "data>" . time()));
 
-        $data = array();
+        $data = array("prenotazioni"=>array());
 
         foreach ($bookModel as $book) {
             $teacherModel = $this->getTeacher($book->did, array("limit" => 1));
             $subjectModel = $this->getSubject($teacherModel->mid, array("limit" => 1));
 
-            $resultDict = array("nomedocente" => $teacherModel->nome . " " . $teacherModel->cognome,
+            $resultDict = array("nome_docente" => $teacherModel->nome . " " . $teacherModel->cognome,
                                 "data" => date("d-m-Y H:i", $book->data),
                                 "materia" => $subjectModel->nome,
                                 "studente" => $book->studente,
-                                "codicecanc" => $book->codicecanc
+                                 "classe" => $book->classe,
+                                "codice_canc" => $book->codicecanc
             );
 
-            array_push($data, $resultDict);
+            array_push($data["prenotazioni"], $resultDict);
         }
-        $this->renderc("view-prenotazioni-user", $data);
+
+        $data = $this->getContents("view-prenotazioni-user", $data);
+        $this->renderc("base-template", $data);
     }
 
     function showPrenDocente()
     {
         if (!isset($_POST['invia'])) {
             $data = array("teachers" => $this->getTeachers(array("where"=>"attivo=1")),"message" => "");
-            $this->renderc("view-listapren", $data);
+            $data =  $this->getContents("view-listapren", $data);
+            $this->renderc("base-template", $data);
         } else {
 
             $theDate = trim($_POST['data']);
@@ -202,7 +206,8 @@ class PrenotController extends DooController
 
             if(strtotime($theDate) == false){
                 $data = array("teachers" => $this->getTeachers(),"message" => "Inserisci una data nel formato gg-mm-aaaa");
-                $this->renderc("view-listapren", $data);
+                $data =  $this->getContents("view-listapren", $data);
+                $this->renderc("base-template", $data);
                 return;
             }
 
@@ -225,7 +230,8 @@ class PrenotController extends DooController
                           'prens' => $teachers
             );
 
-            $this->renderc("view-listapren2", $data);
+            $data =  $this->getContents("view-listapren2", $data);
+            $this->renderc("base-template", $data);
         }
     }
 
@@ -332,7 +338,7 @@ class PrenotController extends DooController
                           'materie' => $subjectArray
             );
             $data = $this->getContents("add-prenotazioni", $data);
-            $this->renderc("base2-template", $data);
+            $this->renderc("base-template", $data);
 
 
         } else {

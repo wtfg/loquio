@@ -1,68 +1,81 @@
 <?php
 $ul = Doo::conf()->APP_URL . "/global/";
-?>
-<link rel="stylesheet" media="screen" href="<?php echo $ul; ?>css/style.css" />
-<script src='<?php echo $ul; ?>js/validate.js'></script>
 
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
-<!-- This makes HTML5 elements work in IE 6-8 -->
-<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<?php
-$data['head'] = ob_get_contents();
-ob_end_clean();
 ob_start();
 ?>
-Aggiungi utente
+Inserisci utente
 <?php
 $data['title'] = ob_get_contents();
 ob_end_clean();
 ob_start();
 ?>
 
+    <form class="form-horizontal" id="login" name="login" method="post" action="">
+        <div class="control-group">
+            <label class="control-label" for="form-field-1">Nome</label>
 
-    <form id="login" name="login" method="post" action="">
-      <h2>Nome</h2>
-      <p>
-      <input type="text" name="nome" id="nome" />
-      </p>
-      <h2>Cognome</h2>
-      <p>
-      <input type="text" name="cognome" id="cognome" />
-      </p>
-      <h2>Email</h2>
-      <p>
-      <input type="text" name="email" id="email" />
-      </p>
-      <h2>Password</h2>
-      <p>
-      <input type="password" name="pass" id="pass" />
-      </p>
-      <h2>Telefono</h2>
-      <p>
-      <input type="text" name="telefono" id="telefono" />
-      </p>
-      <h2>Email Alternativa</h2>
-      <p>
-      <input type="text" name="altramail" id="altramail" />
-      </p>
+            <div class="controls">
+                <input type="text" name="nome" id="nome" placeholder="Nome">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="form-field-1">Cognome</label>
 
-        <h2>Livello di accesso</h2>
-        <p>
+            <div class="controls">
+                <input type="text" name="cognome" id="cognome" placeholder="Cognome">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="form-field-1">Email</label>
 
-      <select name="aclr">
-          <option value="0" selected>Utente</option>
-          <option value="1">Docente</option>
-          <option value="2">Amministratore</option>
-      </select>
-            </p>
+            <div class="controls">
+                <input type="text" name="email" id="email" placeholder="Email">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="form-field-1">Password</label>
+
+            <div class="controls">
+                <input type="password" name="pass" id="pass" placeholder="Password">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="form-field-1">Telefono</label>
+
+            <div class="controls">
+                <input type="text" name="telefono" id="telefono" placeholder="Telefono">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="form-field-1">Email Alternativa</label>
+
+            <div class="controls">
+                <input type="text" name="altramail" id="altramail" placeholder="Email Alternativa">
+            </div>
+        </div>
+        <div class="row-fluid">
+            <label for="aclt">Livello di Accesso (ACL)</label>
+            <select name="aclr">
+                <option value="0" selected>Utente</option>
+                <option value="1">Docente</option>
+                <option value="2">Amministratore</option>
+            </select>
+        </div>
+
         <br>
-      <input type="submit" name="button" id="button" value="Nuovo" />
-          <a class='back' href="javascript:history.go(-1);">&Lt;</a>
-
-    <br />
+        <br>
+        <button name="button" type="submit" class="btn btn-large btn-success">
+            <i class="icon-ok bigger-150"></i>
+            Invia
+        </button>
     </form>
-    <br>
-    
+<?php
+$data['content'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
+
+    <script src='<?php echo $ul; ?>js/validate.js'></script>
         <script>
 var v = new FormValidator("login",
     [
@@ -90,7 +103,7 @@ var v = new FormValidator("login",
         name: "altramail", 
         display: "Email Alternativa",
         rules: "valid_email|required"
-    },],function(errors, event){
+    }],function(errors, event){
         if(errors.length > 0){
             msg="";
             for(er in errors){
@@ -103,6 +116,6 @@ var v = new FormValidator("login",
 );
 </script>
 <?php
-$data['content'] = ob_get_contents();
+$data['scripts'] = ob_get_contents();
 ob_end_clean();
 ?>

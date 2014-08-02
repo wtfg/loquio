@@ -1,13 +1,13 @@
 <?php
 $ul = Doo::conf()->APP_URL . "/global/";
-
 ob_start();
 ?>
-        <script src='<?php echo $ul; ?>fc/lib/jquery.min.js'></script>
-        
-        <script src="<?php echo $ul; ?>js/docenti.js"></script>
+    <script src="<?php echo $ul?>js/docenti-add.js"></script>
+    <script src="<?php echo $ul?>assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="<?php echo $ul?>assets/js/jquery.ui.touch-punch.min.js"></script>
+
 <?php
-$data['head'] = ob_get_contents();
+$data['scripts'] = ob_get_contents();
 ob_end_clean();
 ob_start();
 ?>
@@ -18,72 +18,88 @@ ob_end_clean();
 ob_start();
 ?>
 
-        <form id="add-docente" name="login" method="post" action="">
-            <h2>Nome</h2>
-            <p>
-            <input type="hidden" name="did" id="did" value="<?php
-            echo $data['did'];
-            ?>">
-            <input type="text" name="nome" id="nome" value="<?php
-                   echo $data['nome'];
-            ?>" />
-            </p>
-            <h2>Cognome</h2>
-            <p>
-            <input type="text" name="cognome" id="cognome"  value="<?php
-                   echo $data['cognome'];
-            ?>"/>
-            </p>
-            <h2>Email</h2>
-            <p>
-            <input type="text" name="email" id="email"  value="<?php
-                   echo $data['email'];
-            ?>"/>
-            </p>
-            <h2>Telefono</h2>
-            <p>
-            <input type="text" name="telefono" id="telefono"  value="<?php
-                echo $data['telefono'];
-                ?>"/>
-            </p>
-            <h2>Materia</h2>
-            <p>
-            <select id="mid" name="mid">
-                <?php
-                    foreach ($data['materie'] as $ad) {
-                        $sel = ($ad['id'] == $data['mid']) ? "selected=\"selected\"" : "";
+<form id="add-docente" class="form-horizontal" name="login" method="post" action="">
+    <input type="hidden" name="did" id="did" value="<?php
+    echo $data['did'];
+    ?>">
+    <div class="control-group">
+        <label class="control-label" >Nome</label>
+
+        <div class="controls">
+            <input type="text"  name="nome" id="nome" value="<?php
+            echo $data['nome'];
+            ?>" placeholder="Nome">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" >Cognome</label>
+
+        <div class="controls">
+            <input type="text"  name="cognome" id="cognome" value="<?php
+            echo $data['cognome'];
+            ?>" placeholder="Cognome">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" >E-Mail</label>
+
+        <div class="controls">
+            <input type="text"  name="email" value="<?php
+            echo $data['email'];
+            ?>" id="email" placeholder="E-Mail">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" >Telefono</label>
+
+        <div class="controls">
+            <input type="text" value="<?php
+            echo $data['telefono'];
+            ?>" name="telefono" id="telefono" placeholder="Telefono">
+        </div>
+    </div>
+    <div class="row-fluid">
+        <label for="mid">Materia:</label>
+        <select id="mid" name="mid">
+            <?php
+            foreach ($data['materie'] as $ad) {
+                $sel = ($ad['id'] == $data['mid']) ? "selected=\"selected\"" : "";
                 ?>
-                    <option value="<?php echo $ad['id']; ?>" <?php echo $sel ?> ><?php echo $ad['nome']; ?></option>
-                <?php
-                }
-                ?>
+                <option value="<?php echo $ad['id']; ?>" <?php echo $sel ?> ><?php echo $ad['nome']; ?></option>
+            <?php
+            }
+            ?>
 
-            </select>
+        </select>
 
-            </p>
-            
+    </div>
 
-            <div id="container"></div>
-            <br/>
-            <input type="hidden" name="orelibere" id="orelibere"  value='<?php
-echo $data['orelibere'];
-?>'/>
-      
-            <h2>Attivo:</h2>
-            <input type="checkbox" name="attivo" id="attivo" value="1"
-<?php
-echo $data['attivo'];
-?>> 
-            <br />
-                  <br />
-            <input type="submit" name="button" id="button" value="Invia" />
-            <br />
-        </form>
-        <br><a class='logout' href="<?php echo Doo::conf()->APP_URL."logout";?>">Esci</a>
-            <a class='back' href="javascript:history.go(-1);">&Lt;</a>
+    <br>
+    <h3 class="header smaller lighter blue">
+        Seleziona giorni e ore di ricevimento
+        <small>Devi inoltre selezionare il numero massimo di prenotazioni a giorno</small>
+    </h3>
+    <div id="container"></div>
+    <br/>
+    <input type="hidden" name="orelibere" id="orelibere"  value='<?php
+    echo $data['orelibere'];
+    ?>'/>
 
+    <label>
+    <input type="checkbox" name="attivo" id="attivo" value="1"
+        <?php
+        echo $data['attivo'];
+        ?>>
+    <span class="lbl">Attivo?</span>
+    </label>
+    <br />
+    <button name="button" type="submit" class="btn btn-large btn-success">
+        <i class="icon-ok bigger-150"></i>
+        Invia
+    </button>
+    <br />
+</form>
 <?php
 $data['content'] = ob_get_contents();
 ob_end_clean();
-ob_start();
 ?>

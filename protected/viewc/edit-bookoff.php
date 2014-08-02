@@ -1,70 +1,143 @@
 <?php
-$ul = Doo::conf()->APP_URL . "/global/";
+$data["title"] = "Modifica Bookoff";
+
+$ul = Doo::conf()->APP_URL . "global/";
+
 
 ob_start();
 ?>
-        <script src='<?php echo $ul; ?>fc/lib/jquery.min.js'></script>
-        <link rel="stylesheet" type="text/css" href="<?php echo $ul; ?>css/datepickr.css" />
+    <!--page specific plugin styles-->
+    <link rel="stylesheet" href="<?php echo $ul;?>assets/css/jquery-ui-1.10.3.custom.min.css" />
+    <link rel="stylesheet" href="<?php echo $ul;?>assets/css/datepicker.css" />
+    <link rel="stylesheet" href="<?php echo $ul;?>assets/css/daterangepicker.css">
 <?php
-$data['head'] = ob_get_contents();
+$data["head"] = ob_get_contents();
 ob_end_clean();
+
 ob_start();
 ?>
-Modifica Bookoff
-<?php
-$data['title'] = ob_get_contents();
-ob_end_clean();
-ob_start();
-?>
-
-        <form id="edit-bookoff" name="login" method="post" action="">
-            <h2>Docente: <?php
-                echo $data['name'];
-                ?> </h2>
-            <p>
-                <input type="hidden" name="did" id="did" value="<?php
-                echo $data['did'];
-                ?>" />
-            </p>
-            <h2>Dal giorno</h2>
-            <p>
-            <input type="text" name="from" id="from"  value="<?php
-                   echo $data['from'];
-            ?>"/>
-            </p>
-            <h2>Al giorno</h2>
-            <p>
-                <input type="text" name="to" id="to"  value="<?php
-                echo $data['to'];
-                ?>"/>
-            </p>
-            <br/>
+    <div class="span4">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4>Bookoffs:</h4>
 
 
-            <script type="text/javascript" src="<?php echo $ul; ?>js/datepickr.min.js"></script>
-            <script type="text/javascript">
+            </div>
 
-                new datepickr('from', {
-                    dateFormat: 'd-m-Y', /* need to double escape characters that you don't want formatted */
-                    weekdays: ['Domenica', 'Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato'],
-                    months: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-                    defaultSuffix: '' /* the suffix that is used if nothing matches the suffix object, default 'th' */
-                });
-                new datepickr('to', {
-                    dateFormat: 'd-m-Y', /* need to double escape characters that you don't want formatted */
-                    weekdays: ['Domenica', 'Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato'],
-                    months: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-                    defaultSuffix: '' /* the suffix that is used if nothing matches the suffix object, default 'th' */
-                });
-            </script>
-            <input type="submit" name="button" id="button" value="Invia" />
-            <br />
-        </form>
-        <br><a class='logout' href="<?php echo Doo::conf()->APP_URL."logout";?>">Esci</a>
-            <a class='back' href="javascript:history.go(-1);">&Lt;</a>
+            <div class="widget-body">
+
+                <form method="post" name="view-lista" action="">
+                        <input type="hidden" name="did" id="did" value="<?php
+                        echo $data['did'];
+                        ?>" />
+
+                <div class="widget-main">
+                    <div class="row-fluid">
+                        <label for="did">Docente: <?php
+                            echo $data['name'];
+                            ?></label>
+                    </div>
+
+                    <div class="row-fluid">
+                        <label for="id-date-range-picker-1">Range di tempo</label>
+                    </div>
+                    <div class="control-group">
+                        <div class="row-fluid input-prepend">
+                            <span class="add-on">
+                                <i class="icon-calendar"></i>
+                            </span>
+                            <input class="span10" type="text" value="<?php
+                            echo $data['fromto'];
+                            ?>" name="fromto" id="id-date-range-picker-1">
+                        </div>
+                    </div>
+                    <hr>
+                    <button class="btn btn-info" name="invia" type="submit">
+                        <i class="icon-ok bigger-110"></i>
+                        Submit
+                    </button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
 <?php
 $data['content'] = ob_get_contents();
 ob_end_clean();
 ob_start();
+?>
+
+
+
+<!--basic scripts-->
+
+<!--[if !IE]>-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<!--<![endif]-->
+
+<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+<!--[if !IE]>-->
+
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+</script>
+
+<!--<![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+<script type="text/javascript">
+    if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
+<script src="<?php echo $ul;?>assets/js/bootstrap.min.js"></script>
+
+<!--page specific plugin scripts-->
+    <script src="<?php echo $ul;?>assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="<?php echo $ul;?>assets/js/jquery.ui.touch-punch.min.js"></script>
+    <script src="<?php echo $ul;?>assets/js/chosen.jquery.min.js"></script>
+    <script src="<?php echo $ul;?>assets/js/fuelux/fuelux.spinner.min.js"></script>
+    <script src="<?php echo $ul;?>assets/js/date-time/bootstrap-datepicker.min.js"></script>
+    <script src="<?php echo $ul;?>assets/js/date-time/bootstrap-timepicker.min.js"></script>
+    <script src="<?php echo $ul;?>assets/js/date-time/moment.min.js"></script>
+    <script src="<?php echo $ul;?>assets/js/date-time/daterangepicker.min.js"></script>
+    <script src="<?php echo $ul;?>assets/js/bootstrap-colorpicker.min.js"></script>
+    <script src="<?php echo $ul;?>assets/js/jquery.knob.min.js"></script>
+    <script src="<?php echo $ul;?>assets/js/jquery.autosize-min.js"></script>
+    <script src="<?php echo $ul;?>assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
+    <script src="<?php echo $ul;?>assets/js/jquery.maskedinput.min.js"></script>
+    <script src="<?php echo $ul;?>assets/js/bootstrap-tag.min.js"></script>
+
+<!--ace scripts-->
+
+<script src="<?php echo $ul;?>assets/js/ace-elements.min.js"></script>
+<script src="<?php echo $ul;?>assets/js/ace.min.js"></script>
+
+<!--inline scripts related to this page-->
+
+<script type="text/javascript">
+    $(function() {
+        $('#id-date-range-picker-1').daterangepicker({
+            format: 'DD/MM/YYYY'
+        }).prev().on(ace.click_event, function(){
+            $(this).next().focus();
+        });
+    });
+</script>
+
+<?php
+
+$data["scripts"] = ob_get_contents();
+ob_end_clean();
+
 ?>

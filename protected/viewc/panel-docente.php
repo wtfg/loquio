@@ -1,25 +1,42 @@
 <?php
-$ul = Doo::conf()->APP_URL . "/global/";
-$id = $data["id"];
+$themail = $_SESSION["user"]["username"];
+$d = Doo::loadModel("docenti", true);
+$d->email = $themail;
+$docente =Doo::db()->find($d, array("limit"=>1));
+$id = $docente->did;
+ob_start();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title> </title>
-<link rel="stylesheet" media="screen" href="<?php echo $ul; ?>css/style.css" />
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
-<!-- This makes HTML5 elements work in IE 6-8 -->
-<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    Loquio Dashboard
+<?php
+$data['title'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
 
-</head>
+<div class="widget-box">
+<div class="widget-header">
+    <h4 class="widget-title"> Azioni rapide </h4>
+</div>
+    <div class="widget-body">
+    <div class="widget-main">
 
-<body style="text-align:center;">
-    <h1>Ciao, cosa vuoi fare?</h1>
 
-    <a href="snag/<?php echo $id?>" class="butt">Avvisa Imprevisto</a>
-    <a href="prenotazioni/list" class="butt">Liste Di Prenotazione</a>
-<a class='logout' href="<?php echo Doo::conf()->APP_URL."logout";?>">Esci</a>
-</body>
-</html>
+    <a href=<?php echo Doo::conf()->APP_URL."snag/".$id?> class="btn btn-app btn-primary no-radius">
+        <i class="ace-icon icon-warning-sign bigger-230"></i>
+        Avvisa
+    </a>
+    <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/list"?> class="btn btn-app btn-primary no-radius">
+        <i class="ace-icon icon-list-alt bigger-230"></i>
+        Lista Pren.
+    </a>
 
+
+
+    </div>
+    </div>
+</div>
+
+<?php
+$data['content'] = ob_get_contents();
+ob_end_clean();
+?>

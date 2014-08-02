@@ -1,58 +1,84 @@
 <?php
-$ul = Doo::conf()->APP_URL . "/global/";
+
+$data["title"] ="Visualizza Utenti";
+
+ob_start();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title> </title>
-<link rel="stylesheet" media="screen" href="<?php echo $ul; ?>css/style.css" />
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
-<!-- This makes HTML5 elements work in IE 6-8 -->
-<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
-</head>
+    <div class="row-fluid">
+    <div class="span12">
+    <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefono</th>
 
-<body>
-    <h1>Visualizza Utenti</h1>
+        <th>
+            <i class="icon-time bigger-110 hidden-phone"></i>
+            Livello Di accesso
+        </th>
+        <th>Modifica</th>
 
-    <table width="80%" border="0">
-  <tr>
-    <th scope="col">Nome</th>
-    <th scope="col">Email</th>
-    <th scope="col">Telefono</th>
-    <th scope="col">Livello di accesso</th>
-    <th scope="col">Modifica</th>
-    <th scope="col">Elimina</th>
-  </tr>
-  <?php
+        <th>Elimina</th>
+    </tr>
+    </thead>
+
+    <tbody>
+<?php
 
 foreach($data["utenti"] as $user){
-    
+
 
     $aclr = $user["acl"] == 0 ? "Utente" : "";
     $aclr = $user["acl"] == 1 ? "Docente" : $aclr;
     $aclr = $user["acl"] == 2 ? "Amministratore" : $aclr;
 
     $ur = Doo::conf()->APP_URL."admin/utenti";
-   // $bookoff["value"] = substr(str_replace(array("timeslot","\"","{","}","[","]"),"",$bookoff["value"]),1);
-    echo "<tr>
-    <td>".$user["nome"]. " ". $user["cognome"]."&nbsp;</td>
-    <td>".$user["email"]."&nbsp;</td>
-    <td>".$user["telefono"]."&nbsp;</td>
-    <td>".$aclr."&nbsp;</td>
-    <td><a href=\"".$ur."/edit/".$user["uid"]."\">Modifica</a></td>
-    <td><a href=\"".$ur."/delete/".$user["uid"]."\" onclick=\"javascript:return confirm('Sei sicuro di voler cancellare l utente?');\">Elimina</a></td>
-  </tr>";
-    
-    
-}
-?>
-  
- 
-</table><a class='logout' href="<?php echo Doo::conf()->APP_URL."logout";?>">Esci</a>
-    <a class='back' href="javascript:history.go(-1);">&Lt;</a>
+    // $bookoff["value"] = substr(str_replace(array("timeslot","\"","{","}","[","]"),"",$bookoff["value"]),1);
+    echo "
+    <tr>
+        <td>
+            ".$user["nome"]. " ". $user["cognome"]."&nbsp;
+        </td>
+        <td>
+            ".$user["email"]."&nbsp;
+        </td>
+        <td>
+            ".$user["telefono"]."&nbsp;
+        </td>
+        <td>
+            ".$aclr."&nbsp;
+        </td>
+        <td>
+            <a href=\"".$ur."/edit/".$user["uid"]."\">
+                <button class=\"btn btn-mini btn-info\">
+                    <i class=\"icon-edit bigger-120\"></i>
+                </button>
+            </a>
+        </td>
+        <td>
+            <a href=\"".$ur."/delete/".$user["uid"]."\">
+                <button class=\"btn btn-mini btn-danger\">
+                    <i class=\"icon-trash bigger-120\"></i>
+                </button>
+            </a>
+        </td>
+   </tr>";
 
-<a href="new/" class="button">Aggiungi utente</a>
-</body>
-</html>
+}
+    ?>
+
+    </tbody>
+    </table>
+    </div><!--/span-->
+    </div>
+
+    <a href="<?php echo Doo::conf()->APP_URL; ?>admin/utenti/new/" class="btn btn-app btn-success">
+        <i class="icon-plus"></i>
+        Aggiungi Utente
+    </a>
+<?php
+$data['content'] = ob_get_contents();
+ob_end_clean();
+?>

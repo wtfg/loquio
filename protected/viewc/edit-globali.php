@@ -9,6 +9,18 @@ $GLOBAL_PATH = Doo::conf()->APP_URL . "/global/";
 $anno = (isset($_POST['anno'])) ? $_POST['anno'] : date("Y");
 
 
+$SUCCESS_MESSAGE = "  <script src=\"".$GLOBAL_PATH."assets/js/jquery.gritter.min.js\"></script>
+            <script type=\"text/javascript\">
+                        $(document).ready(function(){
+                        $.gritter.add({
+						// (string | mandatory) the heading of the notification
+						title: 'Ben Fatto!',
+						// (string | mandatory) the text inside the notification
+						text: 'Calendario aggiornato con successo!',
+class_name: 'gritter-success'
+});
+                        });
+            </script>";
 $FILENAME = $STATIC_JSON_PATH . "/global" . $anno . ".json";
 if (!file_exists($FILENAME)) {
     if (file_exists($STATIC_JSON_PATH . "/global" . ($anno - 1))) {
@@ -30,7 +42,6 @@ if (isset($_POST['json'])) {
     $f = fopen($FILENAME, "w");
     fwrite($f, $js);
     fclose($f);
-    echo "<h2>Dati Salvati</h2>"; //<meta http-equiv=\"refresh\" content=\"0;URL=".Doo::conf()->APP_URL."\">";
 } else {
     $f = fopen($FILENAME, "r");
     $js = fread($f, filesize($FILENAME));
@@ -38,7 +49,10 @@ if (isset($_POST['json'])) {
 
 $js = json_decode($js, true);
 $json_cal = json_encode($js);
-
+ob_start();
+?>
+    <link rel="stylesheet" href="<?php echo $GLOBAL_PATH; ?>assets/css/jquery.gritter.css">
+<?php
 $data['head'] = ob_get_contents();
 ob_end_clean();
 ob_start();
@@ -83,7 +97,7 @@ function createTable(theJson) {
     for (i = 0; i < 12; i++) {
         mese = mesi[i];
         days = days_in_month(mese, theJson["bisestile"]);
-        stringaOut = "<br><h2>" + mese.toString().toUpperCase() + "</h2><table>";
+        stringaOut = "<br><h3 class=\"header smaller lighter blue\">" + mese.toString().toUpperCase() + "</h3><table>";
         for (j = 1; j <= days; j++) {
             giorno = j.toString();
             nome_giorni = ["domenica", "lunedi", "martedi", "mercoledi", "giovedi", "venerdi", "sabato"];
@@ -122,7 +136,7 @@ function createTable(theJson) {
             } else {
                 ww = j;
             }
-            valore_corrente = "<td><label for=\"" + inpId + "\">" + ww + " <input type=\"checkbox\" name=\"wChk\" id=\"" + inpId + "\" " + checked + "></label></td>";
+            valore_corrente = "<td><label><input type=\"checkbox\" name=\"wChk\" id=\"" + inpId + "\" " + checked + "><span class=\"lbl\">" + ww + " </span></label></td>";
             stringaOut += valore_corrente + coda;
 
         }
@@ -337,7 +351,11 @@ function setta_ab(js, calendar_div, jsonid, disp) {
 
 </script>
 <?php
-$data['head'] = ob_get_contents();
+
+if (isset($_POST['json'])) {
+    echo $SUCCESS_MESSAGE;
+}
+$data['scripts'] = ob_get_contents();
 ob_end_clean();
 ob_start();
 ?>
@@ -348,8 +366,8 @@ ob_end_clean();
 ob_start();
 ?>
 
-<form style="text-align:right" action="#" method="post">
-    <h2>Cambia anno:</h2>
+<form action="#" method="post">
+    <h6>Cambia anno:</h6>
     <select onchange='javascript:form.submit()' name="anno">
 
         <option value="<?php echo date("Y");
@@ -370,57 +388,69 @@ ob_start();
 
 </form>
 <br>
-<table align="center">
-    <tr>
-        <td>
-            <h2 style="text-align:left">Seleziona:</h2>
-            <ul style="text-align:left">
-                <li>
-                    <h2>
-                        <input type="checkbox" id="iima_active">
-                        la <input type="text" id="iima"> - a settimana di ogni mese (lista numerica separata da virgole)
-                    </h2>
-                </li>
-                <li>
-                    <h2>
-                        <input type="checkbox" id="ab_active">
-                        un range dal <input type="text" id="a"> al <input type="text" id="b"> di ogni mese
-                    </h2>
-                </li>
-                <li>
-                    <h2>
-                        <input type="checkbox" id="listagiorni_active">
-                        la lista di giorni (separata da virgole) <input type="text" id="listagiorni"> di ogni mese
-                    </h2>
-                </li>
-                <li>
-                    <h2>
-                        <input type="checkbox" id="listamesi_active">
-                        la lista (numerica separata da virgole) <input type="text" id="listamesi"> di mesi
-                    </h2>
-                </li>
-                <li>
-                    <h2>
-                        <input type="checkbox" id="tutti_active">
-                        tutti i mesi
-                    </h2>
-                </li>
-            </ul>
-            <input type="button" id="act" value="Attiva">
-            <input type="button" id="deact" value="Disattiva">
 
-            <br><br>
+    <div class="col-sm-5">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4 class="widget-title">Seleziona</h4>
+            </div>
 
-            <form action="#" method="post">
-                <input type="hidden" name="anno" value="<?php echo $anno ?>">
-                <input type="hidden" name="json" id="json" style="width:700px;" value=""><br><br>
-                <input type="submit" value="Salva"><br>
-            </form>
-        </td>
-    </tr>
-</table>
+            <div class="widget-body">
+                <div class="widget-main">
+                    <div class="control-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="iima_active">
+                                <span class="lbl"> la <input type="text" id="iima"> - a settimana di ogni mese (lista numerica separata da virgole)</span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="ab_active">
+                                <span class="lbl"> un range dal <input type="text" id="a"> al <input type="text" id="b"> di ogni mese</span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="listagiorni_active">
+                                <span class="lbl"> la lista di giorni (separata da virgole) <input type="text" id="listagiorni"> di ogni mese</span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="listamesi_active">
+                                <span class="lbl"> la lista (numerica separata da virgole) <input type="text" id="listamesi"> di mesi</span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="tutti_active">
+                                <span class="lbl"> tutti i mesi</span>
+                            </label>
+                        </div>
+
+                    </div>
+                        <br>
+                    <div class="form-group">
+                        <input type="button" id="act" value="Attiva">
+                        <input type="button" id="deact" value="Disattiva">
+                    </div>
+                        <form action="#" method="post">
+                            <input type="hidden" name="anno" value="<?php echo $anno ?>">
+                            <input type="hidden" name="json" id="json" style="width:700px;" value=""><br><br>
+                            <button class="btn btn-info" type="submit">
+                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                Invia
+                            </button>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="row-fluid">
 <div id="tabella"></div>
-
+</div>
 <?php
 $data['content'] = ob_get_contents();
 ob_end_clean();

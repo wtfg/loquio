@@ -1,25 +1,23 @@
 <?php
 ob_start();
 ?>
-Inserisci materia
+Modifica Materia
 <?php
 $data['title'] = ob_get_contents();
 ob_end_clean();
 ob_start();
 ?>
-
     <form id="edit-materia" name="login" method="post" action="">
-        <h2>Nome materia:</h2>
+        <label for="nome">Nome materia:</label>
         <input type="text" name="nome" id="nome" value="<?php
-        echo $data['nome']; ?>"/>
-
-        <br />
-        <input type="hidden" name="mid" id="mid" value="<?php
+        echo $data['nome']; ?>" />
+        <br /><br /><input type="hidden" name="mid" id="mid" value="<?php
         echo $data['mid']; ?>"/><br />
-
-        <input type="submit" name="button" id="button" value="Invia" />
-
-
+        <button name="button" type="submit" class="btn btn-large btn-success">
+            <i class="icon-ok bigger-150"></i>
+            Invia
+        </button>
+        <br />
     </form>
 
 

@@ -9,12 +9,11 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 
 ======
 
-TODO prima della Beta
-+ AUTOSnag disponibile dal docente (automatico)
-+ Lista prenotazioni
-+ Bootstrap UI theme!
+TODO prima della Alpha!
++ utente e docente. correlare
 
-TODO versione 0.2
+
+TODO versione 0.1 BETA
 + Sort dei docenti
 + Export dati
 + Introdurre sliders

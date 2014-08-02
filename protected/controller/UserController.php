@@ -31,11 +31,26 @@ class UserController extends DooController {
             $user->cognome = $_POST["cognome"];
             $user->email = $_POST["email"];
             $user->telefono = $_POST["telefono"];
-            $user->pass = $_POST["pass"];
+            $user->pass = md5($_POST["pass"]);
             $user->altramail = $_POST["altramail"];
             $user->acl = $_POST["aclr"];
+
+
+
             if($this->db()->insert($user)){
                 $data['messaggio'] = "Utente creato!";
+                if($user->acl == 1){
+                    $docente = Doo::loadModel("docenti", true);
+                    $docente->nome = $user->nome;
+                    $docente->cognome = $user->cognome;
+                    $docente->email = $user->email;
+                    $docente->tel = $user->telefono;
+                    $docente->orelibere = "{}";
+                    $docente->attivo = 0;
+                    $this->db()->insert($docente);
+                    $data['messaggio'] .= "<br>Anche il docente e' stato creato, ricordati di configurarlo!";
+                }
+
                 $data['url'] = Doo::conf()->APP_URL."admin";
                 $data['titolo'] = "Ben fatto!";
 
@@ -75,12 +90,21 @@ class UserController extends DooController {
             $user->cognome = $_POST["cognome"];
             $user->email = $_POST["email"];
             $user->telefono = $_POST["telefono"];
-            $user->pass = $_POST["pass"];
+            $user->pass =md5($_POST["pass"]);
             $user->altramail = $_POST["altramail"];
             $user->acl = $_POST["aclr"];
 
             if($this->db()->update($user)){
                 $data['messaggio'] = "Utente modificato!";
+                if($user->acl == 1){
+                    $docente = Doo::loadModel("docenti", true);
+                    $docente->nome = $user->nome;
+                    $docente->cognome = $user->cognome;
+                    $docente->email = $user->email;
+                    $docente->tel = $user->telefono;
+                    $this->db()->update($docente);
+                    $data['messaggio'] .= "<br>Anche il docente e' stato modificato, ricordati di configurarlo!";
+                }
                 $data['url'] = Doo::conf()->APP_URL."admin";
                 $data['titolo'] = "Ben fatto!";
 
@@ -104,7 +128,12 @@ class UserController extends DooController {
     function deleteUser(){
         $user = Doo::loadModel("utenti", true);
         $user->uid = $this->params["id"];
+        $u = $this->db()->find($user, array("limit"=>1));
+        $docente = Doo::loadModel("docenti", true);
+        $docente->email = $u->email;
+        $this->db()->delete($docente);
         $this->db()->delete($user);
+
         $data['messaggio'] = "Utente cancellato!";
         $data['url'] = Doo::conf()->APP_URL."admin";
         $data['titolo'] = "Ben fatto!";

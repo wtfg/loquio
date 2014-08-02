@@ -116,7 +116,7 @@ $route['*']['/admin/prenotazioni'] = array('AdminController', 'viewPrenotazioni'
 
 $route['*']['/admin/cleardb'] = array('AdminController', 'clearDB');
 
-$route['*']['/admin/prenotazioni/delete/:id'] = array('AdminController', 'deletePrenotazioni');
+$route['*']['/admin/prenotazioni/delete/:md5'] = array('PrenotController', 'delPren');
 
 $route['*']['/admin/config'] = array('AdminController', 'editSiteConfig');
 

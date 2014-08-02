@@ -1,49 +1,62 @@
 <?php
-$ul = Doo::conf()->APP_URL . "/global/";
+
+$data["title"] ="Visualizza Materie";
+
+ob_start();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title> </title>
-<link rel="stylesheet" media="screen" href="<?php echo $ul; ?>css/style.css" />
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
-<!-- This makes HTML5 elements work in IE 6-8 -->
-<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
-</head>
+    <div class="row-fluid">
+    <div class="span12">
+    <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Nome Materia</th>
+        <th>Modifica</th>
+        <th>Elimina</th>
+    </tr>
+    </thead>
 
-<body>
-    <h1>Visualizza Materie</h1>
+    <tbody>
+    <?php
 
-    <table width="80%" border="0">
-  <tr>
-    <th scope="col">Nome Materia</th>
-    <th scope="col">Modifica</th>
-    <th scope="col">Elimina</th>
-  </tr>
-  <?php
+    foreach($data["materie"] as $mat){
 
-foreach($data as $mat){
-    
-   
-    
-    $ur = Doo::conf()->APP_URL."admin/materie";
-    
-    echo "<tr>
+
+
+        $ur = Doo::conf()->APP_URL."admin/materie";
+
+        echo "<tr>
     <td>".$mat["nome"]."&nbsp;</td>
-    <td><a href=\"".$ur."/edit/".$mat["mid"]."\">Modifica</a></td>
-    <td><a href=\"".$ur."/delete/".$mat["mid"]."\" onclick=\"javascript:return confirm('Sei sicuro di voler cancrllare la materia?');\">Elimina</a></td>
+    <td>
+        <a href=\"".$ur."/edit/".$mat["mid"]."\">
+            <button class=\"btn btn-mini btn-info\">
+                <i class=\"icon-edit bigger-120\"></i>
+            </button>
+        </a>
+    </td>
+    <td>
+            <a  href=\"".$ur."/delete/".$mat["mid"]."\" onclick=\"javascript:return confirm('Sei sicuro di voler cancellare la materia?');\">
+                <button class=\"btn btn-mini btn-danger\">
+                    <i class=\"icon-trash bigger-120\"></i>
+                </button>
+            </a>
+        </td>
+    <td>
   </tr>";
-    
-    
-}
-?>
-  
- 
-</table><a class='logout' href="<?php echo Doo::conf()->APP_URL."logout";?>">Esci</a>
-    <a class='back' href="javascript:history.go(-1);">&Lt;</a>
 
-<a href="materie/new/" class="button">Aggiungi Materie</a>
-</body>
-</html>
+    }
+    ?>
+
+    </tbody>
+    </table>
+    </div><!--/span-->
+    </div>
+
+    <a href="<?php echo Doo::conf()->APP_URL; ?>admin/materie/new/" class="btn btn-app btn-success">
+        <i class="icon-plus"></i>
+        Aggiungi Materia
+    </a>
+<?php
+$data['content'] = ob_get_contents();
+ob_end_clean();
+?>

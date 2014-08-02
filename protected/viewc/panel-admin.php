@@ -1,35 +1,66 @@
 <?php
-$ul = Doo::conf()->APP_URL . "/global/";
+ob_start();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title> </title>
-<link rel="stylesheet" media="screen" href="<?php echo $ul; ?>css/style.css" />
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
-<!-- This makes HTML5 elements work in IE 6-8 -->
-<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    Loquio Dashboard
+<?php
+$data['title'] = ob_get_contents();
+ob_end_clean();
+ob_start();
+?>
 
-</head>
+<div class="widget-box">
+<div class="widget-header">
+    <h4 class="widget-title"> Azioni rapide </h4>
+</div>
+    <div class="widget-body">
+    <div class="widget-main">
 
-<body style="text-align:center;">
-    <h1>Ciao, di cosa ti vuoi occupare?</h1>
-    
-    <a href=<?php echo Doo::conf()->APP_URL."admin/docenti/"?> class="butt">Docenti</a>
-    <a href=<?php echo Doo::conf()->APP_URL."admin/prenotazioni/"?> class="butt">Prenotazioni</a>
-    <a href=<?php echo Doo::conf()->APP_URL."admin/materie"?> class="butt">Materie</a>
-    <br>
-    <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/list"?> class="butt">Lista Prenotazioni</a>
-    <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/new"?> class="butt">Prenota Colloquio</a>
-    <a href=<?php echo Doo::conf()->APP_URL."admin/calendars"?> class="butt">Calendari</a>
-    <br>
-    <a href=<?php echo Doo::conf()->APP_URL."admin/utenti"?> class="butt">Utenti</a>
-    <a href=<?php echo Doo::conf()->APP_URL."admin/bookoff"?> class="butt">Bookoff</a>
-    <a href=<?php echo Doo::conf()->APP_URL."admin/config"?> class="butt">Configurazioni</a>
-    <br>
-    <a href=<?php echo Doo::conf()->APP_URL."admin/cleardb"?> onclick="return confirm('Questo cancellera tutto il database! Sei sicuro??')" class="butt">Cancella DB</a>
-<a class='logout' href="<?php echo Doo::conf()->APP_URL."logout";?>">Esci</a>
-</body>
-</html>
+    <a href=<?php echo Doo::conf()->APP_URL."admin/docenti/"?> class="btn btn-app btn-primary no-radius">
+        <i class="ace-icon fa icon-group bigger-230"></i>
+        Docenti
+    </a>
+    <a href=<?php echo Doo::conf()->APP_URL."admin/prenotazioni/"?> class="btn btn-app btn-primary no-radius">
+        <i class="ace-icon icon-edit-sign bigger-230"></i>
+        Prenotaz.
+    </a>
+    <a href=<?php echo Doo::conf()->APP_URL."admin/materie"?> class="btn btn-app btn-primary no-radius">
+        <i class="ace-icon icon-list bigger-230"></i>
+        Materie
+    </a>
+    <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/list"?> class="btn btn-app btn-primary no-radius">
+        <i class="ace-icon icon-list-alt bigger-230"></i>
+        Lista Pren.
+    </a>
+    <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/new"?> class="btn btn-app btn-primary no-radius">
+        <i class="ace-icon icon-check bigger-230"></i>
+        Prenota
+    </a>
+    <a href=<?php echo Doo::conf()->APP_URL."admin/calendars"?> class="btn btn-app btn-primary no-radius">
+        <i class="ace-icon icon-calendar bigger-230"></i>
+        Calendari
+    </a>
+    <a href=<?php echo Doo::conf()->APP_URL."admin/utenti"?> class="btn btn-app btn-primary no-radius">
+        <i class="ace-icon icon-user bigger-230"></i>
+        Utenti
+    </a>
+    <a href=<?php echo Doo::conf()->APP_URL."admin/bookoff"?> class="btn btn-app btn-primary no-radius">
+        <i class="ace-icon icon-eraser bigger-230"></i>
+        Bookoff
+    </a>
+    <a href=<?php echo Doo::conf()->APP_URL."admin/config"?> class="btn btn-app btn-primary no-radius">
+        <i class="ace-icon icon-cogs bigger-230"></i>
+        Configuraz.
+    </a>
+    <a href=<?php echo Doo::conf()->APP_URL."admin/cleardb"?> onclick="return confirm('Questo cancellera tutto il database! Sei sicuro??')" class="btn btn-danger btn-app radius-4">
+        <i class="ace-icon icon-trash bigger-230"></i>
+    Canc. DB
+        </a>
 
+
+    </div>    </div>
+</div>
+
+<?php
+$data['content'] = ob_get_contents();
+ob_end_clean();
+?>

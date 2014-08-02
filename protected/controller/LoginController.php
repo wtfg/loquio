@@ -266,7 +266,11 @@ class LoginController extends DooController {
         $this->renderc("error-page");
         //echo 'You are visiting '.$_SERVER['REQUEST_URI'];
     }
-
+    function getContents($viewName, $data){
+        $data = $data;
+        include(Doo::conf()->SITE_PATH . "protected/viewc/" . $viewName . ".php");
+        return $data;
+    }
     #
 
     function logOut() {
@@ -291,7 +295,8 @@ class LoginController extends DooController {
 
             return $rs;
         }
-        $this->view()->renderc('panel-user');
+
+        $this->renderc("base-template", $this->getContents("panel-user", array()));
         /*
          * Esegue un render del tipo
          * 
@@ -336,7 +341,7 @@ class LoginController extends DooController {
         $data = array("id"=>$d->did);
 
 
-        $this->renderc("panel-docente", $data);
+        $this->renderc("base-template", $this->getContents("panel-docente", array()));
         /*
          * Esegue un render del tipo
          *
