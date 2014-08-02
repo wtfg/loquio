@@ -240,7 +240,7 @@ class PrenotController extends DooController
         $emptyObject = "{\"\":\"\"}";
         $conf = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
         $LOOK_AHEAD_DAYS = $conf->getParam("lookAheadTime");
-        //$_POST['message']['did'] = 15;
+       //$_POST['message']['did'] = 31;
         if (isset($_POST['message'])) {
 
             // teacher data queries
@@ -290,7 +290,9 @@ class PrenotController extends DooController
                     if(is_array($freeElm) && array_key_exists("start", $freeElm)){
                         $prenTime = strtotime($freeElm["start"]);
                         if($prenTime<=$toStamp && $prenTime>= $fromStamp){
-                            $freeDays = str_replace($freeElm["start"], "", $freeDays);
+                            //var_dump($freeDays);
+                            $object = '{"title":"Libero","start":"'.$freeElm["start"].'","allDay":""},';
+                            $freeDays = str_replace($object, "", $freeDays);
                             continue;
                         }
                     }

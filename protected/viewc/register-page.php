@@ -49,8 +49,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
     <div class="center">
         <h1>
             <i class="icon-leaf green"></i>
-            <span class="red">Loquio</span>
-            <span class="white">Prenotazioni</span>
+            <img src="<?php echo $ul; ?>assets/images/loquio-white.png">
         </h1>
     </div>
 </div>
