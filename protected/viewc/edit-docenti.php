@@ -2,7 +2,7 @@
 $ul = Doo::conf()->APP_URL . "/global/";
 ob_start();
 ?>
-    <script src="<?php echo $ul?>js/docenti-add.js"></script>
+    <script src="<?php echo $ul?>js/docenti.min.js"></script>
     <script src="<?php echo $ul?>assets/js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="<?php echo $ul?>assets/js/jquery.ui.touch-punch.min.js"></script>
 

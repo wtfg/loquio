@@ -49,8 +49,7 @@ $themail =  $_SESSION['user']['username'];
 				<div class="container-fluid">
 					<a href="#" class="brand">
 						<small>
-							<i class="icon-bolt"></i>
-							Loquio
+							<img src="<?php echo $ul; ?>assets/images/loquio-white.png">
 						</small>
 					</a><!--/.brand-->
 

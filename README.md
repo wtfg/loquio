@@ -10,8 +10,8 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 ======
 
 TODO prima della Alpha!
-+ utente e docente. correlare
-
++ Alpha testing estensivo
++ Creare installer
 
 TODO versione 0.1 BETA
 + Sort dei docenti
