@@ -1,5 +1,14 @@
 LOQUIO!
 ======
+Procedura di installazione automatica:
+
+1) Carica tutti i file sulla cartella di installazione
+
+2) Andare via browser sulla pagina install.php
+
+3) Inserisci le informazioni necessarie
+
+4) Loquio popolera' il database in automatico
 
 Procedura di installazione manuale:
 

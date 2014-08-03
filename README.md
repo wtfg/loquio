@@ -13,8 +13,19 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 ======
 
 TODO prima della Alpha!
-+ Alpha testing estensivo
-+ Creare installer
++ Mostrare seats disponibili sulla prenotazione
++ Inserisci pannello utente (modifica password e dati personali)
++ Su config generali nome scuola
++ Configurazioni menu da piazzare in alto
++ Pannello Admin; Configurazioni, Materie, Docenti, Bookoffs, Utenti
++ Pannello docente; Liste giornaliere, Avvisi
++ Email alternativa non obbligatoria
++ Pannello User; Prenota, Liste giornaliere, Le mie prenotazioni
++ http://www.retinavision.it/loquio/prenotazioni/list levare submit dal pulsante
++ Email della prenotazione mandata in automatico (e anche il telefono)
++ Niente orario per la prenotazione nella lista
++ Inserire spiegazioni
++ Lato admin: inserire dei filtri per tutto (giorno, docente bla bla bla)
 
 TODO versione 0.1 BETA
 + Sort dei docenti
