@@ -47,7 +47,7 @@ Sql150902
 e7c6fd54
  */
 
- $dbconfig['dev'] = array('62.149.150.59', 'Sql150902_5', 'Sql150902', 'e7c6fd54', 'mysql', true);
- $dbconfig['prod'] =  array('62.149.150.59', 'Sql150902_5', 'Sql150902', 'e7c6fd54', 'mysql', true);
+ $dbconfig['dev'] = array('', '', '', '', 'mysql', true);
+ $dbconfig['prod'] =  array('', '', '', '', 'mysql', true);
  
 ?>
