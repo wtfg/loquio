@@ -12,8 +12,8 @@ Procedura di installazione manuale:
 
 ESEMPIO:
 
-    $dbconfig['dev'] = array('62.149.150.59', 'Sql150902_5', 'Sql150902', 'e7c6fd54', 'mysql', true);
-    $dbconfig['prod'] =  array('62.149.150.59', 'Sql150902_5', 'Sql150902', 'e7c6fd54', 'mysql', true);
+    $dbconfig['dev'] = array('62.19.100.29', 'DB_5', 'sql1231', 'p4ssword', 'mysql', true);
+    $dbconfig['prod'] =  array('62.19.100.29', 'DB_5', 'sql1231', 'p4ssword', 'mysql', true);
 
 3) Eseguire LOQUIO_DB.sql (su phpmyadmin o i normali mysql servers basta cliccare su importa e scegliere il file)
 
