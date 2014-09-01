@@ -58,10 +58,11 @@ class AdminController extends DooController {
             $m->mid = $docente->mid;
             $m = $this->db()->find($m, array("limit" => 1));
             if ($m) {
-                $d['nomemateria'] = $m->nome;
+                $d['nomemateria'] = stripslashes($m->nome);
             } else {
                 $d['nomemateria'] = "--";
-            } $d['viewnome'] = $docente->nome . " " . $docente->cognome;
+            }
+            $d['viewnome'] = stripslashes($docente->nome . " " . $docente->cognome);
             $d['did'] = $docente->did;
             $d['attivo'] = $docente->attivo;
             
@@ -93,7 +94,7 @@ class AdminController extends DooController {
         $data['materie'] = array();
         foreach ($materie as $materia) {
 
-            array_push($data['materie'], array('id' => $materia->mid, 'nome' => $materia->nome));
+            array_push($data['materie'], array('id' => $materia->mid, 'nome' => stripslashes($materia->nome)));
         }
 
         if (!isset($_POST['button'])) {
@@ -105,8 +106,8 @@ class AdminController extends DooController {
             $data['did'] = $docente->did;
             $data['email'] = $docente->email;
             $data['mid'] = $docente->mid;
-            $data['nome'] = $docente->nome;
-            $data['cognome'] = $docente->cognome;
+            $data['nome'] = stripslashes($docente->nome);
+            $data['cognome'] = stripslashes($docente->cognome);
             $data['telefono'] = $docente->tel;
             $data['orelibere'] = $docente->orelibere;
             if ($docente->attivo == 1) {
@@ -321,7 +322,7 @@ class AdminController extends DooController {
 
         foreach ($materie as $materia) {
 
-            $d['nome'] = $materia->nome;
+            $d['nome'] = stripslashes($materia->nome);
             $d['mid'] = $materia->mid;
 
             array_push($data["materie"], $d);
@@ -341,7 +342,7 @@ class AdminController extends DooController {
             $materia = $this->db()->find($materia, array('limit' => 1));
 
             $data['mid'] = $mid;
-            $data['nome'] = $materia->nome;
+            $data['nome'] = stripslashes($materia->nome);
 
             $data = $this->getContents("edit-materie", $data);
             $this->renderc("base-template", $data);
@@ -458,11 +459,11 @@ class AdminController extends DooController {
             $materieModel->did = $d['did'];
             $materia = $this->db()->find($materieModel, array('limit' => 1));
             $d['materia_id'] = $materia->mid;
-            $d['materia'] = $materia->nome;
-            $d['nome_docente'] = $da->nome . " " . $da->cognome;
+            $d['materia'] = stripslashes($materia->nome);
+            $d['nome_docente'] = stripslashes($da->nome . " " . $da->cognome);
             $d['creata'] = $prenotazione->creata;
             $d['data'] = date("d-m-Y H:i", $prenotazione->data);
-            $d['studente'] = $prenotazione->studente;
+            $d['studente'] = stripslashes($prenotazione->studente);
             $d['classe'] = $prenotazione->classe;
             $d['email'] = $prenotazione->email;
             $d['tel'] = $prenotazione->tel;

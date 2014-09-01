@@ -21,7 +21,6 @@ Bug da fixare:
 * http://www.retinavision.it/loquio/admin/materie
     + ogni volta che inserisco una materia
     + dopo l'inserimento mi riporta alla Dashboard (invece dovrebbe rimanere nella sezione finché io non cambio. Questo comportamento sembra essere presente in tutti gli altri inserimenti
-    + c'è un bug negli inserimenti degli apostrofi (presente anche in altri inserimenti)
 * http://www.retinavision.it/loquio/admin/docenti
     + il nome del docente dovrebbe essere visualizzabile per cognome e nome e non il contrario
     + dovrebbe essere possibile un sort (alfabetico)

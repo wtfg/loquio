@@ -22,7 +22,7 @@ class BookoffController extends DooController {
 
     function snagMail($email, $nomecognome, $data, $value, $delete){
         $date = date("d-m-y",strtotime($data));
-        $subject = $nomecognome.': avviso';
+        $subject = stripslashes($nomecognome).': avviso';
 
         $headers = "From: prenotazioni@loquio.it \r\n";
         $headers .= "MIME-Version: 1.0\r\n";
@@ -97,7 +97,7 @@ class BookoffController extends DooController {
                 $this->renderc('error-page');
                 return;
             }
-            $data["docenti"] = $n->nome. " ". $n->cognome;
+            $data["docenti"] = stripslashes($n->nome. " ". $n->cognome);
 
             $data = $this->getContents("new-snag",$data);
             $this->renderc("base-template", $data);
@@ -144,7 +144,7 @@ class BookoffController extends DooController {
 
             $data = array("docenti"=>array());
             foreach($docenti as $docente){
-                array_push($data["docenti"], array("did" => $docente->did, "nomecognome" => $docente->nome." ".$docente->cognome));
+                array_push($data["docenti"], array("did" => $docente->did, "nomecognome" => stripslashes($docente->nome." ".$docente->cognome)));
             }
 
             $pagename = "add-bookoff";
@@ -189,7 +189,7 @@ class BookoffController extends DooController {
                     return;
                 }
 
-                $nc = $docenteResult->nome ." ". $docenteResult->cognome;
+                $nc = stripslashes($docenteResult->nome ." ". $docenteResult->cognome);
 
                 $b = array("nome" => $nc, "bookoffid" => $bookoff["bookoffid"], "from" => date("d-m-Y",$bookoff["datefrom"]), "to" => date("d-m-Y",$bookoff["dateto"]));
                 array_push($data["bookoffs"], $b);
@@ -251,7 +251,7 @@ class BookoffController extends DooController {
                 return;
             }
 
-            $data['name'] = $docenteResult->nome ." ". $docenteResult->cognome;
+            $data['name'] = stripslashes($docenteResult->nome ." ". $docenteResult->cognome);
             $data['did'] = $docenteResult->did;
             $data['fromto'] = date("d/m/Y", $bookOffResult->datefrom). " - ".date("d/m/Y", $bookOffResult->dateto);
             $data = $this->getContents("edit-bookoff", $data);

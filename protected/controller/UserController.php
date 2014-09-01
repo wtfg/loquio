@@ -73,7 +73,7 @@ class UserController extends DooController {
         $users = $this->db()->find($user);
         $data = array("utenti"=>array());
         foreach($users as $u){
-            array_push($data["utenti"], array("uid"=>$u->uid, "email"=>$u->email, "telefono"=>$u->telefono, "acl"=>$u->acl, "nome"=>$u->nome, "cognome"=>$u->cognome));
+            array_push($data["utenti"], array("uid"=>$u->uid, "email"=>$u->email, "telefono"=>$u->telefono, "acl"=>$u->acl, "nome"=>stripslashes($u->nome), "cognome"=>stripslashes($u->cognome)));
         }
         $data = $this->getContents("view-users", $data);
         $this->renderc("base-template", $data);

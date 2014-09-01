@@ -178,10 +178,10 @@ class PrenotController extends DooController
             $teacherModel = $this->getTeacher($book->did, array("limit" => 1));
             $subjectModel = $this->getSubject($teacherModel->mid, array("limit" => 1));
 
-            $resultDict = array("nome_docente" => $teacherModel->nome . " " . $teacherModel->cognome,
+            $resultDict = array("nome_docente" => stripslashes($teacherModel->nome . " " . $teacherModel->cognome),
                                 "data" => date("d-m-Y H:i", $book->data),
                                 "materia" => $subjectModel->nome,
-                                "studente" => $book->studente,
+                                "studente" => stripslashes($book->studente),
                                  "classe" => $book->classe,
                                 "codice_canc" => $book->codicecanc
             );
