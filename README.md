@@ -38,8 +38,11 @@ Bug da fixare:
 * Lato admin: inserire dei filtri per tutto (giorno, docente bla bla bla)
     + Sort dei docenti
     + Export dati
-
-
+* Pomeridiani
+    + MODELLO IN ATTESA
+* Lato admin:
+    + Inserire in configurazioni un flag per disabilitare/abilitare la vista e le prenotazioni mattutine
+    + Inserire in configurazioni un flag per disabilitare/abilitare la vista dei pomeridiani
 
 Possibili migliorie opzionali
 + Introdurre sliders
