@@ -56,6 +56,7 @@ class LoginController extends DooController {
 
     #
 
+
     function validateUser() {
 
         /*
@@ -303,23 +304,108 @@ class LoginController extends DooController {
          * e mostra il pannello di controllo
          */
     }
+
+
     function lostPassword() {
-        if(!isset($_POST['invia'])){
+        if(isset($_POST['email'])){
             $u = Doo::loadModel('utenti', true);
             $u->email = $_POST['email'];
             $result = $this->db()->find($u,array("limit"=>1));
             if($result){
-                $altramail = $result->altramail;
-                if($altramail != NULL){
-                    $data['mail'] = $altramail;
-                    mail($altramail, "Reimpostazione Password", "___");
-                }
+
+                $subject = 'Cambio password';
+
+                $headers = "From: prenotazioni@loquio.it \r\n";
+                $headers .= "MIME-Version: 1.0\r\n";
+                $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+                $link = Doo::conf()->APP_URL . 'reset/' . base64_encode(str_rot13($result->email."|".$result->pass."|".time()));
+                $message = '
+						<html>
+					  <body bgcolor=\"#FAFAFA\">
+
+							Se vuoi rimpostare la tua password devi cliccare su questo link entro 24 ore, altrimenti scadr&aacute; il link. <br>
+							<font color=\"red\"><a href="' . $link. '">
+                        ' . $link . '
+                        </a></font> <br>
+                        Se non hai richiesto di impostare la tua password, ignora questo messaggio.<br>
+
+						  <br><br>Grazie Per L\'Attenzione!<br><em>Il Team Di Loquio</em>
+					  </body>
+					</html>';
+
+
+                /*
+                 * Se non sei in locale rimuovi dal commento
+                 * il comando mail e commenta la linea $data['message']
+                 *
+                 */
+               # mail($mail,  $subject, $message, $headers);
+
+                mail($result->email, $subject, $message, $headers);
+                //var_dump($result);
+                $data['messaggio'] = "Ti arriver&aacute; una mail con il link per reimpostare la password";
+                $data['url'] = Doo::conf()->APP_URL;
+                $data['titolo'] = "Ben Fatto!";
+
+                // MESSAGGIO DOCENTE MODIFICATO
+                $this->renderc('ok-page',$data);
             }
-            
+
+            // email|passmd5|
         }else{
-            $this->renderc('lost-password');
+            $this->renderc("lost-password");
+
+            # $this->renderc('lost-password');
         }
     }
+
+    function resetPassword() {
+
+        if(isset($this->params['id'])){
+            if(isset($_POST["uid"])){
+                $u = Doo::loadModel('utenti', true);
+                $u->uid = $_POST["uid"];
+                $u->pass = md5($_POST["pass"]);
+                $up = $this->db()->update($u);
+                if($up){
+                    # stampa un ok!
+                    $data['messaggio'] = "Password reimpostata con successo!";
+                    $data['url'] = Doo::conf()->APP_URL;
+                    $data['titolo'] = "Ben Fatto!";
+
+                    // MESSAGGIO DOCENTE MODIFICATO
+                    $this->renderc('ok-page',$data);
+                }
+
+            }else{
+                $u = Doo::loadModel('utenti', true);
+                $base = str_rot13(base64_decode($this->params['id']));
+                $user = explode("|", $base)[0];
+                $pass = explode("|", $base)[1];
+                $time = explode("|", $base)[2];
+                $difference = (time() - $time )/3600;
+                if($difference > 24){
+                    $this->renderc("error-page");
+                    return;
+                }
+                $u->email = $user;
+                $u->pass = $pass;
+                $result = $this->db()->find($u, array("limit"=>1));
+
+                if($result){
+                    $this->renderc("reset-password", array("uid"=> $result->uid));
+                }
+            }
+        }else{
+            #error
+            $this->renderc("error-page");
+            return;
+           # $this->renderc('lost-password');
+        }
+    }
+
+
+
     function showDocentePanel() {
         if(!isset($_SESSION['user'])){
             session_start();

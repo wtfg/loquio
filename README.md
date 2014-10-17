@@ -22,8 +22,6 @@ Bug da fixare:
     + reset pass
 * http://www.loquio.it/cavour/register/
     + aggiungere la pagina trattamento dati personali (blank)
-* Sulle config generali nome scuola
-* Nel titolo di ogni pagina mettere il nome della scuola
 
 * ???? Email della prenotazione mandata in automatico (e anche il telefono)
 

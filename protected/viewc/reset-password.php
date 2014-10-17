@@ -64,24 +64,19 @@ $ul = Doo::conf()->APP_URL . "/global/";
                 <div class="widget-main">
                     <h4 class="header blue lighter bigger">
                         <i class="icon-coffee green"></i>
-                        Inserisci le informazioni
+                        Inserisci la nuova password
                     </h4>
 
                     <div class="space-6"></div>
 
-                    <form id="login" name="login" method="post" action="index.php/login/">
+                    <form id="login" name="login" method="post" action="?refill=1">
                     <fieldset>
                         <label>
-                            <span class="block input-icon input-icon-right">
-                                <input type="text" name="email" class="span12" placeholder="Email" />
-                                <i class="icon-user"></i>
-                            </span>
-                        </label>
 
-                        <label>
+                            <input type="hidden" name="uid" value="<?php echo $data["uid"]; ?>" />
                             <span class="block input-icon input-icon-right">
-                                <input type="password" class="span12" name="pass" placeholder="Password" />
-                                <i class="icon-lock"></i>
+                                <input type="password" name="pass" class="span12" placeholder="Password" />
+                                <i class="icon-user"></i>
                             </span>
                         </label>
 
@@ -90,7 +85,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
                         <div class="clearfix">
                             <button type="submit" class="width-35 pull-right btn btn-small btn-primary">
                                 <i class="icon-key"></i>
-                                Login
+                                Invia
                             </button>
                         </div>
 
@@ -100,26 +95,15 @@ $ul = Doo::conf()->APP_URL . "/global/";
 
 
                 </div><!--/widget-main-->
-
-                <div class="toolbar clearfix">
-
+                <div class="toolbar center">
                     <div>
-                        <a href="lostpassword/" class="forgot-password-link">
+                        <a href="<?php echo Doo::conf()->APP_URL; ?>" class="back-to-login-link">
                             <i class="icon-arrow-left"></i>
-                            Password dimenticata
-
+                            Torna al login
                         </a>
-
                     </div>
-                    <div>
-                        <a href="register/" class="user-signup-link">
-                            Voglio registrarmi
-                            <i class="icon-arrow-right"></i>
-                        </a>
-
-                    </div>
-
                 </div>
+
             </div><!--/widget-body-->
         </div><!--/login-box-->
 

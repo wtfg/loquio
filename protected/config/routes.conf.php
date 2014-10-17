@@ -62,6 +62,9 @@ $route['*']['/'] = array('LoginController', 'firstPage');
 
 $route['*']['/register'] = array('LoginController', 'registerPage');
 
+$route['*']['/lostpassword'] = array('LoginController', 'lostPassword');
+
+$route['*']['/reset/:id'] = array('LoginController', 'resetPassword');
 
 $route['post']['/login'] = array('LoginController', 'logIn');
 
