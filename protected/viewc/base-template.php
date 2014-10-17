@@ -59,15 +59,9 @@ $themail =  $_SESSION['user']['username'];
 
 
 
-                        <li class="light-blue open">
-                            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                                <img class="nav-user-photo" src="<?php echo $ul; ?>assets/avatars/user.jpg" alt="Jason's Photo">
-								<span class="user-info">
-									<small>Ciao, </small>
-                                    <?php echo $_SESSION['user']['username']; ?>
-								</span>
-
-
+                        <li class="open" style="background: transparent; text-align: center;padding-top: 10px;">
+                            <a data-toggle="dropdown" href="#" style="width:300px; font-size:16px" class="dropdown-toggle">
+								<?php echo $_SESSION['user']['username']; ?>
                             </a>
 
 
@@ -272,45 +266,7 @@ $themail =  $_SESSION['user']['username'];
 					</div><!--/.row-fluid-->
 				</div><!--/.page-content-->
 
-				<div class="ace-settings-container" id="ace-settings-container">
-					<div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
-						<i class="icon-cog bigger-150"></i>
-					</div>
-
-					<div class="ace-settings-box" id="ace-settings-box">
-						<div>
-							<div class="pull-left">
-								<select id="skin-colorpicker" class="hide">
-									<option data-class="default" value="#438EB9" />#438EB9
-									<option data-class="skin-1" value="#222A2D" />#222A2D
-									<option data-class="skin-2" value="#C6487E" />#C6487E
-									<option data-class="skin-3" value="#D0D0D0" />#D0D0D0
-								</select>
-							</div>
-							<span>&nbsp; Scegli Skin</span>
-						</div>
-
-						<div>
-							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-header" />
-							<label class="lbl" for="ace-settings-header"> Header Fisso</label>
-						</div>
-
-						<div>
-							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-sidebar" />
-							<label class="lbl" for="ace-settings-sidebar"> Sidebar Fissa</label>
-						</div>
-
-						<div>
-							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-breadcrumbs" />
-							<label class="lbl" for="ace-settings-breadcrumbs"> Breadcrumbs Fissi</label>
-						</div>
-
-						<div>
-							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-rtl" />
-							<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-						</div>
-					</div>
-				</div><!--/#ace-settings-container-->
+				<!--/#ace-settings-container-->
 			</div><!--/.main-content-->
 		</div><!--/.main-container-->
 

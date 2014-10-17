@@ -2,7 +2,7 @@
 
 $data['data'] = date("d-m-Y",strtotime($data['data']));
 
-$data["title"] ="Prenotazioni per ".$data['docente']." nel giorno ".$data['data'];
+$data["title"] ="Ordine di prenotazione per ".$data['docente']." nel giorno ".$data['data'];
 
 ob_start();
 ?>

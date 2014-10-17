@@ -36,7 +36,7 @@ ob_start();
 
                             },success: function(data)
                             {
-                               // alert(data);
+                               //alert(JSON.stringify(data));
                             },
                             error: function(jqXHR, textStatus, errorThrown) {
                                 console.log(arguments);
@@ -94,7 +94,7 @@ ob_start();
                     defaultView: 'agendaWeek',
                     editable: false,
                     firstDay: 1,
-                    timeFormat: 'H(:mm)',
+                    timeFormat: 'Dalle ore H:mm',
                     eventClick: function(calEvent, jsEvent, view) {
 
                         curr_min = calEvent.start.getMinutes() + "";
@@ -237,10 +237,10 @@ ob_start();
 
         <form id="add-prenotazione" name="add-prenotazione" method="post" action="">
             <div class="form-group">
-                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Nome studente </label>
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Cognome e nome studente </label>
 
                 <div class="col-sm-9">
-                    <input type="text" name="studente" id="studente" placeholder="Nome Studente" class="col-xs-10 col-sm-5">
+                    <input type="text" name="studente" id="studente" placeholder="Cognome e nome Studente" class="col-xs-10 col-sm-5">
                 </div>
             </div>
             <div class="form-group">

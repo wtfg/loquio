@@ -53,12 +53,13 @@ class BookoffController extends DooController {
 
     function snag(){
         if(isset($_POST['date'])){
+
             $book = Doo::loadModel('bookoff', true);
             $book->did = $this->params['id'];
             $explainText =  stripslashes($_POST['value']);
             $date = explode("-",$_POST['date']);
             $theDate = $date[2]."-".$date[1]."-".$date[0]. " 00:00:00";
-            $delete = isset($_POST["delete"]) && $_POST["delete"] == 1 ? true : false;
+            $delete = isset($_POST["delete"]) && $_POST["delete"] == "on" ? true : false;
             $pren = Doo::loadModel("prenotazioni",true);
             $pren->did = $this->params['id'];
 

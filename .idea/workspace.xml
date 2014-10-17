@@ -2,21 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57d6d3e2-5efc-4a35-ad2b-350812437811" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controller/AdminController.php" afterPath="$PROJECT_DIR$/protected/controller/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controller/LoginController.php" afterPath="$PROJECT_DIR$/protected/controller/LoginController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controller/PrenotController.php" afterPath="$PROJECT_DIR$/protected/controller/PrenotController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controller/BookoffController.php" afterPath="$PROJECT_DIR$/protected/controller/BookoffController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controller/UserController.php" afterPath="$PROJECT_DIR$/protected/controller/UserController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/add-prenotazioni.php" afterPath="$PROJECT_DIR$/protected/viewc/add-prenotazioni.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/base-template.php" afterPath="$PROJECT_DIR$/protected/viewc/base-template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/edit-docenti.php" afterPath="$PROJECT_DIR$/protected/viewc/edit-docenti.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/new-snag.php" afterPath="$PROJECT_DIR$/protected/viewc/new-snag.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/routes.conf.php" afterPath="$PROJECT_DIR$/protected/config/routes.conf.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/view-bookoffs.php" afterPath="$PROJECT_DIR$/protected/viewc/view-bookoffs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/view-docenti.php" afterPath="$PROJECT_DIR$/protected/viewc/view-docenti.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/view-materie.php" afterPath="$PROJECT_DIR$/protected/viewc/view-materie.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/view-prenotazioni-user.php" afterPath="$PROJECT_DIR$/protected/viewc/view-prenotazioni-user.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/view-user-admin.php" afterPath="$PROJECT_DIR$/protected/viewc/view-user-admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/view-users.php" afterPath="$PROJECT_DIR$/protected/viewc/view-users.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/register-page.php" afterPath="$PROJECT_DIR$/protected/viewc/register-page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/view-listapren.php" afterPath="$PROJECT_DIR$/protected/viewc/view-listapren.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/view-listapren2.php" afterPath="$PROJECT_DIR$/protected/viewc/view-listapren2.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="loquio.iws" />
@@ -43,75 +35,106 @@
       <file leaf-file-name="PrenotController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controller/PrenotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="189" column="21" selection-start="6452" selection-end="6453" vertical-scroll-proportion="-3.2307692" vertical-offset="3045" max-vertical-offset="7514">
+            <state line="293" column="50" selection-start="10373" selection-end="10373" vertical-scroll-proportion="-6.0384617" vertical-offset="4824" max-vertical-offset="7514">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.conf.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/config/routes.conf.php">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="18" selection-start="5993" selection-end="5997" vertical-scroll-proportion="-3.2307692" vertical-offset="2076" max-vertical-offset="2822">
+            <state line="32" column="11" selection-start="1333" selection-end="1333" vertical-scroll-proportion="0.64849627" vertical-offset="199" max-vertical-offset="952">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/controller/UserController.php">
+      <file leaf-file-name="view-listapren.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/viewc/view-listapren.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="149" selection-start="2573" selection-end="2573" vertical-scroll-proportion="-2.5769231" vertical-offset="1056" max-vertical-offset="2601">
+            <state line="96" column="0" selection-start="3122" selection-end="3122" vertical-scroll-proportion="-11.923077" vertical-offset="1322" max-vertical-offset="1853">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/controller/MainController.php">
+      <file leaf-file-name="view-users.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/viewc/view-users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="14.038462" vertical-offset="365" max-vertical-offset="935">
+            <state line="39" column="8" selection-start="880" selection-end="880" vertical-scroll-proportion="-11.115385" vertical-offset="374" max-vertical-offset="1802">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base-template.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/protected/viewc/base-template.php">
+      <file leaf-file-name="view-listapren2.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/viewc/view-listapren2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="80" selection-start="2199" selection-end="2199" vertical-scroll-proportion="0.7438795" vertical-offset="727" max-vertical-offset="6256">
+            <state line="4" column="39" selection-start="103" selection-end="103" vertical-scroll-proportion="9.153846" vertical-offset="306" max-vertical-offset="850">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register-page.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/viewc/register-page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="21" selection-start="1297" selection-end="1297" vertical-scroll-proportion="-16.5" vertical-offset="217" max-vertical-offset="4148">
               <folding>
-                <marker date="1413561815178" expanded="true" signature="2452:5599" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="2507:2551" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="2590:5599" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="2621:5599" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="2631:2802" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="4911:5599" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="4954:5098" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="5126:5599" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="5138:5304" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="5506:5599" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="8259:8553" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="8291:8553" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="8320:8553" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="8347:8553" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="8453:8553" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="8490:8553" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="8956:10358" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="10931:10980" placeholder="..." />
-                <marker date="1413561815178" expanded="true" signature="11128:11254" placeholder="..." />
+                <element signature="n#style#0;n#span#0;n#span#0;n#label#5;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1413564727587" expanded="true" signature="6694:6823" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new-snag.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/viewc/new-snag.php">
+      <file leaf-file-name="ace.min.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/global/assets/css/ace.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="112" selection-start="1111" selection-end="1111" vertical-scroll-proportion="-7.423077" vertical-offset="209" max-vertical-offset="2431">
+            <state line="0" column="221629" selection-start="221629" selection-end="221629" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add-prenotazioni.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/viewc/add-prenotazioni.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="242" column="93" selection-start="8590" selection-end="8590" vertical-scroll-proportion="-5.576923" vertical-offset="3824" max-vertical-offset="5304">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base-template.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/viewc/base-template.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="268" column="16" selection-start="8750" selection-end="8750" vertical-scroll-proportion="-3.2115386" vertical-offset="4389" max-vertical-offset="5508">
               <folding>
-                <element signature="e#1714#1797#0" expanded="true" />
-                <marker date="1413561573811" expanded="true" signature="3226:3345" placeholder="..." />
+                <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1413565270695" expanded="true" signature="2309:5456" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="2364:2408" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="2447:5456" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="2478:5456" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="2488:2659" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="4768:5456" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="4811:4955" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="4983:5456" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="4995:5161" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="5363:5456" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="8116:8410" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="8148:8410" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="8177:8410" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="8204:8410" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="8310:8410" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="8347:8410" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="9322:9371" placeholder="..." />
+                <marker date="1413565270695" expanded="true" signature="9519:9645" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -120,34 +143,7 @@
       <file leaf-file-name="BookoffController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controller/BookoffController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="64" selection-start="2422" selection-end="2444" vertical-scroll-proportion="-3.2307692" vertical-offset="1039" max-vertical-offset="4658">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/controller/LoginController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="27" selection-start="496" selection-end="496" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="6103">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ErrorController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/controller/ErrorController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="374">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/controller/AdminController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="53" selection-start="1370" selection-end="1374" vertical-scroll-proportion="-3.2307692" vertical-offset="665" max-vertical-offset="8942">
+            <state line="55" column="0" selection-start="1615" selection-end="1615" vertical-scroll-proportion="-0.65384614" vertical-offset="901" max-vertical-offset="4675">
               <folding />
             </state>
           </provider>
@@ -166,9 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/global/js/docenti-add.js" />
-        <option value="$PROJECT_DIR$/protected/viewc/old/add-materie.php" />
-        <option value="$PROJECT_DIR$/protected/viewc/old/edit-materie.php" />
         <option value="$PROJECT_DIR$/protected/viewc/edit-materie.php" />
         <option value="$PROJECT_DIR$/protected/viewc/add-materie.php" />
         <option value="$PROJECT_DIR$/protected/viewc/old/add-user.php" />
@@ -176,7 +169,6 @@
         <option value="$PROJECT_DIR$/protected/viewc/new-bookoff.php" />
         <option value="$PROJECT_DIR$/protected/viewc/old/edit-siteconfig.php" />
         <option value="$PROJECT_DIR$/protected/viewc/edit-siteconfig.php" />
-        <option value="$PROJECT_DIR$/protected/viewc/add-prenotazioni.php" />
         <option value="$PROJECT_DIR$/protected/viewc/error-page.php" />
         <option value="$PROJECT_DIR$/protected/viewc/ok-page.php" />
         <option value="$PROJECT_DIR$/protected/viewc/old/panel-admin.php" />
@@ -197,13 +189,10 @@
         <option value="$PROJECT_DIR$/install.php" />
         <option value="$PROJECT_DIR$/INSTALL.txt" />
         <option value="$PROJECT_DIR$/protected/viewc/add-bookoff.php" />
-        <option value="$PROJECT_DIR$/protected/controller/BookoffController.php" />
-        <option value="$PROJECT_DIR$/protected/viewc/register-page.php" />
         <option value="$PROJECT_DIR$/protected/viewc/edit-user.php" />
         <option value="$PROJECT_DIR$/protected/viewc/add-user.php" />
         <option value="$PROJECT_DIR$/protected/config/routes.conf.php" />
         <option value="$PROJECT_DIR$/protected/controller/LoginController.php" />
-        <option value="$PROJECT_DIR$/protected/controller/PrenotController.php" />
         <option value="$PROJECT_DIR$/protected/controller/UserController.php" />
         <option value="$PROJECT_DIR$/protected/viewc/edit-docenti.php" />
         <option value="$PROJECT_DIR$/../bootstrap/tables.html" />
@@ -212,11 +201,18 @@
         <option value="$PROJECT_DIR$/protected/viewc/view-prenotazioni-user.php" />
         <option value="$PROJECT_DIR$/protected/viewc/view-bookoffs.php" />
         <option value="$PROJECT_DIR$/protected/viewc/view-user-admin.php" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/protected/viewc/view-users.php" />
         <option value="$PROJECT_DIR$/protected/controller/AdminController.php" />
         <option value="$PROJECT_DIR$/protected/viewc/new-snag.php" />
+        <option value="$PROJECT_DIR$/protected/controller/BookoffController.php" />
+        <option value="$PROJECT_DIR$/protected/controller/PrenotController.php" />
+        <option value="$PROJECT_DIR$/global/assets/css/ace.min.css" />
+        <option value="$PROJECT_DIR$/protected/viewc/register-page.php" />
+        <option value="$PROJECT_DIR$/protected/viewc/add-prenotazioni.php" />
+        <option value="$PROJECT_DIR$/protected/viewc/view-listapren2.php" />
         <option value="$PROJECT_DIR$/protected/viewc/base-template.php" />
+        <option value="$PROJECT_DIR$/protected/viewc/view-listapren.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -377,6 +373,86 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loquio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loquio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loquio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loquio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loquio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loquio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loquio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loquio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -468,7 +544,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24093656" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2326284" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23036253" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -523,24 +599,9 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/model/docenti.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="568" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/model/base/DocentiBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="762" selection-end="871" vertical-scroll-proportion="-11.692307" vertical-offset="580" max-vertical-offset="1870" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/add-materie.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="2" selection-start="584" selection-end="584" vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="510" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/add-prenotazioni.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="237" column="36" selection-start="8225" selection-end="8225" vertical-scroll-proportion="-13.038462" vertical-offset="3690" max-vertical-offset="5304" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/edit-bookoff.php">
@@ -673,15 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/register-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="209" column="10" selection-start="7378" selection-end="7378" vertical-scroll-proportion="-14.384615" vertical-offset="3179" max-vertical-offset="4012">
-          <folding>
-            <marker date="1413551450024" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/edit-user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="23" selection-start="3164" selection-end="3164" vertical-scroll-proportion="-13.230769" vertical-offset="1237" max-vertical-offset="1955">
@@ -763,13 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/view-listapren.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="39" selection-start="799" selection-end="799" vertical-scroll-proportion="-13.192307" vertical-offset="116" max-vertical-offset="2482">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/view-bookoffs.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="74" column="0" selection-start="1682" selection-end="2257" vertical-scroll-proportion="-6.5384617" vertical-offset="1088" max-vertical-offset="1632">
@@ -791,26 +836,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="43" selection-start="1094" selection-end="1189" vertical-scroll-proportion="-5.64" vertical-offset="267" max-vertical-offset="867">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/view-docenti.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="73" column="13" selection-start="1747" selection-end="1747" vertical-scroll-proportion="-8.0" vertical-offset="1033" max-vertical-offset="2397">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/view-users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="44" selection-start="938" selection-end="938" vertical-scroll-proportion="-12.423077" vertical-offset="374" max-vertical-offset="1802">
           <folding />
         </state>
       </provider>
@@ -843,34 +871,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controller/PrenotController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="21" selection-start="6452" selection-end="6453" vertical-scroll-proportion="-3.2307692" vertical-offset="3045" max-vertical-offset="7514">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/routes.conf.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="132" column="18" selection-start="5993" selection-end="5997" vertical-scroll-proportion="-3.2307692" vertical-offset="2076" max-vertical-offset="2822">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controller/BookoffController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="64" selection-start="2422" selection-end="2444" vertical-scroll-proportion="-3.2307692" vertical-offset="1039" max-vertical-offset="4658">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/new-snag.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="112" selection-start="1111" selection-end="1111" vertical-scroll-proportion="-7.423077" vertical-offset="209" max-vertical-offset="2431">
-          <folding>
-            <element signature="e#1714#1797#0" expanded="true" />
-            <marker date="1413561573811" expanded="true" signature="3226:3345" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -881,30 +885,110 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/new-snag.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="112" selection-start="1111" selection-end="1111" vertical-scroll-proportion="0.5769231" vertical-offset="625" max-vertical-offset="2431">
+          <folding>
+            <element signature="e#1714#1797#0" expanded="true" />
+            <marker date="1413561573811" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controller/BookoffController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="0" selection-start="1615" selection-end="1615" vertical-scroll-proportion="-0.65384614" vertical-offset="901" max-vertical-offset="4675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controller/PrenotController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="293" column="50" selection-start="10373" selection-end="10373" vertical-scroll-proportion="-6.0384617" vertical-offset="4824" max-vertical-offset="7514">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global/assets/css/ace.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="221629" selection-start="221629" selection-end="221629" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="557">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/register-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="21" selection-start="1297" selection-end="1297" vertical-scroll-proportion="-16.5" vertical-offset="217" max-vertical-offset="4148">
+          <folding>
+            <element signature="n#style#0;n#span#0;n#span#0;n#label#5;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1413564727587" expanded="true" signature="6694:6823" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/add-prenotazioni.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="242" column="93" selection-start="8590" selection-end="8590" vertical-scroll-proportion="-5.576923" vertical-offset="3824" max-vertical-offset="5304">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/base-template.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="80" selection-start="2199" selection-end="2199" vertical-scroll-proportion="0.7438795" vertical-offset="727" max-vertical-offset="6256">
+        <state line="268" column="16" selection-start="8750" selection-end="8750" vertical-scroll-proportion="-3.2115386" vertical-offset="4389" max-vertical-offset="5508">
           <folding>
-            <marker date="1413561815178" expanded="true" signature="2452:5599" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="2507:2551" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="2590:5599" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="2621:5599" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="2631:2802" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="4911:5599" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="4954:5098" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="5126:5599" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="5138:5304" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="5506:5599" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="8259:8553" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="8291:8553" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="8320:8553" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="8347:8553" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="8453:8553" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="8490:8553" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="8956:10358" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="10931:10980" placeholder="..." />
-            <marker date="1413561815178" expanded="true" signature="11128:11254" placeholder="..." />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1413565270695" expanded="true" signature="2309:5456" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="2364:2408" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="2447:5456" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="2478:5456" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="2488:2659" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="4768:5456" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="4811:4955" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="4983:5456" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="4995:5161" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="5363:5456" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="8116:8410" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="8148:8410" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="8177:8410" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="8204:8410" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="8310:8410" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="8347:8410" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="9322:9371" placeholder="..." />
+            <marker date="1413565270695" expanded="true" signature="9519:9645" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/view-listapren2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="39" selection-start="103" selection-end="103" vertical-scroll-proportion="9.153846" vertical-offset="306" max-vertical-offset="850">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/view-listapren.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="0" selection-start="3122" selection-end="3122" vertical-scroll-proportion="-11.923077" vertical-offset="1322" max-vertical-offset="1853">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/view-users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="8" selection-start="880" selection-end="880" vertical-scroll-proportion="-11.115385" vertical-offset="374" max-vertical-offset="1802">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="11" selection-start="1333" selection-end="1333" vertical-scroll-proportion="0.64849627" vertical-offset="199" max-vertical-offset="952">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -35,7 +35,9 @@ $ul = Doo::conf()->APP_URL . "/global/";
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="<?php echo $ul; ?>assets/css/ace-ie.min.css" />
     <![endif]-->
-
+    <style>
+        .register-reqired{position:relative;left:20px;color:#ff0000;font-size:20px;}
+    </style>
     <!--inline styles related to this page-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
@@ -76,28 +78,28 @@ $ul = Doo::conf()->APP_URL . "/global/";
                         <label>
                             <span class="block input-icon input-icon-right">
                                 <input name="email" type="email" class="span12" placeholder="Email" />
-                                <i class="icon-envelope"></i>
+                                <i class="icon-envelope"><span class="register-reqired">*</span></i>
                             </span>
                         </label>
 
                         <label>
                             <span class="block input-icon input-icon-right">
                                 <input name="nome" type="text" class="span12" placeholder="Nome" />
-                                <i class="icon-user"></i>
+                                <i class="icon-user"><span class="register-reqired">*</span></i>
                             </span>
                         </label>
 
                         <label>
                             <span class="block input-icon input-icon-right">
                                 <input name="cognome" type="text" class="span12" placeholder="Cognome" />
-                                <i class="icon-user"></i>
+                                <i class="icon-user"><span class="register-reqired">*</span></i>
                             </span>
                         </label>
 
                         <label>
                             <span class="block input-icon input-icon-right">
                                 <input name="pass" type="password" class="span12" placeholder="Password" />
-                                <i class="icon-lock"></i>
+                                <i class="icon-lock"><span class="register-reqired">*</span></i>
                             </span>
                         </label>
 
@@ -109,6 +111,12 @@ $ul = Doo::conf()->APP_URL . "/global/";
                         </label>
 
                         <label>
+                            <span class="lbl">
+                                <span style="color: #ff0000">*</span> dati obbligatori
+                            </span>
+                        </label>
+                        <label>
+
                             <input type="checkbox" />
                             <span class="lbl">
                                 Accetto il
