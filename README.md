@@ -14,6 +14,7 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 
 Bug da fixare:
 * [GENERALE] inconsistenza di mysql nell update, fixare in generale il problema nel codice sorgente del framework
+* bug consistente nell usercontroller tra docente e utente
 * prenotazioni/list rendere stampabile la tabella della lista
 * prenotazioni/list separare la nelle liste classe
 * register/ inserisci voce "password dimenticata?".
@@ -27,9 +28,8 @@ Bug da fixare:
 
 * ???? Email della prenotazione mandata in automatico (e anche il telefono)
 
-POMERIDIANI
+pomeridiani
 ======
-
 
 * Inserire spiegazioni
 * Lato admin: inserire dei filtri per tutto (giorno, docente bla bla bla)
@@ -46,3 +46,14 @@ Possibili migliorie opzionali
 + Refactoring del javascript, introduzione di minifiers
 + Cambio dei controller UI nei timeslot in range multipli
 + Tool di filtraggio liste (successivo)
+
+todo x deploy
+======
+
+* Fare una guida in PDF per gli utenti
+* Fare una videoguida con un doppiatore
+* Bootstrap a una pagina che illustra i vantaggi di loquio
+    + guida e documentazione in PDF
+    + videoguida su youtube
+* Domini di terzo livello
+* Grafiche, loghi eccetera
