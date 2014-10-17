@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57d6d3e2-5efc-4a35-ad2b-350812437811" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/viewc/lost-password.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/viewc/reset-password.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controller/LoginController.php" afterPath="$PROJECT_DIR$/protected/controller/LoginController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/login-page.php" afterPath="$PROJECT_DIR$/protected/viewc/login-page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/routes.conf.php" afterPath="$PROJECT_DIR$/protected/config/routes.conf.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="loquio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,10 +54,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="870" selection-end="870" vertical-scroll-proportion="-16.32" vertical-offset="0" max-vertical-offset="1071">
+            <state line="18" column="50" selection-start="585" selection-end="585" vertical-scroll-proportion="0.5614679" vertical-offset="0" max-vertical-offset="1020">
               <folding />
             </state>
           </provider>
@@ -81,10 +75,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reset-password.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="reset-password.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/viewc/reset-password.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="22" selection-start="3808" selection-end="3808" vertical-scroll-proportion="0.92843693" vertical-offset="1275" max-vertical-offset="2805">
+            <state line="104" column="22" selection-start="3808" selection-end="3808" vertical-scroll-proportion="-18.961538" vertical-offset="1275" max-vertical-offset="2805">
               <folding>
                 <marker date="1413585670229" expanded="true" signature="4499:4610" placeholder="..." />
               </folding>
@@ -194,12 +188,12 @@
         <option value="$PROJECT_DIR$/global/config/config.json" />
         <option value="$PROJECT_DIR$/protected/viewc/edit-siteconfig.php" />
         <option value="$PROJECT_DIR$/protected/viewc/base-template.php" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/protected/config/routes.conf.php" />
         <option value="$PROJECT_DIR$/protected/controller/LoginController.php" />
         <option value="$PROJECT_DIR$/protected/viewc/login-page.php" />
         <option value="$PROJECT_DIR$/protected/viewc/lost-password.php" />
         <option value="$PROJECT_DIR$/protected/viewc/reset-password.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -785,16 +779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="870" selection-end="870" vertical-scroll-proportion="-16.32" vertical-offset="0" max-vertical-offset="1071">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/register-page.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="153" column="6" selection-start="6107" selection-end="6107" vertical-scroll-proportion="-5.519231" vertical-offset="2314" max-vertical-offset="4148">
@@ -842,11 +826,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/reset-password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="22" selection-start="3808" selection-end="3808" vertical-scroll-proportion="0.92843693" vertical-offset="1275" max-vertical-offset="2805">
+        <state line="104" column="22" selection-start="3808" selection-end="3808" vertical-scroll-proportion="-18.961538" vertical-offset="1275" max-vertical-offset="2805">
           <folding>
             <marker date="1413585670229" expanded="true" signature="4499:4610" placeholder="..." />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="50" selection-start="585" selection-end="585" vertical-scroll-proportion="0.5614679" vertical-offset="0" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
       </provider>
     </entry>
   </component>

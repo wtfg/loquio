@@ -17,9 +17,6 @@ Bug da fixare:
 * bug consistente nell usercontroller tra docente e utente
 * prenotazioni/list rendere stampabile la tabella della lista
 * prenotazioni/list separare la nelle liste classe
-* register/ inserisci voce "password dimenticata?".
-    + inserisci la mail e se la mail esiste verra mandato un link per resettare la password valido entro 24 ore.
-    + reset pass
 * http://www.loquio.it/cavour/register/
     + aggiungere la pagina trattamento dati personali (blank)
 
