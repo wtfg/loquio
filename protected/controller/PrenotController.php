@@ -382,7 +382,7 @@ class PrenotController extends DooController
                         $this->sendEmailSuccessfulBooking($to, $teacher, $theTime, $theDate);
 
                         $data = array('messaggio' => "Prenotazione inserita! Riceverai una email fra poco contenente i dati della prenotazione",
-                                      'url' => Doo::conf()->APP_URL,
+                                      'url' => Doo::conf()->APP_URL . "prenotazioni/",
                                       'titolo' => "Prenotato!"
                         );
 
@@ -424,7 +424,7 @@ class PrenotController extends DooController
         $this->sendEmailCanceledBooking($d, $p, $fromWho);
 
         $data = array('messaggio' => "Prenotazione Annullata!",
-            'url' => Doo::conf()->APP_URL,
+            'url' => Doo::conf()->APP_URL. "prenotazioni/",
             'titolo' => "Ben Fatto!"
         );
         // MESSAGGIO DOCENTE MODIFICATO

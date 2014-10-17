@@ -85,10 +85,6 @@ var v = new FormValidator("login",
         display: "Email",
         rules: "valid_email|required"
     },{
-        name: "pass", 
-        display: "Password",
-        rules: "required"
-    },{
         name: "telefono", 
         display: "Telefono",
         rules: "numeric"

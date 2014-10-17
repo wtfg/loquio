@@ -159,7 +159,7 @@ class AdminController extends DooController {
                         if($res2){
                             $data['messaggio'] .= "<br>Il suo account utente e' stato sincronizzato con successo!";
                         }
-                        $data['url'] = Doo::conf()->APP_URL;
+                        $data['url'] = Doo::conf()->APP_URL . "admin/docenti/";
                         $data['titolo'] = "Ben fatto!";
                         
                         // MESSAGGIO DOCENTE MODIFICATO
@@ -192,7 +192,7 @@ class AdminController extends DooController {
         $this->db()->delete($docente);
         $this->db()->delete($utente);
         $data['messaggio'] = "Docente e utente correlato eliminato con successo!";
-        $data['url'] = Doo::conf()->APP_URL;
+        $data['url'] = Doo::conf()->APP_URL . "admin/docenti/";
         $data['titolo'] = "Ben fatto!";
 
         // MESSAGGIO DOCENTE MODIFICATO
@@ -239,7 +239,7 @@ class AdminController extends DooController {
         $ac = $this->db()->update($d);
         if($ac){
             $data['messaggio'] = "Docente Disattivato!";
-            $data['url'] = Doo::conf()->APP_URL . "/docenti";
+            $data['url'] = Doo::conf()->APP_URL . "admin/docenti";
             $data['titolo'] = "Ben fatto!";
 
             // MESSAGGIO DOCENTE MODIFICATO
@@ -256,8 +256,8 @@ class AdminController extends DooController {
         $ac = $this->db()->update($d);
         if($ac){
             $data['messaggio'] = "Docente Attivato!";
-            $data['url'] = Doo::conf()->APP_URL;
-            $data['titolo'] = "Ben fatto!". "/docenti";
+            $data['url'] = Doo::conf()->APP_URL. "admin/docenti/";
+            $data['titolo'] = "Ben fatto!";
 
             // MESSAGGIO DOCENTE MODIFICATO
             $this->renderc('ok-page',$data);
@@ -331,7 +331,7 @@ class AdminController extends DooController {
                             // MESSAGGIO DOCENTE INSERITO
                             $this->sendNewTeacherMail($docente->email, $ran);
                             $data['messaggio'] = "Docente Inserito! Al docente verra inviata una mail con la sua password!";
-                            $data['url'] = Doo::conf()->APP_URL;
+                            $data['url'] = Doo::conf()->APP_URL. "admin/docenti/";
                             $data['titolo'] = "Ben fatto!";
 
                             // MESSAGGIO DOCENTE MODIFICATO
@@ -395,7 +395,7 @@ class AdminController extends DooController {
 
                     if ($this->db()->update($materia)) {
                         $data['messaggio'] = "Materia inserita!";
-                        $data['url'] = Doo::conf()->APP_URL;
+                        $data['url'] = Doo::conf()->APP_URL . "admin/materie/";
                         $data['titolo'] = "Ben fatto!";
                         
                         // MESSAGGIO DOCENTE MODIFICATO
@@ -436,7 +436,7 @@ class AdminController extends DooController {
 
         $this->db()->delete($materia);
         $data['messaggio'] = "Materia Eliminata!";
-        $data['url'] = Doo::conf()->APP_URL;
+        $data['url'] = Doo::conf()->APP_URL . "admin/materie/";
         $data['titolo'] = "Ben fatto!";
 
         // MESSAGGIO DOCENTE MODIFICATO
@@ -457,7 +457,7 @@ class AdminController extends DooController {
 
                     if ($this->db()->insert($materia)) {
                         $data['messaggio'] = "Materia Inserita!";
-                        $data['url'] = Doo::conf()->APP_URL;
+                        $data['url'] = Doo::conf()->APP_URL . "admin/materie/";
                         $data['titolo'] = "Ben fatto!";
                         
                         // MESSAGGIO DOCENTE MODIFICATO

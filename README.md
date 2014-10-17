@@ -21,9 +21,6 @@ Bug da fixare:
     + reset pass
 * http://www.loquio.it/cavour/register/
     + aggiungere la pagina trattamento dati personali (blank)
-* http://www.loquio.it/cavour/admin/materie
-    + ogni volta che inserisco una materia
-    + dopo l'inserimento mi riporta alla Dashboard (invece dovrebbe rimanere nella sezione finché io non cambio. Questo comportamento sembra essere presente in tutti gli altri inserimenti
 * Inserisci pannello utente (modifica password e dati personali)
 * Sulle config generali nome scuola
 * Nel titolo di ogni pagina mettere il nome della scuola

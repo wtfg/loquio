@@ -51,7 +51,7 @@ class UserController extends DooController {
                     $data['messaggio'] .= "<br>Anche il docente e' stato creato, ricordati di configurarlo!";
                 }
 
-                $data['url'] = Doo::conf()->APP_URL."admin";
+                $data['url'] = Doo::conf()->APP_URL."admin/utenti/";
                 $data['titolo'] = "Ben fatto!";
 
                 // MESSAGGIO DOCENTE MODIFICATO
@@ -90,8 +90,9 @@ class UserController extends DooController {
             $user->cognome = $_POST["cognome"];
             $user->email = $_POST["email"];
             $user->telefono = $_POST["telefono"];
-            $user->pass =md5($_POST["pass"]);
-    #        $user->altramail = $_POST["altramail"];
+            if($_POST["pass"] != null)
+                $user->pass =md5($_POST["pass"]);
+    #       $user->altramail = $_POST["altramail"];
             $user->acl = $_POST["aclr"];
 
             if($this->db()->update($user)){
@@ -108,7 +109,7 @@ class UserController extends DooController {
                     $this->db()->update($docente);
                     $data['messaggio'] .= "<br>Anche il docente e' stato modificato, ricordati di configurarlo!";
                 }
-                $data['url'] = Doo::conf()->APP_URL."admin";
+                $data['url'] = Doo::conf()->APP_URL."admin/utenti/";
                 $data['titolo'] = "Ben fatto!";
 
                 // MESSAGGIO DOCENTE MODIFICATO
@@ -138,7 +139,7 @@ class UserController extends DooController {
         $this->db()->delete($user);
 
         $data['messaggio'] = "Utente cancellato!";
-        $data['url'] = Doo::conf()->APP_URL."admin";
+        $data['url'] = Doo::conf()->APP_URL."admin/utenti/";
         $data['titolo'] = "Ben fatto!";
 
         // MESSAGGIO DOCENTE MODIFICATO

@@ -79,7 +79,7 @@ class BookoffController extends DooController {
             $data['messaggio'] = $i." email mandate per avvisare dell'imprevisto";
             if($delete)
                 $data['messaggio'] .= "<br>Le prenotazioni sono state cancellate!";
-            $data['url'] = Doo::conf()->APP_URL."admin";
+            $data['url'] = Doo::conf()->APP_URL;
             $data['titolo'] = "Ben fatto!";
         // MESSAGGIO DOCENTE MODIFICATO
             $this->renderc('ok-page',$data);
@@ -125,7 +125,7 @@ class BookoffController extends DooController {
             if($done){
 
                 $data['messaggio'] = "Bookoff creato!";
-                $data['url'] = Doo::conf()->APP_URL."admin";
+                $data['url'] = Doo::conf()->APP_URL."admin/bookoff";
                 $data['titolo'] = "Ben fatto!";
 
                 $this->renderc('ok-page',$data);
@@ -162,7 +162,7 @@ class BookoffController extends DooController {
 
         $this->db()->delete($bookoff);
         $data['messaggio'] = "Bookoff Eliminato!";
-        $data['url'] = Doo::conf()->APP_URL."admin";
+        $data['url'] = Doo::conf()->APP_URL."admin/bookoff";
         $data['titolo'] = "Ben fatto!";
 
         // MESSAGGIO DOCENTE MODIFICATO
@@ -220,7 +220,7 @@ class BookoffController extends DooController {
             
             if($this->db()->update($book)){
                 $data['messaggio'] = "Bookoff modificato!";
-                $data['url'] = Doo::conf()->APP_URL."admin";
+                $data['url'] = Doo::conf()->APP_URL."admin/bookoff";
                 $data['titolo'] = "Ben fatto!";
 
                 // MESSAGGIO DOCENTE MODIFICATO
