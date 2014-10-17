@@ -218,9 +218,9 @@ class LoginController extends DooController {
                 $user->email = $_POST['email'];
                 $user->pass = $_POST['pass'];
                 $user = $this->db()->find($user, array('limit' => 1));
-                
+
                 if ($user) {
-                    
+
                     session_start();
                     switch ($user->acl) {
                         case 0:

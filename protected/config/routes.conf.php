@@ -92,6 +92,10 @@ $route['*']['/admin/docenti'] = array('AdminController', 'viewDocenti');
 
 $route['*']['/admin/docenti/edit/:id'] = array('AdminController', 'editDocenti');
 
+$route['*']['/admin/docenti/activate/:id'] = array('AdminController', 'activateDocenti');
+
+$route['*']['/admin/docenti/deactivate/:id'] = array('AdminController', 'deactivateDocenti');
+
 $route['*']['/admin/docenti/delete/:id'] = array('AdminController', 'deleteDocenti');
 
 $route['*']['/admin/docenti/new'] = array('AdminController', 'addDocenti');

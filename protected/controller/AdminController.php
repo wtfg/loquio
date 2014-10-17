@@ -62,7 +62,7 @@ class AdminController extends DooController {
             } else {
                 $d['nomemateria'] = "--";
             }
-            $d['viewnome'] = stripslashes($docente->nome . " " . $docente->cognome);
+            $d['viewnome'] = stripslashes($docente->cognome . " " . $docente->nome);
             $d['did'] = $docente->did;
             $d['attivo'] = $docente->attivo;
             
@@ -230,6 +230,40 @@ class AdminController extends DooController {
         mail($email,  $subject, $message, $headers);
     }
 
+
+    function deactivateDocenti(){
+        $did = $this->params['id'];
+        $d = Doo::loadModel('docenti', true);
+        $d->did = $did;
+        $d->attivo = 0;
+        $ac = $this->db()->update($d);
+        if($ac){
+            $data['messaggio'] = "Docente Disattivato!";
+            $data['url'] = Doo::conf()->APP_URL . "/docenti";
+            $data['titolo'] = "Ben fatto!";
+
+            // MESSAGGIO DOCENTE MODIFICATO
+            $this->renderc('ok-page',$data);
+            return;
+        }
+    }
+
+    function activateDocenti(){
+        $did = $this->params['id'];
+        $d = Doo::loadModel('docenti', true);
+        $d->did = $did;
+        $d->attivo = 1;
+        $ac = $this->db()->update($d);
+        if($ac){
+            $data['messaggio'] = "Docente Attivato!";
+            $data['url'] = Doo::conf()->APP_URL;
+            $data['titolo'] = "Ben fatto!". "/docenti";
+
+            // MESSAGGIO DOCENTE MODIFICATO
+            $this->renderc('ok-page',$data);
+            return;
+        }
+    }
     function addDocenti() {
 
         if (!isset($_POST['button'])) {

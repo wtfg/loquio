@@ -98,10 +98,13 @@ class UserController extends DooController {
                 $data['messaggio'] = "Utente modificato!";
                 if($user->acl == 1){
                     $docente = Doo::loadModel("docenti", true);
+
                     $docente->nome = $user->nome;
                     $docente->cognome = $user->cognome;
                     $docente->email = $user->email;
                     $docente->tel = $user->telefono;
+
+
                     $this->db()->update($docente);
                     $data['messaggio'] .= "<br>Anche il docente e' stato modificato, ricordati di configurarlo!";
                 }

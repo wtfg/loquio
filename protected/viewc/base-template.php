@@ -52,7 +52,27 @@ $themail =  $_SESSION['user']['username'];
 							<img src="<?php echo $ul; ?>assets/images/loquio-white.png">
 						</small>
 					</a><!--/.brand-->
+                    <ul class="nav ace-nav pull-right">
 
+
+
+
+
+
+                        <li class="light-blue open">
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                                <img class="nav-user-photo" src="<?php echo $ul; ?>assets/avatars/user.jpg" alt="Jason's Photo">
+								<span class="user-info">
+									<small>Ciao, </small>
+                                    <?php echo $_SESSION['user']['username']; ?>
+								</span>
+
+
+                            </a>
+
+
+                        </li>
+                    </ul>
 					<!--/.ace-nav-->
 				</div><!--/.container-fluid-->
 			</div><!--/.navbar-inner-->

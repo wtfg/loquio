@@ -41,7 +41,8 @@ class PrenotController extends DooController
                           <body bgcolor=\"#FAFAFA\">
 
                                 La tua prenotazione per il docente <b><font color=\"red\">" . $docente->nome . " " . $docente->cognome . "</font></b> &egrave; stata confermata! <br>
-                                La data della prenotazione &egrave; il  <font color=\"red\">" . $theDate . "</font> alle ore  <font color=\"red\">" . $theTime . "</font> <br>
+                                La data della prenotazione &egrave; il  <font color=\"red\">" . $theDate . "</font> dalle ore  <font color=\"red\">" . $theTime . "</font> <br>
+                                Per vedere l'ordine di prenotazione accedi alle liste giornaliere sul tuo account Loquio.
 
                               <br><br>Grazie Per L'Attenzione!<br><em>Il Team Di Loquio</em>
                           </body>

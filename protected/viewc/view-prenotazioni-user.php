@@ -54,4 +54,20 @@ foreach($data["prenotazioni"] as $d){
 <?php
 $data['content'] = ob_get_contents();
 ob_end_clean();
+ob_start();
+?>
+    <script src="<?php echo Doo::conf()->APP_URL; ?>global/assets/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo Doo::conf()->APP_URL; ?>global/assets/js/jquery.dataTables.bootstrap.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            var oTable1 = $('#sample-table-1').dataTable( {
+                "aoColumns": [
+                    null, null, null, null,null,{ "bSortable": false }
+                ] } );
+        })
+    </script>
+<?php
+$data['scripts'] = ob_get_contents();
+ob_end_clean();
 ?>

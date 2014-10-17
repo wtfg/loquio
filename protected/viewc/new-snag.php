@@ -33,6 +33,7 @@ ob_start();
 
                         <div class="control-group">
                             <div class="row-fluid input-append">
+                                <input type="hidden" name="nomecognome" value="<?php echo $data["docenti"]; ?>" />
                                 <input class="span10 date-picker" id="id-date-picker-1"  name="date" type="text" data-date-format="dd-mm-yyyy">
                                 <span class="add-on">
                                     <i class="icon-calendar"></i>
