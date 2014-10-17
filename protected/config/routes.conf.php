@@ -104,6 +104,8 @@ $route['*']['/admin/utenti'] = array('UserController', 'showUsers');
 
 $route['*']['/admin/utenti/edit/:id'] = array('UserController', 'updateUser');
 
+$route['*']['/control/:id'] = array('UserController', 'panelUser');
+
 $route['*']['/admin/utenti/delete/:id'] = array('UserController', 'deleteUser');
 
 $route['*']['/admin/utenti/new'] = array('UserController', 'createUser');

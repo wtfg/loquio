@@ -1,12 +1,8 @@
 <?php
 $ul = Doo::conf()->APP_URL . "/global/";
 
-ob_start();
-?>
-Modifica utente
-<?php
-$data['title'] = ob_get_contents();
-ob_end_clean();
+
+$data['title'] = ($data["admin"]==true) ? "Modifica Utente" : "Modifica Account";
 ob_start();
 ?>
 
@@ -33,7 +29,7 @@ ob_start();
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="form-field-1">Password</label>
+            <label class="control-label" for="form-field-1">Password <small>(lasciala vuota se non vuoi cambiarla)</small></label>
 
             <div class="controls">
                 <input type="password" name="pass" id="pass" placeholder="Password">
@@ -46,6 +42,9 @@ ob_start();
                 <input type="text" name="telefono" id="telefono" placeholder="Telefono" value="<?php echo $data["utente"]->telefono; ?>">
             </div>
         </div>
+        <?php
+        if($data["admin"]==true){
+        ?>
         <div class="row-fluid">
             <label for="aclt">Livello di Accesso (ACL)</label>
             <select name="aclr">
@@ -54,7 +53,9 @@ ob_start();
                 <option value="2" <?php echo ($data["utente"]->acl == 2) ? "selected" : ""; ?>>Amministratore</option>
             </select>
         </div>
-
+        <?php
+        }
+        ?>
         <br>
         <br>
         <button name="button" type="submit" class="btn btn-large btn-success">

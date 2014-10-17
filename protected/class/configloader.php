@@ -18,7 +18,7 @@ class ConfigLoader{
      * Chiamata solo se il file e' necessario
      */
     private function getInitialConfig(){
-        $init = array("lookAheadTime" => 60);
+        $init = array("lookAheadTime" => 60, "schoolName" => "Test");
         return json_encode($init);
     }
 

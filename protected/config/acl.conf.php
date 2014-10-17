@@ -12,7 +12,8 @@ $acl['anonymous']['allow'] = array(
 
 $acl['user']['allow'] = array(
 							'LoginController'=>'*',
-                                                        'PrenotController'=>'*',
+                            'PrenotController'=>'*',
+                            "UserController" =>array("panelUser")
 							
                                 );
 $acl['user']['deny'] = array(
@@ -25,7 +26,8 @@ $acl['user']['deny'] = array(
 $acl['docente']['allow'] = array(
 							'LoginController'=>'*',
                             'PrenotController'=>'*',
-                            'BookoffController' => array('snag')
+                            'BookoffController' => array('snag'),
+                            "UserController" =>array("panelUser")
 							
                                 );
 

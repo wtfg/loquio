@@ -81,8 +81,6 @@ class UserController extends DooController {
     }
 
     function updateUser(){
-
-
         if(isset($_POST["button"])){
             $user = Doo::loadModel("utenti", true);
             $user->uid =  $_POST["uid"];
@@ -120,9 +118,65 @@ class UserController extends DooController {
 
         }else{
             $user = Doo::loadModel("utenti", true);
+
             $user->uid = $this->params["id"];
+
+
             $user = $this->db()->find($user, array("limit"=>1));
             $data = array("utente"=>$user);
+            $data["admin"] = true;
+
+            $data = $this->getContents("edit-user", $data);
+            $this->renderc("base-template", $data);
+            return;
+        }
+    }
+
+    function panelUser(){
+        if(isset($_POST["button"])){
+            $user = Doo::loadModel("utenti", true);
+            $user->uid =  $_POST["uid"];
+            $user->nome = $_POST["nome"];
+            $user->cognome = $_POST["cognome"];
+            $user->email = $_POST["email"];
+            $user->telefono = $_POST["telefono"];
+            if($_POST["pass"] != null)
+                $user->pass =md5($_POST["pass"]);
+
+
+            if($this->db()->update($user)){
+                $data['messaggio'] = "Utente modificato!";
+                if($user->acl == 1){
+                    $docente = Doo::loadModel("docenti", true);
+
+                    $docente->nome = $user->nome;
+                    $docente->cognome = $user->cognome;
+                    $docente->email = $user->email;
+                    $docente->tel = $user->telefono;
+
+
+                    $this->db()->update($docente);
+                    $data['messaggio'] .= "<br>Anche il docente e' stato modificato, ricordati di configurarlo!";
+                }
+                $data['url'] = Doo::conf()->APP_URL."admin/utenti/";
+                $data['titolo'] = "Ben fatto!";
+
+                // MESSAGGIO DOCENTE MODIFICATO
+                $this->renderc('ok-page',$data);
+                return;
+            }
+            $this->renderc('error-page');
+
+        }else{
+            $user = Doo::loadModel("utenti", true);
+
+            $user->uid = $_SESSION["user"]["id"];
+
+            $user = $this->db()->find($user, array("limit"=>1));
+            $data = array("utente"=>$user);
+
+            $data["admin"] = false;
+
             $data = $this->getContents("edit-user", $data);
             $this->renderc("base-template", $data);
             return;

@@ -13,11 +13,16 @@ ob_start();
 ?>
 <?php echo $message; ?>
     <form id="edit-siteconfig" name="login" method="post" action="">
-        <label for="lookAheadTime">Distanza in giorni di visibilit&aacute;</label>
+        <label for="schoolName">Nome Scuola</label>
+        <input type="text" name="schoolName" id="schoolName" value="<?php
+        echo $params->getParam("schoolName"); ?>"/>
+        <br><br>
 
+        <label for="lookAheadTime">Distanza in giorni di visibilit&aacute;</label>
         <input type="text" name="lookAheadTime" id="lookAheadTime" value="<?php
         echo $params->getParam("lookAheadTime"); ?>"/>
         <br><br>
+
         <button name="button" type="submit" class="btn btn-large btn-success">
             <i class="icon-ok bigger-150"></i>
             Invia

@@ -22,11 +22,11 @@ Bug da fixare:
     + reset pass
 * http://www.loquio.it/cavour/register/
     + aggiungere la pagina trattamento dati personali (blank)
-* Inserisci pannello utente (modifica password e dati personali)
 * Sulle config generali nome scuola
 * Nel titolo di ogni pagina mettere il nome della scuola
 
 * ???? Email della prenotazione mandata in automatico (e anche il telefono)
+
 
 pomeridiani
 ======
@@ -46,6 +46,7 @@ Possibili migliorie opzionali
 + Refactoring del javascript, introduzione di minifiers
 + Cambio dei controller UI nei timeslot in range multipli
 + Tool di filtraggio liste (successivo)
+
 
 todo x deploy
 ======

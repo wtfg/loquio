@@ -8,7 +8,7 @@ $themail =  $_SESSION['user']['username'];
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Loquio</title>
+		<title>Loquio - <?php $a = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config"); echo $a->getParam("schoolName")?></title>
 
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,8 +60,8 @@ $themail =  $_SESSION['user']['username'];
 
 
                         <li class="open" style="background: transparent; text-align: center;padding-top: 10px;">
-                            <a data-toggle="dropdown" href="#" style="width:300px; font-size:16px" class="dropdown-toggle">
-								<?php echo $_SESSION['user']['username']; ?>
+                            <a data-toggle="dropdown" href="#" style="width:300px; font-size:16px">
+								<?php echo $themail; ?>
                             </a>
 
 
@@ -152,7 +152,7 @@ $themail =  $_SESSION['user']['username'];
 
 					<li>
 						<a href="#" class="dropdown-toggle">
-							<i class="icon-cog"></i>
+							<i class="icon-cogs"></i>
 							<span class="menu-text"> Configurazioni </span>
 
 							<b class="arrow icon-angle-down"></b>
@@ -232,7 +232,12 @@ $themail =  $_SESSION['user']['username'];
                     }
                 ?>
 
-
+                    <li>
+                        <a href="<?php echo Doo::conf()->APP_URL."control/panel" ?>">
+                            <i class="icon-cog"></i>
+                            <span class="menu-text"> Account </span>
+                        </a>
+                    </li>
 
 
                     <li>
