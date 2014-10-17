@@ -130,7 +130,7 @@ class LoginController extends DooController {
             $_POST['nome'] = trim($_POST['nome']);
             $_POST['cognome'] = trim($_POST['cognome']);
             $_POST['telefono'] = trim($_POST['telefono']);
-            $_POST['altramail'] = trim($_POST['altramail']);
+    #        $_POST['altramail'] = trim($_POST['altramail']);
 
             if (!empty($_POST['email']) && !empty($_POST['pass'])) {
 
@@ -139,7 +139,7 @@ class LoginController extends DooController {
                 $user->nome = $_POST['nome'];
                 $user->cognome = $_POST['cognome'];
                 $user->telefono = $_POST['telefono'];
-                $user->altramail = $_POST['altramail'];
+    #            $user->altramail = $_POST['altramail'];
                 $user->pass = md5($_POST['pass']);
                 $user->acl = rand(2061994, 99914071);
                 $mail = $user->email;

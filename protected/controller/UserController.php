@@ -32,7 +32,7 @@ class UserController extends DooController {
             $user->email = $_POST["email"];
             $user->telefono = $_POST["telefono"];
             $user->pass = md5($_POST["pass"]);
-            $user->altramail = $_POST["altramail"];
+    #       $user->altramail = $_POST["altramail"];
             $user->acl = $_POST["aclr"];
 
 
@@ -91,7 +91,7 @@ class UserController extends DooController {
             $user->email = $_POST["email"];
             $user->telefono = $_POST["telefono"];
             $user->pass =md5($_POST["pass"]);
-            $user->altramail = $_POST["altramail"];
+    #        $user->altramail = $_POST["altramail"];
             $user->acl = $_POST["aclr"];
 
             if($this->db()->update($user)){

@@ -46,13 +46,6 @@ ob_start();
                 <input type="text" name="telefono" id="telefono" placeholder="Telefono">
             </div>
         </div>
-        <div class="control-group">
-            <label class="control-label" for="form-field-1">Email Alternativa</label>
-
-            <div class="controls">
-                <input type="text" name="altramail" id="altramail" placeholder="Email Alternativa">
-            </div>
-        </div>
         <div class="row-fluid">
             <label for="aclt">Livello di Accesso (ACL)</label>
             <select name="aclr">
@@ -82,7 +75,7 @@ var v = new FormValidator("login",
     {
         name: "nome", 
         display: "Nome",
-        rules: "alpha|required"
+        rules: "required"
     },{
         name: "cognome", 
         display: "Cognome",
@@ -98,12 +91,8 @@ var v = new FormValidator("login",
     },{
         name: "telefono", 
         display: "Telefono",
-        rules: "numeric|required"
-    },{
-        name: "altramail", 
-        display: "Email Alternativa",
-        rules: "valid_email|required"
-    }],function(errors, event){
+        rules: "numeric"
+    },],function(errors, event){
         if(errors.length > 0){
             msg="";
             for(er in errors){

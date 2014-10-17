@@ -109,13 +109,6 @@ $ul = Doo::conf()->APP_URL . "/global/";
                         </label>
 
                         <label>
-                            <span class="block input-icon input-icon-right">
-                                <input type="text" name="altramail" class="span12" placeholder="Email Alternativa" />
-                                <i class="icon-retweet"></i>
-                            </span>
-                        </label>
-
-                        <label>
                             <input type="checkbox" />
                             <span class="lbl">
                                 Accetto il
@@ -201,7 +194,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
             {
                 name: "nome",
                 display: "Nome",
-                rules: "alpha|required"
+                rules: "required"
             },{
             name: "cognome",
             display: "Cognome",
@@ -217,11 +210,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
         },{
             name: "telefono",
             display: "Telefono",
-            rules: "numeric|required"
-        },{
-            name: "altramail",
-            display: "Email Alternativa",
-            rules: "valid_email|required"
+            rules: "numeric"
         },],function(errors, event){
             if(errors.length > 0){
                 msg="";

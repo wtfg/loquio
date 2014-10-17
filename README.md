@@ -13,15 +13,14 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 ======
 
 Bug da fixare:
-* http://www.retinavision.it/loquio/prenotazioni/list
+* http://www.loquio.it/cavour/prenotazioni/list
     i menù multipli si aprono e si richiudono subito
-* http://www.retinavision.it/loquio/register/ -inserire l'asterico per i dati obbligatori (oppure scrivere tutti i dati sono obbligatori)
-    + eliminare email alternativa
+* http://www.loquio.it/cavour/register/ -inserire l'asterico per i dati obbligatori (oppure scrivere tutti i dati sono obbligatori)
     + aggiungere la pagina trattamento dati personali (blank)
-* http://www.retinavision.it/loquio/admin/materie
+* http://www.loquio.it/cavour/admin/materie
     + ogni volta che inserisco una materia
     + dopo l'inserimento mi riporta alla Dashboard (invece dovrebbe rimanere nella sezione finché io non cambio. Questo comportamento sembra essere presente in tutti gli altri inserimenti
-* http://www.retinavision.it/loquio/admin/docenti
+* http://www.loquio.it/cavour/admin/docenti
     + il nome del docente dovrebbe essere visualizzabile per cognome e nome e non il contrario
     + dovrebbe essere possibile un sort (alfabetico)
     + Inoltre anche in tutti gli inserimenti (in visualizzazione) c'è un ordinamento in base all'inserimento e non alfabetico
