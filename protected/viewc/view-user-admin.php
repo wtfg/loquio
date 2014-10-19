@@ -39,7 +39,7 @@ foreach($data["prenotazioni"] as $d){
         <td>".$d["classe"]."&nbsp;</td>
         <td>".$d["codice_canc"]."&nbsp;</td>
         <td>
-            <a href=\"".$ur."/delete/".$d["codice_canc"]."\" onclick=\"javascript:return confirm('Sei sicuro di voler cancrllare la prenotazione?');\">
+            <a href=\"".$ur."/delete/".$d["codice_canc"]."\" onclick=\"javascript:return confirm('Sei sicuro di voler cancellare la prenotazione?');\">
                 <button class=\"btn btn-mini btn-danger\">
                     <i class=\"icon-trash bigger-120\"></i>
                 </button>

@@ -139,7 +139,7 @@ $themail =  $_SESSION['user']['username'];
 							<li>
 								<a  href="<?php echo Doo::conf()->APP_URL."prenotazioni/list"?>">
 									<i class="icon-double-angle-right"></i>
-									Liste Giornaliere
+									Ordine prenotazione
 								</a>
 							</li>
 
@@ -224,14 +224,14 @@ $themail =  $_SESSION['user']['username'];
                             <li>
                                 <a href="<?php echo Doo::conf()->APP_URL."prenotazioni/"?>">
                                     <i class="icon-edit-sign"></i>
-                            Prenotazioni
+                            Le Mie Prenotazioni
                                 </a>
                             </li>
 
                             <li>
                                 <a  href="<?php echo Doo::conf()->APP_URL."prenotazioni/list"?>">
                                     <i class="icon-list"></i>
-                            Liste Giornaliere
+                            Ordine prenotazione
                             </a>
                             </li>
 
@@ -249,13 +249,13 @@ $themail =  $_SESSION['user']['username'];
                             <li>
                                 <a  href="<?php echo Doo::conf()->APP_URL."snag/".$docid?>">
                                     <i class="icon-warning-sign"></i>
-                                    Avviso
+                                    Avviso imprevisti
                                 </a>
                             </li>
                             <li>
                                 <a  href="<?php echo Doo::conf()->APP_URL."prenotazioni/list"?>">
                                     <i class="icon-list"></i>
-                                    Liste Giornaliere
+                                    Ordine prenotazione
                                 </a>
                             </li>
                     <?php

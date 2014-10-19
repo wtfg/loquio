@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
-    Loquio Dashboard
+Benvenuto, grande capo!
 <?php
 $data['title'] = ob_get_contents();
 ob_end_clean();

@@ -94,7 +94,7 @@ ob_start();
             </a>
         </td>
         <td>
-            <a  href=\"".$ur."/delete/".$doc["did"]."\" onclick=\"javascript:return confirm('Sei sicuro di voler cancrllare il docente?');\">
+            <a  href=\"".$ur."/delete/".$doc["did"]."\" onclick=\"javascript:return confirm('Sei sicuro di voler cancellare il docente?');\">
                 <button class=\"btn btn-mini btn-danger\">
                     <i class=\"icon-trash bigger-120\"></i>
                 </button>

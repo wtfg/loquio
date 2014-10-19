@@ -1,5 +1,5 @@
 <?php
-$data["title"] = "Prenotazioni per giorno";
+$data["title"] = "Ordine di prenotazione in base al colloquio";
 
 $ul = Doo::conf()->APP_URL . "global/";
 
@@ -13,9 +13,7 @@ foreach ($teachers as $teacher){
 $str .= "</select>";
 ob_start();
 ?>
-    <!--page specific plugin styles
-    <link rel="stylesheet" href="<?php echo $ul;?>assets/css/jquery-ui-1.10.3.custom.min.css" />
-    <link rel="stylesheet" href="<?php echo $ul;?>assets/css/datepicker.css" />-->
+    <link rel="stylesheet" href="<?php echo $ul;?>assets/css/datepicker.css" />
 
 <?php
 $data["head"] = ob_get_contents();
@@ -23,6 +21,18 @@ ob_end_clean();
 
 ob_start();
 ?>
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">
+            <i class="icon-remove"></i>
+        </button>
+        <strong>Qual'&eacute; il mio ordine di prenotazione?</strong><br>
+        Basta seguire questi passi:
+        <ul>
+            <li>Inserisci il giorno del colloquio</li>
+            <li>Seleziona il nome del docente</li>
+            <li>Clicca sul pulsante <b>"Invia"</b> e avrai la lista.</li>
+        </ul>
+    </div>
     <div class="span4">
         <div class="widget-box">
             <div class="widget-header">
@@ -36,7 +46,7 @@ ob_start();
                 <form method="post" name="view-lista" action="">
                 <div class="widget-main">
                     <div class="row-fluid">
-                        <label for="id-date-picker-1">Visualizza le prenotazioni per il giorno</label>
+                        <label for="id-date-picker-1">Visualizza l'ordine di prenotazione per il giorno</label>
                     </div>
 
                     <div class="control-group">

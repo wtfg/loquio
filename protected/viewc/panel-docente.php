@@ -6,7 +6,7 @@ $docente =Doo::db()->find($d, array("limit"=>1));
 $id = $docente->did;
 ob_start();
 ?>
-    Loquio Dashboard
+Benvenuto!
 <?php
 $data['title'] = ob_get_contents();
 ob_end_clean();

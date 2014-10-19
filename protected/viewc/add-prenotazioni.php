@@ -5,6 +5,12 @@ ob_start();
 ?>
     <link href='<?php echo $ul; ?>fc/fullcalendar/fullcalendar.css' rel='stylesheet' />
     <link href='<?php echo $ul; ?>fc/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <style>
+        .fc-event{
+            cursor: hand;
+            cursor: pointer;
+        }
+    </style>
 <?php
 $data["head"] = ob_get_contents();
 ob_end_clean();
@@ -21,6 +27,10 @@ ob_start();
             window.upped = false;
 
             $(document).ready(function() {
+                $("#studente").change(function(){
+                    v = $("#studente").val().toLowerCase();
+                    $("#studente").val(v.replace(/\b./g, function(m){ return m.toUpperCase(); }));
+                });
                 function updateChanges(add) {
                     $('#calendar').fullCalendar('removeEventSource', {
                         url: window.calendarUrl
@@ -233,9 +243,21 @@ $data['title'] = ob_get_contents();
 ob_end_clean();
 ob_start();
 ?>
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">
+            <i class="icon-remove"></i>
+        </button>
+        <strong>Come prenotare</strong>
 
+        <ul>
+            <li>Inserisci tutti i dati personali</li>
+            <li>Seleziona la materia e il docente con cui vuoi prenotare il colloquio</li>
+            <li>Scorri i giorni in cui vuoi prenotare con i pulsanti in alto a destra nel calendario</li>
+            <li>Clicca sull'orario segnato "Libero" nel calendario</li>
+        </ul>
+    </div>
 
-        <form id="add-prenotazione" name="add-prenotazione" method="post" action="">
+        <form id="add-prenotazione" name="add-prenotazione" method="post"  action="">
             <div class="form-group">
                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Cognome e nome studente </label>
 
@@ -304,7 +326,6 @@ ob_start();
             </button>
 
         </form>
-
 
 <?php
 $data['content'] = ob_get_contents();
