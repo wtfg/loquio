@@ -108,7 +108,9 @@ ob_start();
                         if (calEvent.title != "Occupato") {
 
                             $('#selected').val(data);
-
+                            z = "<b>Prenotazione selezionata per il giorno " + data.toString().replace(" ", " dalle ore ") + "<br>Clicca sul pulsante Invia (in fondo alla pagina) per confermare</b>";
+                            $("#infos").html(z);
+                            //alert("AAA");
                         }
                         //alert('Event: ' + calEvent.title);
 
@@ -188,6 +190,7 @@ ob_start();
 
         </style>
     <script>
+
         var v = new FormValidator("add-prenotazione",
             [
                 {
@@ -198,14 +201,6 @@ ob_start();
                 name: "classe",
                 display: "Classe",
                 rules: "valid_class|required"
-            },{
-                name: "email",
-                display: "Email",
-                rules: "valid_email|required"
-            },{
-                name: "tel",
-                display: "Telefono",
-                rules: "numeric|required"
             },{
                 name: "selected",
                 display: "Giorno Selezionato",
@@ -221,6 +216,7 @@ ob_start();
                 }
             }
         );
+
     </script>
 <?php
 $data['scripts'] = ob_get_contents();
@@ -250,7 +246,7 @@ ob_start();
                     <input type="text" name="classe" id="classe" placeholder="Classe" class="col-xs-10 col-sm-5">
                 </div>
             </div>
-            <div class="form-group">
+            <!--div class="form-group">
                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Email </label>
 
                 <div class="col-sm-9">
@@ -264,7 +260,7 @@ ob_start();
                 <div class="col-sm-9">
                     <input type="text" name="tel" id="tel" placeholder="Telefono" class="col-xs-10 col-sm-5">
                 </div>
-            </div>
+            </div-->
 
             <div class="form-group">
                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Materia: </label>
@@ -286,7 +282,8 @@ ob_start();
             </div>
 
             <div class="form-group">
-                <input type="text" readonly="readonly" name="selected" id="selected" value="" />
+                <span id="infos"></span>
+                <input type="hidden" name="selected" id="selected" value="" />
             </div>
 
               <br />

@@ -13,12 +13,13 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 ======
 
 Bug da fixare:
-* [GENERALE] inconsistenza di mysql nell update, fixare in generale il problema nel codice sorgente del framework
-* bug consistente nell usercontroller tra docente e utente
+
+*
 * prenotazioni/list rendere stampabile la tabella della lista
-* prenotazioni/list separare la nelle liste classe
+* prenotazioni/list separare nelle liste classe
 * http://www.loquio.it/cavour/register/
     + aggiungere la pagina trattamento dati personali (blank)
+* tasto elimina tutte le prenotazioni (sei sicuro??)
 
 * ???? Email della prenotazione mandata in automatico (e anche il telefono)
 

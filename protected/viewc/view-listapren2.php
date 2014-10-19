@@ -14,6 +14,7 @@ ob_start();
     <tr>
         <th>N</th>
         <th>Studente</th>
+        <th>Classe</th>
     </tr>
     </thead>
 
@@ -25,7 +26,8 @@ foreach($data['prens'] as $d){
 
     echo "<tr>
     <td>".$i."&nbsp;</td>
-    <td>".$d->studente." ".$d->classe."&nbsp;</td>
+    <td>".$d->studente."&nbsp;</td>
+    <td>".$d->classe."</td>
 
   </tr>";
 

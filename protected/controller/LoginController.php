@@ -164,7 +164,7 @@ class LoginController extends DooController {
 
                         $message = '
 						<html> 
-					  <body bgcolor=\"#FAFAFA\"> 
+					  <body>
 						 
 							Clicca o copia il link riportato qua sotto per attivare la tua registrazione <br> 
 							<font color=\"red\"><a href="' . Doo::conf()->APP_URL . 'register/complete/' . $data['message'] . '">
@@ -321,7 +321,7 @@ class LoginController extends DooController {
                 $link = Doo::conf()->APP_URL . 'reset/' . base64_encode(str_rot13($result->email."|".$result->pass."|".time()));
                 $message = '
 						<html>
-					  <body bgcolor=\"#FAFAFA\">
+					  <body>
 
 							Se vuoi rimpostare la tua password devi cliccare su questo link entro 24 ore, altrimenti scadr&aacute; il link. <br>
 							<font color=\"red\"><a href="' . $link. '">
@@ -343,14 +343,20 @@ class LoginController extends DooController {
 
                 mail($result->email, $subject, $message, $headers);
                 //var_dump($result);
-                $data['messaggio'] = "Ti arriver&aacute; una mail con il link per reimpostare la password";
+                $data['messaggio'] = "Se la tua mail risulta corretta ti arriver&aacute; una mail con il link per reimpostare la password";
                 $data['url'] = Doo::conf()->APP_URL;
                 $data['titolo'] = "Ben Fatto!";
 
                 // MESSAGGIO DOCENTE MODIFICATO
                 $this->renderc('ok-page',$data);
             }
-
+            else{
+                $data['messaggio'] = "Se la tua mail risulta corretta ti arriver&aacute; una mail con il link per reimpostare la password";
+                $data['url'] = Doo::conf()->APP_URL;
+                $data['titolo'] = "Ben Fatto!";
+                // MESSAGGIO DOCENTE MODIFICATO
+                $this->renderc('ok-page',$data);
+            }
             // email|passmd5|
         }else{
             $this->renderc("lost-password");
@@ -366,16 +372,16 @@ class LoginController extends DooController {
                 $u = Doo::loadModel('utenti', true);
                 $u->uid = $_POST["uid"];
                 $u->pass = md5($_POST["pass"]);
-                $up = $this->db()->update($u);
-                if($up){
-                    # stampa un ok!
-                    $data['messaggio'] = "Password reimpostata con successo!";
-                    $data['url'] = Doo::conf()->APP_URL;
-                    $data['titolo'] = "Ben Fatto!";
+                $this->db()->update($u);
 
-                    // MESSAGGIO DOCENTE MODIFICATO
-                    $this->renderc('ok-page',$data);
-                }
+                # stampa un ok!
+                $data['messaggio'] = "Password reimpostata con successo!";
+                $data['url'] = Doo::conf()->APP_URL;
+                $data['titolo'] = "Ben Fatto!";
+
+                // MESSAGGIO DOCENTE MODIFICATO
+                $this->renderc('ok-page',$data);
+
 
             }else{
                 $u = Doo::loadModel('utenti', true);

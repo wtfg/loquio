@@ -1,6 +1,6 @@
 <?php
 
-$data["title"] = "Visualizza Prenotazioni";
+$data["title"] = "Visualizza Prenotazioni Globali";
 
 ob_start();
 ?>
@@ -10,6 +10,7 @@ ob_start();
     <table id="sample-table-1" class="table table-striped table-bordered table-hover">
     <thead>
     <tr>
+        <th>Id Prenotazione</th>
         <th>Nome</th>
         <th>Data Pren.</th>
         <th>Materia</th>
@@ -30,6 +31,7 @@ foreach($data["prenotazioni"] as $d){
     // $bookoff["value"] = substr(str_replace(array("timeslot","\"","{","}","[","]"),"",$bookoff["value"]),1);
     echo "
     <tr>
+        <td>".$d["pid"]."&nbsp;</td>
         <td>".$d["nome_docente"]."&nbsp;</td>
         <td>".$d["data"]."&nbsp;</td>
         <td>".$d["materia"]."&nbsp;</td>
@@ -65,7 +67,7 @@ ob_start();
         $(function() {
             var oTable1 = $('#sample-table-1').dataTable( {
                 "aoColumns": [
-                    null, null, null,null,null,{ "bSortable": false },{ "bSortable": false }
+                    null,null, null, null,null,null,{ "bSortable": false },{ "bSortable": false }
                 ] } );
         })
     </script>

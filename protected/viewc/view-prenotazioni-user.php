@@ -55,6 +55,15 @@ foreach($data["prenotazioni"] as $d){
 $data['content'] = ob_get_contents();
 ob_end_clean();
 ob_start();
+
+if($_SESSION["user"]["acl"]=="admin"){
+
+    ?>
+    <script type="text/javascript">
+        location.href = "<?php echo Doo::conf()->APP_URL; ?>admin/prenotazioni"
+    </script>
+    <?php
+}
 ?>
     <script src="<?php echo Doo::conf()->APP_URL; ?>global/assets/js/jquery.dataTables.min.js"></script>
     <script src="<?php echo Doo::conf()->APP_URL; ?>global/assets/js/jquery.dataTables.bootstrap.js"></script>

@@ -84,6 +84,9 @@ class UserController extends DooController {
         if(isset($_POST["button"])){
             $user = Doo::loadModel("utenti", true);
             $user->uid =  $_POST["uid"];
+            $olduser = $this->db()->find($user, array("limit"=>1));
+            $oldacl = $olduser->acl;
+
             $user->nome = $_POST["nome"];
             $user->cognome = $_POST["cognome"];
             $user->email = $_POST["email"];
@@ -93,28 +96,42 @@ class UserController extends DooController {
     #       $user->altramail = $_POST["altramail"];
             $user->acl = $_POST["aclr"];
 
-            if($this->db()->update($user)){
-                $data['messaggio'] = "Utente modificato!";
-                if($user->acl == 1){
-                    $docente = Doo::loadModel("docenti", true);
+            $this->db()->update($user);
+            $data['messaggio'] = "Utente modificato!";
+            if($user->acl == 1){
+                $docente = Doo::loadModel("docenti", true);
 
-                    $docente->nome = $user->nome;
-                    $docente->cognome = $user->cognome;
-                    $docente->email = $user->email;
-                    $docente->tel = $user->telefono;
+                $docente->nome = $user->nome;
+                $docente->cognome = $user->cognome;
+                $docente->email = $user->email;
+                $docente->tel = $user->telefono;
+                $result = $this->db()->find($docente, array("limit"=>1));
 
+                if($oldacl == 1){
+                    if($result){
+                        $docente->did = $result->did;
+                        $this->db()->update($docente);
+                        $data['messaggio'] .= "<br>Anche il docente e' stato modificato, ricordati di configurarlo!";
+                    }
+                }else{
 
-                    $this->db()->update($docente);
-                    $data['messaggio'] .= "<br>Anche il docente e' stato modificato, ricordati di configurarlo!";
+                    if(!$result){
+                        $this->db()->insert($docente);
+                        $data['messaggio'] .= "<br>Il docente e' stato inserito, ricordati di configurarlo!";
+                    }else{
+                        $docente->did = $result->did;
+                        $this->db()->update($docente);
+                        $data['messaggio'] .= "<br>Anche il docente e' stato modificato, ricordati di configurarlo!";
+                    }
                 }
-                $data['url'] = Doo::conf()->APP_URL."admin/utenti/";
-                $data['titolo'] = "Ben fatto!";
 
-                // MESSAGGIO DOCENTE MODIFICATO
-                $this->renderc('ok-page',$data);
-                return;
             }
-            $this->renderc('error-page');
+            $data['url'] = Doo::conf()->APP_URL."admin/utenti/";
+            $data['titolo'] = "Ben fatto!";
+
+            // MESSAGGIO DOCENTE MODIFICATO
+            $this->renderc('ok-page',$data);
+            return;
 
         }else{
             $user = Doo::loadModel("utenti", true);
@@ -144,28 +161,26 @@ class UserController extends DooController {
                 $user->pass =md5($_POST["pass"]);
 
 
-            if($this->db()->update($user)){
-                $data['messaggio'] = "Utente modificato!";
-                if($user->acl == 1){
-                    $docente = Doo::loadModel("docenti", true);
+            $this->db()->update($user);
+            $data['messaggio'] = "Utente modificato!";
+            if($user->acl == 1){
+                $docente = Doo::loadModel("docenti", true);
 
-                    $docente->nome = $user->nome;
-                    $docente->cognome = $user->cognome;
-                    $docente->email = $user->email;
-                    $docente->tel = $user->telefono;
+                $docente->nome = $user->nome;
+                $docente->cognome = $user->cognome;
+                $docente->email = $user->email;
+                $docente->tel = $user->telefono;
 
 
-                    $this->db()->update($docente);
-                    $data['messaggio'] .= "<br>Anche il docente e' stato modificato, ricordati di configurarlo!";
-                }
-                $data['url'] = Doo::conf()->APP_URL."admin/utenti/";
-                $data['titolo'] = "Ben fatto!";
-
-                // MESSAGGIO DOCENTE MODIFICATO
-                $this->renderc('ok-page',$data);
-                return;
+                $this->db()->update($docente);
+                $data['messaggio'] .= "<br>Anche il docente e' stato modificato, ricordati di configurarlo!";
             }
-            $this->renderc('error-page');
+            $data['url'] = Doo::conf()->APP_URL."admin/utenti/";
+            $data['titolo'] = "Ben fatto!";
+
+            // MESSAGGIO DOCENTE MODIFICATO
+            $this->renderc('ok-page',$data);
+            return;
 
         }else{
             $user = Doo::loadModel("utenti", true);

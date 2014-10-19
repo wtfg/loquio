@@ -32,12 +32,12 @@ class BookoffController extends DooController {
 
         $message = '
 						<html>
-					  <body bgcolor=\"#FAFAFA\">
+					  <body>
 
 							Il docente <b>'.$nomecognome.'</b> ha un imprevisto per il giorno
-							<font color=\"red\">'.$date.'</font> <br>
-							Motivazione fornita:<br>'.$value.'<br>
-							'.$delete.'
+							<font color=\"#ff0000\">'.$date.'</font> <br>
+							Motivazione fornita:<br>'.$value.'<br><p><b>
+							'.$delete.'</b></p>
 						  <br><br>Grazie Per L\'Attenzione!<br><em>Il Team Di Loquio</em>
 					  </body>
 					</html>';
@@ -218,21 +218,15 @@ class BookoffController extends DooController {
 
 
             
-            if($this->db()->update($book)){
-                $data['messaggio'] = "Bookoff modificato!";
-                $data['url'] = Doo::conf()->APP_URL."admin/bookoff";
-                $data['titolo'] = "Ben fatto!";
+            $this->db()->update($book);
+            $data['messaggio'] = "Bookoff modificato!";
+            $data['url'] = Doo::conf()->APP_URL."admin/bookoff";
+            $data['titolo'] = "Ben fatto!";
 
-                // MESSAGGIO DOCENTE MODIFICATO
-                $this->renderc('ok-page',$data);
-                return;
-            }
+            // MESSAGGIO DOCENTE MODIFICATO
+            $this->renderc('ok-page',$data);
+            return;
 
-            /**
-             * renderizza errore
-             */
-
-            $this->renderc("error-page");
         }else{
 
 

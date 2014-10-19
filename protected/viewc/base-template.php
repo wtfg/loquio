@@ -41,6 +41,35 @@ $themail =  $_SESSION['user']['username'];
 
         <?php if(array_key_exists('head', $data)) echo $data['head']; ?>
 		<!--inline styles related to this page-->
+        <style>
+            @media screen{
+                .show-print{
+                    display: none;
+                }
+            }
+            @media print{
+                body, html{
+                    margin-top:-15px;
+                    padding-top: -15px;
+
+                }
+                .nav, .sidebar, .hide-print, #btn-scroll-up{
+                    display:none;
+                    visibility:hidden;
+                    max-width: 0px;
+                }
+                .show-print{
+                    display: inline;
+                    font-weight: bold;
+                    visibility: visible;
+                }
+                .main-content{
+
+                    width: 100%;
+                    margin:0px;
+                }
+            }
+        </style>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
 	<body>
@@ -59,7 +88,7 @@ $themail =  $_SESSION['user']['username'];
 
 
 
-                        <li class="open" style="background: transparent; text-align: center;padding-top: 10px;">
+                        <li class="open hide-print" style="background: transparent; text-align: center;padding-top: 10px;">
                             <a data-toggle="dropdown" href="#" style="width:300px; font-size:16px">
 								<?php echo $themail; ?>
                             </a>
@@ -259,7 +288,13 @@ $themail =  $_SESSION['user']['username'];
 					<div class="row-fluid">
 						<div class="span12">
 							<!--PAGE CONTENT BEGINS-->
+
                             <div class="page-header position-relative">
+                                <div class="show-print">
+                                    <h1>
+                                        Loquio - Servizio di prenotazione dei colloqui online<br><br>
+                                    </h1>
+                                </div>
                                 <h1>
                                     <?php if(array_key_exists('title', $data)) echo $data['title']; ?>
                                 </h1>

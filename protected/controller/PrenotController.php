@@ -32,13 +32,13 @@ class PrenotController extends DooController
      * @param $theTime
      * @param $theDate
      */
-    function sendEmailSuccessfulBooking($to, $docente, $theTime, $theDate){
+    function sendEmailSuccessfulBooking($to, $docente, $theTime, $theDate, $studentname){
         $from = "prenotazioni@loquio.it";
         $subject = "Prenotazione Colloquio";
 
         //begin of HTML message
         $message = "<html>
-                          <body bgcolor=\"#FAFAFA\">
+                          <body>
 
                                 La tua prenotazione per il docente <b><font color=\"red\">" . $docente->nome . " " . $docente->cognome . "</font></b> &egrave; stata confermata! <br>
                                 La data della prenotazione &egrave; il  <font color=\"red\">" . $theDate . "</font> dalle ore  <font color=\"red\">" . $theTime . "</font> <br>
@@ -56,6 +56,30 @@ class PrenotController extends DooController
 
         // now lets send the email.
         mail($to, $subject, $message, $headers);
+
+        $from = "prenotazioni@loquio.it";
+        $subject = "Prenotazione Colloquio da ".$studentname;
+
+        //begin of HTML message
+        $message = "<html>
+                          <body>
+
+                                Hai ricevuto una prenotazione da <font color=\"red\"><b>" . $studentname. "</b></font><br>
+                                La data della prenotazione &egrave; il  <font color=\"red\">" . $theDate . "</font> dalle ore  <font color=\"red\">" . $theTime . "</font> <br>
+                                Per vedere l'ordine di prenotazione accedi alle liste giornaliere sul tuo account Loquio.
+
+                              <br><br>Grazie Per L'Attenzione!<br><em>Il Team Di Loquio</em>
+                          </body>
+                        </html>";
+        //end of message
+
+
+        $headers = "MIME-Version: 1.0\r\n";
+        $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+        $headers .= "From: $from\r\n";
+
+        // now lets send the email.
+        mail($docente->email, $subject, $message, $headers);
     }
 
     /**
@@ -71,10 +95,10 @@ class PrenotController extends DooController
         $thedate = date("d/m/Y", $p->data);
         //begin of HTML message
         $message = "<html>
-	  <body bgcolor=\"#FAFAFA\">
+	  <body>
 
 			La tua prenotazione da parte di <b><font color=\"red\">" . $fromwho . "</font></b> &egrave; stata annullata! <br>
-			La data della prenotazione era il <font color=\"red\">" . $thedate . "</font> alle ore  <font color=\"red\">" . $thetime . "</font> <br>
+			La data della prenotazione era il <font color=\"red\">" . $thedate . "</font> dalle ore  <font color=\"red\">" . $thetime . "</font> <br>
 
 		  <br><br>Grazie Per L'Attenzione!<br><em>Il Team Di Loquio</em>
 	  </body>
@@ -220,11 +244,11 @@ class PrenotController extends DooController
             $booking = Doo::loadModel("prenotazioni", true);
             $booking->did = $teacher;
             $teacher = $this->getTeacher($teacher, array("limit" => 1));
-            $teacherFullName = $teacher->nome . " " . $teacher->cognome;
+            $teacherFullName =  $teacher->cognome. " ".$teacher->nome;
 
             // passate all'array
             $nextDay = strtotime($theDate) + 86400;
-            $teachers = $this->db()->find($booking, array("where" => "data>=" . strtotime($theDate) . " AND data<" . $nextDay));
+            $teachers = $this->db()->find($booking, array("where" => "data>=" . strtotime($theDate) . " AND data<" . $nextDay, "asc"=>"pid"));
 
             $data = array('data' => $theDate,
                           'docente' => $teacherFullName,
@@ -355,10 +379,13 @@ class PrenotController extends DooController
                 $_POST['classe'] = trim($_POST['classe']);
                 $_POST['uid'] = trim($_POST['uid']);
                 $_POST['studente'] = trim($_POST['studente']);
-                $_POST['email'] = trim($_POST['email']);
-                $_POST['tel'] = trim($_POST['tel']);
+                #$_POST['email'] = trim($_POST['email']);
+                #$_POST['tel'] = trim($_POST['tel']);
 
                 $teacher = $this->getTeacher($_POST['did'], array('limit' => 1));
+                $u = Doo::loadModel("utenti", true);
+                $u->email = $_SESSION["user"]['username'];
+                $u = $this->db()->find($u,array("limit"=>1));
 
                 $booking = Doo::loadModel("prenotazioni", true);
                 $booking->data = strtotime($_POST['selected']);
@@ -366,8 +393,8 @@ class PrenotController extends DooController
                 $booking->uid = $_POST['uid'];
                 $booking->classe = $_POST['classe'];
                 $booking->studente = $_POST['studente'];
-                $booking->email = $_POST['email'];
-                $booking->tel = $_POST['tel'];
+                $booking->email = $u->email;
+                $booking->tel = $u->telefono;
                 $booking->codicecanc = md5(time());
 
                 $isExisting = $this->db()->find($booking, array('limit' => 1));
@@ -379,7 +406,7 @@ class PrenotController extends DooController
                         $theDate = explode(" ", $_POST['selected']);
                         $theTime = $theDate[1];
                         $theDate = $theDate[0];
-                        $this->sendEmailSuccessfulBooking($to, $teacher, $theTime, $theDate);
+                        $this->sendEmailSuccessfulBooking($to, $teacher, $theTime, $theDate, $booking->studente);
 
                         $data = array('messaggio' => "Prenotazione inserita! Riceverai una email fra poco contenente i dati della prenotazione",
                                       'url' => Doo::conf()->APP_URL . "prenotazioni/",

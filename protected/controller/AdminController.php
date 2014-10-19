@@ -150,24 +150,20 @@ class AdminController extends DooController {
                     $utente->cognome = $docente->cognome;
                     $utente->telefono = $docente->tel;
                     $utente->email  = $docente->email;
-                    $res = $this->db()->update($docente);
+                    $this->db()->update($docente);
                     $res2 = $this->db()->update($utente);
 
-                    if ($res ) {
-
-                        $data['messaggio'] = "Docente Modificato Con Successo!";
-                        if($res2){
-                            $data['messaggio'] .= "<br>Il suo account utente e' stato sincronizzato con successo!";
-                        }
-                        $data['url'] = Doo::conf()->APP_URL . "admin/docenti/";
-                        $data['titolo'] = "Ben fatto!";
-                        
-                        // MESSAGGIO DOCENTE MODIFICATO
-                        $this->renderc('ok-page',$data);
-                        return;
+                    $data['messaggio'] = "Docente Modificato Con Successo!";
+                    if($res2){
+                        $data['messaggio'] .= "<br>Il suo account utente e' stato sincronizzato con successo!";
                     }
-                    $this->renderc("error-page");
+                    $data['url'] = Doo::conf()->APP_URL . "admin/docenti/";
+                    $data['titolo'] = "Ben fatto!";
+
+                    // MESSAGGIO DOCENTE MODIFICATO
+                    $this->renderc('ok-page',$data);
                     return;
+
                 } else {
                     
                     $this->renderc("error-page");
@@ -187,10 +183,12 @@ class AdminController extends DooController {
         $docentecorrelato = $this->db()->find($docente, array("limit"=>1));
         $utenti = Doo::loadModel("utenti", true);
         $utenti->email = $docentecorrelato->email;
+        $utenti->acl = 1;
         $utente = $this->db()->find($utenti, array("limit"=>1));
 
         $this->db()->delete($docente);
-        $this->db()->delete($utente);
+        if($utente)
+            $this->db()->delete($utente);
         $data['messaggio'] = "Docente e utente correlato eliminato con successo!";
         $data['url'] = Doo::conf()->APP_URL . "admin/docenti/";
         $data['titolo'] = "Ben fatto!";
@@ -236,16 +234,16 @@ class AdminController extends DooController {
         $d = Doo::loadModel('docenti', true);
         $d->did = $did;
         $d->attivo = 0;
-        $ac = $this->db()->update($d);
-        if($ac){
-            $data['messaggio'] = "Docente Disattivato!";
-            $data['url'] = Doo::conf()->APP_URL . "admin/docenti";
-            $data['titolo'] = "Ben fatto!";
+        $this->db()->update($d);
 
-            // MESSAGGIO DOCENTE MODIFICATO
-            $this->renderc('ok-page',$data);
-            return;
-        }
+        $data['messaggio'] = "Docente Disattivato!";
+        $data['url'] = Doo::conf()->APP_URL . "admin/docenti";
+        $data['titolo'] = "Ben fatto!";
+
+        // MESSAGGIO DOCENTE MODIFICATO
+        $this->renderc('ok-page',$data);
+        return;
+
     }
 
     function activateDocenti(){
@@ -253,16 +251,16 @@ class AdminController extends DooController {
         $d = Doo::loadModel('docenti', true);
         $d->did = $did;
         $d->attivo = 1;
-        $ac = $this->db()->update($d);
-        if($ac){
-            $data['messaggio'] = "Docente Attivato!";
-            $data['url'] = Doo::conf()->APP_URL. "admin/docenti/";
-            $data['titolo'] = "Ben fatto!";
+        $this->db()->update($d);
 
-            // MESSAGGIO DOCENTE MODIFICATO
-            $this->renderc('ok-page',$data);
-            return;
-        }
+        $data['messaggio'] = "Docente Attivato!";
+        $data['url'] = Doo::conf()->APP_URL. "admin/docenti/";
+        $data['titolo'] = "Ben fatto!";
+
+        // MESSAGGIO DOCENTE MODIFICATO
+        $this->renderc('ok-page',$data);
+        return;
+
     }
     function addDocenti() {
 
@@ -387,26 +385,19 @@ class AdminController extends DooController {
                 $materia = Doo::loadModel("materie", true);
                 $materia->nome = $_POST['nome'];
                 $materia->mid = $_POST['mid'];
-
-                $existing = Doo::loadModel("materie", true);
                 $materia->nome = $_POST['nome'];
-                $existing = $this->db()->find($materia, array('limit' => 1));
-                if (!$existing) {
 
-                    if ($this->db()->update($materia)) {
-                        $data['messaggio'] = "Materia inserita!";
-                        $data['url'] = Doo::conf()->APP_URL . "admin/materie/";
-                        $data['titolo'] = "Ben fatto!";
-                        
-                        // MESSAGGIO DOCENTE MODIFICATO
-                        $this->renderc('ok-page',$data);
-                        return;
-                    }
-                    $this->renderc("error-page");
-                    return;
-                } else {
-                    $this->renderc("error-page");
-                }
+
+                $this->db()->update($materia);
+
+                $data['messaggio'] = "Materia inserita!";
+                $data['url'] = Doo::conf()->APP_URL . "admin/materie/";
+                $data['titolo'] = "Ben fatto!";
+
+                // MESSAGGIO DOCENTE MODIFICATO
+                $this->renderc('ok-page',$data);
+                return;
+
             }
         }
     }
@@ -481,6 +472,7 @@ class AdminController extends DooController {
             $docentiModel = Doo::loadModel("docenti", true);
             $docentiModel->did = $d['did'];
             $da = $this->db()->find($docentiModel, array('limit' => 1));
+
             if($da == false){
                 $del = Doo::loadModel("prenotazioni", true);
                 $del->pid = $d['pid'];
@@ -490,9 +482,10 @@ class AdminController extends DooController {
             }
 
             $materieModel = Doo::loadModel("materie", true);
-            $materieModel->did = $d['did'];
+            $materieModel->mid = $da->mid;
             $materia = $this->db()->find($materieModel, array('limit' => 1));
             $d['materia_id'] = $materia->mid;
+            #$d['pid'] = $d['pid'] ;
             $d['materia'] = stripslashes($materia->nome);
             $d['nome_docente'] = stripslashes($da->nome . " " . $da->cognome);
             $d['creata'] = $prenotazione->creata;

@@ -7,7 +7,7 @@ $str = "<select name='docente'>";
 $teachers = $data['teachers'];
 foreach ($teachers as $teacher){
     $teacherId           = $teacher->did;
-    $teacherFullName     =  $teacher->nome." ". $teacher->cognome;
+    $teacherFullName     =  $teacher->cognome. " ".$teacher->nome;
     $str .= "<option value='".$teacherId."'>".$teacherFullName."</option>";
 }
 $str .= "</select>";
