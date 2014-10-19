@@ -438,10 +438,11 @@ ob_start();
                         <form action="#" method="post">
                             <input type="hidden" name="anno" value="<?php echo $anno ?>">
                             <input type="hidden" name="json" id="json" style="width:700px;" value=""><br><br>
-                            <button class="btn btn-info" type="submit">
-                                <i class="ace-icon fa fa-check bigger-110"></i>
+                            <button name="invia" type="submit" class="btn btn-large btn-success">
+                                <i class="icon-ok bigger-150"></i>
                                 Invia
                             </button>
+
                         </form>
                 </div>
             </div>

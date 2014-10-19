@@ -59,9 +59,9 @@ ob_start();
                     </div>
 
                     <hr>
-                    <button class="btn btn-info" name="invia" type="submit">
-                        <i class="icon-ok bigger-110"></i>
-                        Submit
+                    <button name="invia" type="submit" class="btn btn-large btn-success">
+                        <i class="icon-ok bigger-150"></i>
+                        Invia
                     </button>
                 </div>
                 </form>

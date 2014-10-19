@@ -79,6 +79,7 @@ $themail =  $_SESSION['user']['username'];
 					<a href="#" class="brand">
 						<small>
 							<img src="<?php echo $ul; ?>assets/images/loquio-white.png">
+                            <span class="hide-print" style="margin-left:10px"><?php echo $a->getParam("schoolName"); ?></span>
 						</small>
 					</a><!--/.brand-->
                     <ul class="nav ace-nav pull-right">

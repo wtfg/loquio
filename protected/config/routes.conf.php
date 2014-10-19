@@ -56,6 +56,9 @@
  */
 $route['*']['/asd'] = array('MainController', 'index');
 
+$route['*']['/privacy'] = array('LoginController', 'privacyPolicy');
+
+
 $route['*']['/error'] = array('ErrorController', 'index');
 
 $route['*']['/'] = array('LoginController', 'firstPage');

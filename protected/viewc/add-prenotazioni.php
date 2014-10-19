@@ -156,24 +156,28 @@ ob_start();
                     if (window.upped == false) {
                         thedate = "";
                         events = $('#calendar').fullCalendar('clientEvents');
+                        hasEvent = false;
                         if (events.length > 1) {
                             for (var i = 0; i < events.length; i++) {
+
                                 if (events[i]['start'] !== undefined) {
                                     thedate = events[i]['start'];
+                                    hasEvent = true;
                                     break;
                                 }
                                 // Iterates over numeric indexes from 0 to 5, as everyone expects.
                             }
 
+                            if(hasEvent){
+                                y = new Date(thedate).getFullYear();
+                                m = new Date(thedate).getMonth();
+                                d = new Date(thedate).getDate();
 
-                            y = new Date(thedate).getFullYear();
-                            m = new Date(thedate).getMonth();
-                            d = new Date(thedate).getDate();
+                                //alert(y+" "+m+" "+d);
 
-                            //alert(y+" "+m+" "+d);
-
-                            $('#calendar').fullCalendar('gotoDate', y, m, d);
-                            window.upped = true;
+                                $('#calendar').fullCalendar('gotoDate', y, m, d);
+                                window.upped = true;
+                            }
                         }
                     }
                 }
@@ -294,7 +298,11 @@ ob_start();
 
         <div id='calendar'></div><br> <br>
 
-        <button type="submit" name="button" id="button" class="btn btn-success">Invia</button>
+            <button name="button" id="button" type="submit" class="btn btn-large btn-success">
+                <i class="icon-ok bigger-150"></i>
+                Invia
+            </button>
+
         </form>
 
 

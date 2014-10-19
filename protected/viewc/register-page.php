@@ -120,7 +120,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
                             <input type="checkbox" />
                             <span class="lbl">
                                 Accetto il
-                                <a href="#">Trattamento dei dati personali</a>
+                                <a href="<?php echo Doo::conf()->APP_URL."privacy" ?>" target="_blank">Trattamento dei dati personali</a>
                             </span>
                         </label>
 

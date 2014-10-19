@@ -18,6 +18,13 @@ ob_start();
         echo $params->getParam("schoolName"); ?>"/>
         <br><br>
 
+
+        <label for="schoolName">Indirizzo Scuola</label>
+        <input type="text" name="schoolLocation" id="schoolLocation" value="<?php
+        echo $params->getParam("schoolLocation"); ?>"/>
+        <br><br>
+
+
         <label for="lookAheadTime">Distanza in giorni di visibilit&aacute;</label>
         <input type="text" name="lookAheadTime" id="lookAheadTime" value="<?php
         echo $params->getParam("lookAheadTime"); ?>"/>

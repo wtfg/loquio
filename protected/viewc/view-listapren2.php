@@ -38,8 +38,14 @@ foreach($data['prens'] as $d){
 
     </tbody>
     </table>
+        <br><br>
+        <button onclick="javascript:window.print()" class="hide-print btn btn-app btn-light btn-mini">
+            <i class="icon-print bigger-160"></i>
+            Stampa
+        </button>
     </div><!--/span-->
     </div>
+
 
 <?php
 $data['content'] = ob_get_contents();

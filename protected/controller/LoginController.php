@@ -410,7 +410,9 @@ class LoginController extends DooController {
         }
     }
 
-
+    function privacyPolicy(){
+        $this->renderc("privacy-policy");
+    }
 
     function showDocentePanel() {
         if(!isset($_SESSION['user'])){

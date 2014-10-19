@@ -64,7 +64,7 @@ foreach($data["bookoffs"] as $bookoff){
     </table>
     </div><!--/span-->
     </div>
-
+    <br>
     <a href="<?php echo Doo::conf()->APP_URL; ?>admin/bookoff/new/" class="btn btn-app btn-success">
         <i class="icon-plus"></i>
         Aggiungi Bookoff

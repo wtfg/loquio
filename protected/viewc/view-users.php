@@ -73,7 +73,7 @@ foreach($data["utenti"] as $user){
     </table>
     </div><!--/span-->
     </div>
-
+    <br>
     <a href="<?php echo Doo::conf()->APP_URL; ?>admin/utenti/new/" class="btn btn-app btn-success">
         <i class="icon-plus"></i>
         Aggiungi Utente

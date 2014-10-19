@@ -34,8 +34,10 @@ class AdminController extends DooController {
         }else{
             $lookAheadTime = trim($_POST["lookAheadTime"]);
             $schoolName = trim($_POST["schoolName"]);
+            $schoolLocation = trim($_POST["schoolLocation"]);
             $a->setParam("lookAheadTime", $lookAheadTime);
             $a->setParam("schoolName", $schoolName);
+            $a->setParam("schoolLocation", $schoolLocation);
             $data['message'] = "Aggiornato!";
         }
 

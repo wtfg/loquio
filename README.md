@@ -15,12 +15,10 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 Bug da fixare:
 
 *
-* prenotazioni/list rendere stampabile la tabella della lista
-* prenotazioni/list separare nelle liste classe
 * http://www.loquio.it/cavour/register/
     + aggiungere la pagina trattamento dati personali (blank)
 * tasto elimina tutte le prenotazioni (sei sicuro??)
-
+* checkbox varie
 * ???? Email della prenotazione mandata in automatico (e anche il telefono)
 
 
