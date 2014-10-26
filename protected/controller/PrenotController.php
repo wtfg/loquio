@@ -358,7 +358,7 @@ class PrenotController extends DooController
                 $teacherFullNamesDict = array();
 
                 foreach ($d as $teacher) {
-                    $teacherFullNamesDict[$teacher->did] = $teacher->nome . " " . $teacher->cognome;
+                    $teacherFullNamesDict[$teacher->did] = $teacher->cognome. " ". $teacher->nome;
                 }
 
                 $subjectTeacherDict[$subj->mid] = $teacherFullNamesDict;
