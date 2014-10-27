@@ -117,10 +117,10 @@ $ul = Doo::conf()->APP_URL . "/global/";
                         </label>
                         <label>
 
-                            <input type="checkbox" />
+                            <input type="checkbox" data-validation="required" name="trattamento" data-validation-error-msg="Devi accettare il trattamento dei dati personali" />
                             <span class="lbl">
                                 Accetto il
-                                <a href="<?php echo Doo::conf()->APP_URL."privacy" ?>" target="_blank">Trattamento dei dati personali</a>
+                                <a href="<?php echo Doo::conf()->APP_URL."privacy" ?>" target="_blank">Trattamento dei dati personali <span style="color: #ff0000">*</span></a>
                             </span>
                         </label>
 
@@ -133,7 +133,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
                             </button>
 
                             <button type="submit" class="width-65 pull-right btn btn-small btn-success">
-                                Register
+                                Registrati
                                 <i class="icon-arrow-right icon-on-right"></i>
                             </button>
                         </div>
@@ -219,7 +219,11 @@ $ul = Doo::conf()->APP_URL . "/global/";
             name: "telefono",
             display: "Telefono",
             rules: "numeric"
-        },],function(errors, event){
+        },{
+            name: "trattamento",
+            display: "Trattamento",
+            rules: "required"
+        }],function(errors, event){
             if(errors.length > 0){
                 msg="";
                 for(er in errors){
