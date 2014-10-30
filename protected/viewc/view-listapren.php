@@ -28,7 +28,7 @@ ob_start();
         <strong>Qual'&eacute; il mio ordine di prenotazione?</strong><br>
         Basta seguire questi passi:
         <ul>
-            <li>Inserisci il giorno del colloquio</li>
+            <li>Inserisci il giorno del colloquio. Clicca fuori dal calendario per nascondere il calendario.</li>
             <li>Seleziona il nome del docente</li>
             <li>Clicca sul pulsante <b>"Invia"</b> e avrai la lista.</li>
         </ul>
@@ -37,8 +37,6 @@ ob_start();
         <div class="widget-box">
             <div class="widget-header">
                 <h4>Scegli la data</h4>
-
-
             </div>
 
             <div class="widget-body">
@@ -79,6 +77,7 @@ ob_start();
         </div>
     </div>
 
+    </div>
 
 <?php
 $data['content'] = ob_get_contents();
@@ -100,7 +99,7 @@ ob_start();
 
 <script type="text/javascript">
     $(function() {
-        $('.date-picker').datepicker().next().on(ace.click_event, function(){
+        $('.date-picker').datepicker({orientation:"top right",autoclose:true}).next().on(ace.click_event, function(){
             $(this).prev().focus();
         });
     });

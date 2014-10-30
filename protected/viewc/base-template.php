@@ -293,7 +293,7 @@ $themail =  $_SESSION['user']['username'];
                             <div class="page-header position-relative">
                                 <div class="show-print">
                                     <h1>
-                                        Loquio - Servizio di prenotazione dei colloqui online<br><br>
+                                        Loquio - Servizio di prenotazione online dei colloqui<br><br>
                                     </h1>
                                 </div>
                                 <h1>
