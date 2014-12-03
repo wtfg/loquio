@@ -38,7 +38,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
     <![endif]-->
 
     <!--inline styles related to this page-->
-    <meta http-equiv="refresh" content="3;URL=<?php echo $data['url']?>">
+    <meta http-equiv="refresh" content="7;URL=<?php echo $data['url']?>">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
 <body class="login-layout">

@@ -195,7 +195,8 @@ class PrenotController extends DooController
     function showPrenUser()
     {
         $uid = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : "";
-        $bookModel = $this->getBook($uid, array("where" => "data>" . time()));
+
+        $bookModel = $this->getBook($uid, array("where" => "data>" . mktime(0,0,0,date("n"),date("j"),date("Y"))));
 
         $data = array("prenotazioni"=>array());
 
@@ -246,13 +247,27 @@ class PrenotController extends DooController
             $teacher = $this->getTeacher($teacher, array("limit" => 1));
             $teacherFullName =  $teacher->cognome. " ".$teacher->nome;
 
+            # ottiene le prime ore
+            $ora = json_decode($teacher->orelibere, true);
+
+            $weekday = date("D",strtotime($theDate));
+            if(array_key_exists($weekday, $ora)){
+                $ora = $ora[$weekday]["timeslot"][0];
+            }else{
+                $ora = null;
+            }
+
+
+            #$ora = str_replace("\"","",substr($teacher->orelibere, strpos($teacher->orelibere, "\"timeslot\":[\""), 4));
+
             // passate all'array
             $nextDay = strtotime($theDate) + 86400;
             $teachers = $this->db()->find($booking, array("where" => "data>=" . strtotime($theDate) . " AND data<" . $nextDay, "asc"=>"pid"));
 
             $data = array('data' => $theDate,
                           'docente' => $teacherFullName,
-                          'prens' => $teachers
+                          'prens' => $teachers,
+                          'ora' => $ora
             );
 
             $data =  $this->getContents("view-listapren2", $data);
@@ -265,7 +280,7 @@ class PrenotController extends DooController
         $emptyObject = "{\"\":\"\"}";
         $conf = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
         $LOOK_AHEAD_DAYS = $conf->getParam("lookAheadTime");
-        #$_POST['message']['did'] = 4;
+        $_POST['message']['did'] = 4;
 
 
         if (isset($_POST['message'])) {
@@ -304,6 +319,7 @@ class PrenotController extends DooController
 
             $theCalendar->addBookings($prenCalendar);
             $freeDays = $theCalendar->getFreeDaysJSON($LOOK_AHEAD_DAYS);
+            die($freeDays);
             $freeDaysObject = json_decode($freeDays,true);
 
 

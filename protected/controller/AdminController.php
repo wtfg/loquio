@@ -465,7 +465,7 @@ class AdminController extends DooController {
 
     function viewPrenotazioni() {
         $p = Doo::loadModel("prenotazioni", true);
-        $prens = $this->db()->find($p, array('where' => 'data>' . time()));
+        $prens = $this->db()->find($p, array('where' => 'data>' . mktime(0,0,0,date("n"),date("j"),date("Y"))));
         $pren = array("prenotazioni"=>array());
 
         foreach ($prens as $prenotazione) {

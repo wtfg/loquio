@@ -25,6 +25,7 @@ pomeridiani
 * Inserire spiegazioni
 * Lato admin: inserire dei filtri per tutto (giorno, docente bla bla bla)
     + Export dati
+* Occupati
 * Pomeridiani
     + MODELLO IN ATTESA
 * Lato admin:

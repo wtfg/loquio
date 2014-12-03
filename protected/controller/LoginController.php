@@ -186,7 +186,7 @@ class LoginController extends DooController {
                         //$data['messaggio'] = "FAKE MAIL<br>" .
                         //        $mail . "<br><br>" . $subject . "<br><br>" . $message . "<br><br>" . $headers;
 
-                        $data['messaggio'] = "Presto riceverai una email con il codice di attivazione del tuo account!";
+                        $data['messaggio'] = "Presto riceverai una email con il codice di attivazione del tuo account!<br><b>Attenzione, la mail potrebbe comparire come Posta Indesiderata o Spam, assicurati di controllare bene la posta!</b>";
                         $data['url'] = Doo::conf()->APP_URL;
                         $data['titolo'] = "Benvenuto!";
                         
@@ -234,6 +234,9 @@ class LoginController extends DooController {
                             $acl = "admin";
                             break;
 						default:
+                            if($user->acl > 2){
+                                ###
+                            }
 							$this->renderc("error-page");
 							return;
                     }
@@ -431,11 +434,17 @@ class LoginController extends DooController {
         $d = Doo::loadModel("docenti",true);
         $d->email = $_SESSION["user"]["username"];
         $d = $this->db()->find($d, array("limit"=>1));
+        if($d === false){
+            $data['messaggio'] = "I tuo dati sono stati modificati, ti stiamo disconnettendo per la tua sicurezza";
+            $data['url'] = Doo::conf()->APP_URL."logout";
+            $data['titolo'] = "Validato!";
 
-        $data = array("id"=>$d->did);
-
-
-        $this->renderc("base-template", $this->getContents("panel-docente", array()));
+            // MESSAGGIO DOCENTE MODIFICATO
+            $this->renderc('ok-page',$data);
+        }else{
+            $data = array("id"=>$d->did);
+            $this->renderc("base-template", $this->getContents("panel-docente", $data));
+        }
         /*
          * Esegue un render del tipo
          *

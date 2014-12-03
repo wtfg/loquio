@@ -1,8 +1,12 @@
 <?php
 
 $data['data'] = date("d-m-Y",strtotime($data['data']));
-
-$data["title"] ="Ordine di prenotazione per ".$data['docente']." nel giorno ".$data['data'];
+if($data["ora"] !== null){
+    $ora = " dalle ore ".$data["ora"];
+}else{
+    $ora = "";
+}
+$data["title"] ="Ordine di prenotazione per ".$data['docente']." nel giorno ".$data['data'].$ora;
 
 ob_start();
 ?>

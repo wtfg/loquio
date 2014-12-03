@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57d6d3e2-5efc-4a35-ad2b-350812437811" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controller/AdminController.php" afterPath="$PROJECT_DIR$/protected/controller/AdminController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controller/LoginController.php" afterPath="$PROJECT_DIR$/protected/controller/LoginController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controller/PrenotController.php" afterPath="$PROJECT_DIR$/protected/controller/PrenotController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/base-template.php" afterPath="$PROJECT_DIR$/protected/viewc/base-template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/view-listapren.php" afterPath="$PROJECT_DIR$/protected/viewc/view-listapren.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controller/UserController.php" afterPath="$PROJECT_DIR$/protected/controller/UserController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/class/index.php" afterPath="$PROJECT_DIR$/protected/class/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/ok-page.php" afterPath="$PROJECT_DIR$/protected/viewc/ok-page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/view-listapren2.php" afterPath="$PROJECT_DIR$/protected/viewc/view-listapren2.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="loquio.iws" />
@@ -28,40 +33,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="add-prenotazioni.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/viewc/add-prenotazioni.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="31" selection-start="2518" selection-end="2520" vertical-scroll-proportion="0.0" vertical-offset="1105" max-vertical-offset="5746">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PrenotController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controller/PrenotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="117" selection-start="2719" selection-end="2719" vertical-scroll-proportion="-3.2307692" vertical-offset="988" max-vertical-offset="8041">
+            <state line="320" column="49" selection-start="11419" selection-end="11419" vertical-scroll-proportion="-3.6923077" vertical-offset="5248" max-vertical-offset="8313">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view-listapren2.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/viewc/view-listapren2.php">
+      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/class/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="60" selection-start="287" selection-end="287" vertical-scroll-proportion="10.461538" vertical-offset="459" max-vertical-offset="1003">
+            <state line="249" column="9" selection-start="7782" selection-end="7782" vertical-scroll-proportion="0.73913044" vertical-offset="3842" max-vertical-offset="4930">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base-template.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/viewc/base-template.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="295" column="80" selection-start="9791" selection-end="9791" vertical-scroll-proportion="-10.384615" vertical-offset="4745" max-vertical-offset="6205">
-              <folding>
-                <marker date="1414702914058" expanded="true" signature="11101:11227" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -69,16 +54,25 @@
       <file leaf-file-name="UserController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="46" selection-start="3482" selection-end="3482" vertical-scroll-proportion="0.0" vertical-offset="1683" max-vertical-offset="3876">
+            <state line="185" column="91" selection-start="6717" selection-end="6717" vertical-scroll-proportion="-13.153846" vertical-offset="2718" max-vertical-offset="3961">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/controller/AdminController.php">
+      <file leaf-file-name="routes.conf.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/config/routes.conf.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="24" selection-start="1525" selection-end="1532" vertical-scroll-proportion="0.0" vertical-offset="665" max-vertical-offset="8857">
+            <state line="28" column="3" selection-start="1322" selection-end="1322" vertical-scroll-proportion="7.519231" vertical-offset="867" max-vertical-offset="2958">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ErrorController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/controller/ErrorController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="5" selection-start="248" selection-end="248" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="374">
               <folding />
             </state>
           </provider>
@@ -87,7 +81,7 @@
       <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="300" selection-end="300" vertical-scroll-proportion="-5.44" vertical-offset="119" max-vertical-offset="952">
+            <state line="18" column="59" selection-start="430" selection-end="430" vertical-scroll-proportion="-8.16" vertical-offset="102" max-vertical-offset="969">
               <folding />
             </state>
           </provider>
@@ -96,30 +90,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="INSTALL.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/INSTALL.txt">
+      <file leaf-file-name="error-page.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/viewc/error-page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="646">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register-page.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/viewc/register-page.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="223" column="23" selection-start="8263" selection-end="8263" vertical-scroll-proportion="0.0" vertical-offset="3573" max-vertical-offset="4216">
+            <state line="27" column="37" selection-start="798" selection-end="798" vertical-scroll-proportion="-17.653847" vertical-offset="0" max-vertical-offset="2414">
               <folding>
-                <marker date="1414420152501" expanded="true" signature="6916:7045" placeholder="..." />
+                <marker date="1406937228887" expanded="true" signature="3634:3745" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view-listapren.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/protected/viewc/view-listapren.php">
+      <file leaf-file-name="AdminController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="61" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.48775893" vertical-offset="1458" max-vertical-offset="2006">
+            <state line="146" column="0" selection-start="5390" selection-end="5390" vertical-scroll-proportion="-7.923077" vertical-offset="2276" max-vertical-offset="8857">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/controller/LoginController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="442" column="33" selection-start="14554" selection-end="14554" vertical-scroll-proportion="-4.769231" vertical-offset="7266" max-vertical-offset="7854">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DooAcl.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dooframework/auth/DooAcl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="83" column="43" selection-start="2751" selection-end="2751" vertical-scroll-proportion="-8.730769" vertical-offset="1065" max-vertical-offset="4131">
               <folding />
             </state>
           </provider>
@@ -138,7 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/protected/viewc/old/panel-admin.php" />
         <option value="$PROJECT_DIR$/protected/viewc/old/panel-docente.php" />
         <option value="$PROJECT_DIR$/global/js/docenti.min.js" />
         <option value="$PROJECT_DIR$/protected/config/common.conf.php" />
@@ -153,22 +155,17 @@
         <option value="$PROJECT_DIR$/../bootstrap/tables.html" />
         <option value="$PROJECT_DIR$/protected/viewc/new-snag.php" />
         <option value="$PROJECT_DIR$/global/assets/css/ace.min.css" />
-        <option value="$PROJECT_DIR$/protected/viewc/ok-page.php" />
         <option value="$PROJECT_DIR$/protected/config/acl.conf.php" />
         <option value="$PROJECT_DIR$/protected/viewc/edit-user.php" />
         <option value="$PROJECT_DIR$/protected/class/configloader.php" />
         <option value="$PROJECT_DIR$/protected/viewc/login-page.php" />
         <option value="$PROJECT_DIR$/protected/viewc/lost-password.php" />
         <option value="$PROJECT_DIR$/protected/viewc/reset-password.php" />
-        <option value="$PROJECT_DIR$/protected/controller/UserController.php" />
         <option value="$PROJECT_DIR$/protected/controller/BookoffController.php" />
-        <option value="$PROJECT_DIR$/protected/controller/LoginController.php" />
         <option value="$PROJECT_DIR$/protected/config/routes.conf.php" />
         <option value="$PROJECT_DIR$/global/config/config.json" />
         <option value="$PROJECT_DIR$/protected/viewc/privacy-policy.php" />
         <option value="$PROJECT_DIR$/protected/viewc/edit-siteconfig.php" />
-        <option value="$PROJECT_DIR$/protected/controller/AdminController.php" />
-        <option value="$PROJECT_DIR$/protected/viewc/view-listapren2.php" />
         <option value="$PROJECT_DIR$/protected/viewc/add-bookoff.php" />
         <option value="$PROJECT_DIR$/protected/viewc/add-docenti.php" />
         <option value="$PROJECT_DIR$/protected/viewc/edit-bookoff.php" />
@@ -185,10 +182,16 @@
         <option value="$PROJECT_DIR$/protected/viewc/panel-user.php" />
         <option value="$PROJECT_DIR$/protected/viewc/add-prenotazioni.php" />
         <option value="$PROJECT_DIR$/protected/viewc/register-page.php" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/protected/viewc/base-template.php" />
-        <option value="$PROJECT_DIR$/protected/controller/PrenotController.php" />
         <option value="$PROJECT_DIR$/protected/viewc/view-listapren.php" />
+        <option value="$PROJECT_DIR$/protected/viewc/ok-page.php" />
+        <option value="$PROJECT_DIR$/protected/viewc/view-listapren2.php" />
+        <option value="$PROJECT_DIR$/protected/controller/AdminController.php" />
+        <option value="$PROJECT_DIR$/protected/controller/LoginController.php" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/protected/controller/UserController.php" />
+        <option value="$PROJECT_DIR$/protected/controller/PrenotController.php" />
+        <option value="$PROJECT_DIR$/protected/class/index.php" />
       </list>
     </option>
   </component>
@@ -244,6 +247,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -372,7 +376,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -462,7 +465,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24093656" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24244712" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -470,11 +473,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3273906" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3273906" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -517,42 +520,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/class/configloader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="34" selection-start="496" selection-end="496" vertical-scroll-proportion="-6.5384617" vertical-offset="102" max-vertical-offset="1122">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="919" column="9" selection-start="27315" selection-end="27315" vertical-scroll-proportion="0.3492647" vertical-offset="15433" max-vertical-offset="19142">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/lost-password.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="19" selection-start="3854" selection-end="3854" vertical-scroll-proportion="0.0" vertical-offset="1399" max-vertical-offset="2771" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="832" column="17" selection-start="12924" selection-end="12924" vertical-scroll-proportion="0.33333334" vertical-offset="13954" max-vertical-offset="15929" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/reset-password.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="22" selection-start="3808" selection-end="3808" vertical-scroll-proportion="-18.961538" vertical-offset="1275" max-vertical-offset="2805" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dooframework/db/DooSqlMagic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="767" column="9" selection-start="26633" selection-end="26633" vertical-scroll-proportion="0.9359699" vertical-offset="12423" max-vertical-offset="44217">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/model/prenotazioni.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570" />
@@ -568,11 +535,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controller/ErrorController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="19" selection-start="116" selection-end="116" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="374" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/model/base/BookoffBase.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020" />
@@ -583,24 +545,9 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2125" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/ok-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="25" selection-start="0" selection-end="3673" vertical-scroll-proportion="-15.038462" vertical-offset="680" max-vertical-offset="2261" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controller/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="413" column="39" selection-start="13447" selection-end="13447" vertical-scroll-proportion="-0.41975307" vertical-offset="6987" max-vertical-offset="7701" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/controller/BookoffController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="67" column="29" selection-start="2263" selection-end="2263" vertical-scroll-proportion="-4.8461537" vertical-offset="887" max-vertical-offset="4896" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/config/routes.conf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="21" selection-start="3200" selection-end="3200" vertical-scroll-proportion="-11.923077" vertical-offset="676" max-vertical-offset="2958" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/login-page.php">
@@ -710,60 +657,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/edit-siteconfig.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="16" selection-start="987" selection-end="987" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="833">
-          <folding />
-        </state>
+        <state line="30" column="16" selection-start="987" selection-end="987" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="833" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/panel-admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="1962" selection-end="1962" vertical-scroll-proportion="0.0" vertical-offset="370" max-vertical-offset="1207">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/panel-user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="4" selection-start="1342" selection-end="1342" vertical-scroll-proportion="0.0" vertical-offset="400" max-vertical-offset="1751">
-          <folding />
-        </state>
+        <state line="51" column="0" selection-start="1962" selection-end="1962" vertical-scroll-proportion="0.0" vertical-offset="370" max-vertical-offset="1207" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/add-prenotazioni.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="31" selection-start="2518" selection-end="2520" vertical-scroll-proportion="0.0" vertical-offset="937" max-vertical-offset="5746">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controller/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="24" selection-start="1525" selection-end="1532" vertical-scroll-proportion="0.0" vertical-offset="665" max-vertical-offset="8857">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="46" selection-start="3482" selection-end="3482" vertical-scroll-proportion="0.0" vertical-offset="1683" max-vertical-offset="3876">
-          <folding />
-        </state>
+        <state line="65" column="31" selection-start="2518" selection-end="2520" vertical-scroll-proportion="0.0" vertical-offset="937" max-vertical-offset="5746" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/register-page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="223" column="23" selection-start="8263" selection-end="8263" vertical-scroll-proportion="0.0" vertical-offset="3573" max-vertical-offset="4216">
-          <folding>
-            <marker date="1414420152501" expanded="true" signature="6916:7045" placeholder="..." />
-          </folding>
-        </state>
+        <state line="223" column="23" selection-start="8263" selection-end="8263" vertical-scroll-proportion="0.0" vertical-offset="3573" max-vertical-offset="4216" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/INSTALL.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="646">
-          <folding />
-        </state>
+        <state line="15" column="0" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="646" />
       </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
@@ -771,14 +685,135 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/loquio.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2057">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2057" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/base-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="295" column="80" selection-start="9791" selection-end="9791" vertical-scroll-proportion="0.0" vertical-offset="4745" max-vertical-offset="6205">
+          <folding>
+            <marker date="1414702914058" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/ok-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="739" selection-end="739" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="2261">
+          <folding>
+            <marker date="1415273187942" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/json.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="9" selection-start="1740" selection-end="1740" vertical-scroll-proportion="0.03125" vertical-offset="952" max-vertical-offset="3791" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/panel-user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="119" selection-start="2826" selection-end="2827" vertical-scroll-proportion="0.0" vertical-offset="944" max-vertical-offset="1751">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/view-listapren.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="22" selection-start="2734" selection-end="2734" vertical-scroll-proportion="0.0" vertical-offset="889" max-vertical-offset="2006">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/view-listapren2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="716" selection-end="716" vertical-scroll-proportion="-9.153846" vertical-offset="459" max-vertical-offset="1071">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dooframework/db/DooSqlMagic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="578" column="20" selection-start="19910" selection-end="19910" vertical-scroll-proportion="-7.1153846" vertical-offset="9522" max-vertical-offset="44217">
+          <folding>
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="SELECT {$sql..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="SELECT {$sql..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="SELECT {$sql..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="SELECT {$rel..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="SELECT {$rel..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="SELECT {$mpa..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="SELECT {$mod..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="SELECT {$mod..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="SELECT {$mod..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="SELECT {$mod..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="SELECT {$sql..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="SELECT {$sql..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="SELECT {$rpa..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1406971164025" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/model/base/DocentiBase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="0" selection-start="5390" selection-end="5390" vertical-scroll-proportion="-7.923077" vertical-offset="2276" max-vertical-offset="8857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dooframework/auth/DooAcl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="43" selection-start="2751" selection-end="2751" vertical-scroll-proportion="-8.730769" vertical-offset="1065" max-vertical-offset="4131">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/config/routes.conf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="3" selection-start="1322" selection-end="1322" vertical-scroll-proportion="7.519231" vertical-offset="867" max-vertical-offset="2958">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controller/ErrorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="5" selection-start="248" selection-end="248" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="374">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/error-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="37" selection-start="798" selection-end="798" vertical-scroll-proportion="-17.653847" vertical-offset="0" max-vertical-offset="2414">
+          <folding>
+            <marker date="1406937228887" expanded="true" signature="3634:3745" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controller/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="442" column="33" selection-start="14554" selection-end="14554" vertical-scroll-proportion="-4.769231" vertical-offset="7266" max-vertical-offset="7854">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="300" selection-end="300" vertical-scroll-proportion="-5.44" vertical-offset="119" max-vertical-offset="952">
+        <state line="18" column="59" selection-start="430" selection-end="430" vertical-scroll-proportion="-8.16" vertical-offset="102" max-vertical-offset="969">
           <folding />
         </state>
       </provider>
@@ -786,32 +821,23 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/view-listapren2.php">
+    <entry file="file://$PROJECT_DIR$/protected/controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="60" selection-start="287" selection-end="287" vertical-scroll-proportion="10.461538" vertical-offset="459" max-vertical-offset="1003">
+        <state line="185" column="91" selection-start="6717" selection-end="6717" vertical-scroll-proportion="-13.153846" vertical-offset="2718" max-vertical-offset="3961">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/base-template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="295" column="80" selection-start="9791" selection-end="9791" vertical-scroll-proportion="-10.384615" vertical-offset="4745" max-vertical-offset="6205">
-          <folding>
-            <marker date="1414702914058" expanded="true" signature="11101:11227" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controller/PrenotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="117" selection-start="2719" selection-end="2719" vertical-scroll-proportion="-3.2307692" vertical-offset="988" max-vertical-offset="8041">
+        <state line="320" column="49" selection-start="11419" selection-end="11419" vertical-scroll-proportion="-3.6923077" vertical-offset="5248" max-vertical-offset="8313">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/view-listapren.php">
+    <entry file="file://$PROJECT_DIR$/protected/class/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="61" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.48775893" vertical-offset="1458" max-vertical-offset="2006">
+        <state line="249" column="9" selection-start="7782" selection-end="7782" vertical-scroll-proportion="0.73913044" vertical-offset="3842" max-vertical-offset="4930">
           <folding />
         </state>
       </provider>

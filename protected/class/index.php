@@ -12,6 +12,7 @@ class myCalendar
     private $teacher = array();
     private $monthNames = array("", "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre");
     private $basedir = "";
+    private $fullDays = array();
 
     /**
      * @param $path string la directory dove si trovano i file di configurazione annuali
@@ -164,6 +165,9 @@ class myCalendar
                 array_push($return, $booking);
                 if ($this->isBookedOff($booking) == FALSE) {
                     $this->bookOff($booking);
+                    #echo $booking." added to fulldays";
+                    $t = $this->teacher[date("D", strtotime($booking))]["timeslot"][0];
+                    array_push($this->fullDays, $booking." ".$t);
                 }
 
             }
@@ -217,14 +221,34 @@ class myCalendar
                         }
                     } else {
                         # aggiunge ai non disponibili
+
                         array_push($booked_days, $timeSlotTime);
+
                     }
                 }
             }
         }
         return array($return, $booked_days);
     }
+    function getFullDaysJSON($i){
 
+        $f = $this->fullDays;
+        $output = "";
+        if ($f) {
+            if (sizeof($f) == 0) {
+                return "ABUDHABI";
+            }
+
+            foreach ($f as $event) {
+
+                $d = date("Y-m-d H:i", strtotime($event));
+
+                $output .= "\"" . $i . "\",{\"title\":\"Occupato\",\"start\":\"" . $d . "\",\"allDay\":\"\"},";
+                $i++;
+            }
+            return $output;
+        }
+    }
     /**
      * AJAX: Ottiene i giorni disponibili in JSON
      * @param $days
@@ -249,12 +273,9 @@ class myCalendar
                 $output .= "\"" . $i . "\",{\"title\":\"Libero\",\"start\":\"" . $d . "\",\"allDay\":\"\"},";
                 $i++;
             }
-            # processa i giorni occupati
-            foreach ($availableDays[1] as $event) {
-                $d = date("Y-m-d H:i:s", $event);
-                $output .= "\"" . $i . "\",{\"title\":\"Occupato\",\"start\":\"" . $d . "\",\"allDay\":\"\"},";
-                $i++;
-            }
+
+
+            $output .= $this->getFullDaysJSON($i);
             return substr($output, 0, strlen($output) - 1) . "]";
         }
     }
