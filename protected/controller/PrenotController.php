@@ -222,7 +222,9 @@ class PrenotController extends DooController
     function showPrenDocente()
     {
         if (!isset($_POST['invia'])) {
-            $data = array("teachers" => $this->getTeachers(array("where"=>"attivo=1")),"message" => "");
+            $a = $this->getTeachers(array("where"=>"attivo=1","asc"=>"cognome"));
+
+            $data = array("teachers" => $a,"message" => "");
             $data =  $this->getContents("view-listapren", $data);
             $this->renderc("base-template", $data);
         } else {
@@ -231,7 +233,9 @@ class PrenotController extends DooController
             $dt = explode("-", $theDate);
 
             if(strtotime($theDate) == false){
-                $data = array("teachers" => $this->getTeachers(),"message" => "Inserisci una data nel formato gg-mm-aaaa");
+                $a = $this->getTeachers(array("where"=>"attivo=1","asc"=>"cognome"));
+
+                $data = array("teachers" => $a,"message" => "Inserisci una data nel formato gg-mm-aaaa");
                 $data =  $this->getContents("view-listapren", $data);
                 $this->renderc("base-template", $data);
                 return;
@@ -280,7 +284,7 @@ class PrenotController extends DooController
         $emptyObject = "{\"\":\"\"}";
         $conf = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
         $LOOK_AHEAD_DAYS = $conf->getParam("lookAheadTime");
-        $_POST['message']['did'] = 4;
+        #$_POST['message']['did'] = 4;
 
 
         if (isset($_POST['message'])) {
@@ -369,21 +373,21 @@ class PrenotController extends DooController
 
                 $d = Doo::loadModel("docenti", true);
                 $d->mid = $subj->mid;
-                $d = $this->db()->find($d, array("where" => "attivo=1"));
+                $d = $this->db()->find($d, array("where" => "attivo=1", "asc"=>"cognome"));
 
                 $teacherFullNamesDict = array();
 
                 foreach ($d as $teacher) {
                     $teacherFullNamesDict[$teacher->did] = $teacher->cognome. " ". $teacher->nome;
                 }
-
+                //asort($teacherFullNamesDict);
                 $subjectTeacherDict[$subj->mid] = $teacherFullNamesDict;
             }
-
             $data = array('uid' => isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : "",
                           'mdocenti' => $subjectTeacherDict,
                           'materie' => $subjectArray
             );
+
             $data = $this->getContents("add-prenotazioni", $data);
             $this->renderc("base-template", $data);
 

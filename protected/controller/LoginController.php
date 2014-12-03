@@ -295,13 +295,25 @@ class LoginController extends DooController {
 
         $role = (isset($_SESSION['user']['acl'])) ? $_SESSION['user']['acl'] : 'anonymous';
 
+
         if ($rs = $this->acl()->process($role, "LoginController", "showUserPanel")) {
 
             return $rs;
         }
+        $utenti = Doo::loadModel("utenti",true);
+        $utenti->email = $_SESSION['user']['username'];
 
-        $this->renderc("base-template", $this->getContents("panel-user", array()));
-        /*
+        $utenti = $this->db()->find($utenti, array("limit"=>1));
+        if($utenti === false){
+            $data['messaggio'] = "I tuo dati sono stati modificati, ti stiamo disconnettendo per la tua sicurezza";
+            $data['url'] = Doo::conf()->APP_URL."logout";
+            $data['titolo'] = "Validato!";
+
+            // MESSAGGIO DOCENTE MODIFICATO
+            $this->renderc('ok-page',$data);
+        }else{
+             $this->renderc("base-template", $this->getContents("panel-user", array()));
+        }/*
          * Esegue un render del tipo
          * 
          * e mostra il pannello di controllo

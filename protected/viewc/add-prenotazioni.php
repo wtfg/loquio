@@ -32,6 +32,7 @@ ob_start();
                     $("#studente").val(v.replace(/\b./g, function(m){ return m.toUpperCase(); }));
                 });
                 function updateChanges(add) {
+
                     $('#calendar').fullCalendar('removeEventSource', {
                         url: window.calendarUrl
                     });
@@ -46,6 +47,7 @@ ob_start();
 
                             },success: function(data)
                             {
+
                                //alert(JSON.stringify(data));
                             },
                             error: function(jqXHR, textStatus, errorThrown) {
@@ -53,6 +55,7 @@ ob_start();
                                 //alert("AJAX ERROR:" + errorThrown + "\n--\nTEXT STATUS: " + textStatus + "\n\n" + jqXHR.error + "\n\n" + jqXHR.toString() );
                             }
                         });
+
                     }
                 }
 
@@ -128,7 +131,7 @@ ob_start();
                         //alert('View: ' + view.name);
 
                         // change the border color just for fun
-                        //$(this).css('border-color', 'red');
+
 
                     },
                     columnFormat: {
@@ -148,7 +151,7 @@ ob_start();
 
                             },success: function(data)
                             {
-                                //alert(data);
+
                             },
                             error: function(jqXHR, textStatus, errorThrown) {
                                 console.log(arguments);

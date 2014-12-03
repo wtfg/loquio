@@ -236,14 +236,16 @@ class myCalendar
         $output = "";
         if ($f) {
             if (sizeof($f) == 0) {
-                return "ABUDHABI";
+                return "";
             }
 
             foreach ($f as $event) {
-
+                if(strtotime($event) < time()){
+                    continue;
+                }
                 $d = date("Y-m-d H:i", strtotime($event));
 
-                $output .= "\"" . $i . "\",{\"title\":\"Occupato\",\"start\":\"" . $d . "\",\"allDay\":\"\"},";
+                $output .= "\"" . $i . "\",{\"title\":\"Occupato\",\"start\":\"" . $d . "\",\"allDay\":\"\",\"color\":\"#bb0000\"},";
                 $i++;
             }
             return $output;
@@ -262,7 +264,7 @@ class myCalendar
         $output = "[";
         $i = 0;
         $availableDays = $this->lookAhead($days);
-
+        $output .= $this->getFullDaysJSON($i);
         if ($availableDays) {
             if (sizeof($availableDays[0]) == 0) {
                 return "[]";
@@ -275,7 +277,7 @@ class myCalendar
             }
 
 
-            $output .= $this->getFullDaysJSON($i);
+
             return substr($output, 0, strlen($output) - 1) . "]";
         }
     }
