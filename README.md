@@ -14,8 +14,14 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 
 Bug da fixare e TODO:
 
-* rifare bene grafica pulsanti
 
+* inserisci tasto elimina tutti pomeridiani
+* validatore nell'add prenotazioni
+* inserisci filtro
+    + pdf maker
+    + opzioni da creare
+* voci di menu da mettere a posto
+* testi da rifare per pomeridiani
 * tasto elimina tutte le prenotazioni (sei sicuro??)
 
 

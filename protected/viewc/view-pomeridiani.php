@@ -117,8 +117,7 @@ ob_start();
         $(function() {
             var oTable1 = $('#sample-table-1').dataTable( {
                 "aoColumns": [
-                    null,  { "bSortable": false },null,
-                    { "bSortable": false },{ "bSortable": false },{ "bSortable": false }
+                    null, null,null,null,null,{ "bSortable": false },{ "bSortable": false }
                 ] } );
         })
     </script>
