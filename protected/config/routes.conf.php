@@ -54,7 +54,6 @@
  *
 
  */
-$route['*']['/asd'] = array('MainController', 'index');
 
 $route['*']['/privacy'] = array('LoginController', 'privacyPolicy');
 
@@ -143,6 +142,17 @@ $route['*']['/snag/:id'] = array('BookoffController', 'snag');
 $route['*']['/admin/bookoff/edit/:id'] = array('BookoffController', 'editBookoff');
 
 $route['*']['/admin/bookoff/delete/:id'] = array('BookoffController', 'deleteBookoff');
+
+$route['*']['/pomeridiani'] = array('PomeridianiController', 'viewPomeridiani');
+
+$route['*']['/pomeridiani/new'] = array('PomeridianiController', 'newPomeridiani');
+
+$route['*']['/pomeridiani/edit/:id'] = array('PomeridianiController', 'editPomeridiani');
+
+$route['*']['/pomeridiani/delete/:id'] = array('PomeridianiController', 'deletePomeridiani');
+
+$route['*']['/admin/pomeridiani'] = array('PomeridianiController', 'viewPomeridianiAdmin');
+
 
 //---------- Delete if not needed ------------
 $admin = array('admin'=>'');

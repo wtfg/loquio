@@ -13,7 +13,8 @@ $acl['anonymous']['allow'] = array(
 $acl['user']['allow'] = array(
 							'LoginController'=>'*',
                             'PrenotController'=>'*',
-                            "UserController" =>array("panelUser")
+                            "UserController" =>array("panelUser"),
+                            "PomeridianiController" => "*"
 							
                                 );
 $acl['user']['deny'] = array(
@@ -21,6 +22,7 @@ $acl['user']['deny'] = array(
                                                         'LoginController'=>array('registerPage'),
                                                         'AdminController'=>'*',
                                                         'BookoffController' => '*',
+    "PomeridianiController" => array("viewPomeridianiAdmin")
                                 );
 
 $acl['docente']['allow'] = array(
@@ -32,8 +34,7 @@ $acl['docente']['allow'] = array(
                                 );
 
 $acl['docente']['deny'] = array(
-							'PrenotController'=>array('showPrenUser'), 
-                                                        'PrenotController'=>array('newPren'),
+							'PrenotController'=>array('showPrenUser', 'newPren'),
                                                         'LoginController'=>array('registerPage'),
                                                         'AdminController'=>'*',
                                 );

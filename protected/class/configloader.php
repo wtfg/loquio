@@ -51,11 +51,11 @@ class ConfigLoader{
     }
 
     public function getParam($param){
-        return array_key_exists($param,$this->config) ? $this->config[$param] : null;
+        return array_key_exists($param,$this->config) ? stripslashes($this->config[$param]) : null;
     }
 
     public function setParam($param, $value){
-        $this->config[$param] = $value;
+        $this->config[$param] = addslashes($value);
         $this->saveToFile($this->fileName, json_encode($this->config));
     }
 

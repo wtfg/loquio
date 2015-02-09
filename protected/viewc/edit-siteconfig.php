@@ -30,6 +30,26 @@ ob_start();
         echo $params->getParam("lookAheadTime"); ?>"/>
         <br><br>
 
+        <label for="pomeridianiTitle">Titolo delle prenotazioni pomeridiane</label>
+        <input type="text" name="pomeridianiTitle" id="pomeridianiTitle" value="<?php
+        echo $params->getParam("pomeridianiTitle"); ?>"/>
+        <br><br>
+
+        <label for="pomeridianiMessage">Messaggio delle prenotazioni pomeridiane</label>
+        <textarea name="pomeridianiMessage" id="form-field-11" class="autosize-transition span12" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 130px;"><?php
+        echo $params->getParam("pomeridianiMessage"); ?></textarea>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="pomeridianiActive" id="pomeridianiActive" value="true" <?php
+                if($params->getParam("pomeridianiActive") == "true"){
+                    echo "checked=\"checked\"";
+                }?>>
+                <span class="lbl"> Pomeridiani attivi</span>
+            </label>
+        </div>
+
+        <br><br>
         <button name="button" type="submit" class="btn btn-large btn-success">
             <i class="icon-ok bigger-150"></i>
             Invia

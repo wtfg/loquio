@@ -129,6 +129,7 @@ $themail =  $_SESSION['user']['username'];
 						</a>
 
 						<ul class="submenu">
+
 							<li>
 								<a href="<?php echo Doo::conf()->APP_URL."admin/prenotazioni/"?>">
 									<i class="icon-double-angle-right"></i>
@@ -151,6 +152,13 @@ $themail =  $_SESSION['user']['username'];
                             </li>
 						</ul>
 					</li>
+
+                    <li>
+                        <a href="<?php echo Doo::conf()->APP_URL."admin/pomeridiani"?>">
+                            <i class="icon-double-angle-right"></i>
+                            <b>Pomeridiani</b>
+                        </a>
+                    </li>
 
 					<li>
 						<a href="<?php echo Doo::conf()->APP_URL."admin/materie"?>">
@@ -214,6 +222,23 @@ $themail =  $_SESSION['user']['username'];
 
                 <?php
                     }else if($theacl == "user"){
+                            ?>
+                            <?php if($a->getParam("pomeridianiActive")=="true"){
+                                ?>
+                                <li>
+                                    <a href="<?php echo Doo::conf()->APP_URL."pomeridiani/new"?>">
+                                        <i class="icon-double-angle-right"></i>
+                                        <b>Prenota pomeridiani</b>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo Doo::conf()->APP_URL."pomeridiani/"?>">
+                                        <i class="icon-double-angle-right"></i>
+                                        <b>I miei pomeridiani</b>
+                                    </a>
+                                </li>
+                            <?php
+                            }
                             ?>
                             <li>
                                 <a href="<?php echo Doo::conf()->APP_URL."prenotazioni/new"?>">
