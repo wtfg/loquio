@@ -210,6 +210,7 @@ class myCalendar
                 foreach ($this->teacher[date("D", $nextDay)]["timeslot"] as $timeSlot) {
 
                     // TODO timeslot a 15 minuti, basta rimuovere :00 e implementarlo nel DB
+                    $s = $this->teacher[date("D", $nextDay)]["seats"];
 
                     $timeSlotTime = strtotime(date("m/d/Y", $nextDay) . " " . $timeSlot );
                     $nowTime = time();
@@ -217,6 +218,7 @@ class myCalendar
                     if (!$this->isBookedOff(date("m/d/Y", $nextDay))) {
                         if ($timeSlotTime > $nowTime) {
                             # aggiunge ai disponibili
+
                             array_push($return, $timeSlotTime);
                         }
                     } else {
@@ -245,7 +247,7 @@ class myCalendar
                 }
                 $d = date("Y-m-d H:i", strtotime($event));
 
-                $output .= "\"" . $i . "\",{\"title\":\"Occupato\",\"start\":\"" . $d . "\",\"allDay\":\"\",\"color\":\"#bb0000\"},";
+                $output .= "\"" . $i . "\",{\"title\":\"Completo\",\"start\":\"" . $d . "\",\"allDay\":\"\",\"color\":\"#bb0000\"},";
                 $i++;
             }
             return $output;
@@ -266,18 +268,20 @@ class myCalendar
         $availableDays = $this->lookAhead($days);
         $output .= $this->getFullDaysJSON($i);
         if ($availableDays) {
-            if (sizeof($availableDays[0]) == 0) {
-                return "[]";
+            if (!sizeof($availableDays[0]) == 0) {
+
+                # processa i giorni disponibili
+                foreach ($availableDays[0] as $event) {
+                    /*$s = explode("@@@",$event);
+                    $event = $s[0];
+                    $title =  $s[1] != 1 ? $s[1]. " disponibili": $s[1]. " disponibile";*/
+                    $d = date("Y-m-d H:i:s", $event);
+                    $output .= "\"" . $i . "\",{\"title\":\"Libero\",\"start\":\"" . $d . "\",\"allDay\":\"\"},";
+                    $i++;
+                }
+
+
             }
-            # processa i giorni disponibili
-            foreach ($availableDays[0] as $event) {
-                $d = date("Y-m-d H:i:s", $event);
-                $output .= "\"" . $i . "\",{\"title\":\"Libero\",\"start\":\"" . $d . "\",\"allDay\":\"\"},";
-                $i++;
-            }
-
-
-
             return substr($output, 0, strlen($output) - 1) . "]";
         }
     }

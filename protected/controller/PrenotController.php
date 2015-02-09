@@ -284,6 +284,9 @@ class PrenotController extends DooController
         $emptyObject = "{\"\":\"\"}";
         $conf = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
         $LOOK_AHEAD_DAYS = $conf->getParam("lookAheadTime");
+        if(isset($_GET['did'])){
+            $_POST['message']['did'] = $_GET['did'];
+        }
         #$_POST['message']['did'] = 4;
 
 
@@ -323,7 +326,7 @@ class PrenotController extends DooController
 
             $theCalendar->addBookings($prenCalendar);
             $freeDays = $theCalendar->getFreeDaysJSON($LOOK_AHEAD_DAYS);
-            die($freeDays);
+            #die($freeDays);
             $freeDaysObject = json_decode($freeDays,true);
 
 

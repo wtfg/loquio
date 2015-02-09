@@ -118,7 +118,7 @@ ob_start();
                         }
                         data = calEvent.start.getDate() + "-" + (calEvent.start.getMonth() + 1) + "-" + calEvent.start.getFullYear() + " " + calEvent.start.getHours() + ":" + curr_min;
 
-                        if (calEvent.title != "Occupato") {
+                        if (calEvent.title != "Completo") {
 
                             $('#selected').val(data);
                             z = "<b>Prenotazione selezionata per il giorno " + data.toString().replace(" ", " dalle ore ") + "<br>Clicca sul pulsante Invia (in fondo alla pagina) per confermare</b>";
