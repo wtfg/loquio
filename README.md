@@ -16,7 +16,6 @@ Bug da fixare e TODO:
 
 
 * inserisci tasto elimina tutti pomeridiani
-* validatore nell'add prenotazioni
 * inserisci filtro
     + pdf maker
     + opzioni da creare

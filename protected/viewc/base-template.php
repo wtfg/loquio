@@ -155,7 +155,7 @@ $themail =  $_SESSION['user']['username'];
 
                     <li>
                         <a href="<?php echo Doo::conf()->APP_URL."admin/pomeridiani"?>">
-                            <i class="icon-double-angle-right"></i>
+                            <i class="icon-bullhorn"></i>
                             Pomeridiani
                         </a>
                     </li>
@@ -227,7 +227,7 @@ $themail =  $_SESSION['user']['username'];
                                 ?>
                                 <li>
                                     <a href="<?php echo Doo::conf()->APP_URL."pomeridiani/new"?>">
-                                        <i class="icon-double-angle-right"></i>
+                                        <i class="icon-bullhorn"></i>
                                         <b>Prenota pomeridiani</b>
                                     </a>
                                 </li>

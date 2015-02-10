@@ -4,9 +4,12 @@ $data["title"] = "Modifica Prenotazione Pomeridiana";
 
 $ul = Doo::conf()->APP_URL . "global/";
 
-
+ob_start();
+?>
+    <script src='<?php echo $ul; ?>js/validate.js'></script>
+<?php
+$data['head'] = ob_get_contents();
 ob_end_clean();
-
 ob_start();
 ?>
     <div class="alert alert-info">
@@ -27,7 +30,7 @@ ob_start();
 
             <div class="widget-body">
 
-                <form method="post" name="view-lista" action="">
+                <form method="post" id="pomeridiano" name="pomeridiano" action="">
                     <div class="widget-main">
                         <div class="control-group">
                             <label class="control-label" >Nome</label>
@@ -136,16 +139,35 @@ ob_start();
 
 <!--inline scripts related to this page-->
 
-<script type="text/javascript">
-    $(function() {
-        $('#id-date-range-picker-1').daterangepicker({
-            format: 'DD/MM/YYYY'
-        }).prev().on(ace.click_event, function(){
-            $(this).next().focus();
-        });
-    });
-</script>
+    <script>
+        var v = new FormValidator("pomeridiano",
+            [
+                {
+                    name: "nome",
+                    display: "Nome",
+                    rules: "required"
+                }, {
+                name: "cognome",
+                display: "Cognome",
+                rules: "required"
+            },{
+                name: "classe",
+                display: "Classe",
+                rules: "valid_class|required"
+            }
+            ],
+            function(errors, event){
+                if(errors.length > 0){
+                    msg="";
+                    for(er in errors){
+                        msg += errors[er].message+"\n";
 
+                    }
+                    alert(msg);
+                }
+            }
+        );
+    </script>
 <?php
 
 $data["scripts"] = ob_get_contents();
