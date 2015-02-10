@@ -26,7 +26,7 @@ class PomeridianiController extends DooController {
 
     function newPomeridiani(){
         /**
-         * New Bookoff
+         * New P
          */
 
         if(isset($_POST['did'])){
@@ -60,6 +60,7 @@ class PomeridianiController extends DooController {
         }else{
 
             $docenti = Doo::loadModel('docenti', true);
+            $docenti->attivo = 1;
             $docenti = $this->db()->find($docenti);
 
             $data = array("docenti"=>array());
@@ -109,13 +110,13 @@ class PomeridianiController extends DooController {
                     return;
                 }
                 $materia = Doo::loadModel('materie', true);
-                $materia->mid = $docente->mid;
-                $materia = $this->db()->find($materia, array("limit"=>1));
+                $materia->mid = $docenteResult->mid;
+                $materiaResult = $this->db()->find($materia, array("limit"=>1));
 
 
                 $nc = stripslashes($docenteResult->nome ." ". $docenteResult->cognome);
 
-                $b = array("docente" => $nc, "nomemateria"=>$materia->nome, "pomid" => $pomeridiano["pomid"], "nome" => $pomeridiano["nome"], "cognome"=>$pomeridiano["cognome"], "classe"=>$pomeridiano["classe"]);
+                $b = array("docente" => $nc, "nomemateria"=>$materiaResult->nome, "pomid" => $pomeridiano["pomid"], "nome" => $pomeridiano["nome"], "cognome"=>$pomeridiano["cognome"], "classe"=>$pomeridiano["classe"]);
                 array_push($data["pomeridiani"], $b);
             }
 
@@ -135,23 +136,23 @@ class PomeridianiController extends DooController {
 
             $docente = Doo::loadModel('docenti', true);
             $docente->did = $pomeridiano["did"];
+
             $docenteResult = $this->db()->find($docente, array("limit"=>1));
             if(!$docenteResult){
                 $this->renderc("error-page");
                 return;
             }
             $materia = Doo::loadModel('materie', true);
-            $materia->mid = $docente->mid;
+            $materia->mid = $docenteResult->mid;
+            $materiaResult = $this->db()->find($materia, array("limit"=>1));
+
             $utente = Doo::loadModel('utenti', true);
             $utente->uid = $pomeridiano["uid"];
             $utenteResult = $this->db()->find($utente, array("limit"=>1));
 
-            $materia = $this->db()->find($materia, array("limit"=>1));
-
-
             $nc = stripslashes($docenteResult->nome ." ". $docenteResult->cognome);
 
-            $b = array("docente" => $nc, "nomemateria"=>$materia->nome, "uid"=>$utenteResult->uid, "email"=>$utenteResult->email, "pomid" => $pomeridiano["pomid"], "nome" => $pomeridiano["nome"], "cognome"=>$pomeridiano["cognome"], "classe"=>$pomeridiano["classe"]);
+            $b = array("docente" => $nc, "nomemateria"=>$materiaResult->nome, "uid"=>$utenteResult->uid, "email"=>$utenteResult->email, "pomid" => $pomeridiano["pomid"], "nome" => $pomeridiano["nome"], "cognome"=>$pomeridiano["cognome"], "classe"=>$pomeridiano["classe"]);
             array_push($data["pomeridiani"], $b);
         }
 
@@ -217,7 +218,7 @@ class PomeridianiController extends DooController {
 
     function deleteAll(){
         $pomeridiani = Doo::loadModel("pomeridiani", true);
-        $this->db()->delete($pomeridiani);
+        $this->db()->deleteAll($pomeridiani);
         $data['messaggio'] = "Tutti i pomeridiani eliminati!";
         $data['url'] = Doo::conf()->APP_URL;
         $data['titolo'] = "Ben fatto!";

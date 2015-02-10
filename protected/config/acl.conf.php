@@ -22,7 +22,7 @@ $acl['user']['deny'] = array(
                                                         'LoginController'=>array('registerPage'),
                                                         'AdminController'=>'*',
                                                         'BookoffController' => '*',
-    "PomeridianiController" => array("viewPomeridianiAdmin")
+    "PomeridianiController" => array("viewPomeridianiAdmin","deleteAll")
                                 );
 
 $acl['docente']['allow'] = array(

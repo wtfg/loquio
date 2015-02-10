@@ -43,6 +43,7 @@ ob_start();
     <table id="sample-table-1" class="table table-striped table-bordered table-hover">
     <thead>
     <tr>
+        <th>#</th>
         <th>UserId</th>
         <th>Email Utente</th>
         <th>Docente</th>
@@ -64,6 +65,9 @@ ob_start();
 
         echo "
     <tr>
+    <td>
+    ".$pom["pomid"]."&nbsp;
+    </td>
      <td>
             ".$pom["uid"]."&nbsp;
         </td>
@@ -113,6 +117,10 @@ ob_start();
         <i class="icon-plus"></i>
         Prenota pomerid.
     </a>
+    <a onclick="javascript: return confirm('Sei sicuro di voler svuotare tutti i pomeridiani?');" href="<?php echo Doo::conf()->APP_URL; ?>admin/pomeridiani/deleteall" class="btn btn-app btn-danger">
+        <i class="icon-trash"></i>
+        Svuota tutto
+    </a>
 <?php
 $data['content'] = ob_get_contents();
 ob_end_clean();
@@ -125,7 +133,7 @@ ob_start();
         $(function() {
             var oTable1 = $('#sample-table-1').dataTable( {
                 "aoColumns": [
-                    null,null, null,null,null,null,{ "bSortable": false },{ "bSortable": false }
+                    null,null,null, null,null,null,null,null,{ "bSortable": false },{ "bSortable": false }
                 ] } );
         })
     </script>

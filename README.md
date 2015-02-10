@@ -14,15 +14,13 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 
 Bug da fixare e TODO:
 
-
-* inserisci tasto elimina tutti pomeridiani
 * inserisci filtro
+    + excel maker
     + pdf maker
-    + opzioni da creare
-* voci di menu da mettere a posto
-* testi da rifare per pomeridiani
-* tasto elimina tutte le prenotazioni (sei sicuro??)
+* voci di menu da mettere a posto e testi da rifare per pomeridiani
 
+* tasto elimina tutte le prenotazioni (sei sicuro??)
+* escludi mail temporanee (yopmail ecc...)
 
 pomeridiani
 ======
