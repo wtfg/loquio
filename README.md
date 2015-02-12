@@ -14,26 +14,19 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 
 Bug da fixare e TODO:
 
-* popolatore random
-* inserisci filtro
-    + excel maker
-    + pdf maker
-* voci di menu da mettere a posto e testi da rifare per pomeridiani
+
 
 * tasto elimina tutte le prenotazioni (sei sicuro??)
-* escludi mail temporanee (yopmail ecc...)
+* errore personalizzato
 
 pomeridiani
 ======
 
-* Inserire spiegazioni
-* Lato admin: inserire dei filtri per tutto (giorno, docente bla bla bla)
-    + Export dati
-* Occupati
-* Lato admin:
-    + Inserire in configurazioni un flag per disabilitare/abilitare la vista dei pomeridiani
+* inserisci filtro
+    + pdf maker
+* Lato admin: inserire dei filtri frontend
 
-+ Tool di filtraggio liste (successivo)
+* voci di menu da mettere a posto e testi da rifare per pomeridiani
 
 
 todo x deploy
