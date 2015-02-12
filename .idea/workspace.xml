@@ -4,7 +4,6 @@
     <list default="true" id="57d6d3e2-5efc-4a35-ad2b-350812437811" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controller/PomeridianiController.php" afterPath="$PROJECT_DIR$/protected/controller/PomeridianiController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/class/filter.php" afterPath="$PROJECT_DIR$/protected/class/filter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <ignored path="loquio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PomeridianiController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PomeridianiController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controller/PomeridianiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="247" column="26" selection-start="8395" selection-end="8395" vertical-scroll-proportion="0.93047035" vertical-offset="3744" max-vertical-offset="4573">
+            <state line="246" column="15" selection-start="8352" selection-end="8352" vertical-scroll-proportion="-8.423077" vertical-offset="3744" max-vertical-offset="4573">
               <folding />
             </state>
           </provider>
@@ -93,10 +92,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="filter.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="filter.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/class/filter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="24" selection-start="2984" selection-end="2984" vertical-scroll-proportion="-3.2692308" vertical-offset="1717" max-vertical-offset="3791">
+            <state line="95" column="17" selection-start="2801" selection-end="2801" vertical-scroll-proportion="0.83495146" vertical-offset="1185" max-vertical-offset="3893">
               <folding />
             </state>
           </provider>
@@ -173,8 +172,8 @@
         <option value="$PROJECT_DIR$/protected/config/routes.conf.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/protected/class/filter.php" />
         <option value="$PROJECT_DIR$/protected/controller/PomeridianiController.php" />
+        <option value="$PROJECT_DIR$/protected/class/filter.php" />
       </list>
     </option>
   </component>
@@ -1038,13 +1037,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/class/filter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="24" selection-start="2984" selection-end="2984" vertical-scroll-proportion="-3.2692308" vertical-offset="1717" max-vertical-offset="3791">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="43" selection-start="351" selection-end="351" vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="833">
@@ -1054,7 +1046,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controller/PomeridianiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="247" column="26" selection-start="8395" selection-end="8395" vertical-scroll-proportion="0.93047035" vertical-offset="3744" max-vertical-offset="4573">
+        <state line="246" column="15" selection-start="8352" selection-end="8352" vertical-scroll-proportion="-8.423077" vertical-offset="3744" max-vertical-offset="4573">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/class/filter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="17" selection-start="2801" selection-end="2801" vertical-scroll-proportion="0.83495146" vertical-offset="1185" max-vertical-offset="3893">
           <folding />
         </state>
       </provider>

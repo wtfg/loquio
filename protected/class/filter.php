@@ -81,7 +81,7 @@ class pFilter
                     $j+=1;
                     $string .= $j . $separator . $record->cognome . " " . $record->nome . $separator . $record->classe . $newline;
                 }
-                echo $string;
+                #echo $string;
                 file_put_contents($path.$name.$extension, $string) or die(error_get_last());
                 continue;
             }
@@ -93,7 +93,7 @@ class pFilter
                     $j+=1;
                     $string .= $j . $separator . $record->cognome . " " . $record->nome . $separator . $record->classe . $newline;
                 }
-                echo $string;
+                #echo $string;
                 file_put_contents($path.$name.$extension, $string) or die(error_get_last());
             }
             break;
@@ -114,6 +114,11 @@ class pFilter
         if ($v_list == 0) {
             die("Error : ".$zip->errorInfo(true));
         }else{
+            $files = glob($v_dir.'*'); // get all file names
+            foreach($files as $file){ // iterate files
+                if(is_file($file))
+                    unlink($file); // delete file
+            }
             if (file_exists(getcwd()."/".$zipname)) {
                 $file_url = getcwd()."/".$zipname;
                 header('Content-Type: "application/octet-stream"');
@@ -126,6 +131,7 @@ class pFilter
                 ob_clean();
                 flush();
                 readfile($file_url);
+                unlink($file_url);
             } else {
                 exit("Could not find Zip file to download");
             }

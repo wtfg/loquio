@@ -243,7 +243,7 @@ class PomeridianiController extends DooController {
         $a->setData($datas);
         $a->setType("","");
 
-        #var_dump($a->divide());
+        $a->divide();
         $a->toCsv();
         $a->downloadZip();
     }
