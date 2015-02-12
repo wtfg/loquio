@@ -238,12 +238,14 @@ class PomeridianiController extends DooController {
         #$datas = $this->db()->find($poms);
         $datas = $this->randomPopulate();
         #var_dump($datas);
-        echo "<hr>";
+        #echo "<hr>";
         $a = new pFilter();
         $a->setData($datas);
-        $a->setType("class","AL,MZ");
+        $a->setType("","");
 
-        var_dump($a->divideTeachers());
+        #var_dump($a->divide());
+        $a->toCsv();
+        $a->downloadZip();
     }
 
     function deleteAll(){

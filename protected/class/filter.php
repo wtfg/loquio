@@ -15,19 +15,32 @@ class pFilter
     private $output = array();
     private $divided = array();
 
+    /**
+     * @param $d array array di oggetti imposta dati
+     */
     function setData($d){
         $this->data = $d;
     }
 
-    function detData($d){
+    /**
+     * @return array dati
+     */
+    function getData(){
         return $this->data;
     }
 
+    /**
+     * @param $t string blocks o channels
+     * @param $extra string
+     */
     function setType($t, $extra){
         $this->type = array($t => $extra);
     }
 
-    function divideTeachers(){
+    /**
+     * @return array divide docenti
+     */
+    function divide(){
         $teachers = array();
         foreach($this->data as $record){
             if(!array_key_exists($record->did, $teachers)){
@@ -37,11 +50,86 @@ class pFilter
         }
         $t = array();
         foreach($teachers as $key => $value){
-            $this->divide($value);
+            $this->divide_records($value);
             array_push($t, $this->output);
         }
         $this->divided = $t;
         return $this->divided;
+    }
+
+    function toCsv(){
+        $type = array_keys($this->type)[0];
+        $separator = ";";
+        $newline = "\n";
+        $path = "temp/";
+        $extension = ".csv";
+
+        foreach($this->divided as $did => $pages){
+
+            $a = Doo::loadModel("docenti", true);
+            $a->did = $did;
+            $a = Doo::db()->find($a, array("limit"=>1));
+            if($a === false){
+                continue;
+            }
+            $fileName = strtolower(str_replace(" ", "-", $a->nome."-".$a->cognome));
+            if($type != "blocks" && $type != "channels"){
+                $name = $fileName;
+                $string = $name.$newline;
+                $j = 0;
+                foreach($pages as $record){
+                    $j+=1;
+                    $string .= $j . $separator . $record->cognome . " " . $record->nome . $separator . $record->classe . $newline;
+                }
+                echo $string;
+                file_put_contents($path.$name.$extension, $string) or die(error_get_last());
+                continue;
+            }
+            foreach($pages as $i => $page){
+                $name = $fileName.($i +1);
+                $string = $name.$newline;
+                $j = 0;
+                foreach($page as $record){
+                    $j+=1;
+                    $string .= $j . $separator . $record->cognome . " " . $record->nome . $separator . $record->classe . $newline;
+                }
+                echo $string;
+                file_put_contents($path.$name.$extension, $string) or die(error_get_last());
+            }
+            break;
+
+
+        }
+
+    }
+
+
+    function downloadZip(){
+        $zipname = 'csv-reports.zip';
+        $zip = new PclZip($zipname);
+        $v_dir = getcwd()."/temp/"; // or dirname(__FILE__);
+        $v_remove = $v_dir;
+
+        $v_list = $zip->create($v_dir, PCLZIP_OPT_REMOVE_PATH, $v_remove);
+        if ($v_list == 0) {
+            die("Error : ".$zip->errorInfo(true));
+        }else{
+            if (file_exists(getcwd()."/".$zipname)) {
+                $file_url = getcwd()."/".$zipname;
+                header('Content-Type: "application/octet-stream"');
+                header('Content-Disposition: attachment; filename="'.basename($file_url).'"');
+                header("Content-Transfer-Encoding: binary");
+                header("Content-Length: ".filesize($file_url));
+                header('Expires: 0');
+                header('Cache-Control: private');
+                header('Pragma: private');
+                ob_clean();
+                flush();
+                readfile($file_url);
+            } else {
+                exit("Could not find Zip file to download");
+            }
+        }
     }
     /**
      * I parametri sono:
@@ -51,7 +139,7 @@ class pFilter
      * 4) Per classi
      *
      */
-    function divide($data, $clear=true){
+    private function divide_records($data, $clear=true){
         if($clear)
             $this->output = array();
 
@@ -63,9 +151,9 @@ class pFilter
                 case "channels":
                     $this->channels($data, $value);
                 break;
-                case "class":
-                    $this->classes($data, $value);
-                break;
+                #case "class":
+                #    $this->classes($data, $value);
+                #break;
                 default:
                     $this->output = $data;
                 break;

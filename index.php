@@ -6,6 +6,7 @@ include './protected/config/acl.conf.php';
 include './protected/class/index.php';
 include './protected/class/configloader.php';
 include './protected/class/filter.php';
+include './protected/class/pclzip.lib.php';
 
 #Just include this for production mode
 //include $config['BASE_PATH'].'deployment/deploy.php';
