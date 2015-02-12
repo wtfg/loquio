@@ -5,6 +5,7 @@ include './protected/config/db.conf.php';
 include './protected/config/acl.conf.php';
 include './protected/class/index.php';
 include './protected/class/configloader.php';
+include './protected/class/filter.php';
 
 #Just include this for production mode
 //include $config['BASE_PATH'].'deployment/deploy.php';

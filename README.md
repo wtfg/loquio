@@ -14,6 +14,7 @@ Sviluppata in PHP, utilizza il framework gratuito DooPhp
 
 Bug da fixare e TODO:
 
+* popolatore random
 * inserisci filtro
     + excel maker
     + pdf maker

@@ -153,6 +153,9 @@ $route['*']['/pomeridiani/delete/:id'] = array('PomeridianiController', 'deleteP
 
 $route['*']['/admin/pomeridiani'] = array('PomeridianiController', 'viewPomeridianiAdmin');
 
+$route['*']['/admin/filter'] = array('PomeridianiController', 'filter');
+
+
 $route['*']['/admin/pomeridiani/deleteall'] = array('PomeridianiController', 'deleteAll');
 
 

@@ -212,8 +212,38 @@ class PomeridianiController extends DooController {
 
         }
     }
-
+    function randomClass(){
+        $letters = "ABCDEFGHIL";
+        $nums = "12345";
+        $letters = str_shuffle($letters);
+        $nums = str_shuffle($nums);
+        return $nums[0].$letters[0];
+    }
+    function randomPopulate(){
+        $a = array();
+        for($i=0;$i<1000;$i++){
+            $p = Doo::loadModel("pomeridiani", true);
+            $p->pomid = $i;
+            $p->classe = $this->randomClass();
+            $p->did = rand(0,10);
+            $p->uid = 0;
+            $p->nome = "@";
+            $p->cognome = str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+            array_push($a, $p);
+        }
+        return $a;
+    }
     function filter(){
+        #$poms = Doo::loadModel("pomeridiani", true);
+        #$datas = $this->db()->find($poms);
+        $datas = $this->randomPopulate();
+        #var_dump($datas);
+        echo "<hr>";
+        $a = new pFilter();
+        $a->setData($datas);
+        $a->setType("class","AL,MZ");
+
+        var_dump($a->divideTeachers());
     }
 
     function deleteAll(){
