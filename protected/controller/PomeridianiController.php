@@ -241,7 +241,7 @@ class PomeridianiController extends DooController {
         #echo "<hr>";
         $a = new pFilter();
         $a->setData($datas);
-        $a->setType("","");
+        $a->setType("channels","AL,MZ");
 
         $a->divide();
         $a->toCsv();

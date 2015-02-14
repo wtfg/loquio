@@ -59,7 +59,6 @@ class pFilter
         $this->divided = $t;
         return $this->divided;
     }
-    
     private function makeCsvFile($name, $pages){
         $string = $name.$this->newline;
         $j = 0;
@@ -87,13 +86,13 @@ class pFilter
             if($type != "blocks" && $type != "channels"){
                 $name = $fileName;
                 $this->makeCsvFile($name, $pages);
-            }else{
-                foreach($pages as $i => $page){
-                    $name = $fileName.($i +1);
-                    $this->makeCsvFile($name, $page);
-                }
+                continue;
             }
-            break;
+            foreach($pages as $i => $page){
+                $name = $fileName."-giorno-".($i +1);
+                $this->makeCsvFile($name, $page);
+            }
+
         }
 
     }

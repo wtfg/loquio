@@ -22,9 +22,15 @@ Bug da fixare e TODO:
 pomeridiani
 ======
 
-* inserisci filtro
-    + pdf maker
-* Lato admin: inserire dei filtri frontend
+1) elimina nomi duplicati (unique su MySQL)
+
+maschera
+
++ seleziona numero giorni = N
++ quali sono i giorni? N campi di selezione giorno
++ criteri (3)
++ N insiemi a cui assegnare docenti
++ ricorreggi esporta
 
 * voci di menu da mettere a posto e testi da rifare per pomeridiani
 
