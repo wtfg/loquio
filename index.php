@@ -7,6 +7,10 @@ include './protected/class/index.php';
 include './protected/class/configloader.php';
 include './protected/class/filter.php';
 include './protected/class/pclzip.lib.php';
+include './protected/class/fpdf.php';
+include './protected/class/pdfMaker.php';
+
+define('FPDF_FONTPATH', 'protected/font/');
 
 #Just include this for production mode
 //include $config['BASE_PATH'].'deployment/deploy.php';

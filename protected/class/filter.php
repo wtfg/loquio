@@ -14,7 +14,10 @@ class pFilter
     private $type = array();
     private $output = array();
     private $divided = array();
-
+    private $separator = ";";
+    private $newline = "\n";
+    private $path = "temp/";
+    private $extension = ".csv";
     /**
      * @param $d array array di oggetti imposta dati
      */
@@ -56,54 +59,61 @@ class pFilter
         $this->divided = $t;
         return $this->divided;
     }
-
+    
+    private function makeCsvFile($name, $pages){
+        $string = $name.$this->newline;
+        $j = 0;
+        foreach($pages as $record){
+            $j+=1;
+            $string .= $j . $this->separator . $record->cognome . " " . $record->nome . $this->separator . $record->classe .
+                $this->newline;
+        }
+        file_put_contents($this->path . $name . $this->extension, $string) or die(error_get_last());
+    }
     function toCsv(){
+
         $type = array_keys($this->type)[0];
-        $separator = ";";
-        $newline = "\n";
-        $path = "temp/";
-        $extension = ".csv";
 
         foreach($this->divided as $did => $pages){
 
             $a = Doo::loadModel("docenti", true);
             $a->did = $did;
             $a = Doo::db()->find($a, array("limit"=>1));
+
             if($a === false){
                 continue;
             }
             $fileName = strtolower(str_replace(" ", "-", $a->nome."-".$a->cognome));
             if($type != "blocks" && $type != "channels"){
                 $name = $fileName;
-                $string = $name.$newline;
-                $j = 0;
-                foreach($pages as $record){
-                    $j+=1;
-                    $string .= $j . $separator . $record->cognome . " " . $record->nome . $separator . $record->classe . $newline;
+                $this->makeCsvFile($name, $pages);
+            }else{
+                foreach($pages as $i => $page){
+                    $name = $fileName.($i +1);
+                    $this->makeCsvFile($name, $page);
                 }
-                #echo $string;
-                file_put_contents($path.$name.$extension, $string) or die(error_get_last());
-                continue;
-            }
-            foreach($pages as $i => $page){
-                $name = $fileName.($i +1);
-                $string = $name.$newline;
-                $j = 0;
-                foreach($page as $record){
-                    $j+=1;
-                    $string .= $j . $separator . $record->cognome . " " . $record->nome . $separator . $record->classe . $newline;
-                }
-                #echo $string;
-                file_put_contents($path.$name.$extension, $string) or die(error_get_last());
             }
             break;
-
-
         }
 
     }
 
+    function toPDF(){
+        $v_dir = getcwd()."/temp/";
+        $files = glob($v_dir.'*'); // get all file names
+        foreach($files as $file){ // iterate files
+            if(is_file($file)){
+                $pdf = new pdfMaker();
+                $header = array('N#', 'Nome', 'Classe');
+                $data = $pdf->LoadData($file);
 
+                $pdf->AddPage();
+                $pdf->ImprovedTable($header,$data);
+                $pdf->Output(substr($file,0,-4).".pdf");
+            }
+        }
+
+    }
     function downloadZip(){
         $zipname = 'csv-reports.zip';
         $zip = new PclZip($zipname);
@@ -121,21 +131,25 @@ class pFilter
             }
             if (file_exists(getcwd()."/".$zipname)) {
                 $file_url = getcwd()."/".$zipname;
-                header('Content-Type: "application/octet-stream"');
-                header('Content-Disposition: attachment; filename="'.basename($file_url).'"');
-                header("Content-Transfer-Encoding: binary");
-                header("Content-Length: ".filesize($file_url));
-                header('Expires: 0');
-                header('Cache-Control: private');
-                header('Pragma: private');
-                ob_clean();
-                flush();
+                $this->headers($file_url);
                 readfile($file_url);
                 unlink($file_url);
             } else {
                 exit("Could not find Zip file to download");
             }
         }
+    }
+
+    private function headers($file_url){
+        header('Content-Type: "application/octet-stream"');
+        header('Content-Disposition: attachment; filename="'.basename($file_url).'"');
+        header("Content-Transfer-Encoding: binary");
+        header("Content-Length: ".filesize($file_url));
+        header('Expires: 0');
+        header('Cache-Control: private');
+        header('Pragma: private');
+        ob_clean();
+        flush();
     }
     /**
      * I parametri sono:

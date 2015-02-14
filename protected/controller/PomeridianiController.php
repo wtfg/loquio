@@ -245,6 +245,7 @@ class PomeridianiController extends DooController {
 
         $a->divide();
         $a->toCsv();
+        $a->toPDF();
         $a->downloadZip();
     }
 
