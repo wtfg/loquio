@@ -212,6 +212,7 @@ class PomeridianiController extends DooController {
 
         }
     }
+
     function randomClass(){
         $letters = "ABCDEFGHIL";
         $nums = "12345";
@@ -219,6 +220,7 @@ class PomeridianiController extends DooController {
         $nums = str_shuffle($nums);
         return $nums[0].$letters[0];
     }
+
     function randomPopulate(){
         $a = array();
         for($i=0;$i<1000;$i++){
@@ -233,20 +235,37 @@ class PomeridianiController extends DooController {
         }
         return $a;
     }
-    function filter(){
-        #$poms = Doo::loadModel("pomeridiani", true);
-        #$datas = $this->db()->find($poms);
-        $datas = $this->randomPopulate();
-        #var_dump($datas);
-        #echo "<hr>";
-        $a = new pFilter();
-        $a->setData($datas);
-        $a->setType("channels","AL,MZ");
 
-        $a->divide();
-        $a->toCsv();
-        $a->toPDF();
-        $a->downloadZip();
+    function filter(){
+        /**
+         * maschera
+
+        + seleziona numero giorni = N
+        + quali sono i giorni? N campi di selezione giorno
+        + criteri (3)
+        + N insiemi a cui assegnare docenti
+        + ricorreggi esporta
+         */
+
+        if(!isset($_POST['step'])){
+            $data = $this->getContents("pom-filter",array());
+            $this->renderc("base-template", $data);
+
+        }else{
+            #$poms = Doo::loadModel("pomeridiani", true);
+            #$datas = $this->db()->find($poms);
+            $datas = $this->randomPopulate();
+            #var_dump($datas);
+            #echo "<hr>";
+            $a = new pFilter();
+            $a->setData($datas);
+            $a->setType("channels","AL,MZ");
+
+            $a->divide();
+            $a->toCsv();
+            $a->toPDF();
+            $a->downloadZip();
+        }
     }
 
     function deleteAll(){

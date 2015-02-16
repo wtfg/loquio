@@ -22,8 +22,6 @@ Bug da fixare e TODO:
 pomeridiani
 ======
 
-1) elimina nomi duplicati (unique su MySQL)
-
 maschera
 
 + seleziona numero giorni = N
