@@ -7,17 +7,17 @@ loquio
 Un'applicazione cloud per gestire facilmente le prenotazioni online
 Totalmente italiana e in italiano, da impacchettare e da utilizzare
 
-Sviluppata in PHP, utilizza il framework gratuito DooPhp
+Sviluppata in PHP
 
 
+TODO:
 ======
 
-Bug da fixare e TODO:
-
-
-
-* tasto elimina tutte le prenotazioni (sei sicuro??)
-* errore personalizzato
++ refactor codice con classi. minimizzare il codice.
++ rimettere tutto al suo posto, ovvero dare una logica rest a tutto
++ minifier live di html, css e javascript
++ tasto elimina tutte le prenotazioni (sei sicuro??)
++ errore personalizzato
 
 pomeridiani
 ======
@@ -25,7 +25,6 @@ pomeridiani
 maschera
 
 + inserisci validazione campi corretta
-
 * voci di menu da mettere a posto e testi da rifare per pomeridiani
 
 
