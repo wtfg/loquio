@@ -1,4 +1,15 @@
 <?php
+$b = $this->db()->find(Doo::loadModel("prenotazioni", true), array("where"=>"data>=".time()));
+
+$data["overall_prenotazioni_num"] = Doo::loadModel("prenotazioni", true)->count();
+$data["new_prenotazioni_num"] = count($b);
+$data['prenotazioni_percentage_num'] = ((count($b)/Doo::loadModel("prenotazioni", true)->count())*100)."%";
+
+$data["docenti_num"] = Doo::loadModel("docenti", true)->count();
+
+$data["utenti_num"] = Doo::loadModel("utenti", true)->count();
+
+
 ob_start();
 ?>
 Benvenuto, grande capo!
@@ -7,6 +18,55 @@ $data['title'] = ob_get_contents();
 ob_end_clean();
 ob_start();
 ?>
+    <div class="col-sm-7 infobox-container">
+        <div class="infobox infobox-green">
+            <div class="infobox-icon">
+                <i class="ace-icon fa icon-twitter"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number"><?php echo $data['docenti_num']?></span>
+                <div class="infobox-content">docenti inseriti</div>
+            </div>
+        </div>
+
+        <div class="infobox infobox-blue">
+            <div class="infobox-icon">
+                <i class="ace-icon fa icon-comments"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number"><?php echo $data['new_prenotazioni_num']?></span>
+                <div class="infobox-content">prenotazioni nuove</div>
+            </div>
+            <div class="stat stat-success">
+                <?php echo $data['prenotazioni_percentage_num']?>
+
+            </div>
+        </div>
+        <div class="infobox infobox-blue">
+            <div class="infobox-icon">
+                <i class="ace-icon fa icon-key"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number"><?php echo $data['overall_prenotazioni_num']?></span>
+                <div class="infobox-content">prenotazoni totali</div>
+            </div>
+        </div>
+        <div class="infobox infobox-pink">
+            <div class="infobox-icon">
+                <i class="ace-icon fa icon-shopping-cart"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number"><?php echo $data['utenti_num']?></span>
+                <div class="infobox-content">utenti in totale</div>
+            </div>
+        </div>
+
+
+    </div>
 
 <div class="widget-box">
 <div class="widget-header">
@@ -22,6 +82,10 @@ ob_start();
     <a href=<?php echo Doo::conf()->APP_URL."admin/prenotazioni/"?> class="btn btn-app btn-primary no-radius">
         <i class="ace-icon icon-edit-sign bigger-230"></i>
         Prenotaz.
+    </a>
+    <a href=<?php echo Doo::conf()->APP_URL."admin/pomeridiani"?> class="btn btn-app btn-primary no-radius">
+        <i class="ace-icon icon-user bigger-230"></i>
+        Pomeridiani
     </a>
     <a href=<?php echo Doo::conf()->APP_URL."admin/materie"?> class="btn btn-app btn-primary no-radius">
         <i class="ace-icon icon-list bigger-230"></i>

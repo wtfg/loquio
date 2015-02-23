@@ -113,7 +113,9 @@ class PomeridianiController extends DooController {
                 $materia->mid = $docenteResult->mid;
                 $materiaResult = $this->db()->find($materia, array("limit"=>1));
 
-
+                if(!$materiaResult){
+                    continue;
+                }
                 $nc = stripslashes($docenteResult->nome ." ". $docenteResult->cognome);
 
                 $b = array("docente" => $nc, "nomemateria"=>$materiaResult->nome, "pomid" => $pomeridiano["pomid"], "nome" => $pomeridiano["nome"], "cognome"=>$pomeridiano["cognome"], "classe"=>$pomeridiano["classe"]);
@@ -149,7 +151,9 @@ class PomeridianiController extends DooController {
             $utente = Doo::loadModel('utenti', true);
             $utente->uid = $pomeridiano["uid"];
             $utenteResult = $this->db()->find($utente, array("limit"=>1));
-
+            if(!$utenteResult or !$materiaResult){
+                continue;
+            }
             $nc = stripslashes($docenteResult->nome ." ". $docenteResult->cognome);
 
             $b = array("docente" => $nc, "nomemateria"=>$materiaResult->nome, "uid"=>$utenteResult->uid, "email"=>$utenteResult->email, "pomid" => $pomeridiano["pomid"], "nome" => $pomeridiano["nome"], "cognome"=>$pomeridiano["cognome"], "classe"=>$pomeridiano["classe"]);
@@ -247,21 +251,36 @@ class PomeridianiController extends DooController {
         + ricorreggi esporta
          */
 
-        if(!isset($_POST['step'])){
-            $data = $this->getContents("pom-filter",array());
+        if(!isset($_POST['days'])){
+            $do = $this->db()->find(Doo::loadModel("docenti", true));
+            $data = array("teachers">array());
+            foreach($do as $docente){
+                $data["teachers"][$docente->did] = $docente->cognome." ".$docente->nome;
+            }
+            $data["teachers_json"] = json_encode($data["teachers"]);
+            $data = $this->getContents("pom-filter",$data);
             $this->renderc("base-template", $data);
 
         }else{
-            #$poms = Doo::loadModel("pomeridiani", true);
-            #$datas = $this->db()->find($poms);
-            $datas = $this->randomPopulate();
+
+            $poms = Doo::loadModel("pomeridiani", true);
+            $datas = $this->db()->find($poms);
+            #$datas = $this->randomPopulate();
             #var_dump($datas);
             #echo "<hr>";
+            $criterion = $_POST["criterion"];
+            $days = $_POST["days"];
+            $sets = $_POST["set"];
+
+            $criterion_type = $_POST["criterion-type"];
             $a = new pFilter();
+
             $a->setData($datas);
-            $a->setType("channels","AL,MZ");
+            $a->setDays($days, $sets);
+            $a->setType($criterion,$criterion_type);
 
             $a->divide();
+            $a->getData();
             $a->toCsv();
             $a->toPDF();
             $a->downloadZip();

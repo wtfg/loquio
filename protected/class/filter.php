@@ -18,9 +18,25 @@ class pFilter
     private $newline = "\n";
     private $path = "temp/";
     private $extension = ".csv";
+    private $dates = array();
     /**
      * @param $d array array di oggetti imposta dati
      */
+
+    function setDays($days, $set){
+        $this->dates = array();
+        $i=0;
+        foreach($set as $day){
+            foreach($day as $teacher){
+                if(array_key_exists($teacher, $this->dates)){
+                    array_push($this->dates[$teacher],$days[$i]);
+                }else{
+                    $this->dates[$teacher]=array($days[$i]);
+                }
+            }
+            $i++;
+        }
+    }
     function setData($d){
         $this->data = $d;
     }
@@ -57,10 +73,16 @@ class pFilter
             array_push($t, $this->output);
         }
         $this->divided = $t;
+
         return $this->divided;
     }
-    private function makeCsvFile($name, $pages){
+    private function makeCsvFile($name, $pages, $did, $page=0){
         $string = $name.$this->newline;
+        if(array_key_exists($page, $this->dates[$did])){
+            $string .= $this->dates[$did][$page].$this->newline;
+        }else{
+            $string .= $this->newline;
+        }
         $j = 0;
         foreach($pages as $record){
             $j+=1;
@@ -75,22 +97,34 @@ class pFilter
 
         foreach($this->divided as $did => $pages){
 
-            $a = Doo::loadModel("docenti", true);
-            $a->did = $did;
-            $a = Doo::db()->find($a, array("limit"=>1));
 
-            if($a === false){
-                continue;
-            }
-            $fileName = strtolower(str_replace(" ", "-", $a->nome."-".$a->cognome));
+
             if($type != "blocks" && $type != "channels"){
-                $name = $fileName;
-                $this->makeCsvFile($name, $pages);
+                $a = Doo::loadModel("docenti", true);
+                $a->did = $pages[0]->did;
+                $a = Doo::db()->find($a, array("limit"=>1));
+
+                if($a === false){
+                    continue;
+                }
+                $fileName = strtolower(str_replace(" ", "-", $a->nome."-".$a->cognome));
+                $this->makeCsvFile($fileName, $pages, $a->did);
                 continue;
+            }else{
+                foreach($pages as $i => $page){
+
+                    $a = Doo::loadModel("docenti", true);
+                    if(count($page) == 0) continue;
+                    $a->did = $page[0]->did;
+                    $a = Doo::db()->find($a, array("limit"=>1));
+
+                    if($a === false){
+                        continue;
+                    }
+                    $fileName = strtolower(str_replace(" ", "-", $a->nome."-".$a->cognome));
+                    $name = $fileName."-".($i +1);
+                    $this->makeCsvFile($name, $page, $a->did, $i);
             }
-            foreach($pages as $i => $page){
-                $name = $fileName."-giorno-".($i +1);
-                $this->makeCsvFile($name, $page);
             }
 
         }
@@ -114,7 +148,7 @@ class pFilter
 
     }
     function downloadZip(){
-        $zipname = 'csv-reports.zip';
+        $zipname = 'loquio-reports.zip';
         $zip = new PclZip($zipname);
         $v_dir = getcwd()."/temp/"; // or dirname(__FILE__);
         $v_remove = $v_dir;

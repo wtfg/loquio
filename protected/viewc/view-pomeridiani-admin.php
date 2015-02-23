@@ -113,13 +113,17 @@ ob_start();
     </div>
 
 <br>
-    <a href="<?php echo Doo::conf()->APP_URL; ?>pomeridiani/new/" class="btn btn-app btn-success">
+    <a href="<?php echo Doo::conf()->APP_URL; ?>admin/filter" class="btn btn-app btn-success">
+        <i class="icon-cloud-download"></i>
+        Filtra
+    </a>
+    <a href="<?php echo Doo::conf()->APP_URL; ?>pomeridiani/new/" class="btn btn-app btn-primary">
         <i class="icon-plus"></i>
-        Prenota pomerid.
+        Prenota
     </a>
     <a onclick="javascript: return confirm('Sei sicuro di voler svuotare tutti i pomeridiani?');" href="<?php echo Doo::conf()->APP_URL; ?>admin/pomeridiani/deleteall" class="btn btn-app btn-danger">
         <i class="icon-trash"></i>
-        Svuota tutto
+        Svuota
     </a>
 <?php
 $data['content'] = ob_get_contents();

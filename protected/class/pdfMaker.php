@@ -3,12 +3,15 @@ class pdfMaker extends FPDF
 {
     // Load data
     private $file_title = "#";
+    private $file_date = "#";
 
     function LoadData($file)
     {
         // Read file lines
         $lines = file($file);
-        $this->file_title = strtoupper(str_replace("-", " ", $lines[0]));
+        $this->file_title = trim(str_replace(range(0,9),'',strtoupper(str_replace("-", " ", $lines[0]))));
+        $this->file_date = strtoupper($lines[1]);
+        unset($lines[1]);
         unset($lines[0]);
         $data = array();
         foreach($lines as $line)
@@ -28,7 +31,16 @@ class pdfMaker extends FPDF
         $this->Cell(30,10,$this->file_title,0,0,'C');
         // Line break
         $this->Ln(20);
+        // Arial bold 15
+        $this->SetFont('Arial','B',16);
+        // Move to the right
+        $this->Cell(80);
+        // Title
+        $this->Cell(30,10,$this->file_date,0,0,'C');
+        // Line break
+        $this->Ln(20);
     }
+
 // Better table
     function ImprovedTable($header, $data)
     {

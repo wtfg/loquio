@@ -2,9 +2,174 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57d6d3e2-5efc-4a35-ad2b-350812437811" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/viewc/pom-filter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global/js/pom-filter.js" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\1.10.2.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\1.10.3.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\1.3.1.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\1.6.1.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\1.9.4.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\2.0.3.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\4.0em.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\@2x.$1.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\Microsoft.XMLDOM.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\Microsoft.XMLHTTP.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\Please enter a valid time in 12-hour am\pm format.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\a.chzn-single.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\a.close.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\autosize.destroy.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\autosize.resize.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\autosize.resizeIncludeStyle.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\beforeactivate._change.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\blur.inputlimiter.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\blur.mask.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\blur.validate-equalTo.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\change.DT.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\change._change.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\change.ace_inner_call.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\change.select2.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\click.DT.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\click._change.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\click._submit keypress._submit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\click.affix.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\click.alert.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\click.button.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\click.carousel.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\click.collapse.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\click.dismiss.modal.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\click.dropdown.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\click.modal.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\click.tab.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\2.0.0.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\blur.timepicker.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\bootstrap-datepicker.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\bootstrap-timepicker.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\button.applyBtn.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\button.clearBtn.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\changeTime.timepicker.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\click.timepicker.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\daterangepicker.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\focus.timepicker.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\hide.timepicker.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\input.bootstrap-timepicker-hour.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\input.bootstrap-timepicker-meridian.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\input.bootstrap-timepicker-minute.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\input.bootstrap-timepicker-second.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\keydown.timepicker.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\mm\dd\yyyy.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\moment.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\mousedown.timepicker.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\select.monthselect.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\select.yearselect.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\show.timepicker.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\span.bootstrap-timepicker-hour.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\span.bootstrap-timepicker-meridian.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\span.bootstrap-timepicker-minute.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\span.bootstrap-timepicker-second.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\td.available.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\date-time\tfoot th.today.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\ddd M\d.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\dddd M\d.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\div.chzn-drop.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\div.chzn-search.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\div.dataTables_filter.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\div.fc-day-content div.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\div.fc-event-time.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\div.fc-event-title.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\div.ui-draggable-iframeFix.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\flot\0.8.1.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\flot\jquery.flot.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\flot\jquery.flot.pie.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\flot\jquery.flot.resize.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\focus.mask.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\focus.typeahead.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\focusin.modal.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\fuelux\button.btn-next.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\fuelux\button.btn-prev.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\fuelux\data\fuelux.tree-sampledata.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\fuelux\fuelux.spinner.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\fuelux\fuelux.tree.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\fuelux\fuelux.wizard.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\fuelux\li.complete.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\fuelux\mousedown.spinner.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\fuelux\mousedown.wizard.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\fuelux\span.badge.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\in.tag.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\input.autosize keyup.autosize.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\input.autosize.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\input.select2-input.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\invalid-form.validate.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\keydown.dropdown.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\keydown.mask.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\keypress.DT.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\keypress.inputlimiter.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\keypress.mask.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\keyup.DT.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\keyup.dismiss.modal.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\keyup.inputlimiter.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\keyup.k.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\lang-in.tag.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\lang-uq.val.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\li.active-result.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\li.dropdown.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\li.no-results.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\li.search-choice.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\li.search-field.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\li.select2-more-results.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\markdown\URL\Link.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\markdown\bootstrap-markdown.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\markdown\click.markdown.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\markdown\markdown.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\mousemove.jqs.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\mousemove.k mouseup.k keyup.k.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\mousemove.k.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\mouseup.k mousemove.k keyup.k.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\mouseup.k.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\propertychange._change.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\propertychange.autosize.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\propertychange.select2 DOMAttrModified.select2.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\resize.autosize.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\resize.jqs scroll.jqs.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\scroll.affix.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\scroll.droppable.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\scroll.scroll-spy.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\selectstart.DT.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\selectstart.ui.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\submit._submit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\th.fc-agenda-gutter.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\th.fc-week-number.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\touchend.k.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\touchmove.k touchend.k.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\touchmove.k.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\ui.draggable.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\ui.droppable.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\ui.mouse.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\ui.resizable.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\ui.selectable.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\ui.slider.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\ui.sortable.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\ul.chzn-choices.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\ul.chzn-results.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\uq.val.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\x-editable\Object.keys called on a non-object.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\x-editable\ace-editable.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\x-editable\bootstrap-editable.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\x-editable\change.editable.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\x-editable\click.editable.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\x-editable\div.editable-input.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\x-editable\focus.datepicker.data-api click.datepicker.data-api.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\x-editable\keydown.editable.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\x-editable\keyup.editable.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\x-editable\mm\dd\yyyy.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\x-editable\save.internal.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\x-editable\tfoot th.clear.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mauro\Desktop\francesco\php\loquio\global\assets\js\x-editable\tfoot th.today.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controller/PomeridianiController.php" afterPath="$PROJECT_DIR$/protected/controller/PomeridianiController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/class/filter.php" afterPath="$PROJECT_DIR$/protected/class/filter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/panel-admin.php" afterPath="$PROJECT_DIR$/protected/viewc/panel-admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/class/pdfMaker.php" afterPath="$PROJECT_DIR$/protected/class/pdfMaker.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/pom-filter.php" afterPath="$PROJECT_DIR$/protected/viewc/pom-filter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/viewc/view-pomeridiani-admin.php" afterPath="$PROJECT_DIR$/protected/viewc/view-pomeridiani-admin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="loquio.iws" />
@@ -28,48 +193,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="408" selection-end="569" vertical-scroll-proportion="-12.96" vertical-offset="84" max-vertical-offset="850">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="filter.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/class/filter.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="49" selection-start="2368" selection-end="2368" vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="4114">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PomeridianiController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/controller/PomeridianiController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="247" column="11" selection-start="8051" selection-end="8279" vertical-scroll-proportion="-9.807693" vertical-offset="1428" max-vertical-offset="2397">
-              <folding>
-                <element signature="n#deletePomeridiani#0;n#PomeridianiController#0;n#!!top" expanded="false" />
-                <element signature="n#viewPomeridiani#0;n#PomeridianiController#0;n#!!top" expanded="false" />
-                <element signature="n#viewPomeridianiAdmin#0;n#PomeridianiController#0;n#!!top" expanded="false" />
-                <element signature="n#editPomeridiani#0;n#PomeridianiController#0;n#!!top" expanded="false" />
-                <element signature="n#randomClass#0;n#PomeridianiController#0;n#!!top" expanded="false" />
-                <element signature="n#randomPopulate#0;n#PomeridianiController#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="panel-admin.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/viewc/panel-admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1207">
+            <state line="84" column="8" selection-start="2919" selection-end="2919" vertical-scroll-proportion="-3.7777777" vertical-offset="1122" max-vertical-offset="2295">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view-pomeridiani-admin.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/viewc/view-pomeridiani-admin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="116" column="37" selection-start="2664" selection-end="2664" vertical-scroll-proportion="-5.230769" vertical-offset="1836" max-vertical-offset="2584">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base-template.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/viewc/base-template.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="281" column="50" selection-start="9648" selection-end="9652" vertical-scroll-proportion="-3.1153846" vertical-offset="4615" max-vertical-offset="6630">
+              <folding>
+                <marker date="1423558628313" expanded="true" signature="12291:12417" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -77,52 +225,63 @@
       <file leaf-file-name="pom-filter.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/viewc/pom-filter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="26" selection-start="5635" selection-end="5635" vertical-scroll-proportion="0.9359699" vertical-offset="2036" max-vertical-offset="3264">
+            <state line="25" column="21" selection-start="651" selection-end="651" vertical-scroll-proportion="0.6144814" vertical-offset="111" max-vertical-offset="2295">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view-listapren.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/viewc/view-listapren.php">
+      <file leaf-file-name="pom-filter.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/global/js/pom-filter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="5" selection-start="2799" selection-end="2799" vertical-scroll-proportion="-19.115385" vertical-offset="880" max-vertical-offset="2006">
+            <state line="52" column="21" selection-start="1819" selection-end="1819" vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="1445">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view-docenti.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/viewc/view-docenti.php">
+      <file leaf-file-name="prettify.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/global/assets/js/prettify.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2414">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit-docenti.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/viewc/edit-docenti.php">
+      <file leaf-file-name="bootstrap-tag.min.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/global/assets/js/bootstrap-tag.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="4" selection-start="1782" selection-end="2244" vertical-scroll-proportion="-7.8461537" vertical-offset="799" max-vertical-offset="1853">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="INSTALL.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/INSTALL.txt">
+      <file leaf-file-name="chosen.jquery.min.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/global/assets/js/chosen.jquery.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="646">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ace-elements.min.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/global/assets/js/ace-elements.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pdfMaker.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/class/pdfMaker.php">
+      <file leaf-file-name="filter.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/class/filter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="21" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1649">
+            <state line="75" column="0" selection-start="1897" selection-end="1897" vertical-scroll-proportion="-6.076923" vertical-offset="1117" max-vertical-offset="4692">
               <folding />
             </state>
           </provider>
@@ -141,7 +300,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../bootstrap/tables.html" />
         <option value="$PROJECT_DIR$/protected/viewc/new-snag.php" />
         <option value="$PROJECT_DIR$/global/assets/css/ace.min.css" />
         <option value="$PROJECT_DIR$/protected/viewc/edit-user.php" />
@@ -162,7 +320,6 @@
         <option value="$PROJECT_DIR$/protected/viewc/view-user-admin.php" />
         <option value="$PROJECT_DIR$/global/assets/js/jquery.dataTables.min.js" />
         <option value="$PROJECT_DIR$/protected/viewc/panel-docente.php" />
-        <option value="$PROJECT_DIR$/protected/viewc/panel-admin.php" />
         <option value="$PROJECT_DIR$/protected/viewc/panel-user.php" />
         <option value="$PROJECT_DIR$/protected/viewc/register-page.php" />
         <option value="$PROJECT_DIR$/protected/viewc/view-listapren.php" />
@@ -183,24 +340,26 @@
         <option value="$PROJECT_DIR$/protected/viewc/edit-pomeridiani.php" />
         <option value="$PROJECT_DIR$/protected/viewc/add-pomeridiani.php" />
         <option value="$PROJECT_DIR$/protected/config/acl.conf.php" />
-        <option value="$PROJECT_DIR$/protected/viewc/view-pomeridiani-admin.php" />
         <option value="$PROJECT_DIR$/protected/config/routes.conf.php" />
         <option value="$PROJECT_DIR$/protected/controller/LoginController.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/protected/class/pdfMaker.php" />
-        <option value="$PROJECT_DIR$/protected/class/filter.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/protected/controller/PomeridianiController.php" />
+        <option value="$PROJECT_DIR$/protected/class/pdfMaker.php" />
+        <option value="$PROJECT_DIR$/protected/class/filter.php" />
+        <option value="$PROJECT_DIR$/protected/viewc/panel-admin.php" />
+        <option value="$PROJECT_DIR$/protected/viewc/view-pomeridiani-admin.php" />
+        <option value="$PROJECT_DIR$/global/js/pom-filter.js" />
         <option value="$PROJECT_DIR$/protected/viewc/pom-filter.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="1" />
+    <option name="y" value="1" />
+    <option name="width" value="1364" />
+    <option name="height" value="726" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -420,6 +579,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loquio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loquio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -507,7 +684,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="1" y="1" width="1364" height="726" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -515,7 +692,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23716012" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25981873" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2672282" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -523,11 +700,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32612312" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32612312" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -546,9 +723,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -570,41 +747,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/controller/MainController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="17" selection-start="1082" selection-end="1082" vertical-scroll-proportion="-17.0" vertical-offset="323" max-vertical-offset="935" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dooframework/db/DooModelGen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="27" selection-start="6388" selection-end="6388" vertical-scroll-proportion="-19.115385" vertical-offset="2240" max-vertical-offset="8857" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/model/base/BookoffBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/model/pomeridiani.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="6" selection-start="53" selection-end="53" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="170" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="14" selection-start="5500" selection-end="5500" vertical-scroll-proportion="-0.65384614" vertical-offset="2499" max-vertical-offset="3961" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/edit-globali.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="405" column="30" selection-start="18727" selection-end="19081" vertical-scroll-proportion="-14.384615" vertical-offset="6511" max-vertical-offset="7871" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global/config/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="100" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="531" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/add-docenti.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="10" selection-start="550" selection-end="760" vertical-scroll-proportion="-18.307692" vertical-offset="0" max-vertical-offset="1530" />
@@ -617,16 +759,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/new-snag.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="200" selection-start="1637" selection-end="1809" vertical-scroll-proportion="0.7118644" vertical-offset="404" max-vertical-offset="2431">
-          <folding>
-            <element signature="e#1714#1797#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/model/docenti.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570" />
+        <state line="46" column="200" selection-start="1637" selection-end="1809" vertical-scroll-proportion="0.7118644" vertical-offset="404" max-vertical-offset="2431" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/edit-siteconfig.php">
@@ -659,11 +792,6 @@
         <state line="266" column="13" selection-start="9500" selection-end="9500" vertical-scroll-proportion="-14.230769" vertical-offset="4152" max-vertical-offset="5797" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/base-template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="381" column="65" selection-start="12999" selection-end="12999" vertical-scroll-proportion="-14.538462" vertical-offset="6099" max-vertical-offset="6630" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/edit-pomeridiani.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="126" column="67" selection-start="4410" selection-end="4410" vertical-scroll-proportion="-6.8653846" vertical-offset="1785" max-vertical-offset="3077" />
@@ -686,7 +814,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dooframework/controller/DooController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="20" selection-start="3503" selection-end="3503" vertical-scroll-proportion="0.34839925" vertical-offset="2008" max-vertical-offset="11016" />
+        <state line="136" column="20" selection-start="3503" selection-end="3503" vertical-scroll-proportion="0.34839925" vertical-offset="2008" max-vertical-offset="11016">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dooframework/db/DooSqlMagic.php">
@@ -704,11 +834,6 @@
     <entry file="file://$PROJECT_DIR$/protected/controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="256" column="13" selection-start="9278" selection-end="9278" vertical-scroll-proportion="-6.8076925" vertical-offset="4175" max-vertical-offset="8959" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/view-pomeridiani-admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="28" selection-start="2927" selection-end="2927" vertical-scroll-proportion="-3.6153846" vertical-offset="1946" max-vertical-offset="2516" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/class/index.php">
@@ -744,110 +869,130 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/class/pclzip.lib.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="223" column="11" selection-start="9040" selection-end="9040" vertical-scroll-proportion="0.033009708" vertical-offset="3366" max-vertical-offset="96492" />
+        <state line="223" column="11" selection-start="9040" selection-end="9040" vertical-scroll-proportion="0.033009708" vertical-offset="3366" max-vertical-offset="96492">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_7.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="304" column="20" selection-start="9158" selection-end="9158" vertical-scroll-proportion="0.4185606" vertical-offset="4947" max-vertical-offset="18989" />
+        <state line="304" column="20" selection-start="9158" selection-end="9158" vertical-scroll-proportion="0.4185606" vertical-offset="4947" max-vertical-offset="18989">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/routes.conf.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="22" selection-start="3327" selection-end="3335" vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="3213">
-          <folding />
-        </state>
+        <state line="64" column="22" selection-start="3327" selection-end="3335" vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="3213" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controller/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="126" selection-end="142" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="17476">
-          <folding />
-        </state>
+        <state line="7" column="0" selection-start="126" selection-end="142" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="17476" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../pdf/font/courier.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../pdf/makefont/makefont.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6341">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6341" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="37" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="901">
-          <folding />
-        </state>
+        <state line="9" column="37" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="901" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_5.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="968" column="9" selection-start="28832" selection-end="28832" vertical-scroll-proportion="1.0854369" vertical-offset="15897" max-vertical-offset="19567" />
+        <state line="968" column="9" selection-start="28832" selection-end="28832" vertical-scroll-proportion="1.0854369" vertical-offset="15897" max-vertical-offset="19567">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/class/fpdf.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="598" column="9" selection-start="16074" selection-end="16074" vertical-scroll-proportion="0.34839925" vertical-offset="9981" max-vertical-offset="30770" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/class/pdfMaker.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="21" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1649">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/class/filter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="49" selection-start="2368" selection-end="2368" vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="4114">
-          <folding />
+        <state line="598" column="9" selection-start="16074" selection-end="16074" vertical-scroll-proportion="0.34839925" vertical-offset="9981" max-vertical-offset="30770">
+          <folding>
+            <element signature="e#6#572#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/INSTALL.txt">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="0" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="646">
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="408" selection-end="569" vertical-scroll-proportion="-12.96" vertical-offset="84" max-vertical-offset="850">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/view-docenti.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2414">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/viewc/panel-admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
-          <folding />
+          <folding>
+            <marker date="1423473695800" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695800" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695800" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695800" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695800" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695800" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695800" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695800" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695800" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695800" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1423473695800" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1423473695800" expanded="true" signature="-1:-1" placeholder="[...]" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/view-listapren.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="5" selection-start="2799" selection-end="2799" vertical-scroll-proportion="-19.115385" vertical-offset="880" max-vertical-offset="2006">
+        <state line="81" column="5" selection-start="2799" selection-end="2799" vertical-scroll-proportion="0.0" vertical-offset="880" max-vertical-offset="2006">
+          <folding>
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1423473695970" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_9.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="681" column="9" selection-start="23654" selection-end="23654" vertical-scroll-proportion="0.34839925" vertical-offset="11392" max-vertical-offset="18088">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="38" selection-start="456" selection-end="456" vertical-scroll-proportion="-14.32" vertical-offset="84" max-vertical-offset="782">
           <folding />
         </state>
       </provider>
@@ -859,23 +1004,104 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/protected/class/pdfMaker.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="32" selection-start="473" selection-end="473" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="1853">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/protected/controller/PomeridianiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="247" column="11" selection-start="8051" selection-end="8279" vertical-scroll-proportion="-9.807693" vertical-offset="1428" max-vertical-offset="2397">
+        <state line="281" column="18" selection-start="9506" selection-end="9506" vertical-scroll-proportion="-13.076923" vertical-offset="4437" max-vertical-offset="5236">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/model/docenti.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="526">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dooframework/db/DooModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="3" selection-start="673" selection-end="688" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="13906">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/class/filter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="0" selection-start="1897" selection-end="1897" vertical-scroll-proportion="-6.076923" vertical-offset="1117" max-vertical-offset="4692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/base-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="281" column="50" selection-start="9648" selection-end="9652" vertical-scroll-proportion="-3.1153846" vertical-offset="4615" max-vertical-offset="6630">
           <folding>
-            <element signature="n#deletePomeridiani#0;n#PomeridianiController#0;n#!!top" expanded="false" />
-            <element signature="n#viewPomeridiani#0;n#PomeridianiController#0;n#!!top" expanded="false" />
-            <element signature="n#viewPomeridianiAdmin#0;n#PomeridianiController#0;n#!!top" expanded="false" />
-            <element signature="n#editPomeridiani#0;n#PomeridianiController#0;n#!!top" expanded="false" />
-            <element signature="n#randomClass#0;n#PomeridianiController#0;n#!!top" expanded="false" />
-            <element signature="n#randomPopulate#0;n#PomeridianiController#0;n#!!top" expanded="false" />
+            <marker date="1423558628313" expanded="true" signature="12291:12417" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global/js/pom-filter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="21" selection-start="1819" selection-end="1819" vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="1445">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global/assets/js/ace-elements.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="537">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global/assets/js/prettify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global/assets/js/bootstrap-tag.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="537">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global/assets/js/chosen.jquery.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="537">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/panel-admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="8" selection-start="2919" selection-end="2919" vertical-scroll-proportion="-3.7777777" vertical-offset="1122" max-vertical-offset="2295">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/viewc/view-pomeridiani-admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="37" selection-start="2664" selection-end="2664" vertical-scroll-proportion="-5.230769" vertical-offset="1836" max-vertical-offset="2584">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/pom-filter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="26" selection-start="5635" selection-end="5635" vertical-scroll-proportion="0.9359699" vertical-offset="2036" max-vertical-offset="3264">
+        <state line="25" column="21" selection-start="651" selection-end="651" vertical-scroll-proportion="0.6144814" vertical-offset="111" max-vertical-offset="2295">
           <folding />
         </state>
       </provider>

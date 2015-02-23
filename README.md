@@ -24,11 +24,7 @@ pomeridiani
 
 maschera
 
-+ seleziona numero giorni = N
-+ quali sono i giorni? N campi di selezione giorno
-+ criteri (3)
-+ N insiemi a cui assegnare docenti
-+ ricorreggi esporta
++ inserisci validazione campi corretta
 
 * voci di menu da mettere a posto e testi da rifare per pomeridiani
 
