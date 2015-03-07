@@ -56,18 +56,21 @@ class myCalendar
     {
         $currentYear = (int)date("Y");
         $nextYear = $currentYear + 1;
-        for ($currentYear; $currentYear <= $nextYear; $currentYear++) {
+        while ($currentYear <= $nextYear) {
             $g = $this->getData($currentYear);
-            foreach ($g as $monthKey => $monthValue) {
-                if ($monthKey != "bisestile") {
-                    foreach ($monthValue as $dayKey => $dayValue) {
-                        if ($dayValue == "false") {
-                            $monthNumber = array_search($monthKey, $this->monthNames);
-                            $this->bookOff($monthNumber . "/" . $dayKey . "/" . $currentYear);
+            if (is_array($g)){
+                foreach ($g as $monthKey => $monthValue) {
+                    if ($monthKey != "bisestile") {
+                        foreach ($monthValue as $dayKey => $dayValue) {
+                            if ($dayValue == "false") {
+                                $monthNumber = array_search($monthKey, $this->monthNames);
+                                $this->bookOff($monthNumber . "/" . $dayKey . "/" . $currentYear);
+                            }
                         }
                     }
                 }
             }
+            $currentYear++;
         }
     }
 

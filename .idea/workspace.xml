@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57d6d3e2-5efc-4a35-ad2b-350812437811" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controller/PrenotController.php" afterPath="$PROJECT_DIR$/protected/controller/PrenotController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/class/index.php" afterPath="$PROJECT_DIR$/protected/class/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install.php" afterPath="$PROJECT_DIR$/install.php" />
     </list>
     <ignored path="loquio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,13 +27,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="237" selection-end="237" vertical-scroll-proportion="0.35619047" vertical-offset="0" max-vertical-offset="765">
+            <state line="11" column="0" selection-start="237" selection-end="237" vertical-scroll-proportion="-7.48" vertical-offset="0" max-vertical-offset="765">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="install.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/install.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="55" selection-start="633" selection-end="633" vertical-scroll-proportion="0.66536206" vertical-offset="0" max-vertical-offset="799">
+              <folding>
+                <element signature="e#6#28#0" expanded="true" />
+                <marker date="1424729915378" expanded="true" signature="225:284" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DooModel.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dooframework/db/DooModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="67" column="7" selection-start="1909" selection-end="1909" vertical-scroll-proportion="-17.692308" vertical-offset="560" max-vertical-offset="13906">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrenotController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/controller/PrenotController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="287" column="8" selection-start="10255" selection-end="10255" vertical-scroll-proportion="-2.4423077" vertical-offset="4752" max-vertical-offset="8449">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/class/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="25" selection-start="1994" selection-end="1994" vertical-scroll-proportion="-12.461538" vertical-offset="832" max-vertical-offset="5083">
               <folding />
             </state>
           </provider>
@@ -64,63 +105,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="docenti.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/global/js/docenti.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2550">
-              <folding>
-                <marker date="1406645613308" expanded="false" signature="968:1070" placeholder="..." />
-                <marker date="1406645613308" expanded="false" signature="1147:1161" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="datepickr.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/global/js/datepickr.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="panel-admin.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/viewc/panel-admin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="8" selection-start="2919" selection-end="2919" vertical-scroll-proportion="-3.7777777" vertical-offset="1122" max-vertical-offset="2295">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view-pomeridiani-admin.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/viewc/view-pomeridiani-admin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="37" selection-start="2664" selection-end="2664" vertical-scroll-proportion="-5.230769" vertical-offset="1836" max-vertical-offset="2584">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom-filter.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/viewc/pom-filter.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="21" selection-start="651" selection-end="651" vertical-scroll-proportion="-12.076923" vertical-offset="111" max-vertical-offset="2295">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="INSTALL.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/INSTALL.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="646">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -134,7 +118,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/protected/viewc/new-snag.php" />
         <option value="$PROJECT_DIR$/global/assets/css/ace.min.css" />
         <option value="$PROJECT_DIR$/protected/viewc/edit-user.php" />
         <option value="$PROJECT_DIR$/protected/viewc/login-page.php" />
@@ -160,8 +143,6 @@
         <option value="$PROJECT_DIR$/protected/viewc/ok-page.php" />
         <option value="$PROJECT_DIR$/protected/viewc/view-listapren2.php" />
         <option value="$PROJECT_DIR$/protected/controller/UserController.php" />
-        <option value="$PROJECT_DIR$/protected/controller/PrenotController.php" />
-        <option value="$PROJECT_DIR$/protected/class/index.php" />
         <option value="$PROJECT_DIR$/protected/viewc/add-prenotazioni.php" />
         <option value="$PROJECT_DIR$/protected/model/pomeridiani.php" />
         <option value="$PROJECT_DIR$/global/config/config.json" />
@@ -185,6 +166,9 @@
         <option value="$PROJECT_DIR$/global/js/pom-filter.js" />
         <option value="$PROJECT_DIR$/protected/viewc/pom-filter.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/protected/controller/PrenotController.php" />
+        <option value="$PROJECT_DIR$/protected/class/index.php" />
+        <option value="$PROJECT_DIR$/install.php" />
       </list>
     </option>
   </component>
@@ -453,13 +437,45 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loquio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loquio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dooframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loquio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loquio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dooframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="LayoutCode.rearrangeEntriesPHP" value="false" />
+    <property name="LayoutCode.rearrangeEntriesPHP" value="true" />
     <property name="options.lastSelected" value="appearance" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -599,21 +615,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/model/materie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/model/base/UtentiBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1547" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/model/base/PomeridianiBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="17" selection-start="54" selection-end="54" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1377" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/viewc/view-pomeridiani.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="124" column="37" selection-start="3083" selection-end="3083" vertical-scroll-proportion="-15.192307" vertical-offset="1152" max-vertical-offset="1683" />
@@ -644,13 +645,6 @@
         <state line="24" column="70" selection-start="963" selection-end="963" vertical-scroll-proportion="-3.2692308" vertical-offset="272" max-vertical-offset="1088" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dooframework/controller/DooController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="20" selection-start="3503" selection-end="3503" vertical-scroll-proportion="0.34839925" vertical-offset="2008" max-vertical-offset="11016">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dooframework/db/DooSqlMagic.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2458" column="20" selection-start="100810" selection-end="100810" vertical-scroll-proportion="-6.8076925" vertical-offset="41490" max-vertical-offset="44217">
@@ -668,28 +662,11 @@
         <state line="256" column="13" selection-start="9278" selection-end="9278" vertical-scroll-proportion="-6.8076925" vertical-offset="4175" max-vertical-offset="8959" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/class/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="277" column="53" selection-start="8751" selection-end="8751" vertical-scroll-proportion="-181.11539" vertical-offset="0" max-vertical-offset="5032" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/class/configloader.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="91" selection-start="1259" selection-end="1259" vertical-scroll-proportion="-31.384615" vertical-offset="0" max-vertical-offset="1122">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="715" column="9" selection-start="21191" selection-end="21191" vertical-scroll-proportion="0.34848484" vertical-offset="11971" max-vertical-offset="19142">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controller/PrenotController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="402" column="0" selection-start="14167" selection-end="14167" vertical-scroll-proportion="-262.84616" vertical-offset="0" max-vertical-offset="8432" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_4.php">
@@ -715,7 +692,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/routes.conf.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="22" selection-start="3327" selection-end="3335" vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="3213" />
+        <state line="64" column="22" selection-start="3327" selection-end="3335" vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="3213">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controller/LoginController.php">
@@ -837,13 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dooframework/db/DooModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="3" selection-start="673" selection-end="688" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="13906">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/class/filter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="75" column="0" selection-start="1897" selection-end="1897" vertical-scroll-proportion="-6.076923" vertical-offset="1117" max-vertical-offset="4692">
@@ -885,7 +857,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="537">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -925,8 +897,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2550">
           <folding>
-            <marker date="1406645613308" expanded="false" signature="968:1070" placeholder="..." />
-            <marker date="1406645613308" expanded="false" signature="1147:1161" placeholder="..." />
+            <marker date="1406645613308" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1406645613308" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -959,13 +931,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controller/PrenotController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="287" column="8" selection-start="10255" selection-end="10255" vertical-scroll-proportion="-2.4423077" vertical-offset="4752" max-vertical-offset="8449">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/class/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="25" selection-start="1994" selection-end="1994" vertical-scroll-proportion="-12.461538" vertical-offset="832" max-vertical-offset="5083">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="237" selection-end="237" vertical-scroll-proportion="0.35619047" vertical-offset="0" max-vertical-offset="765">
+        <state line="11" column="0" selection-start="237" selection-end="237" vertical-scroll-proportion="-7.48" vertical-offset="0" max-vertical-offset="765">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="690" column="3" selection-start="20228" selection-end="20228" vertical-scroll-proportion="0.03244275" vertical-offset="11713" max-vertical-offset="19142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rrmdir.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="212" column="9" selection-start="7006" selection-end="7006" vertical-scroll-proportion="2.4064887" vertical-offset="1646" max-vertical-offset="3349">
+          <folding>
+            <element signature="e#509#982#0" expanded="false" />
+            <element signature="e#984#1404#0" expanded="false" />
+            <element signature="e#1406#1831#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dooframework/Doo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="153" column="45" selection-start="5377" selection-end="5377" vertical-scroll-proportion="0.7005871" vertical-offset="2073" max-vertical-offset="10234">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dooframework/controller/DooController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="16" selection-start="3525" selection-end="3525" vertical-scroll-proportion="0.66536206" vertical-offset="1870" max-vertical-offset="11016">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dooframework/db/DooModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="7" selection-start="1909" selection-end="1909" vertical-scroll-proportion="-17.692308" vertical-offset="560" max-vertical-offset="13906">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="55" selection-start="633" selection-end="633" vertical-scroll-proportion="0.66536206" vertical-offset="0" max-vertical-offset="799">
+          <folding>
+            <element signature="e#6#28#0" expanded="true" />
+            <marker date="1424729915378" expanded="true" signature="225:284" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

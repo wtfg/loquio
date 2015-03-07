@@ -281,6 +281,7 @@ class PrenotController extends DooController
 
     function prenAjax()
     {
+        #die("ERROR");
         $emptyObject = "{\"\":\"\"}";
         $conf = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
         $LOOK_AHEAD_DAYS = $conf->getParam("lookAheadTime");
