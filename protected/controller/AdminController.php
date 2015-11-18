@@ -196,7 +196,10 @@ class AdminController extends DooController {
          * il comando mail e commenta la linea $data['message']
          *
          */
-        mail($email,  $subject, $message, $headers);
+       // mail($email,  $subject, $message, $headers);
+        $a = new PostmarkMail();
+        $a->send($email, $subject, $message, $message);
+
     }
 
 

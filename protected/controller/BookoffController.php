@@ -47,8 +47,13 @@ class BookoffController extends DooController {
          * Se non sei in locale rimuovi dal commento
          * il comando mail e commenta la linea $data['message']
          *
+         *
+         * $a->send($email, $subject, $message, $message);/
+         * $a->send($email, $subject, $message, $message);
          */
-        mail($email,  $subject, $message, $headers);
+        $a = new PostmarkMail();
+        $a->send($email, $subject, $message, $message);
+        //mail($email,  $subject, $message, $headers);
     }
     function applyBookoff($book, $email=false){
 

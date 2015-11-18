@@ -55,7 +55,9 @@ class PrenotController extends DooController
         $headers .= "From: $from\r\n";
 
         // now lets send the email.
-        mail($to, $subject, $message, $headers);
+        //mail($to, $subject, $message, $headers);
+        $a = new PostmarkMail();
+        $a->send($to, $subject, $message, $message);
 
         $from = "prenotazioni@loquio.it";
         $subject = "Prenotazione Colloquio da ".$studentname;
@@ -79,7 +81,10 @@ class PrenotController extends DooController
         $headers .= "From: $from\r\n";
 
         // now lets send the email.
-        mail($docente->email, $subject, $message, $headers);
+        // mail($docente->email, $subject, $message, $headers);
+
+        $a = new PostmarkMail();
+        $a->send($docente->email, $subject, $message, $message);
     }
 
     /**
@@ -114,7 +119,9 @@ class PrenotController extends DooController
         //$headers .= "Bcc: [email]email@maaking.cXom[/email]";
 
         // now lets send the email.
-        mail($to, $subject, $message, $headers);
+        //mail($to, $subject, $message, $headers);
+        $a = new PostmarkMail();
+        $a->send($to, $subject, $message, $message);
     }
     /**
      * Ottiene la prenotazione dall'id utente
