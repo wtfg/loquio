@@ -283,7 +283,7 @@ class PrenotController extends DooController
     {
         #die("ERROR");
         $emptyObject = "{\"\":\"\"}";
-        $conf = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
+        $conf = ConfigLoader::getInstance(); // new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
         $LOOK_AHEAD_DAYS = $conf->getParam("lookAheadTime");
         if(isset($_GET['did'])){
             $_POST['message']['did'] = $_GET['did'];

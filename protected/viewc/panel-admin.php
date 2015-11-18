@@ -1,5 +1,6 @@
 <?php
-$b = $this->db()->find(Doo::loadModel("prenotazioni", true), array("where"=>"data>=".time()));
+
+$b = Doo::db()->find(Doo::loadModel("prenotazioni", true), array("where"=>"data>=".time()));
 
 $data["overall_prenotazioni_num"] = Doo::loadModel("prenotazioni", true)->count();
 $data["new_prenotazioni_num"] = count($b);

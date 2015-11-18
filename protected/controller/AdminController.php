@@ -1,10 +1,11 @@
 <?php
 
-class AdminController extends DooController {
 
+class AdminController extends DooController {
     public function beforeRun($resource, $action) {
 
         session_start();
+
 
         //if not login, group = anonymous
         $role = (isset($_SESSION['user']['acl'])) ? $_SESSION['user']['acl'] : 'anonymous';
@@ -14,189 +15,151 @@ class AdminController extends DooController {
             return $rs;
         }
     }
-
     function getContents($viewName, $data){
         $data = $data;
         include(Doo::conf()->SITE_PATH . "protected/viewc/" . $viewName . ".php");
         return $data;
     }
-
-    function showAdminPanel() {
-
-        $this->renderc("base-template", $this->getContents("panel-admin", array()));
+    function renderView($viewName, $data){
+        include(Doo::conf()->SITE_PATH . "protected/viewc/" . $viewName . ".php");
+        $this->renderc("base-template", $data);
+    }
+    public function showAdminPanel() {
+        $this->renderView("panel-admin",array());
     }
 
     function editSiteConfig(){
-        $a = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
-        if(!isset($_POST['lookAheadTime'])){
-            $data['config'] = $a;
-            $data['message'] = "";
-        }else{
-            $lookAheadTime = trim($_POST["lookAheadTime"]);
-            $schoolName = trim($_POST["schoolName"]);
-            $schoolLocation = trim($_POST["schoolLocation"]);
-            $pomeridianiTitle = trim($_POST["pomeridianiTitle"]);
-            $pomeridianiMessage = trim($_POST["pomeridianiMessage"]);
-            $pomeridianiActive =  isset($_POST['pomeridianiActive']) ? $_POST['pomeridianiActive'] : 'false';
-            $a->setParam("lookAheadTime", $lookAheadTime);
-            $a->setParam("schoolName", $schoolName);
-            $a->setParam("schoolLocation", $schoolLocation);
-            $a->setParam("pomeridianiTitle", $pomeridianiTitle);
-            $a->setParam("pomeridianiMessage", $pomeridianiMessage);
-            $a->setParam("pomeridianiActive", $pomeridianiActive);
+        $instance = ConfigLoader::getInstance();
+        $data['message'] = "";
+
+        if(isset($_POST['lookAheadTime'])){
+            $instance->setParams($_POST);
             $data['message'] = "Aggiornato!";
         }
 
-        $data['config'] = $a;
-        $data = $this->getContents("edit-siteconfig", $data);
-        $this->renderc("base-template", $data);
+        $data['config'] = $instance;
+        $this->renderView("edit-siteconfig", $data);
     }
 
 
     function viewDocenti() {
-        /**
-         * Funzione che imposta lo script per la view del docente
-         */
         $docenti = $this->db()->find("docenti");
         $data = array("docenti"=>array());
-        foreach ($docenti as $docente) {
 
+        foreach ($docenti as $docente)
+            array_push($data["docenti"],
+                array(
+                "nomemateria"=>$docente->getMateria() != false ? $docente->getMateria()->nome : "--",
+                "viewnome" => $docente->getFullName(),
+                "did"=>$docente->did,
+                "attivo" =>$docente->attivo
+                )
+            );
 
-            $m = Doo::loadModel("materie", true);
-            $m->mid = $docente->mid;
-            $m = $this->db()->find($m, array("limit" => 1));
-            if ($m) {
-                $d['nomemateria'] = stripslashes($m->nome);
-            } else {
-                $d['nomemateria'] = "--";
-            }
-            $d['viewnome'] = stripslashes($docente->cognome . " " . $docente->nome);
-            $d['did'] = $docente->did;
-            $d['attivo'] = $docente->attivo;
-            
-
-            array_push($data["docenti"], $d);
-        }
-
-        $data = $this->getContents("view-docenti", $data);
-        $this->renderc("base-template", $data);
+        $this->renderView("view-docenti", $data);
     }
 
     function randomPassword() {
-        $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
-        $pass = array(); //remember to declare $pass as an array
-        $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
-        for ($i = 0; $i < 8; $i++) {
-            $n = rand(0, $alphaLength);
-            $pass[] = $alphabet[$n];
-        }
-        return implode($pass); //turn the array into a string
+       return $this->load()->helper('DooTextHelper', true)->randomName(8);
     }
 
     function editDocenti() {
-        // Dato un ID pagina mostra la scheda di modifica del docente
-        // oppure se sta inserendo te lo comunica
-
+        Doo::loadModel('materie');
+        Doo::loadModel('docenti');
+        Doo::loadModel('utenti');
         $did = $this->params['id'];
-        $materie = $this->db()->find("materie");
         $data['materie'] = array();
-        foreach ($materie as $materia) {
+        $materie = (new Materie())->find();
 
+        foreach ($materie as $materia)
             array_push($data['materie'], array('id' => $materia->mid, 'nome' => stripslashes($materia->nome)));
-        }
 
         if (!isset($_POST['button'])) {
 
-            $docente = Doo::loadModel("docenti", true);
-            $docente->did = $did;
-            $docente = $this->db()->find($docente, array("limit" => 1));
+            $docente = (new Docenti())->getbyDid_first($did);
 
-            $data['did'] = $docente->did;
-            $data['email'] = $docente->email;
-            $data['mid'] = $docente->mid;
-            $data['nome'] = stripslashes($docente->nome);
-            $data['cognome'] = stripslashes($docente->cognome);
-            $data['telefono'] = $docente->tel;
-            $data['orelibere'] = $docente->orelibere;
-            if ($docente->attivo == 1) {
-                $data['attivo'] = "checked=\"checked\"";
+            $data = array(
+                'did' => $docente->did,
+                'materie' => $data['materie'],
+                'email' => $docente->email,
+                'mid' => $docente->mid,
+                'nome' => stripslashes($docente->nome),
+                'cognome' => stripslashes($docente->cognome),
+                'telefono' => $docente->tel,
+                'orelibere' => $docente->orelibere,
+                'attivo' => ($docente->attivo == 1) ? "checked=\"checked\"" : ""
+            );
+
+            $this->renderView("edit-docenti", $data);
+
+        } elseif (isset($_POST['did'])) {
+
+            array_walk($_POST, create_function('&$val', '$val = trim($val);'));
+
+            $_POST['orelibere'] = str_replace("\\","",trim($_POST['orelibere']));
+            $_POST['attivo'] = isset($_POST['attivo'])? 1 : 0;
+
+            if (!empty($_POST['did'])) {
+
+                $docente = (new Docenti)->getbyDid_first($_POST["did"]);
+                $oldmail = $docente->email;
+                $docente->setFromPost($_POST);
+               /* $docente->email = $_POST['email'];
+                $docente->nome = $_POST['nome'];
+                $docente->cognome = $_POST['cognome'];
+                $docente->tel = $_POST['tel'];
+                $docente->orelibere = $_POST['orelibere'];
+                $docente->mid = $_POST['mid'];
+                $docente->attivo = $_POST['attivo'];
+                #$utente = Doo::loadModel("utenti", true);
+                #$utente->email = $oldmail;*/
+
+                $utente = (new Utenti)->getByEmail_first($oldmail); #$this->db()->find($utente, array("limit" => 1));
+                $utente->nome = $docente->nome;
+                $utente->cognome = $docente->cognome;
+                $utente->telefono = $docente->tel;
+                $utente->email  = $docente->email;
+
+                $this->db()->update($docente);
+                $userModified = $this->db()->update($utente);
+
+                $data['messaggio'] = "Docente Modificato Con Successo!";
+
+                if($userModified) $data['messaggio'] .= "<br>Il suo account utente e' stato sincronizzato con successo!";
+
+                $data['url'] = Doo::conf()->APP_URL . "admin/docenti/";
+                $data['titolo'] = "Ben fatto!";
+
+                $this->renderc('ok-page',$data);
+                return;
+
             } else {
-                $data['attivo'] = "";
-            }
-            $data = $this->getContents("edit-docenti", $data);
-            $this->renderc("base-template", $data);
-        } else {
-            if (isset($_POST['did'])) {
 
-                $_POST['did'] = trim($_POST['did']);
-                $_POST['email'] = trim($_POST['email']);
-                $_POST['mid'] = trim($_POST['mid']);
-                $_POST['nome'] = trim($_POST['nome']);
-                $_POST['cognome'] = trim($_POST['cognome']);
-                $_POST['telefono'] = trim($_POST['telefono']);
-                $_POST['orelibere'] = str_replace("\\","",trim($_POST['orelibere']));
-                $_POST['attivo'] = isset($_POST['attivo'])? 1 : 0;
-
-                if (!empty($_POST['did'])) {
-
-                    $docente = Doo::loadModel("docenti", true);
-                    $docente->did = $_POST['did'];
-                    $docente = $this->db()->find($docente, array("limit" => 1));
-                    $oldmail = $docente->email;
-                    $docente->email = $_POST['email'];
-                    $docente->nome = $_POST['nome'];
-                    $docente->cognome = $_POST['cognome'];
-                    $docente->tel = $_POST['telefono'];
-                    $docente->orelibere = $_POST['orelibere'];
-                    $docente->mid = $_POST['mid'];
-                    $docente->attivo = $_POST['attivo'];
-
-                    $utente = Doo::loadModel("utenti", true);
-                    $utente->email = $oldmail;
-                    $utente = $this->db()->find($utente, array("limit" => 1));
-                    $utente->nome = $docente->nome;
-                    $utente->cognome = $docente->cognome;
-                    $utente->telefono = $docente->tel;
-                    $utente->email  = $docente->email;
-                    $this->db()->update($docente);
-                    $res2 = $this->db()->update($utente);
-
-                    $data['messaggio'] = "Docente Modificato Con Successo!";
-                    if($res2){
-                        $data['messaggio'] .= "<br>Il suo account utente e' stato sincronizzato con successo!";
-                    }
-                    $data['url'] = Doo::conf()->APP_URL . "admin/docenti/";
-                    $data['titolo'] = "Ben fatto!";
-
-                    // MESSAGGIO DOCENTE MODIFICATO
-                    $this->renderc('ok-page',$data);
-                    return;
-
-                } else {
-                    
-                    $this->renderc("error-page");
-                }
+                $this->renderc("error-page");
             }
         }
     }
 
+
     function deleteDocenti() {
         //echo 'You are visiting ' . $_SERVER['REQUEST_URI'];
-
+        Doo::loadModel('docenti');
+        Doo::loadModel('utenti');
         $did = $this->params['id'];
         $docente = Doo::loadModel("docenti", true);
         $docente->did = $did;
-
+        $docente = (new Docenti)->getbyDid_first($did);
 
         $docentecorrelato = $this->db()->find($docente, array("limit"=>1));
-        $utenti = Doo::loadModel("utenti", true);
-        $utenti->email = $docentecorrelato->email;
+        $utenti = new Utenti;
+        $utenti->email = $docente->email;
         $utenti->acl = 1;
         $utente = $this->db()->find($utenti, array("limit"=>1));
 
         $this->db()->delete($docente);
         if($utente)
             $this->db()->delete($utente);
+
         $data['messaggio'] = "Docente e utente correlato eliminato con successo!";
         $data['url'] = Doo::conf()->APP_URL . "admin/docenti/";
         $data['titolo'] = "Ben fatto!";
@@ -238,9 +201,9 @@ class AdminController extends DooController {
 
 
     function deactivateDocenti(){
-        $did = $this->params['id'];
-        $d = Doo::loadModel('docenti', true);
-        $d->did = $did;
+        Doo::loadModel('docenti');
+        $d = new Docenti;
+        $d->did =  $this->params['id'];
         $d->attivo = 0;
         $this->db()->update($d);
 
@@ -255,14 +218,14 @@ class AdminController extends DooController {
     }
 
     function activateDocenti(){
-        $did = $this->params['id'];
-        $d = Doo::loadModel('docenti', true);
-        $d->did = $did;
-        $d->attivo = 1;
+        Doo::loadModel('docenti');
+        $d = new Docenti;
+        $d->did =  $this->params['id'];
+        $d->attivo = 0;
         $this->db()->update($d);
 
         $data['messaggio'] = "Docente Attivato!";
-        $data['url'] = Doo::conf()->APP_URL. "admin/docenti/";
+        $data['url'] = Doo::conf()->APP_URL . "admin/docenti";
         $data['titolo'] = "Ben fatto!";
 
         // MESSAGGIO DOCENTE MODIFICATO
@@ -283,6 +246,7 @@ class AdminController extends DooController {
 
             $data = $this->getContents("add-docenti", $data);
             $this->renderc("base-template", $data);
+
 
         } else {
 

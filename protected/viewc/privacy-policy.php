@@ -42,7 +42,7 @@ I trattamenti saranno effettuati a cura delle persone fisiche preposte alla rela
 Ai soggetti interessati sono riconosciuti i diritti di cui all’art. 7 del citato Codice, in particolare, il diritto di accedere ai dati personali che li riguardano, di chiederne la rettifica, l’aggiornamento e la cancellazione, se incompleti, erronei o raccolti in violazione di legge, nonché di opporsi al loro trattamento per motivi legittimi rivolgendo la richiesta al ##### come Titolare.
 ";
 $pp = str_replace("\n","<br>",$pp);
-$a = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
+$a = ConfigLoader::getInstance();// new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
 $pp = str_replace("#####", $a->getParam("schoolName"), $pp);
 $pp = str_replace("YYYYYYYY", $a->getParam("schoolLocation"), $pp);
 $ul = Doo::conf()->APP_URL . "/global/";

@@ -6,7 +6,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Login - Loquio - <?php $a = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config"); echo $a->getParam("schoolName")?></title>
+    <title>Login - Loquio - <?php $a = ConfigLoader::getInstance(); echo $a->getParam("schoolName")?></title>
 
     <meta name="description" content="User login page" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

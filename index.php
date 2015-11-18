@@ -9,6 +9,7 @@ include './protected/class/filter.php';
 include './protected/class/pclzip.lib.php';
 include './protected/class/fpdf.php';
 include './protected/class/pdfMaker.php';
+include './protected/class/postmark.php';
 
 define('FPDF_FONTPATH', 'protected/font/');
 

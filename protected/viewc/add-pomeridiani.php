@@ -1,5 +1,5 @@
 <?php
-$a = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
+$a = ConfigLoader::getInstance();// new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
 $data["title"] = $a->getParam("pomeridianiTitle");
 
 $ul = Doo::conf()->APP_URL . "global/";

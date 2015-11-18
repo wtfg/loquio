@@ -67,7 +67,6 @@ centermail.com
 centermail.net
 chammy.info
 childsavetrust.org
-chogmail.com
 choicemail1.com
 clixser.com
 cmail.net
@@ -678,6 +677,7 @@ zomg.info";
 
             $_POST['email'] = trim($_POST['email']);
             if(strpos($this->disposables, explode("@",$_POST['email'])[1]) !== false){
+                var_dump(strpos($this->disposables, explode("@",$_POST['email'])[1]));
                 $this->renderc("error-page");
                 return;
             }
@@ -694,7 +694,7 @@ zomg.info";
                 $user->nome = $_POST['nome'];
                 $user->cognome = $_POST['cognome'];
                 $user->telefono = $_POST['telefono'];
-    #            $user->altramail = $_POST['altramail'];
+                # $user->altramail = $_POST['altramail'];
                 $user->pass = md5($_POST['pass']);
                 $user->acl = rand(2061994, 99914071);
                 $mail = $user->email;
@@ -704,6 +704,7 @@ zomg.info";
                 $existing = Doo::loadModel('utenti', true);
                 $existing->email = $user->email;
                 $isexisting = $this->db()->find($existing, array('limit' => 1));
+                var_dump($isexisting);
 
                 if (!$isexisting) {
                     $res = $this->db()->insert($user);
@@ -735,7 +736,9 @@ zomg.info";
                          * il comando mail e commenta la linea $data['message']
                          * 
                          */
-                         mail($mail,  $subject, $message, $headers);
+                         //mail($mail,  $subject, $message, $headers);
+                        $a = new PostmarkMail();
+                        $a->send($mail, $subject, $message, $message);
 
                         //$data['messaggio'] = "FAKE MAIL<br>" .
                         //        $mail . "<br><br>" . $subject . "<br><br>" . $message . "<br><br>" . $headers;
@@ -752,6 +755,7 @@ zomg.info";
                      * TODO 
                      * deve ritornare l'errore che il nome utente già esiste
                      */
+                    echo "ERRORE NOME ESISTENTE";
                     $this->renderc("error-page");
                 }
             }
@@ -910,7 +914,9 @@ zomg.info";
                  */
                # mail($mail,  $subject, $message, $headers);
 
-                mail($result->email, $subject, $message, $headers);
+                //mail($result->email, $subject, $message, $headers);
+                $a = new PostmarkMail();
+                $a->send($result->email, $subject, $message, $message);
                 //var_dump($result);
                 $data['messaggio'] = "Se la tua mail risulta corretta ti arriver&aacute; una mail con il link per reimpostare la password";
                 $data['url'] = Doo::conf()->APP_URL;

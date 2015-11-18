@@ -8,10 +8,19 @@
 
 class ConfigLoader{
 
+    private static $_instance = null;
+    private $fileName = "global/config/config.json";
+    private $config;
 
-    public function ConfigLoader($filepath){
-        $this->fileName = $filepath."/config.json";
-        $this->config = json_decode($this->readFile($this->fileName), true);
+    private function ConfigLoader(){
+            $this->fileName = Doo::conf()->SITE_PATH . $this->fileName;
+            $this->config = json_decode($this->readFile($this->fileName), true);
+    }
+
+    public static function getInstance(){
+        if(ConfigLoader::$_instance == null)
+            ConfigLoader::$_instance = new ConfigLoader();
+        return ConfigLoader::$_instance;
     }
 
     /**
@@ -22,6 +31,22 @@ class ConfigLoader{
         return json_encode($init);
     }
 
+    public function setParams($post){
+
+        $lookAheadTime = trim($post["lookAheadTime"]);
+        $schoolName = trim($post["schoolName"]);
+        $schoolLocation = trim($post["schoolLocation"]);
+        $pomeridianiTitle = trim($post["pomeridianiTitle"]);
+        $pomeridianiMessage = trim($post["pomeridianiMessage"]);
+        $pomeridianiActive =  isset($post['pomeridianiActive']) ? $post['pomeridianiActive'] : 'false';
+
+        $this->setParam("lookAheadTime", $lookAheadTime);
+        $this->setParam("schoolName", $schoolName);
+        $this->setParam("schoolLocation", $schoolLocation);
+        $this->setParam("pomeridianiTitle", $pomeridianiTitle);
+        $this->setParam("pomeridianiMessage", $pomeridianiMessage);
+        $this->setParam("pomeridianiActive", $pomeridianiActive);
+    }
     /**
      * Legge un file e lo ritorna a stringa
      * @param $file

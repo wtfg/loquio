@@ -4,7 +4,7 @@
 class PomeridianiController extends DooController {
 
     public function beforeRun($resource, $action) {
-        $a = new ConfigLoader(Doo::conf()->SITE_PATH . "global/config");
+        $a =  ConfigLoader::getInstance();
         if($a->getParam("pomeridianiActive") != "true"){
             return Doo::conf()->APP_URL;
         }
