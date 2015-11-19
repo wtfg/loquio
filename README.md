@@ -12,12 +12,12 @@ Sviluppata in PHP
 
 TODO:
 ======
-
++ errore personalizzato
++ inserisci tasto "svuota account non confermati"
 + refactor codice con classi. minimizzare il codice.
 + rimettere tutto al suo posto, ovvero dare una logica rest a tutto
 + minifier live di html, css e javascript
 + tasto elimina tutte le prenotazioni (sei sicuro??)
-+ errore personalizzato
 
 pomeridiani
 ======

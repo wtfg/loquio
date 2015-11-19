@@ -60,7 +60,7 @@ class AdminController extends DooController {
     }
 
     function randomPassword() {
-       return $this->load()->helper('DooTextHelper', true)->randomName(8);
+       return substr($this->load()->helper('DooTextHelper', true)->randomName(8),-8);
     }
 
     function editDocenti() {
@@ -178,12 +178,14 @@ class AdminController extends DooController {
 
         $message = '
 						<html>
-					  <body bgcolor=\"#FAFAFA\">
+					  <body>
 
 							Il tuo account docente &eacute; stato creato con successo!<br><b>Non perdere e non cancellare questa email!<b>
-							 Le tue credenziali di accesso al sito sono:<br><p>
+							 Le tue credenziali di accesso al sito di Loquio sono:<br><p>
 							 Username: <b>'.$email.'</b><br>
 							 Password: <b>'.$pass.'</b><br>
+
+							 Puoi modificare la tua password in qualsiasi momento accedendo al pannello Account di Loquio.
 							 </p>
 
 						  <br><br>Grazie Per L\'Attenzione!<br><em>Il Team Di Loquio</em>
@@ -277,7 +279,6 @@ class AdminController extends DooController {
                     $docente->attivo = 1;
 
                     $ran = $this->randomPassword();
-
 
                     $utente = Doo::loadModel("utenti", true);
                     $utente->email = $docente->email;
