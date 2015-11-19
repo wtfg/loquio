@@ -1,6 +1,6 @@
 loquio
 ======
-0.0.1
+1.0 beta
 
 + Guardare INSTALL.txt per le istruzioni di installazione!
 

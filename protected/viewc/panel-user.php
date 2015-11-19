@@ -40,10 +40,23 @@ ob_start();
         </a>
         <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/new"?> class="btn btn-app btn-success btn-primary no-radius">
             <i class="ace-icon icon-check bigger-230"></i>
-            Prenota
+            Pren. Matt.
         </a>
+<?php
+        if(ConfigLoader::getInstance()->getParam("pomeridianiActive")=="true"){
+?>
 
-
+        <a href="<?php echo Doo::conf()->APP_URL."pomeridiani/new"?>" class="btn btn-app btn-success btn-primary no-radius">
+            <i class="icon-bullhorn"></i>
+            <b>Pren. pom.</b>
+        </a>
+        <a href="<?php echo Doo::conf()->APP_URL."pomeridiani/"?>" class="btn btn-app btn-success btn-primary no-radius">
+            <i class="icon-double-angle-right"></i>
+            <b>I miei pom.</b>
+        </a>
+<?php
+        }
+?>
 
         </div>
         </div>

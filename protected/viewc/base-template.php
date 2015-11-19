@@ -243,13 +243,13 @@ $themail =  $_SESSION['user']['username'];
                             <li>
                                 <a href="<?php echo Doo::conf()->APP_URL."prenotazioni/new"?>">
                                     <i class="icon-check"></i>
-                                    Prenota
+                                    Prenota mattutini
                                 </a>
                             </li>
                             <li>
                                 <a href="<?php echo Doo::conf()->APP_URL."prenotazioni/"?>">
                                     <i class="icon-edit-sign"></i>
-                            Le Mie Prenotazioni
+                            I miei mattutini
                                 </a>
                             </li>
 
