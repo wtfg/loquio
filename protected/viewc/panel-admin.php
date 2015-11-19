@@ -4,7 +4,8 @@ $b = Doo::db()->find(Doo::loadModel("prenotazioni", true), array("where"=>"data>
 
 $data["overall_prenotazioni_num"] = Doo::loadModel("prenotazioni", true)->count();
 $data["new_prenotazioni_num"] = count($b);
-$data['prenotazioni_percentage_num'] = ((count($b)/Doo::loadModel("prenotazioni", true)->count())*100)."%";
+$x = Doo::loadModel("prenotazioni", true)->count() > 0 ? Doo::loadModel("prenotazioni", true)->count() : 1;
+$data['prenotazioni_percentage_num'] = ((count($b)/$x)*100)."%";
 
 $data["docenti_num"] = Doo::loadModel("docenti", true)->count();
 
