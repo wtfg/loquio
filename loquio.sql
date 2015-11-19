@@ -113,3 +113,25 @@ INSERT INTO `utenti` (`uid`, `email`, `pass`, `nome`, `cognome`, `telefono`, `al
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `pomeridiani`
+--
+
+CREATE TABLE IF NOT EXISTS `pomeridiani` (
+  `pomid` int(10) NOT NULL AUTO_INCREMENT,
+  `cognome` varchar(255) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `classe` varchar(4) NOT NULL,
+  `did` int(10) NOT NULL,
+  `uid` int(10) NOT NULL,
+  PRIMARY KEY (`pomid`),
+  UNIQUE KEY `cognome` (`cognome`,`nome`,`classe`,`did`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
