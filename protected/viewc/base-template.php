@@ -140,7 +140,7 @@ $themail =  $_SESSION['user']['username'];
 							<li>
 								<a  href="<?php echo Doo::conf()->APP_URL."prenotazioni/list"?>">
 									<i class="icon-double-angle-right"></i>
-									Ordine prenotazione
+                                    Liste Mattutini
 								</a>
 							</li>
 
@@ -256,7 +256,7 @@ $themail =  $_SESSION['user']['username'];
                             <li>
                                 <a  href="<?php echo Doo::conf()->APP_URL."prenotazioni/list"?>">
                                     <i class="icon-list"></i>
-                            Ordine prenotazione
+                            Liste Mattutini
                             </a>
                             </li>
 
@@ -280,7 +280,7 @@ $themail =  $_SESSION['user']['username'];
                             <li>
                                 <a  href="<?php echo Doo::conf()->APP_URL."prenotazioni/list"?>">
                                     <i class="icon-list"></i>
-                                    Ordine prenotazione
+                                    Liste Mattutini
                                 </a>
                             </li>
                     <?php

@@ -6,7 +6,7 @@ if($data["ora"] !== null){
 }else{
     $ora = "";
 }
-$data["title"] ="Ordine di prenotazione per ".$data['docente']." nel giorno ".$data['data'].$ora;
+$data["title"] ="Ordine di prenotazione colloqui mattutini per ".$data['docente']." nel giorno ".$data['data'].$ora;
 
 ob_start();
 ?>

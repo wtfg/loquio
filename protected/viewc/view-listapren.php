@@ -1,5 +1,5 @@
 <?php
-$data["title"] = "Ordine di prenotazione in base al colloquio";
+$data["title"] = "Ordine di prenotazione liste mattutine";
 
 $ul = Doo::conf()->APP_URL . "global/";
 
