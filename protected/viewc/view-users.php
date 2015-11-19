@@ -78,6 +78,10 @@ foreach($data["utenti"] as $user){
         <i class="icon-plus"></i>
         Aggiungi Utente
     </a>
+    <a href="<?php echo Doo::conf()->APP_URL; ?>admin/purge" class="btn btn-app btn-warning">
+        <i class="icon-warning-sign"></i>
+        Pulisci non verificati
+    </a>
 <?php
 $data['content'] = ob_get_contents();
 ob_end_clean();

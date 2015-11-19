@@ -115,6 +115,8 @@ $route['*']['/admin/utenti/delete/:id'] = array('UserController', 'deleteUser');
 
 $route['*']['/admin/utenti/new'] = array('UserController', 'createUser');
 
+$route['*']['/admin/purge'] = array('UserController', 'purgeUsers');
+
 $route['*']['/admin/materie'] = array('AdminController', 'viewMaterie');
 
 $route['*']['/admin/materie/edit/:id'] = array('AdminController', 'editMaterie');

@@ -67,7 +67,11 @@ class UserController extends DooController {
             return;
         }
     }
-
+    function purgeUsers(){
+        $users = Doo::loadModel("utenti", true);
+        $this->db()->delete($users, array("where"=>"acl>2"));
+        $this->renderc('ok-page',array("url"=>Doo::conf()->APP_URL."admin/utenti/", "titolo" => "Ben fatto!", "messaggio"=>"Tutti gli utenti non verificati sono stati eliminati"));
+    }
     function showUsers(){
         $user = Doo::loadModel("utenti", true);
         $users = $this->db()->find($user);
