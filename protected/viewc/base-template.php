@@ -39,6 +39,7 @@ $themail =  $_SESSION['user']['username'];
 		  <link rel="stylesheet" href="<?php echo $ul; ?>assets/css/ace-ie.min.css" />
 		<![endif]-->
 
+        <link rel="stylesheet" href="<?php echo $ul; ?>assets/css/custom.css" />
         <?php if(array_key_exists('head', $data)) echo $data['head']; ?>
 		<!--inline styles related to this page-->
         <style>
@@ -330,6 +331,7 @@ $themail =  $_SESSION['user']['username'];
 							<!--PAGE CONTENT ENDS-->
 						</div><!--/.span-->
 					</div><!--/.row-fluid-->
+                    <div><a href="mailto:loquio.official@gmail.com?subject=Bug Report dal sito Loquio">Segnala un bug</a></div>
 				</div><!--/.page-content-->
 
 				<!--/#ace-settings-container-->

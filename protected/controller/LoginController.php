@@ -578,7 +578,7 @@ zomg.info";
                         return Doo::conf()->APP_URL . "admin";
                         break;
                     default:
-                        $this->renderc("error-page");
+                        $this->renderc("error-page", array("message"=>"Non possiedi i requisiti per accedere alla pagina. Pagina non accessibile"));
                 }
                 
             }
@@ -637,7 +637,7 @@ zomg.info";
                 * 
                 * e mostra l'errore
                 */
-                $this->renderc("error-page");
+                $this->renderc("error-page", array("message"=>"Errore nella validazione dell'utente. Utente non trovato. Sei sicuro di aver copiato correttamente il link?"));
             }
         } else {
 
@@ -646,7 +646,7 @@ zomg.info";
             * 
             * e mostra l'errore
             */
-            $this->renderc("error-page");
+            $this->renderc("error-page", array("message"=>"Errore nella validazione. Link malformato. Sei sicuro di aver copiato bene il link?"));
         }
             
         /*
@@ -678,7 +678,7 @@ zomg.info";
             $_POST['email'] = trim($_POST['email']);
             if(strpos($this->disposables, explode("@",$_POST['email'])[1]) !== false){
                 var_dump(strpos($this->disposables, explode("@",$_POST['email'])[1]));
-                $this->renderc("error-page");
+                $this->renderc("error-page", array("message"=>"La tua mail sembra essere temporanea o non verificabile. <br><b>Non accettiamo spammers o email temporanee.<br> Ti preghiamo di usare un'altra mail.</b>"));
                 return;
             }
             $_POST['pass'] = trim($_POST['pass']);
@@ -755,8 +755,8 @@ zomg.info";
                      * TODO 
                      * deve ritornare l'errore che il nome utente già esiste
                      */
-                    echo "ERRORE NOME ESISTENTE";
-                    $this->renderc("error-page");
+                    //echo "ERRORE NOME ESISTENTE";
+                    $this->renderc("error-page", array("message"=>"Email gia' presente e registrata.<br><b>Ti consigliamo di cliccare su 'password dimenticata' e recuperare la tua password.</b><br>Se non hai ancora confermato il tuo account ti consigliamo di controllare la tua posta e di validarlo!"));
                 }
             }
         }
@@ -795,7 +795,7 @@ zomg.info";
                             if($user->acl > 2){
                                 ###
                             }
-							$this->renderc("error-page");
+							$this->renderc("error-page", array("message"=>"Errore e nei tuoi permessi. Sessione malformata."));
 							return;
                     }
                     unset($_SESSION['user']);
@@ -825,7 +825,7 @@ zomg.info";
         /*
          * Inserisci una pagina d'errore stilosa
          */
-        $this->renderc("error-page");
+        $this->renderc("error-page", array("message"=>"eMail o password errate o vuote!"));
         //echo 'You are visiting '.$_SERVER['REQUEST_URI'];
     }
     function getContents($viewName, $data){

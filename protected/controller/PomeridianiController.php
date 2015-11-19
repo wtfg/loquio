@@ -55,7 +55,7 @@ class PomeridianiController extends DooController {
              * renderizza errore
              */
 
-            $this->renderc("error-page");
+            $this->renderc("error-page", array("message"=>"Errore nella creazione della prenotazione. Codice Errore 01."));
 
         }else{
 
@@ -106,7 +106,7 @@ class PomeridianiController extends DooController {
                 $docente->did = $pomeridiano["did"];
                 $docenteResult = $this->db()->find($docente, array("limit"=>1));
                 if(!$docenteResult){
-                    $this->renderc("error-page");
+                    $this->renderc("error-page", array("message"=>"Docente non trovato. Codice Errore 02"));
                     return;
                 }
                 $materia = Doo::loadModel('materie', true);
@@ -141,7 +141,7 @@ class PomeridianiController extends DooController {
 
             $docenteResult = $this->db()->find($docente, array("limit"=>1));
             if(!$docenteResult){
-                $this->renderc("error-page");
+                $this->renderc("error-page", array("message"=>"Docente non trovato. Codice Errore 03"));
                 return;
             }
             $materia = Doo::loadModel('materie', true);
@@ -195,14 +195,14 @@ class PomeridianiController extends DooController {
             $pomeridiani->pomid = $pomid;
             $pomResult = $this->db()->find($pomeridiani, array("limit"=>1));
             if(!$pomResult){
-                $this->renderc("error-page");
+                $this->renderc("error-page", array("message"=>"Colloquio pomeridiano non trovato. Codice Errore 04"));
                 return;
             }
             $docente = Doo::loadModel('docenti', true);
             $docente->did = $pomResult->did;
             $docenteResult = $this->db()->find($docente, array("limit"=>1));
             if(!$docenteResult){
-                $this->renderc("error-page");
+                $this->renderc("error-page", array("message"=>"Docente non trovato. Codice Errore 05"));
                 return;
             }
 

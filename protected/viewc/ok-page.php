@@ -67,8 +67,6 @@ $ul = Doo::conf()->APP_URL . "/global/";
                     ?>
 
                 </div><!--/widget-main-->
-                <br>
-
                 <div class="toolbar clearfix">
                 &nbsp;
                 </div>

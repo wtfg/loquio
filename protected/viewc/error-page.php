@@ -74,10 +74,11 @@ $ul = Doo::conf()->APP_URL . "/global/";
                     <?php
                     }
                     ?>
-
+                    <br><br>
+                    <small>
+                        Se ritieni ci&ograve; un malfunzionamento, segnala il bug sul link che troverai in fondo alla pagina.
+                    </small>
                 </div><!--/widget-main-->
-                <br>
-
                 <div class="toolbar clearfix">
                 &nbsp;
                 </div>

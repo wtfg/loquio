@@ -1,0 +1,10 @@
+.btn-app-home{
+    width: 200px !important;
+    border-radius: 10px !important;
+    height: 100px !important;
+    /* padding-bottom: 15px !important; */
+    /* padding-top: 30px !important; */
+    font-size: 20px !important;
+    /* line-height: 25px !important; */
+    padding: 30px 15px 10px 15px!important;
+}

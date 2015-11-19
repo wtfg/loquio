@@ -58,7 +58,7 @@ class UserController extends DooController {
                 $this->renderc('ok-page',$data);
                 return;
             }
-            $this->renderc('error-page');
+            $this->renderc('error-page', array("message"=>"Errore nell'inserimento dell'account utente. UserController / createUser"));
 
         }else{
             $data = array();

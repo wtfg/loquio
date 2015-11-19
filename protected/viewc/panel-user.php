@@ -30,29 +30,29 @@ ob_start();
         <div class="widget-main">
 
 
-        <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/"?> class="btn btn-app btn-info no-radius">
+        <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/"?> class="btn btn-app btn-info btn-app-home">
             <i class="ace-icon icon-edit-sign bigger-230"></i>
-            Mie Pren.
+            I Miei Mattutini
         </a>
-        <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/list"?> class="btn btn-app btn-primary no-radius">
+        <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/list"?> class="btn btn-app btn-primary btn-app-home">
             <i class="ace-icon icon-list-alt bigger-230"></i>
-            Lista Pren.
+            Lista Mattutini
         </a>
-        <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/new"?> class="btn btn-app btn-success btn-primary no-radius">
+        <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/new"?> class="btn btn-app btn-success btn-primary btn-app-home">
             <i class="ace-icon icon-check bigger-230"></i>
-            Pren. Matt.
+            Prenota Mattutini
         </a>
 <?php
         if(ConfigLoader::getInstance()->getParam("pomeridianiActive")=="true"){
 ?>
 
-        <a href="<?php echo Doo::conf()->APP_URL."pomeridiani/new"?>" class="btn btn-app btn-success btn-primary no-radius">
+        <a href="<?php echo Doo::conf()->APP_URL."pomeridiani/new"?>" class="btn btn-app btn-success btn-primary btn-app-home">
             <i class="icon-bullhorn"></i>
-            <b>Pren. pom.</b>
+            <b>Prenota Pomeridiani</b>
         </a>
-        <a href="<?php echo Doo::conf()->APP_URL."pomeridiani/"?>" class="btn btn-app btn-success btn-primary no-radius">
+        <a href="<?php echo Doo::conf()->APP_URL."pomeridiani/"?>" class="btn btn-app btn-success btn-primary btn-app-home">
             <i class="icon-double-angle-right"></i>
-            <b>I miei pom.</b>
+            <b>I Miei Pomeridiani</b>
         </a>
 <?php
         }

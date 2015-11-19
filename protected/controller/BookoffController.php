@@ -116,7 +116,7 @@ class BookoffController extends DooController {
             $n = $this->db()->find($di, array("limit"=>1));
 
             if(!$n){
-                $this->renderc('error-page');
+                $this->renderc('error-page', array("message"=>"Errore, docente non presente (BookoffController -> snag()) il database non ha trovato docenti con quell id"));
                 return;
             }
             $data["docenti"] = stripslashes($n->nome. " ". $n->cognome);
@@ -159,7 +159,7 @@ class BookoffController extends DooController {
              * renderizza errore
              */
 
-            $this->renderc("error-page");
+            $this->renderc("error-page", array("message"=>"Impossibile creare bookoff, errore nell'inserimento (newBookoff())"));
         }else{
 
 
@@ -209,7 +209,7 @@ class BookoffController extends DooController {
                 $docente->did = $bookoff["did"];
                 $docenteResult = $this->db()->find($docente, array("limit"=>1));
                 if(!$docenteResult){
-                    $this->renderc("error-page");
+                    $this->renderc("error-page", array("message"=>"Nessun docente trovato per il bookoff (viewBookoffs())"));
                     return;
                 }
 
@@ -259,14 +259,14 @@ class BookoffController extends DooController {
             $book->bookoffid = $bookoffid;
             $bookOffResult = $this->db()->find($book, array("limit"=>1));
             if(!$bookOffResult){
-                $this->renderc("error-page");
+                $this->renderc("error-page", array("message"=>"Nessun bookoff trovato per l'ID selezionato (editBookoff())"));
                 return;
             }
             $docente = Doo::loadModel('docenti', true);
             $docente->did = $bookOffResult->did;
             $docenteResult = $this->db()->find($docente, array("limit"=>1));
             if(!$docenteResult){
-                $this->renderc("error-page");
+                $this->renderc("error-page", array("message"=>"Nessun docente trovato per il bookoff selezionato (editBookoff())"));
                 return;
             }
 

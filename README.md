@@ -13,7 +13,9 @@ Sviluppata in PHP
 TODO:
 ======
 + errore personalizzato
++ levare debug di postmark nella produzione
 + inserisci tasto "svuota account non confermati"
++ aggiungi filtraggio per materie sui pomeridiani
 + refactor codice con classi. minimizzare il codice.
 + rimettere tutto al suo posto, ovvero dare una logica rest a tutto
 + minifier live di html, css e javascript

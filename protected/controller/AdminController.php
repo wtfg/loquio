@@ -135,7 +135,7 @@ class AdminController extends DooController {
 
             } else {
 
-                $this->renderc("error-page");
+                $this->renderc("error-page", array("message"=>"Errore: ID del docente non specificato o vuoto (funzione editDocenti)"));
             }
         }
     }
@@ -312,11 +312,11 @@ class AdminController extends DooController {
                             $this->renderc('ok-page',$data);
                             return;
                         }
-                        $this->renderc("error-page");
+                        $this->renderc("error-page", array("message"=>"Errore nell'inserimento del docente, uno dei due docenti non e' stato inserito (addDocenti)"));
                         return;
                     } else {
                         // MESSAGGIO ERRORE FICO
-                        $this->renderc("error-page");
+                        $this->renderc("error-page", array("message"=>"L'utente o l'email del docente esistono gia', provvedere con una nuova mail"));
                     }
                 }
             }
@@ -431,7 +431,7 @@ class AdminController extends DooController {
                         $this->renderc('ok-page',$data);
                     }
                 } else {
-                    $this->renderc("error-page");
+                    $this->renderc("error-page", array("message"=>"Una materia con questo nome esiste gia'"));
                 }
             }
         }

@@ -21,13 +21,13 @@ ob_start();
     <div class="widget-main">
 
 
-    <a href=<?php echo Doo::conf()->APP_URL."snag/".$id?> class="btn btn-app btn-primary no-radius">
+    <a href=<?php echo Doo::conf()->APP_URL."snag/".$id?> class="btn btn-app btn-primary btn-app-home">
         <i class="ace-icon icon-warning-sign bigger-230"></i>
-        Avvisa
+        Avvisa / Imprevisto
     </a>
-    <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/list"?> class="btn btn-app btn-primary no-radius">
+    <a href=<?php echo Doo::conf()->APP_URL."prenotazioni/list"?> class="btn btn-app btn-primary btn-app-home">
         <i class="ace-icon icon-list-alt bigger-230"></i>
-        Lista Pren.
+        Liste Mattutini
     </a>
 
 

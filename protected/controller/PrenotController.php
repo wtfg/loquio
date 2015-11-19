@@ -453,7 +453,7 @@ class PrenotController extends DooController
                     }
                 }
             }
-            $this->renderc("error-page");
+            $this->renderc("error-page", array("message"=>"Errore nell'inserimento della prenotazione. Prenotazione duplicata. Codice Errore 20."));
             return;
         }
     }
@@ -464,7 +464,7 @@ class PrenotController extends DooController
         $uid = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : "";
 
         if ($uid == "") {
-            $this->renderc("error-page");
+            $this->renderc("error-page", array("message"=>"Errore: il tuo user Id sembra assente. Rieffettuare il login.<br> Codice Errore 10."));
             return;
         }
 
