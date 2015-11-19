@@ -62,7 +62,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
                     </h4>
 
                     <div class="space-6"></div>
-
+                    <div class="alert-danger alert">
                     <?php
                     if(isset($data["message"])){
                         echo $data["message"];
@@ -74,6 +74,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
                     <?php
                     }
                     ?>
+                    </div>
                     <br><br>
                     <small>
                         Se ritieni ci&ograve; un malfunzionamento, segnala il bug sul link che troverai in fondo alla pagina.

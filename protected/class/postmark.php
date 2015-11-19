@@ -53,16 +53,16 @@ class PostmarkMail{
         ));
         // Did it send successfully?
         if( $sent ) {
-            echo 'The email was sent!';
+           // echo 'The email was sent!';
         } else {
-            echo 'The email could not be sent!';
+            //echo 'The email could not be sent!';
         }
         // Show the response and HTTP code
-        echo '<pre>';
-        echo 'The JSON response from Postmark:<br />';
-        print_r($this->response);
-        echo 'The HTTP code was: ' . $this->http_code;
-        echo '</pre>';
+        //echo '<pre>';
+        //echo 'The JSON response from Postmark:<br />';
+        //print_r($this->response);
+        //echo 'The HTTP code was: ' . $this->http_code;
+        //echo '</pre>';
 
     }
 

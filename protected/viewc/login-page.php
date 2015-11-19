@@ -121,7 +121,9 @@ $ul = Doo::conf()->APP_URL . "/global/";
 
                 </div>
             </div><!--/widget-body-->
+            <div style="padding:10px"><a href="mailto:loquio.official@gmail.com?subject=Bug Report dal sito Loquio">Segnala un bug</a></div>
         </div><!--/login-box-->
+
 
     </div><!--/position-relative-->
 </div>

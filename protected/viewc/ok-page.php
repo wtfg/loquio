@@ -62,10 +62,11 @@ $ul = Doo::conf()->APP_URL . "/global/";
                     </h4>
 
                     <div class="space-6"></div>
+                    <div class="alert-success alert">
                     <?php
                     echo $data['messaggio'];
                     ?>
-
+                    </div>
                 </div><!--/widget-main-->
                 <div class="toolbar clearfix">
                 &nbsp;

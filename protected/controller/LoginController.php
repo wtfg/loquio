@@ -704,7 +704,7 @@ zomg.info";
                 $existing = Doo::loadModel('utenti', true);
                 $existing->email = $user->email;
                 $isexisting = $this->db()->find($existing, array('limit' => 1));
-                var_dump($isexisting);
+                //var_dump($isexisting);
 
                 if (!$isexisting) {
                     $res = $this->db()->insert($user);
