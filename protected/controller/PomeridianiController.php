@@ -39,11 +39,25 @@ class PomeridianiController extends DooController {
             $pom->did = $_POST['did'];
             $pom->uid = $_SESSION['user']['id'];
 
+            $docente = Doo::loadModel("docenti", true);
+            $docente->did = $pom->did;
+            $docente = $this->db()->find($docente,array("limit"=>1));
+            $limit = $docente->maxpomeridiani;
+
+            $pomcount = Doo::loadModel("pomeridiani", true);
+            $pomcount->did = $pom->did;
+            $pomcount = $pomcount->count();
+
+            if($pomcount >= $limit ){
+                $this->renderc("error-page",array("message"=>"Prenotazione non riuscita. Il docente ha raggiunto il limite massimo di ".$limit." prenotazioni"));
+                return;
+            }
+
             $done = $this->db()->insert($pom);
 
             if($done){
 
-                $data['messaggio'] = "Colloquio inserito!";
+                $data['messaggio'] = "Il tuo colloquio e' stato registrato! Grazie della prenotazione";
                 $data['url'] = Doo::conf()->APP_URL."pomeridiani/";
                 $data['titolo'] = "Ben fatto!";
 
@@ -66,7 +80,19 @@ class PomeridianiController extends DooController {
             $data = array("docenti"=>array());
 
             foreach($docenti as $docente){
-                array_push($data["docenti"], array("did" => $docente->did, "nomecognome" => stripslashes($docente->nome." ".$docente->cognome)));
+                /*$disabled = false;
+                $limit = $docente->maxpomeridiani;
+
+                $pomcount = Doo::loadModel("pomeridiani", true);
+                $pomcount->did = $docente->did;
+                $pomcount = $pomcount->count();
+
+                if($pomcount >= $limit ){
+                    $disabled = true;
+                }*/
+
+                array_push($data["docenti"], array(/*"disabled" => $disabled, "maxpomeridiani" => $docente->maxpomeridiani,*/
+                    "did" => $docente->did, "nomecognome" => stripslashes($docente->nome." ".$docente->cognome)));
             }
 
             $pagename = "add-pomeridiani";

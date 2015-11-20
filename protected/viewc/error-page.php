@@ -38,7 +38,7 @@ $ul = Doo::conf()->APP_URL . "/global/";
     <![endif]-->
 
     <!--inline styles related to this page-->
-    <meta http-equiv="refresh" content="3;URL=<?php echo Doo::conf()->APP_URL;?>">
+    <meta http-equiv="refresh" content="10;URL=<?php echo Doo::conf()->APP_URL;?>">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
 <body class="login-layout">
@@ -56,13 +56,13 @@ $ul = Doo::conf()->APP_URL . "/global/";
         <div id="login-box" class="login-box visible widget-box no-border">
             <div class="widget-body">
                 <div class="widget-main">
-                    <h4 class="header red lighter bigger">
-                        <i class="icon-bolt red"></i>
+                    <h3 class="header red lighter bigger">
+                        <i class="icon-remove-sign red"></i>
                         OPS!
-                    </h4>
+                    </h3>
 
                     <div class="space-6"></div>
-                    <div class="alert-danger alert">
+                    <div class="alert-danger alert" id="message-content">
                     <?php
                     if(isset($data["message"])){
                         echo $data["message"];
@@ -76,12 +76,13 @@ $ul = Doo::conf()->APP_URL . "/global/";
                     ?>
                     </div>
                     <br><br>
-                    <small>
-                        Se ritieni ci&ograve; un malfunzionamento, segnala il bug sul link che troverai in fondo alla pagina.
-                    </small>
+
                 </div><!--/widget-main-->
                 <div class="toolbar clearfix">
                 &nbsp;
+                    <small>
+                        Trovato un malfunzionamento? Segnala il bug in fondo alla pagina!
+                    </small>
                 </div>
             </div><!--/widget-body-->
         </div><!--/login-box-->
@@ -133,6 +134,15 @@ $ul = Doo::conf()->APP_URL . "/global/";
 <script src="<?php echo $ul; ?>assets/js/ace.min.js"></script>
 
 <!--inline scripts related to this page-->
+<script type="text/javascript">
+    (function(){
+        var txt = $('#message-content').text();
+        wordCount = txt.replace( /[^\w ]/g, "" ).split( /\s+/ ).length;
 
+        setTimeout(function(){
+            window.location.replace("<?php echo Doo::conf()->APP_URL;?>");
+        }, 1000+(wordCount*1000/4));
+    })();
+</script>
 </body>
 </html>

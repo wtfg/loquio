@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `docenti` (
   `tel` varchar(255) NOT NULL,
   `mid` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `giorniliberi` text NOT NULL,
+  `maxpomeridiani` int(11) NOT NULL,
   `orelibere` text NOT NULL,
   `attivo` int(11) NOT NULL,
   PRIMARY KEY  (`did`)

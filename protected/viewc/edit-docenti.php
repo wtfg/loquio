@@ -57,6 +57,15 @@ ob_start();
             ?>" name="telefono" id="telefono" placeholder="Telefono">
         </div>
     </div>
+    <div class="control-group">
+        <label class="control-label" >Numero Massimo di Prenotazioni Pomerdiane</label>
+
+        <div class="controls">
+            <input type="text" value="<?php
+            echo $data['maxpomeridiani'];
+            ?>" name="maxpomeridiani" id="maxpomeridiani" placeholder="Max">
+        </div>
+    </div>
     <div class="row-fluid">
         <label for="mid">Materia:</label>
         <select id="mid" name="mid">
@@ -98,6 +107,43 @@ ob_start();
     </button>
     <br />
 </form>
+<script src='<?php echo $ul; ?>js/validate.js'></script>
+<!--inline scripts related to this page-->
+<script>
+    var v = new FormValidator("login",
+        [
+            {
+                name: "nome",
+                display: "Nome",
+                rules: "required"
+            },{
+            name: "cognome",
+            display: "Cognome",
+            rules: "required"
+        },{
+            name: "email",
+            display: "Email",
+            rules: "valid_email|required"
+        },{
+            name: "maxpomeridiani",
+            display: "Max Pomeridiani",
+            rules: "numeric|required"
+        },{
+            name: "telefono",
+            display: "Telefono"
+        }],function(errors, event){
+            if(errors.length > 0){
+                msg="";
+                for(er in errors){
+                    msg += errors[er].message+"\n";
+
+                }
+                alert(msg);
+            }
+        }
+    );
+</script>
+
 <?php
 $data['content'] = ob_get_contents();
 ob_end_clean();

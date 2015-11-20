@@ -78,7 +78,8 @@ class AdminController extends DooController {
 
             $docente = (new Docenti())->getbyDid_first($did);
 
-            $data = array(
+
+            $this->renderView("edit-docenti", array(
                 'did' => $docente->did,
                 'materie' => $data['materie'],
                 'email' => $docente->email,
@@ -87,10 +88,9 @@ class AdminController extends DooController {
                 'cognome' => stripslashes($docente->cognome),
                 'telefono' => $docente->tel,
                 'orelibere' => $docente->orelibere,
+                'maxpomeridiani' => $docente->maxpomeridiani,
                 'attivo' => ($docente->attivo == 1) ? "checked=\"checked\"" : ""
-            );
-
-            $this->renderView("edit-docenti", $data);
+            ));
 
         } elseif (isset($_POST['did'])) {
 
@@ -104,15 +104,6 @@ class AdminController extends DooController {
                 $docente = (new Docenti)->getbyDid_first($_POST["did"]);
                 $oldmail = $docente->email;
                 $docente->setFromPost($_POST);
-               /* $docente->email = $_POST['email'];
-                $docente->nome = $_POST['nome'];
-                $docente->cognome = $_POST['cognome'];
-                $docente->tel = $_POST['tel'];
-                $docente->orelibere = $_POST['orelibere'];
-                $docente->mid = $_POST['mid'];
-                $docente->attivo = $_POST['attivo'];
-                #$utente = Doo::loadModel("utenti", true);
-                #$utente->email = $oldmail;*/
 
                 $utente = (new Utenti)->getByEmail_first($oldmail); #$this->db()->find($utente, array("limit" => 1));
                 $utente->nome = $docente->nome;
@@ -134,7 +125,6 @@ class AdminController extends DooController {
                 return;
 
             } else {
-
                 $this->renderc("error-page", array("message"=>"Errore: ID del docente non specificato o vuoto (funzione editDocenti)"));
             }
         }

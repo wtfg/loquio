@@ -12,9 +12,14 @@ Sviluppata in PHP
 
 TODO:
 ======
-+ errore personalizzato
-+ levare debug di postmark nella produzione
-+ inserisci tasto "svuota account non confermati"
+
++ aggiungi slot di max prenotazioni pomeridiane docente
+    + v aggiungi campo nel mysql (e nell'sql)
+    + v aggiungi campo nel model docente
+    + v aggiungi campo nel controller docente
+    + v aggiungi campo nella view docente
+    + aggiungi campo nel controller della prenotazione
+    + aggiungi alert nel controller della prenotazione
 + aggiungi filtraggio per materie sui pomeridiani
 + refactor codice con classi. minimizzare il codice.
 + rimettere tutto al suo posto, ovvero dare una logica rest a tutto

@@ -61,11 +61,11 @@ ob_start();
                     </div>
                     <div class="control-group">
                         <div class="row-fluid input-append">
-                            <select name="did" id="did">
+                            <select name="did" id="did" style="width:100%">
                                 <?php
                                 foreach($data["docenti"] as $docente){
                                     ?>
-                                    <option value="<?php echo $docente["did"]?>"><?php echo $docente["nomecognome"]?></option>
+                                    <option value="<?php echo $docente["did"]?>"><?php echo $docente["nomecognome"];?></option>
                                 <?php
                                 }
                                 ?>

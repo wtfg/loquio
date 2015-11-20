@@ -36,7 +36,7 @@ class DocentiBase extends DooModel{
     /**
      * @var text
      */
-    public $giorniliberi;
+    public $maxpomeridiani;
 
     /**
      * @var text
@@ -50,7 +50,7 @@ class DocentiBase extends DooModel{
 
     public $_table = 'docenti';
     public $_primarykey = 'did';
-    public $_fields = array('did','nome','cognome','tel','mid','email','giorniliberi','orelibere','attivo');
+    public $_fields = array('did','nome','cognome','tel','mid','email','maxpomeridiani','orelibere','attivo');
 
     public function getVRules() {
         return array(
@@ -86,7 +86,9 @@ class DocentiBase extends DooModel{
                         array( 'notnull' ),
                 ),
 
-                'giorniliberi' => array(
+                'maxpomeridiani' => array(
+                        array( 'integer' ),
+                        array( 'maxlength', 11 ),
                         array( 'notnull' ),
                 ),
 
